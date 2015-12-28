@@ -1,0 +1,19 @@
+body {
+    background: #f2f2f2;
+}
+
+.bkg-green {
+    background-color: #629252 !important;
+}
+
+.bkg-purple {
+    background-color: #9848C5 !important;
+}
+
+.bkg-red {
+    background-color: #c54859 !important;
+}
+
+.clear {
+    clear: both;
+}

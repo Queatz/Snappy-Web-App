@@ -3,13 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Village</title>
-    <script src="https://rawgithub.com/systemjs/systemjs/0.19.6/dist/system.js"></script>
-    <script src="https://code.angularjs.org/tools/typescript.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.0/Rx.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.0/angular2.dev.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="1098230558363-rsipe4dnf6o9ke80faahujunvar5mjdf.apps.googleusercontent.com">
+
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css" />
+    <link rel="stylesheet" href="app/style.css" />
+    <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css" />
+
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="node_modules/angular2/bundles/http.js"></script>
+    <script src="node_modules/moment/moment.js"></script>
+    <script src="config.js"></script>
+
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
+
+    <script src="node_modules/materialize-css/dist/js/materialize.min.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
-<body>
-    Blerp!
-</body>
+    <body>
+        <app></app>
+    </body>
 </html>

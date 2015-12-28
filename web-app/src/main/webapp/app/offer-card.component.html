@@ -1,0 +1,22 @@
+<div class="card white hoverable">
+    <div class="card-image">
+        <div [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}" class="card-tabbing"></div>
+    </div>
+    <div class="card-content">
+        <div class="blox">
+            <a href="#">
+                <img src="{{ offer.person.imageUrl }}" alt="Profile picture" class="circle">
+            </a>
+        </div>
+        <div class="blox">
+            <span class="title offer-type" [ngClass]="{'purple-text': isRequest()}">{{ getOfferTypeText() }}</span>
+            <p class="flow-text">{{ offer.details }}</p>
+        </div>
+    </div>
+    <div class="card-action">
+        <div class="price waves-effect secondary-content waves-light btn white-text" [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}">
+            <b>{{ getPrice() }}</b>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

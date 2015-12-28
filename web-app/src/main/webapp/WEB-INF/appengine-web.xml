@@ -7,4 +7,37 @@
     <system-properties>
         <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
     </system-properties>
+
+    <static-files>
+        <include path="index.css" />
+        <include path="index.html" />
+        <include path="config.js" />
+        <include path="node_modules/angular2/bundles/angular2-polyfills.js" />
+        <include path="node_modules/systemjs/dist/system.src.js" />
+        <include path="node_modules/rxjs/bundles/Rx.js" />
+        <include path="node_modules/angular2/bundles/angular2.dev.js" />
+        <include path="node_modules/angular2/bundles/http.js" />
+        <include path="node_modules/moment/moment.js" />
+        <include path="app/boot.js" />
+        <include path="app/app.component.js" />
+        <include path="app/app.component.html" />
+        <include path="app/app.component.css" />
+    </static-files>
+
+    <resource-files>
+        <include path="index.css" />
+        <include path="index.html" />
+        <include path="config.js" />
+        <include path="node_modules/angular2/bundles/angular2-polyfills.js" />
+        <include path="node_modules/systemjs/dist/system.src.js" />
+        <include path="node_modules/rxjs/bundles/Rx.js" />
+        <include path="node_modules/angular2/bundles/angular2.dev.js" />
+        <include path="node_modules/angular2/bundles/http.js" />
+        <include path="node_modules/moment/moment.js" />
+        <include path="app/boot.js" />
+        <include path="app/app.component.js" />
+        <include path="app/app.component.html" />
+        <include path="app/app.component.css" />
+        <exclude path="**" />
+    </resource-files>
 </appengine-web-app>

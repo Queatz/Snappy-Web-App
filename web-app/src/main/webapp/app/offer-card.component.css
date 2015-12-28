@@ -1,0 +1,26 @@
+.offer-card {
+    padding: 1rem;
+    font-size: 1.2rem;
+    display: inline-block;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .33);
+    border-radius: 3px;
+    background: #ffffff;
+    margin: 1rem;
+}
+
+.offer-type {
+    text-transform: uppercase;
+    color: #629252;
+    font-weight: bold;
+}
+
+.blox {
+    display: table-cell;
+    vertical-align: top;
+    padding-right: 1rem;
+}
+
+.card-tabbing {
+    height: 4px;
+    border-radius: 2px 2px 0 0;
+}
