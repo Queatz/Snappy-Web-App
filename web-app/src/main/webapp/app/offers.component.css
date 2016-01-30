@@ -1,0 +1,20 @@
+.grid {
+    margin: 0 auto;
+}
+
+.grid > div {
+    width: 540px;
+}
+
+@media only screen and (max-width: 540px) {
+    .grid > div {
+        width: 98vw;
+    }
+}
+
+.waiting {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #777;
+    padding: .5em;
+}

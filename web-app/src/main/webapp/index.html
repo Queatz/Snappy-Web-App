@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="node_modules/normalize.css/normalize.css" />
     <link rel="stylesheet" href="app/style.css" />
     <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css" />
+    <link rel="shortcut icon" href="/img/favicon.png" />
 
     <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
@@ -18,11 +19,15 @@
     <script src="node_modules/angular2/bundles/http.js"></script>
     <script src="node_modules/moment/moment.js"></script>
     <script src="config.js"></script>
+    <script>
+        System.import('app/boot').then(null, console.error.bind(console));
+    </script>
 
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
 
     <script src="node_modules/materialize-css/dist/js/materialize.min.js" async defer></script>
+    <script src="node_modules/masonry-layout/dist/masonry.pkgd.min.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
     <body>

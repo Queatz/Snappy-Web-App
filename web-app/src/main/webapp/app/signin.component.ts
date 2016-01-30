@@ -2,8 +2,8 @@ import {Component, AfterViewInit, ElementRef, Inject} from 'angular2/core';
 
 @Component({
     selector: 'signin',
-    template: '<div class="signin-wrapper secondary-content"><div></div></div>',
-    styles: ['.signin-wrapper { padding: 1rem; line-height: initial; }']
+    template: '<div class="signin-wrapper"><div></div></div>',
+    styles: ['.signin-wrapper { display: inline-block; font-size: initial; text-shadow: none; text-align: center; padding-top: 4em; line-height: initial; }']
 })
 export class SigninComponent implements AfterViewInit {
     constructor(elementRef: ElementRef) {
@@ -13,6 +13,8 @@ export class SigninComponent implements AfterViewInit {
 
     ngAfterViewInit() {
         gapi.signin2.render(this.element, {
+            width: 240,
+            longtitle: true,
             onsuccess: (googleUser) => {
                 this.onSuccess(googleUser);
                 this.signedIn = true;

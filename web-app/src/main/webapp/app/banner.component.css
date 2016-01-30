@@ -1,0 +1,23 @@
+.banner {
+    background-size: 100% auto;
+    background-image: url('/img/photo.jpg');
+    background-position: 50% 20%;
+    text-align: center;
+}
+
+.googleplay {
+    width: 200px;
+}
+
+.text {
+    font-size: 3vw;
+    color: white;
+    text-shadow: 0 0 12px rgba(0, 0, 0, .45);
+    margin: auto;
+    padding: 1.6em;
+    text-align: center;
+}
+
+.subheading {
+    font-size: 1.5vw;
+}

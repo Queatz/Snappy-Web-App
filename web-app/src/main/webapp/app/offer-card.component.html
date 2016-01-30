@@ -1,10 +1,11 @@
 <div class="card white hoverable">
     <div class="card-image">
         <div [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}" class="card-tabbing"></div>
+        <img (load)="loaded()" *ngIf="offer.hasPhoto" src="http://queatz-snappy.appspot.com/api/offer/{{offer.id}}/photo?s=800&auth=ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U" />
     </div>
     <div class="card-content">
         <div class="blox">
-            <a href="#">
+            <a class="modal-trigger" href="#person">
                 <img src="{{ offer.person.imageUrl }}" alt="Profile picture" class="circle">
             </a>
         </div>
@@ -14,9 +15,11 @@
         </div>
     </div>
     <div class="card-action">
-        <div class="price waves-effect secondary-content waves-light btn white-text" [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}">
-            <b>{{ getPrice() }}</b>
-        </div>
+        <a target="_blank" href="https://play.google.com/store/apps/details?id=com.queatz.snappy">
+            <div class="price waves-effect secondary-content waves-light btn white-text" [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}">
+                <b>{{ getPrice() }}</b>
+            </div>
+        </a>
         <div class="clear"></div>
     </div>
 </div>

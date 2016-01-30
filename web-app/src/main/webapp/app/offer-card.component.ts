@@ -1,4 +1,4 @@
-import {Component, Input, AfterViewInit} from 'angular2/core';
+import {Component, Input, AfterViewInit, ElementRef} from 'angular2/core';
 
 @Component({
 	selector: 'offer-card',
@@ -7,8 +7,9 @@ import {Component, Input, AfterViewInit} from 'angular2/core';
 })
 export class OfferCardComponent implements AfterViewInit {
     @Input() public offer;
+    @Input() public resizeCallback;
 
-    ngAfterViewInit() {
+    ngAfterViewInit(element: ElementRef) {
         Waves.displayEffect();
     }
 
@@ -41,5 +42,9 @@ export class OfferCardComponent implements AfterViewInit {
         } else {
             return this.offer.person.firstName + ' offers';
         }
+    }
+
+    public loaded() {
+        this.resizeCallback();
     }
 }
