@@ -1,8 +1,15 @@
 <br />
 <div>
     <div class="grid center-align">
-        <center *ngIf="!offersLoaded" class="waiting">Waiting for location...</center>
-        <center *ngIf="offersLoaded && !offers.length" class="waiting">No offers nearby. <a target="_blank" href="https://play.google.com/store/apps/details?id=com.queatz.snappy">Offer some of your own!</a></center>
+        <center *ngIf="!offersLoaded" class="waiting">
+            <span *ngIf="list !== null">Waiting for location...</span>
+            <span *ngIf="list === null">. . .</span>
+        </center>
+        <center *ngIf="offersLoaded && !offers.length" class="waiting">
+            <span *ngIf="list === undefined">No offers nearby.</span>
+            <span *ngIf="list !== undefined">No offers.</span>
+            <a target="_blank" href="https://play.google.com/store/apps/details?id=com.queatz.snappy">Offer some of your own!</a>
+        </center>
         <div class="item" *ngFor="#offer of offers">
             <offer-card class="left-align" [resizeCallback]="boundResizeCallback" [offer]="offer"></offer-card>
         </div>

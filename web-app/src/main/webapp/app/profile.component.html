@@ -1,0 +1,10 @@
+<div>
+    <div class="card-panel" *ngIf="person">
+        <img class="photo" [src]="person.imageUrl.split('=')[0] + '=400'" />
+        <div class="info">
+            <h3>{{ person.firstName }} {{ person.lastName }}</h3>
+            <div class="about flow-text">{{ person.about }}</div>
+        </div>
+    </div>
+    <offers [list]="offers"></offers>
+</div>

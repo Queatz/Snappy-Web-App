@@ -1,0 +1,15 @@
+.photo {
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 2px;
+}
+
+.info {
+    margin-left: 20px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.about {
+    white-space: pre;
+}

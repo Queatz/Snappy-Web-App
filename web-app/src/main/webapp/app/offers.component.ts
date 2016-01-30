@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ElementRef, AfterViewInit, provide} from 'angular2/core';
+import {Component, Input, OnInit, ElementRef, AfterViewInit, OnChanges, provide} from 'angular2/core';
 import {Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions} from 'angular2/http';
 import 'rxjs/add/operator/map';
 import {OfferCardComponent} from './offer-card.component'
@@ -22,8 +22,9 @@ export class OffersComponent implements OnInit, AfterViewInit {
     public offersLoaded = false;
     private masonry: Masonry;
     private token = 'ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
+    private person;
 
-    @Input() public personId;
+    @Input() public list;
 
     constructor(http: Http, element: ElementRef) {
         this.http = http;
@@ -32,9 +33,7 @@ export class OffersComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
-        if (this.personId) {
-            this.loadPerson(this.personId);
-        } else {
+        if (this.list === undefined) {
             // Load San Francisco first right away
             this.loadNearby({
                 coords: {
@@ -45,15 +44,9 @@ export class OffersComponent implements OnInit, AfterViewInit {
 
             // Then try to ask for their real location
             navigator.geolocation.getCurrentPosition(this.loadNearby.bind(this));
-        }
-    }
+        } else {
 
-    loadPerson(personId) {
-        this.http.get('http://queatz-snappy.appspot.com/api/people/' + personId + '?auth=' + this.token)
-            .map((res: Response) => res.json())
-            .subscribe(person => {
-               this.loaded(person.offers);
-            });
+        }
     }
 
     loadNearby(position) {
@@ -74,7 +67,7 @@ export class OffersComponent implements OnInit, AfterViewInit {
             });
     }
 
-    loaded(offers) {
+    public loaded(offers) {
         this.offersLoaded = true;
         this.offers = _.sortBy(offers, 'price');
 
@@ -87,6 +80,12 @@ export class OffersComponent implements OnInit, AfterViewInit {
                 fitWidth: true
             });
         });
+    }
+
+    public ngOnChanges() {
+        if (this.list) {
+            this.loaded(this.list);
+        }
     }
 
     ngAfterViewInit() {

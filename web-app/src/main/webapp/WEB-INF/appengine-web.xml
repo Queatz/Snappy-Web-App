@@ -19,6 +19,7 @@
         <include path="node_modules/rxjs/bundles/Rx.js" />
         <include path="node_modules/angular2/bundles/angular2.dev.js" />
         <include path="node_modules/angular2/bundles/http.js" />
+        <include path="node_modules/angular2/bundles/router.dev.js" />
 
         <include path="node_modules/masonry-layout/dist/masonry.pkgd.min.js" />
         <include path="node_modules/moment/moment.js" />
@@ -43,6 +44,7 @@
         <include path="node_modules/rxjs/bundles/Rx.js" />
         <include path="node_modules/angular2/bundles/angular2.dev.js" />
         <include path="node_modules/angular2/bundles/http.js" />
+        <include path="node_modules/angular2/bundles/router.dev.js" />
 
         <include path="node_modules/masonry-layout/dist/masonry.pkgd.min.js" />
         <include path="node_modules/moment/moment.js" />
