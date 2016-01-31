@@ -5,7 +5,7 @@
     </div>
     <div class="card-content">
         <div class="blox">
-            <a class="modal-trigger" href="/{{offer.person.googleUrl}}">
+            <a class="modal-trigger" [routerLink]="['Profile', {id: offer.person.googleUrl}]">
                 <img src="{{ offer.person.imageUrl }}" alt="Profile picture" class="circle">
             </a>
         </div>

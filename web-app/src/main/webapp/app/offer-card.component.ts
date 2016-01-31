@@ -1,15 +1,17 @@
-import {Component, Input, AfterViewInit, ElementRef} from 'angular2/core';
+import { Component, Input, AfterViewInit, ElementRef } from 'angular2/core';
+import { ROUTER_DIRECTIVES } from 'angular2/router';
 
 @Component({
 	selector: 'offer-card',
 	templateUrl: 'app/offer-card.component.html',
-	styleUrls: ['app/offer-card.component.css']
+	styleUrls: ['app/offer-card.component.css'],
+	directives: [ROUTER_DIRECTIVES]
 })
 export class OfferCardComponent implements AfterViewInit {
     @Input() public offer;
     @Input() public resizeCallback;
 
-    ngAfterViewInit(element: ElementRef) {
+    ngAfterViewInit() {
         Waves.displayEffect();
     }
 
