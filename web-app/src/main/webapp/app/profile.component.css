@@ -13,3 +13,8 @@
 .about {
     white-space: pre;
 }
+
+.followers {
+    display: inline-block;
+    margin-left: 1em;
+}

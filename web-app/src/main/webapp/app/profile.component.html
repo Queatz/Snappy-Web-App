@@ -4,6 +4,14 @@
         <div class="info">
             <h3>{{ person.firstName }} {{ person.lastName }}</h3>
             <div class="about flow-text">{{ person.about }}</div>
+            <br />
+            <div>
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.queatz.snappy">
+                    <div class="price waves-effect waves-light btn white-text bkg-red">
+                        <b>Follow {{ person.firstName }}</b>
+                    </div>
+                </a><div *ngIf="person.infoFollowers" class="followers grey-text text-darken-2">{{ person.infoFollowers }} {{ person.infoFollowers === 1 ? 'follower' : 'followers' }}</div>
+            </div>
         </div>
     </div>
     <offers [list]="offers"></offers>
