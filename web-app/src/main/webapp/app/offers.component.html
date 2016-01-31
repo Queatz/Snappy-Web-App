@@ -2,8 +2,20 @@
 <div>
     <div class="grid center-align">
         <center *ngIf="!offersLoaded" class="waiting">
-            <span *ngIf="list !== null">Waiting for location...</span>
-            <span *ngIf="list === null">. . .</span>
+            <div>
+                <div class="preloader-wrapper active">
+                    <div class="spinner-layer spinner-red-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                        <div class="circle"></div>
+                        </div><div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span *ngIf="list !== null"><br />Waiting for location...</span>
         </center>
         <center *ngIf="offersLoaded && !offers.length" class="waiting">
             <span *ngIf="list === undefined">No offers nearby.</span>

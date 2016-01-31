@@ -1,7 +1,10 @@
+.bkg-white {
+    background: #fff;
+}
+
 .photo {
     display: inline-block;
     vertical-align: top;
-    border-radius: 2px;
 }
 
 .info {
