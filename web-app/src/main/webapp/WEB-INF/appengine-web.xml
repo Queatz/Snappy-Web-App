@@ -15,9 +15,11 @@
         <include path="img/*" />
 
         <include path="node_modules/angular2/bundles/angular2-polyfills.js" />
+        <include path="node_modules/systemjs/dist/system-polyfills.js" />
         <include path="node_modules/systemjs/dist/system.src.js" />
         <include path="node_modules/rxjs/bundles/Rx.js" />
         <include path="node_modules/angular2/bundles/angular2.dev.js" />
+        <include path="node_modules/es6-shim/es6-shim.min.js" />
         <include path="node_modules/angular2/bundles/http.js" />
         <include path="node_modules/angular2/bundles/router.dev.js" />
 
@@ -40,9 +42,11 @@
         <include path="img/*" />
 
         <include path="node_modules/angular2/bundles/angular2-polyfills.js" />
+        <include path="node_modules/systemjs/dist/system-polyfills.js" />
         <include path="node_modules/systemjs/dist/system.src.js" />
         <include path="node_modules/rxjs/bundles/Rx.js" />
         <include path="node_modules/angular2/bundles/angular2.dev.js" />
+        <include path="node_modules/es6-shim/es6-shim.min.js" />
         <include path="node_modules/angular2/bundles/http.js" />
         <include path="node_modules/angular2/bundles/router.dev.js" />
 

@@ -6,12 +6,12 @@
     </welcome-file-list>
 
     <servlet>
-        <servlet-name>chestnut</servlet-name>
-        <jsp-file>/index.html</jsp-file>
+        <servlet-name>web</servlet-name>
+        <servlet-class>com.queatz.snappy.web.Controller</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>chestnut</servlet-name>
+        <servlet-name>web</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
 
