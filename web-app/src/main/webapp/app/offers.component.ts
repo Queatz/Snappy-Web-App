@@ -93,8 +93,10 @@ export class OffersComponent implements OnInit, AfterViewInit {
     }
 
     resizeCallback() {
-        if (this.masonry) {
-            this.masonry.layout();
-        }
+        setTimeout(() => {
+            if (this.masonry) {
+                this.masonry.layout();
+            }
+        }, 100);
     }
 }

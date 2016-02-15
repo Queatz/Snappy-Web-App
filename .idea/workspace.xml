@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment="">
+    <list default="true" id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment="Add br">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/offers.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/offers.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/offers.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/offers.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.html" />
     </list>
     <ignored path="Snappy-Web-App.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,14 +25,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.component.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15384616">
+            <state vertical-scroll-proportion="-3.3333333">
               <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
               <folding>
                 <element signature="e#129#149#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.666667">
+              <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="offers.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offers.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6425993">
+              <caret line="97" column="38" selection-start-line="97" selection-start-column="38" selection-end-line="97" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -127,7 +147,6 @@
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/banner.component.css" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/offers.component.css" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/boot.ts" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/offers.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/java/com/queatz/snappyweb/Servlet.java" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.ts" />
@@ -144,7 +163,6 @@
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/WEB-INF/appengine-web.xml" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/index.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/java/com/queatz/snappy/web/Controller.java" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.css" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.ts" />
@@ -153,6 +171,8 @@
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/info-panel.component.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/offers.component.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.html" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.html" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/offers.component.ts" />
       </list>
     </option>
   </component>
@@ -987,7 +1007,13 @@
       <option name="project" value="LOCAL" />
       <updated>1455567684583</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add footer">
+      <created>1455568329723</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1455568329723</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1044,7 +1070,8 @@
     <MESSAGE value="Follow -&gt; Message" />
     <MESSAGE value="Village App -&gt; village.city" />
     <MESSAGE value="Ayinde Rules the World" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ayinde Rules the World" />
+    <MESSAGE value="Add footer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add footer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1123,13 +1150,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offers.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.23174971">
-          <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1355,14 +1375,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2769231">
-          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/banner.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4117647">
@@ -1418,11 +1430,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15384616">
+        <state vertical-scroll-proportion="-3.3333333">
           <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
           <folding>
             <element signature="e#129#149#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.666667">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offers.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6425993">
+          <caret line="97" column="38" selection-start-line="97" selection-start-column="38" selection-end-line="97" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
