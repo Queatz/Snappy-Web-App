@@ -1,7 +1,8 @@
 import { Component, OnInit, ElementRef, provide } from 'angular2/core';
-import {RouteParams, Router} from 'angular2/router';
-import {Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions} from 'angular2/http';
+import { RouteParams, Router } from 'angular2/router';
+import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
 import { OffersComponent } from './offers.component';
+import { ParseLinksComponent } from './parseLinks.component';
 
 var firstHeaders = new Headers();
 firstHeaders.append('Content-Type', 'application/json;charset=UTF-8');
@@ -14,7 +15,7 @@ class MyOptions extends BaseRequestOptions {
 	templateUrl: 'app/profile.component.html',
 	styleUrls: ['app/profile.component.css'],
     viewProviders: [HTTP_PROVIDERS, provide(RequestOptions, {useClass: MyOptions})],
-	directives: [OffersComponent]
+	directives: [OffersComponent, ParseLinksComponent]
 })
 export class ProfileComponent implements OnInit {
     private token = 'ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';

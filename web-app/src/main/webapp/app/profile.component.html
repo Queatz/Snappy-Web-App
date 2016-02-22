@@ -3,7 +3,7 @@
         <img class="photo" [src]="person.imageUrl.split('=')[0] + '=480'" />
         <div class="info">
             <h3>{{ person.firstName }} {{ person.lastName }}</h3>
-            <div class="about flow-text">{{ person.about }}</div>
+            <parse-links class="about flow-text">{{ person.about }}</parse-links>
             <br />
             <div>
                 <a target="_blank" href="https://play.google.com/store/apps/details?id=com.queatz.snappy">

@@ -1,5 +1,5 @@
 import {Component, AfterViewInit, ElementRef} from 'angular2/core';
-import {SigninComponent} from './signin.component'
+import {SigninComponent} from './signin.component';
 
 @Component({
 	selector: 'banner',
