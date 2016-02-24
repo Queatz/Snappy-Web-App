@@ -1,25 +1,59 @@
 <div class="card white hoverable">
-    <div class="card-image">
-        <div [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}" class="card-tabbing"></div>
-        <img (load)="loaded()" *ngIf="offer.hasPhoto" src="http://queatz-snappy.appspot.com/api/offer/{{offer.id}}/photo?s=800&auth=ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U" />
-    </div>
-    <div class="card-content">
-        <div class="blox">
-            <a class="modal-trigger" [routerLink]="['Profile', {id: offer.person.googleUrl}]">
-                <img src="{{ offer.person.imageUrl }}" alt="Profile picture" class="circle">
-            </a>
-        </div>
-        <div class="blox">
-            <span class="title offer-type" [ngClass]="{'purple-text': isRequest()}">{{ getOfferTypeText() }}</span>
-            <p class="flow-text">{{ offer.details }}</p>
-        </div>
-    </div>
-    <div class="card-action">
-        <a target="_blank" href="https://play.google.com/store/apps/details?id=com.queatz.snappy">
-            <div class="price waves-effect secondary-content waves-light btn white-text" [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}">
-                <b>{{ getPrice() }}</b>
-            </div>
-        </a>
-        <div class="clear"></div>
-    </div>
+	<div class="card-image">
+		<div [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}" class="card-tabbing"></div>
+		<img (load)="loaded()" *ngIf="offer.hasPhoto" src="http://queatz-snappy.appspot.com/api/offer/{{offer.id}}/photo?s=800&auth=ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U" />
+	</div>
+	<div class="card-content">
+		<div class="blox">
+			<a class="modal-trigger" [routerLink]="['Profile', {id: offer.person.googleUrl}]"> <img src="{{ offer.person.imageUrl }}" alt="Profile picture" class="circle"> </a>
+		</div>
+		<div class="blox">
+			<span class="title offer-type" [ngClass]="{'purple-text': isRequest()}">{{ getOfferTypeText() }}</span>
+			<p class="flow-text">
+				{{ offer.details }}
+			</p>
+		</div>
+	</div>
+	<div class="card-action">
+		<a target="_blank" href="https://play.google.com/store/apps/details?id=com.queatz.snappy">
+		<div class="price waves-effect secondary-content waves-light btn white-text" [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}">
+			<b>{{ getPrice() }}</b>
+		</div> </a>
+		<div class="more-action" [hidden]="!isProfile()">
+			<a class="waves-effect waves-light delete modal-trigger" href="#modal-action{{ getPosition() }}-1"><i class="material-icons small">delete</i></a>
+			<a class="waves-effect waves-light add modal-trigger" href="#modal-action{{ getPosition() }}-2"><i class="material-icons small">library_add</i></a>
+		</div>
+		<div class="clear"></div>
+
+	</div>
+	<div id="modal-action{{ getPosition() }}-1" class="modal">
+		<div class="modal-content">
+			<p>
+				Are you sure?
+			</p>
+		</div>
+		<div class="modal-footer">
+			<a class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+			<a class="modal-action modal-close waves-effect waves-red btn-flat" (click)="deleteOffer()">Delete</a>
+		</div>
+	</div>
+	<div id="modal-action{{ getPosition() }}-2" class="modal">
+		<div class="modal-content">
+			<div class="file-field input-field">
+				<div class="btn">
+					<span>File</span>
+					<input type="file" (change)="fileChangeEvent($event)">
+				</div>
+				<div class="file-path-wrapper">
+					<input class="file-path validate" type="text"  [(ngModel)]="efile">
+				</div>
+			</div>
+
+		</div>
+		<div class="modal-footer">
+			<a class="left modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
+			<a class="right modal-action modal-close waves-effect waves-green btn-flat" (click)="uploadPhoto()">Upload</a>
+			<a class="right modal-action modal-close waves-effect waves-red btn-flat">Cancel</a>
+		</div>
+	</div>
 </div>

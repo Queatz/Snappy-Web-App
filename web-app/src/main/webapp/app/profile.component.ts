@@ -50,4 +50,8 @@ export class ProfileComponent implements OnInit {
                 this.loaded(person.offers);
             });
     }
+    
+    isMyProfile() {
+     	return true;
+    }
 }

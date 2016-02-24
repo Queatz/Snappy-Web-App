@@ -3,7 +3,7 @@ import {Component, AfterViewInit, ElementRef, Inject} from 'angular2/core';
 @Component({
     selector: 'signin',
     template: '<div class="signin-wrapper"><div></div></div>',
-    styles: ['.signin-wrapper { display: inline-block; font-size: initial; text-shadow: none; text-align: center; padding-top: 4em; line-height: initial; }']
+    styles: ['.signin-wrapper { display: inline-block; font-size: initial; text-shadow: none; text-align: center; padding-top: 1em; line-height: initial; }']
 })
 export class SigninComponent implements AfterViewInit {
     constructor(elementRef: ElementRef) {
@@ -29,5 +29,6 @@ export class SigninComponent implements AfterViewInit {
 
     public onSuccess(googleUser) {
         console.log(googleUser);
+         localStorage.setItem('auth', googleUser);
     }
 }

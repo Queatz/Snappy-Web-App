@@ -24,6 +24,7 @@ export class OffersComponent implements OnInit, AfterViewInit {
     private token = 'ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
     private person;
 
+    @Input() public profile;
     @Input() public list;
 
     constructor(http: Http, element: ElementRef) {
@@ -98,5 +99,9 @@ export class OffersComponent implements OnInit, AfterViewInit {
                 this.masonry.layout();
             }
         }, 100);
+    }
+
+    getProfile(){
+    	return this.profile;
     }
 }
