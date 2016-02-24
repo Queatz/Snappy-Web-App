@@ -1,0 +1,29 @@
+ <div class="row">
+      <div class="col s12 m4 l3">
+			List contact
+		<div class="item" *ngFor="#message of contacts">
+			<a class="message" (click)="getMessagesById(message)">
+				<div class="message-name">From: {{message.from.firstName}} To: {{message.to.firstName}} {{message.message}}</div>
+            </a>
+            <div class="divider"></div>
+        </div>
+      </div>
+      <div class="col s12 m8 l9">
+      	<div class="row s3">
+      		<div class="content">
+      			<div class="message-item" *ngFor="#message of currentMessages">
+      				<div class="message-name">From: {{message.from.firstName}} To: {{message.to.firstName}} --- {{message.message}}</div>
+      				<div class="divider"></div>
+      			</div>
+      		</div>
+      	</div>
+      	<div class="divider"></div>
+      	 <div class="row s9">
+        <div class="input-field col s6">          
+          <textarea id="icon_prefix2" class="materialize-textarea" [(ngModel)]="strMessage"></textarea>
+          <label for="icon_prefix2">Text</label>          
+          <a class="waves-effect waves-light btn" (click)="sendMessages(strMessage)"><i class="material-icons right">done</i>Send</a>
+        </div>
+      </div>
+      </div>
+    </div>
