@@ -23,6 +23,7 @@
 
 .about {
     white-space: pre;
+    display: block;
 }
 
 .followers {
