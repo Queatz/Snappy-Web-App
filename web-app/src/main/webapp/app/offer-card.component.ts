@@ -19,12 +19,14 @@ export class OfferCardComponent implements AfterViewInit {
         var offer = this.offer;
         var str;
 
-        if(offer.price < 0) {
+        if (offer.price < 0) {
             str = 'Make $' + Math.abs(offer.price);
         } else if (offer.price === 0) {
             return 'Free';
-        } else {
+        } else if (offer.price > 0) {
             str = '$' + offer.price
+        } else {
+            return 'Ask';
         }
 
         if (offer.unit) {
@@ -35,7 +37,7 @@ export class OfferCardComponent implements AfterViewInit {
     }
 
     public isRequest() {
-        return this.offer.price < 0;
+        return this.offer.price != null && this.offer.price < 0;
     }
 
     public getOfferTypeText() {
