@@ -24,25 +24,26 @@ export class OfferCardComponent implements AfterViewInit {
     @Input() public resizeCallback;
     @Input() public profile;
     private token = 'ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
- 	filesToUpload: Array<File>;	
- 	
+ 	filesToUpload: Array<File>;
+
 	constructor(http: Http, element: ElementRef) {
         this.http = http;
-        this.element = element.nativeElement;   
-        this.filesToUpload = [];     
+        this.element = element.nativeElement;
+        this.filesToUpload = [];
     }
     ngAfterViewInit() {
-        Waves.displayEffect(); 
+        Waves.displayEffect();
         console.log(checkFirst);
       if(this.isProfile() && this.position == 0 && checkFirst){
       	checkFirst = false;
 		$('.modal-trigger').leanModal();
       }
     }
-    
+
     public getPrice() {
         var offer = this.offer;
         var str;
+
         if (offer.price < 0) {
             str = 'Make $' + Math.abs(offer.price);
         } else if (offer.price === 0) {
@@ -79,18 +80,18 @@ export class OfferCardComponent implements AfterViewInit {
     public getPosition() {
     	return this.position;
     }
-    
+
     public isProfile() {
     	if(this.profile == true)
     		return true;
-    	else return false;    	
+    	else return false;
     }
-    
+
     public deleteOffer() {
     	if(this.offer) {
     	    this.http.delete('http://queatz-snappy.appspot.com/api/me/offers/' + this.offer.id)
 	            .map((res: Response) => res.json())
-	            .subscribe(dataInput => {            	
+	            .subscribe(dataInput => {
 	               console.log(dataInput);
 	            });
 	    }
@@ -104,13 +105,13 @@ export class OfferCardComponent implements AfterViewInit {
             console.error(error);
         });
     }
-    
+
     makeFileRequest(url: string, params: Array<string>, files: Array<File>) {
         return new Promise((resolve, reject) => {
             var formData: any = new FormData();
             var xhr = new XMLHttpRequest();
             formData.append("auth", this.token);
-            formData.append("photo", files[0], files[0].name);            
+            formData.append("photo", files[0], files[0].name);
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4) {
                     if (xhr.status == 200) {
@@ -119,15 +120,15 @@ export class OfferCardComponent implements AfterViewInit {
                         reject(xhr.response);
                     }
                 }
-            }              
+            }
             xhr.open("POST", url, true);
             xhr.send(formData);
         });
     }
-    
+
     fileChangeEvent(fileInput: any){
         this.filesToUpload = <Array<File>> fileInput.target.files;
         console.log(this.filesToUpload);
     }
-    
+
 }
