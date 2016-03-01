@@ -40,15 +40,15 @@ export class OffersComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         if (this.list === undefined) {
             // Load San Francisco first right away
-            this.loadNearby({
+            /*this.loadNearby({
                 coords: {
                     latitude: 37.7733717,
                     longitude: -122.47393849999997
                 }
-            });
+            });*/
 
             // Then try to ask for their real location
-            navigator.geolocation.getCurrentPosition(this.loadNearby.bind(this));
+            //navigator.geolocation.getCurrentPosition(this.loadNearby.bind(this));
         } else {
 
         }
