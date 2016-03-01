@@ -4,3 +4,7 @@
 
 .banner {
 }
+
+.chat, .signin {
+    padding-right: 10px;
+}
