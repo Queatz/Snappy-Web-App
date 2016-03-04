@@ -1,0 +1,7 @@
+<div class="signin-wrapper" [hidden]="getSignIn()">
+</div>
+<div class="profile" [hidden]="!getSignIn()">	
+	<a [routerLink]="['Profile', {id: getglink()}]">
+	<img class="circle resize" src="{{gimage}}" />
+	</a>
+</div>
