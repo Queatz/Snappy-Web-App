@@ -1,40 +1,45 @@
 import {Component, Input, OnInit, ElementRef, AfterViewInit, OnChanges, provide} from 'angular2/core';
 import {Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions} from 'angular2/http';
+import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
 import 'rxjs/add/operator/map';
 import {OfferCardComponent} from './offer-card.component'
+import {InforService} from './infor.service';
 
 var firstHeaders = new Headers();
 firstHeaders.append('Content-Type', 'application/json;charset=UTF-8');
 
 class MyOptions extends BaseRequestOptions {
-  headers: Headers = firstHeaders
+    headers: Headers = firstHeaders
 }
 
 @Component({
-	selector: 'offers',
-	templateUrl: 'app/offers.component.html',
-	styleUrls: ['app/offers.component.css'],
-    viewProviders: [HTTP_PROVIDERS, provide(RequestOptions, {useClass: MyOptions})],
+    selector: 'offers',
+    templateUrl: 'app/offers.component.html',
+    styleUrls: ['app/offers.component.css'],
+    viewProviders: [HTTP_PROVIDERS, provide(RequestOptions, { useClass: MyOptions })],
     directives: [OfferCardComponent]
 })
 export class OffersComponent implements OnInit, AfterViewInit {
     public offers = [];
     public offersLoaded = false;
     private masonry: Masonry;
-    private token = 'ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
+    // private token = 'ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
     private person;
 
     @Input() public profile;
     @Input() public list;
 
-    constructor(http: Http, element: ElementRef) {
+    constructor(private router: Router, inforService: InforService, http: Http, element: ElementRef) {
+        this.inforService = inforService;
         this.http = http;
+        this.router = router;
         this.element = element.nativeElement;
         this.boundResizeCallback = this.resizeCallback.bind(this);
+        this.boundDeleteCallback = this.deleteCallback.bind(this);
     }
 
     ngOnInit() {
-        if (this.list === undefined) {
+        if (this.list === undefined && this.inforService.getInforUser()) {
             // Load San Francisco first right away
             this.loadNearby({
                 coords: {
@@ -54,18 +59,19 @@ export class OffersComponent implements OnInit, AfterViewInit {
         if (!position) {
             return;
         }
+        if (this.inforService.getInforUser()) {
+            this.http.get('http://queatz-snappy.appspot.com/api/here?latitude=' + position.coords.latitude + '&longitude=' + position.coords.longitude + '&auth=' + this.inforService.getInforUser().auth)
+                .map((res: Response) => res.json())
+                .subscribe(here => {
 
-        this.http.get('http://queatz-snappy.appspot.com/api/here?latitude=' + position.coords.latitude + '&longitude=' + position.coords.longitude + '&auth=' + this.token)
-            .map((res: Response) => res.json())
-            .subscribe(here => {
+                    // If there aren't any offers near them, then bail.
+                    if (here.offers.length < 1) {
+                        return;
+                    }
 
-                // If there aren't any offers near them, then bail.
-                if (here.offers.length < 1) {
-                    return;
-                }
-
-                this.loaded(here.offers);
-            });
+                    this.loaded(here.offers);
+                });
+        }
     }
 
     public loaded(offers) {
@@ -90,7 +96,12 @@ export class OffersComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
+        this.inforService.setProfileUpdateOffer(this.boundDeleteCallback, this.profile);
 
+        if (typeof this.inforService.getInforUser() == 'undefined' || this.inforService.getInforUser() == null) {
+            this.signed = false;
+            this.offers = [];
+        } else { this.signed = true; }
     }
 
     resizeCallback() {
@@ -101,7 +112,27 @@ export class OffersComponent implements OnInit, AfterViewInit {
         }, 100);
     }
 
-    getProfile(){
-    	return this.profile;
+    getProfile() {
+        return this.profile;
+    }
+
+    deleteCallback(index, mode) {
+        switch (mode) {
+            case 1: //delete offer
+                this.offers.splice(index, 1);
+                break;
+            case 2: //add offer
+                var origin = window.location.origin + '/' + this.inforService.getInforUser().googleUrl;
+                var current = window.location.href;
+                if (origin == current) {
+                    this.offers.push(index);
+                   // this.router.navigate(['Profile', { id: this.inforService.getInforUser().googleUrl }]);
+                    window.location.reload();
+                }
+                break;
+            case 3: //add photo
+                //nothing to do yet
+                break;
+        }
     }
 }

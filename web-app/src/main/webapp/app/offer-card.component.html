@@ -1,11 +1,11 @@
-<div class="card white hoverable">
+<div class="card white hoverable" *ngIf="inforService.getInforUser()">
 	<div class="card-image">
 		<div [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}" class="card-tabbing"></div>
-		<img (load)="loaded()" *ngIf="offer.hasPhoto" src="http://queatz-snappy.appspot.com/api/offer/{{offer.id}}/photo?s=800&auth=ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U" />
+		<img (load)="loaded()" *ngIf="offer.hasPhoto" src="http://queatz-snappy.appspot.com/api/offer/{{offer.id}}/photo?s=800&auth={{inforService.getInforUser().auth}}" />
 	</div>
 	<div class="card-content">
 		<div class="blox">
-			<a class="modal-trigger" [routerLink]="['Profile', {id: offer.person.googleUrl}]"> <img src="{{ offer.person.imageUrl }}" alt="Profile picture" class="circle"> </a>
+			<a [routerLink]="['Profile', {id: offer.person.googleUrl}]"> <img src="{{ offer.person.imageUrl }}" alt="Profile picture" class="circle"> </a>
 		</div>
 		<div class="blox">
 			<span class="title offer-type" [ngClass]="{'purple-text': isRequest()}">{{ getOfferTypeText() }}</span>
@@ -15,7 +15,7 @@
 		</div>
 	</div>
 	<div class="card-action">
-		<a target="_blank" href="https://play.google.com/store/apps/details?id=com.queatz.snappy">
+		<a [routerLink]="['Messages', {id: offer.person.id}]">
 		<div class="price waves-effect secondary-content waves-light btn white-text" [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}">
 			<b>{{ getPrice() }}</b>
 		</div> </a>
@@ -51,7 +51,7 @@
 
 		</div>
 		<div class="modal-footer">
-			<a class="left modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
+			<a class="left modal-action modal-close waves-effect waves-green btn-flat" (click)="deleteImage()">Delete</a>
 			<a class="right modal-action modal-close waves-effect waves-green btn-flat" (click)="uploadPhoto()">Upload</a>
 			<a class="right modal-action modal-close waves-effect waves-red btn-flat">Cancel</a>
 		</div>

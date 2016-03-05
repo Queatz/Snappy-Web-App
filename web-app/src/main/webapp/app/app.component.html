@@ -7,7 +7,7 @@
 					<div class="signin right">
 						<signin></signin>
 					</div>
-					<a class="modal-trigger chat right" [routerLink]="['Messages']"><i class="material-icons">chat_bubble</i></a>
+					<a class="chat right" *ngIf="userSignined()" [routerLink]="['Messages',{id:''}]"><i class="material-icons">chat_bubble</i></a>
 				</div>
 			</div>
 		</nav>

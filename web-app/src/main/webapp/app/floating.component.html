@@ -1,17 +1,17 @@
-<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-	<a class="waves-effect waves-light red btn-floating btn-large modal-trigger" href="#modal1"><i class="material-icons">add</i></a>
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;" *ngIf="userSignined()">
+	<a class="waves-effect waves-light red btn-floating btn-large modal-trigger-floating" href="#model1"><i class="material-icons">add</i></a>
 </div>
-<div id="modal1" class="modal">
+<div id="model1" class="modal" >
 	<div class="modal-content">
 		<h4>New offer</h4>
 
 		<div class="range-field">
-			<input type="range" id="test5" min="0" max="100" [(ngModel)]="enumber"/>
+			<input type="range" id="test5" min="-100" max="200" [(ngModel)]="enumber"/>
 		</div>
 
 		<div class="input-field col s12">
-			<input id="string" class="validate" [(ngModel)]="emessage">
-			<label for="string"></label>
+			<input id="strmessage" type="text" class="validate" [(ngModel)]="emessage">
+			<label for="strmessage">Per anything?</label>
 		</div>
 
 	</div>

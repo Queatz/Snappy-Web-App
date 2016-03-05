@@ -4,7 +4,7 @@ import { BannerComponent } from './banner.component';
 import { InfoPanelComponent } from './info-panel.component';
 import { FloatingComponent } from './floating.component';
 
-var checkFirst = true;
+import {InforService} from './infor.service';
 
 @Component({
 	templateUrl: 'app/main.component.html',
@@ -12,10 +12,13 @@ var checkFirst = true;
 	directives: [OffersComponent, BannerComponent, InfoPanelComponent, FloatingComponent]
 })
 export class MainComponent implements AfterViewInit {
+	constructor(inforService: InforService) {
+    	this.inforService = inforService;
+    }
+
 	ngAfterViewInit() {
-  		if (checkFirst) {
-  			checkFirst = false;
-			$('.modal-trigger').leanModal();
-		}    	
+		if (this.inforService.getModalTrigger()) {
+  			$('.modal-trigger-floating').leanModal();
+		}
     }
 }
