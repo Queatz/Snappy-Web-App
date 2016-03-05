@@ -82,8 +82,4 @@ export class ProfileComponent implements OnInit, AfterViewInit, CanReuse {
         }
         return false;
     }
-    
-    isMyProfile() {
-     	return true;
-    }
 }

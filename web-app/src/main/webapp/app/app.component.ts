@@ -27,7 +27,7 @@ export class AppComponent {
     	this.inforService = inforService;
     }
 
-    userSignined(){
+    userSignined (){
     	if(this.inforService.getInforUser())
     		return true;
     	return false;
