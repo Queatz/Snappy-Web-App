@@ -1,28 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment=" Add br">
+    <list default="true" id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/banner.component.css" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/banner.component.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/banner.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/banner.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/boot.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/boot.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/floating.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/floating.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/messages.component.css" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/messages.component.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/messages.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/messages.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/messages.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/messages.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.css" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/offers.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/offers.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.css" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.css" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/index.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/index.html" />
     </list>
     <ignored path="Snappy-Web-App.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,6 +29,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7016575">
+              <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -103,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8372093">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state vertical-scroll-proportion="-8.0">
+              <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -128,16 +119,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="offer-card.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.6666665">
-              <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -199,7 +180,6 @@
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/parseLinks.component.ts" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.css" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/banner.component.css" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/banner.component.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/boot.ts" />
@@ -219,6 +199,7 @@
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/index.html" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.ts" />
       </list>
     </option>
   </component>
@@ -604,7 +585,7 @@
     <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar!/" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="ban&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/banner.component.css&#10;prof&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.ts&#10;app.&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/app.component.ts&#10;app.com&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/app.component.css&#10;system-polyfi&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/node_modules/systemjs/dist/system-polyfills.js.map&#10;offercard&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offer-card.component.css&#10;appengine&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/WEB-INF/appengine-web.xml&#10;es6-shim&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/node_modules/es6-shim/es6-shim.min.js&#10;shim&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/node_modules/grunt-systemjs-builder/node_modules/systemjs-builder/node_modules/es6-template-strings/node_modules/es5-ext/array/from/shim.js&#10;offers&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offers.component.css&#10;offer&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offers.component.html&#10;pro&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.html&#10;typescript.&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/target/web-app-1.0-SNAPSHOT/node_modules/typescript/lib/typescript.js&#10;router.dev&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/target/web-app-1.0-SNAPSHOT/node_modules/angular2/bundles/router.dev.js&#10;app&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/app.component.html&#10;banner&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/banner.component.html&#10;masonry&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/node_modules/masonry-layout/masonry.js&#10;spaces&#9;ACTION&#9;ConvertIndentsToSpaces" />
+    <property name="SearchEverywhereHistoryKey" value="app.co&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/app.component.ts&#10;ban&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/banner.component.css&#10;prof&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.ts&#10;app.&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/app.component.ts&#10;app.com&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/app.component.css&#10;system-polyfi&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/node_modules/systemjs/dist/system-polyfills.js.map&#10;offercard&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offer-card.component.css&#10;appengine&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/WEB-INF/appengine-web.xml&#10;es6-shim&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/node_modules/es6-shim/es6-shim.min.js&#10;shim&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/node_modules/grunt-systemjs-builder/node_modules/systemjs-builder/node_modules/es6-template-strings/node_modules/es5-ext/array/from/shim.js&#10;offers&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offers.component.css&#10;offer&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offers.component.html&#10;pro&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.html&#10;typescript.&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/target/web-app-1.0-SNAPSHOT/node_modules/typescript/lib/typescript.js&#10;router.dev&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/target/web-app-1.0-SNAPSHOT/node_modules/angular2/bundles/router.dev.js&#10;app&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/app.component.html&#10;banner&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/banner.component.html&#10;masonry&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/node_modules/masonry-layout/masonry.js&#10;spaces&#9;ACTION&#9;ConvertIndentsToSpaces" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -1071,7 +1052,13 @@
       <option name="project" value="LOCAL" />
       <updated>1455571368892</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="* Minor updates&#10;* Tabs -&gt; spaces">
+      <created>1457207454460</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1457207454460</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1088,6 +1075,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48933783" sideWeight="0.4939378" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884398" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24459673" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1097,7 +1085,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884398" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1130,7 +1117,8 @@
     <MESSAGE value="Ayinde Rules the World" />
     <MESSAGE value="Add footer" />
     <MESSAGE value=" Add br" />
-    <option name="LAST_COMMIT_MESSAGE" value=" Add br" />
+    <MESSAGE value="* Minor updates&#10;* Tabs -&gt; spaces" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Minor updates&#10;* Tabs -&gt; spaces" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1378,14 +1366,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/boot.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1518,8 +1498,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8372093">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state vertical-scroll-proportion="-8.0">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7016575">
+          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
           <folding />
         </state>
       </provider>
