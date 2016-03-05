@@ -1,51 +1,51 @@
 <div class="messagescontainer">
-	<div class="row mainmessage ms-toogle" *ngIf="haveUserInfor()">
-		<div class="col s12 m4 l3 scroll msrecent">
-			<div class="scroll">
-				<h3 class="mstitle">List Contacts <i class="small material-icons chat-bubble" (click)="showChat()">chat_bubble</i></h3>
-				<div class="item" *ngFor="#message of contacts">
-					<a class=" message clear" (click)="getMessagesById(message)"> <img class="circle resize imageprofile" src="{{showContactImage(message,0)}}"/>
-					<div class="name">
-						{{showContactImage(message,1)}}
-					</div> </a>
-					<div class="divider"></div>
-				</div>
-			</div>
-		</div>
-		<div class="col s12 m8 l9 messages">
-			<h3 class="mstitle">Messages with {{getNameChatter()}}<i class="small material-icons recent-actors" (click)="showRecent()">recent_actors</i></h3>
-			<div class="row s3 listmessages">
-				<div class="content scroll">
-					<div class="scrollpanel">
-						<div class="message-item clear scrollspy" *ngFor="#message of messageWithSomeone">
-							<div class="message-name {{checkIsLeft(message)}}">
-								<div class="leftto clear" [hidden]="!showleft">
-									<a [routerLink]="['Profile', {id: showContentMessage(message, 2)}]" >
-										<img class="circle resize avatar" src="{{showContentMessage(message, 1)}}" />
-									</a>
-									<span class="emessage" [style.color]="getColor(message)"> {{showContentMessage(message, 0)}} </span>
-								</div>
-								<div class="rightto clear" [hidden]="showleft">
-									<span class="emessage" [style.color]="getColor(message)"> {{showContentMessage(message, 0)}} </span>
-									<a [routerLink]="['Profile', {id: showContentMessage(message, 2)}]" >
-										<img class="circle resize avatar" src="{{showContentMessage(message, 1)}}" />
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+    <div class="row mainmessage ms-toogle" *ngIf="haveUserInfor()">
+        <div class="col s12 m4 l3 scroll msrecent">
+            <div class="scroll">
+                <h3 class="mstitle">List Contacts <i class="small material-icons chat-bubble" (click)="showChat()">chat_bubble</i></h3>
+                <div class="item" *ngFor="#message of contacts">
+                    <a class=" message clear" (click)="getMessagesById(message)"> <img class="circle resize imageprofile" src="{{showContactImage(message,0)}}"/>
+                    <div class="name">
+                        {{showContactImage(message,1)}}
+                    </div> </a>
+                    <div class="divider"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m8 l9 messages">
+            <h3 class="mstitle">Messages with {{getNameChatter()}}<i class="small material-icons recent-actors" (click)="showRecent()">recent_actors</i></h3>
+            <div class="row s3 listmessages">
+                <div class="content scroll">
+                    <div class="scrollpanel">
+                        <div class="message-item clear scrollspy" *ngFor="#message of messageWithSomeone">
+                            <div class="message-name {{checkIsLeft(message)}}">
+                                <div class="leftto clear" [hidden]="!showleft">
+                                    <a [routerLink]="['Profile', {id: showContentMessage(message, 2)}]" >
+                                        <img class="circle resize avatar" src="{{showContentMessage(message, 1)}}" />
+                                    </a>
+                                    <span class="emessage" [style.color]="getColor(message)"> {{showContentMessage(message, 0)}} </span>
+                                </div>
+                                <div class="rightto clear" [hidden]="showleft">
+                                    <span class="emessage" [style.color]="getColor(message)"> {{showContentMessage(message, 0)}} </span>
+                                    <a [routerLink]="['Profile', {id: showContentMessage(message, 2)}]" >
+                                        <img class="circle resize avatar" src="{{showContentMessage(message, 1)}}" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-			</div>
+            </div>
 
-			<div class="row s9 sendmessage">
-				<div class="input-field col s12">
-					<div class="divider"></div>
-					<textarea id="icon_prefix2" class="validate materialize-textarea scroll" [(ngModel)]="strMessage"></textarea>
-					<label for="icon_prefix2">Message...</label>
-					<a class="waves-effect waves-light btn" (click)="sendMessages(strMessage)"><i class="material-icons right">done</i>Send</a>
-				</div>
-			</div>
-		</div>
-	</div>
+            <div class="row s9 sendmessage">
+                <div class="input-field col s12">
+                    <div class="divider"></div>
+                    <textarea id="icon_prefix2" class="validate materialize-textarea scroll" [(ngModel)]="strMessage"></textarea>
+                    <label for="icon_prefix2">Message...</label>
+                    <a class="waves-effect waves-light btn" (click)="sendMessages(strMessage)"><i class="material-icons right">done</i>Send</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

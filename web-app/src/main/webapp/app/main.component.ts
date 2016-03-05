@@ -7,18 +7,18 @@ import { FloatingComponent } from './floating.component';
 import {InforService} from './infor.service';
 
 @Component({
-	templateUrl: 'app/main.component.html',
-	styleUrls: ['app/main.component.css'],
-	directives: [OffersComponent, BannerComponent, InfoPanelComponent, FloatingComponent]
+    templateUrl: 'app/main.component.html',
+    styleUrls: ['app/main.component.css'],
+    directives: [OffersComponent, BannerComponent, InfoPanelComponent, FloatingComponent]
 })
 export class MainComponent implements AfterViewInit {
-	constructor(inforService: InforService) {
-    	this.inforService = inforService;
+    constructor(inforService: InforService) {
+        this.inforService = inforService;
     }
 
-	ngAfterViewInit() {
-		if (this.inforService.getModalTrigger()) {
-  			$('.modal-trigger-floating').leanModal();
-		}
+    ngAfterViewInit() {
+        if (this.inforService.getModalTrigger()) {
+            $('.modal-trigger-floating').leanModal();
+        }
     }
 }

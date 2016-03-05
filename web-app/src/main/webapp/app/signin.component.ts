@@ -20,7 +20,6 @@ class MyOptions extends BaseRequestOptions {
     directives: [ROUTER_DIRECTIVES]
 })
 export class SigninComponent implements AfterViewInit {
-    //private token = 'ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U'   
     constructor(
         inforService: InforService,
         http: Http,
@@ -92,7 +91,7 @@ export class SigninComponent implements AfterViewInit {
             .subscribe(dataInput => {
                 this.setglink(dataInput.googleUrl);
                 this.setgimage(dataInput.imageUrl);
-                if (typeof this.inforService.getInforUser() == 'undefined' || this.inforService.getInforUser() == null) {
+                if (this.inforService.getInforUser() === undefined || this.inforService.getInforUser() == null) {
                     this.inforService.setInforUser(dataInput);
                     window.location.replace(window.location.href);
                 } else {

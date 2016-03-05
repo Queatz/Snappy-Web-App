@@ -29,9 +29,11 @@
     height: 4px;
     border-radius: 2px 2px 0 0;
 }
-.more-action{
+
+.more-action {
 	float: right;
 }
+
 /*.card .card-action .add{
 	color: green;
 }

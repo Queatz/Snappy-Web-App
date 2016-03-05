@@ -26,7 +26,6 @@ export class OfferCardComponent implements AfterViewInit {
     @Input() public resizeCallback;
     @Input() public deleteCallback;
     @Input() public profile;
-    //private token = 'ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
     filesToUpload: Array<File>;
 
     constructor(inforService: InforService, http: Http, element: ElementRef) {
@@ -50,8 +49,10 @@ export class OfferCardComponent implements AfterViewInit {
             str = 'Make $' + Math.abs(offer.price);
         } else if (offer.price === 0) {
             return 'Free';
+        } else if (offer.price > 0) {
+            str = '$' + offer.price;
         } else {
-            str = '$' + offer.price
+            return 'Ask';
         }
 
         if (offer.unit) {
@@ -62,7 +63,7 @@ export class OfferCardComponent implements AfterViewInit {
     }
 
     public isRequest() {
-        return this.offer.price < 0;
+        return this.offer.price != null && this.offer.price < 0;
     }
 
     public getOfferTypeText() {

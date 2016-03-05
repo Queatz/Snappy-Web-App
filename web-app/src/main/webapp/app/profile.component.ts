@@ -22,7 +22,6 @@ class MyOptions extends BaseRequestOptions {
 
 })
 export class ProfileComponent implements OnInit, AfterViewInit, CanReuse {
-    //private token = 'ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
     private offers;
     private myProfile;
     constructor(
@@ -40,16 +39,16 @@ export class ProfileComponent implements OnInit, AfterViewInit, CanReuse {
     }
 
     routerCanReuse(next: ComponentInstruction, prev: ComponentInstruction) {
-        this.isMyProfile(){
+        if (this.isMyProfile()) {
             return false;
-        }else{
+        }else {
             return true;
         }
     }
 
     ngOnInit() {
         let id = this.routeParams.get('id');
-        if (id != 'messages') {
+        if (id !== 'messages') {
             this.loadPerson(id);
             this.myProfile = id;
         } else {
@@ -62,7 +61,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, CanReuse {
     }
 
     loadPerson(personId) {
-        if (typeof this.inforService.getInforUser().auth !== 'undefined') {
+        if (this.inforService.getInforUser().auth !== undefined) {
             this.http.get('http://queatz-snappy.appspot.com/api/people/by-name/' + personId + '?auth=' + this.inforService.getInforUser().auth)
                 .map((res: Response) => res.json())
                 .subscribe(person => {
@@ -76,10 +75,12 @@ export class ProfileComponent implements OnInit, AfterViewInit, CanReuse {
             $('.modal-trigger-floating').leanModal();
         }
     }
+
     isMyProfile() {
         if (this.myProfile == this.inforService.getInforUser().googleUrl) {
             return true;
         }
+
         return false;
     }
 }

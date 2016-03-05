@@ -23,7 +23,6 @@ export class OffersComponent implements OnInit, AfterViewInit {
     public offers = [];
     public offersLoaded = false;
     private masonry: Masonry;
-    // private token = 'ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
     private person;
 
     @Input() public profile;

@@ -124,6 +124,7 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
         current_count = 0;
         max_count = 10;
     }
+
     getMessagesById(contact) {
         this.resetTimeInterval();
         this.messageWithSomeone = [];
@@ -134,6 +135,7 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
         this.getUserInfoChatWith();
         this.goToGetMessages();
     }
+
     goToGetMessages() {
         this.http.get('http://queatz-snappy.appspot.com/api/people/' + this.idCurrentContact + '/messages?auth=' + this.token)
             .map((res: Response) => res.json())
@@ -173,9 +175,11 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
                 }
             });
     }
+
     getNameChatter() {
         return this.namechater;
     }
+
     showChat() {
         $('.ms-toogle').toggleClass('ms-toogle-on');
     }
@@ -228,6 +232,7 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
             }
         }
     }
+
     checkIsLeft(message) {
         if (message.from.id != this.myId) {
             this.showleft = true;
@@ -244,6 +249,7 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
         else
             return 'rgba(0,0,0,0.87)';
     }
+
     showContentMessage(message, mode) {
         if (this.messageWithSomeone.indexOf(message) == (this.messageWithSomeone.length - 1) && !this.endMessage) {
             $('.content').animate({ scrollTop: $('.scrollpanel').height() }, 'slow');
@@ -259,6 +265,5 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
             default:
                 return '';
         }
-
     }
 }

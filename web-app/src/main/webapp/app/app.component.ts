@@ -27,10 +27,12 @@ export class AppComponent {
     	this.inforService = inforService;
     }
 
-    userSignined (){
-    	if(this.inforService.getInforUser())
+    userSignined () {
+    	if(this.inforService.getInforUser()) {}
     		return true;
-    	return false;
+        } else {
+    	    return false;
+    	}
     }
 
 }
