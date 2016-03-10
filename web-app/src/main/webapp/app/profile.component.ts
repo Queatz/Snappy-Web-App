@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, provide, AfterViewInit } from 'angular2/core';
-import { ROUTER_DIRECTIVES, RouteParams, Router, CanReuse } from 'angular2/router';
+import { ROUTER_DIRECTIVES, RouteParams, Router } from 'angular2/router';
 import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
 import { OffersComponent } from './offers.component';
 import { ParseLinksComponent } from './parseLinks.component';
@@ -21,9 +21,10 @@ class MyOptions extends BaseRequestOptions {
     directives: [ROUTER_DIRECTIVES, OffersComponent, ParseLinksComponent, FloatingComponent],
 
 })
-export class ProfileComponent implements OnInit, AfterViewInit, CanReuse {
+export class ProfileComponent implements OnInit, AfterViewInit {
     private offers;
     private myProfile;
+    private token = 'ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
     constructor(
         inforService: InforService,
         private router: Router,
@@ -36,14 +37,6 @@ export class ProfileComponent implements OnInit, AfterViewInit, CanReuse {
         this.element = element.nativeElement;
         this.offers = null;
         this.person = null;
-    }
-
-    routerCanReuse(next: ComponentInstruction, prev: ComponentInstruction) {
-        if (this.isMyProfile()) {
-            return false;
-        }else {
-            return true;
-        }
     }
 
     ngOnInit() {
@@ -61,14 +54,15 @@ export class ProfileComponent implements OnInit, AfterViewInit, CanReuse {
     }
 
     loadPerson(personId) {
-        if (this.inforService.getInforUser().auth !== undefined) {
-            this.http.get('http://queatz-snappy.appspot.com/api/people/by-name/' + personId + '?auth=' + this.inforService.getInforUser().auth)
-                .map((res: Response) => res.json())
-                .subscribe(person => {
-                    this.person = person;
-                    this.loaded(person.offers);
-                });
+        if (typeof this.inforService.getInforUser() !== 'undefined' && typeof this.inforService.getInforUser().auth !== 'undefined') {
+            this.token = this.inforService.getInforUser().auth;
         }
+        this.http.get('http://queatz-snappy.appspot.com/api/people/by-name/' + personId + '?auth=' + this.token)
+            .map((res: Response) => res.json())
+            .subscribe(person => {
+                this.person = person;
+                this.loaded(person.offers);
+            });
     }
     ngAfterViewInit() {
         if (this.inforService.getModalTrigger() && this.isMyProfile()) {
@@ -77,10 +71,9 @@ export class ProfileComponent implements OnInit, AfterViewInit, CanReuse {
     }
 
     isMyProfile() {
-        if (this.myProfile == this.inforService.getInforUser().googleUrl) {
+        if (typeof this.inforService.getInforUser() !== 'undefined' && this.myProfile == this.inforService.getInforUser().googleUrl) {
             return true;
         }
-
         return false;
     }
 }

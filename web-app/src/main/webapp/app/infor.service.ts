@@ -2,10 +2,14 @@ import {Injectable} from 'angular2/core';
 
 var isFirst = true;
 var isModelTrigger = true;
-
+var listOfferCheck = {};
+var sizeOffer = 0;
+var deleteOfferTime = 0;
 @Injectable()
 export class InforService {
 
+    public deletedSomeItem = false;
+    
     getInforUser() {
         if (typeof this.inforUser == 'undefined') {
             this.localData = JSON.parse(localStorage.getItem('myInfo'));
@@ -44,5 +48,31 @@ export class InforService {
             return true;
         }
         return false;
+    }
+
+    getListOfferCheck(position) {
+        if (typeof listOfferCheck[position] === 'undefined' || listOfferCheck[position] == false) {
+            listOfferCheck[position] = true;
+            return false;
+        }
+        return true;
+    }
+
+    getOfferSize() {
+        return sizeOffer;
+    }
+    setOfferSize(size) {
+        if (size != 0)
+            sizeOffer += size;
+        else
+            sizeOffer += sizeOffer;
+    }
+
+    setDeleteOffer(deleteCount) {
+        deleteOfferTime += parseInt(deleteCount);
+        this.deletedSomeItem = true;
+    }
+    getDeleteOffer() {
+        return deleteOfferTime;
     }
 }

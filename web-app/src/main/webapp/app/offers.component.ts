@@ -24,6 +24,7 @@ export class OffersComponent implements OnInit, AfterViewInit {
     public offersLoaded = false;
     private masonry: Masonry;
     private person;
+    private token = 'ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
 
     @Input() public profile;
     @Input() public list;
@@ -38,7 +39,7 @@ export class OffersComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
-        if (this.list === undefined && this.inforService.getInforUser()) {
+        if (this.list === undefined) {
             // Load San Francisco first right away
             this.loadNearby({
                 coords: {
@@ -58,28 +59,26 @@ export class OffersComponent implements OnInit, AfterViewInit {
         if (!position) {
             return;
         }
-        if (this.inforService.getInforUser()) {
-            this.http.get('http://queatz-snappy.appspot.com/api/here?latitude=' + position.coords.latitude + '&longitude=' + position.coords.longitude + '&auth=' + this.inforService.getInforUser().auth)
-                .map((res: Response) => res.json())
-                .subscribe(here => {
-
-                    // If there aren't any offers near them, then bail.
-                    if (here.offers.length < 1) {
-                        return;
-                    }
-
-                    this.loaded(here.offers);
-                });
+        if (typeof this.inforService.getInforUser() !== 'undefined' && typeof this.inforService.getInforUser().auth !== 'undefined') {
+            this.token = this.inforService.getInforUser().auth;
         }
+        this.http.get('http://queatz-snappy.appspot.com/api/here?latitude=' + position.coords.latitude + '&longitude=' + position.coords.longitude + '&auth=' + this.token)
+            .map((res: Response) => res.json())
+            .subscribe(here => {
+                // If there aren't any offers near them, then bail.
+                if (here.offers.length < 1) {
+                    return;
+                }
+                this.loaded(here.offers);
+            });
     }
 
     public loaded(offers) {
+
         this.offersLoaded = true;
         this.offers = _.sortBy(offers, 'price');
-
         setTimeout(() => {
             var elem = this.element.querySelector('.grid');
-
             this.masonry = new Masonry(elem, {
                 itemSelector: '.item',
                 gutter: 24,
@@ -99,7 +98,6 @@ export class OffersComponent implements OnInit, AfterViewInit {
 
         if (typeof this.inforService.getInforUser() == 'undefined' || this.inforService.getInforUser() == null) {
             this.signed = false;
-            this.offers = [];
         } else { this.signed = true; }
     }
 
@@ -119,19 +117,23 @@ export class OffersComponent implements OnInit, AfterViewInit {
         switch (mode) {
             case 1: //delete offer
                 this.offers.splice(index, 1);
+                this.inforService.setDeleteOffer(1);
+                this.loaded(this.offers);
                 break;
             case 2: //add offer
-                var origin = window.location.origin + '/' + this.inforService.getInforUser().googleUrl;
-                var current = window.location.href;
-                if (origin == current) {
-                    this.offers.push(index);
-                   // this.router.navigate(['Profile', { id: this.inforService.getInforUser().googleUrl }]);
-                    window.location.reload();
-                }
+                this.offers.push(index);
+                if(this.profile)
+                    this.inforService.setDeleteOffer(-1);
+                this.inforService.setOfferSize(this.offers.length);
+                this.loaded(this.offers);
                 break;
             case 3: //add photo
-                //nothing to do yet
+                this.loaded(this.offers);
                 break;
         }
+    }
+    
+    getOfferPosition(position) {
+        return position + this.inforService.getOfferSize();
     }
 }

@@ -24,9 +24,12 @@ export class FloatingComponent implements AfterViewInit {
         this.http = http;
         this.router = router;
         this.element = element.nativeElement;
+        this.edetails = '';
+        this.emessage = '';
     }
 
     ngAfterViewInit() {
+
     }
 
     userSignined() {
@@ -38,12 +41,13 @@ export class FloatingComponent implements AfterViewInit {
     getCurrentUrl() {
         return this.routeParams.get('id');
     }
-    newOffer(emessage, enumber) {
+    newOffer(edetails, emessage, enumber) {
         if (typeof enumber === 'undefined')
             enumber = '0';
         this.token = this.inforService.getInforUser().auth;
-        if (typeof emessage !== 'undefined' && emessage != "") {
-            var creds = "auth=" + this.token + "&details=" + emessage + "&price=" + enumber;
+        if (typeof edetails !== 'undefined' && edetails != '') {
+             $('#model1').closeModal();
+            var creds = "auth=" + this.token + "&details=" + edetails + "&price=" + enumber + "&unit=" + emessage;
             var headers = new Headers();
             headers.append('Content-Type', 'application/x-www-form-urlencoded');
             this.http.post('http://queatz-snappy.appspot.com/api/me/offers', creds, {
@@ -53,11 +57,11 @@ export class FloatingComponent implements AfterViewInit {
                 .subscribe(dataInput => {
                     if (dataInput.id) {
                         Materialize.toast('Offer success!', 4000);
-                        this.inforService.setNewOffer(dataInput);
+                        this.inforService.setNewOffer(dataInput);                        
+                        this.edetails = '';
+                        this.emessage = '';                       
                     }
                 });
-        } else {
-            Materialize.toast('Offer missing input!', 4000);
         }
     }
 

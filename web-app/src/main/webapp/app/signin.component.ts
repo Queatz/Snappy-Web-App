@@ -1,4 +1,4 @@
-import {Component, AfterViewInit, ElementRef, Inject, provide} from 'angular2/core';
+import {Component, AfterViewInit, ElementRef, Inject, OnInit, provide, NgZone} from 'angular2/core';
 import {ROUTER_DIRECTIVES, RouteParams, Router } from 'angular2/router';
 import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
 
@@ -19,10 +19,11 @@ class MyOptions extends BaseRequestOptions {
     viewProviders: [HTTP_PROVIDERS, provide(RequestOptions, { useClass: MyOptions })],
     directives: [ROUTER_DIRECTIVES]
 })
-export class SigninComponent implements AfterViewInit {
+export class SigninComponent implements AfterViewInit, OnInit {
     constructor(
         inforService: InforService,
         http: Http,
+        private _ngZone: NgZone,
         private router: Router,
         elementRef: ElementRef) {
         this.inforService = inforService;
@@ -32,12 +33,15 @@ export class SigninComponent implements AfterViewInit {
         if (localStorage.getItem('myInfo')) {
             this.localData = JSON.parse(localStorage.getItem('myInfo'));
             if (this.localData) {
-                this.setglink(this.localData.googleUrl);
-                this.setgimage(this.localData.imageUrl);
+                this.glink = this.localData.googleUrl;
+                this.gimage = this.localData.imageUrl;
             }
         }
     }
 
+    ngOnInit() {
+        //console.log('vao ngoninit');
+    }
     ngAfterViewInit() {
         globalService = this.inforService;
         gapi.signin2.render(this.element, {
@@ -46,7 +50,7 @@ export class SigninComponent implements AfterViewInit {
             onsuccess: (googleUser) => {
                 this.signedIn = true;
                 this.onSuccess(googleUser);
-                $('.modal-trigger').leanModal(); // show modal
+               // $('.modal-trigger').leanModal(); // show modal
             },
             onfailure: (error) => {
                 console.log(error);
@@ -57,26 +61,15 @@ export class SigninComponent implements AfterViewInit {
 
         gapi.load('auth2', function() {
             var auth2 = gapi.auth2.getAuthInstance();
-            auth2.then(function() {
-                if (!auth2.isSignedIn.get()) {
-                    globalService.setInforUser(null);
-                   // window.location.reload();
-                }
-            });
+            if (typeof auth2 !== 'undefined') {
+                auth2.then(function() {
+                    if (!auth2.isSignedIn.get()) {
+                        globalService.setInforUser(null);
+                        // window.location.reload();
+                    }
+                });
+            }
         });
-    }
-
-    getSignIn() {
-        return this.signedIn;
-    }
-    getglink() {
-        return this.glink;
-    }
-    setglink(link) {
-        this.glink = link;
-    }
-    setgimage(image) {
-        this.gimage = image;
     }
 
     /**
@@ -89,11 +82,13 @@ export class SigninComponent implements AfterViewInit {
         this.http.get('http://queatz-snappy.appspot.com/api/me' + '?email=' + gemail + '&auth=' + gtoken)
             .map((res: Response) => res.json())
             .subscribe(dataInput => {
-                this.setglink(dataInput.googleUrl);
-                this.setgimage(dataInput.imageUrl);
+
                 if (this.inforService.getInforUser() === undefined || this.inforService.getInforUser() == null) {
                     this.inforService.setInforUser(dataInput);
-                    window.location.replace(window.location.href);
+                    this._ngZone.run(() => {
+                        this.glink = dataInput.googleUrl;
+                        this.gimage = dataInput.imageUrl;
+                    });
                 } else {
                     this.inforService.setInforUser(dataInput);
                 }

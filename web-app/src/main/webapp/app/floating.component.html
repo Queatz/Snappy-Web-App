@@ -1,22 +1,33 @@
 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;" *ngIf="userSignined()">
-    <a class="waves-effect waves-light red btn-floating btn-large modal-trigger-floating" href="#model1"><i class="material-icons">add</i></a>
+	<a class="waves-effect waves-light red btn-floating btn-large modal-trigger-floating" href="#model1"><i class="material-icons">add</i></a>
 </div>
 <div id="model1" class="modal" >
-    <div class="modal-content">
-        <h4>New offer</h4>
+	<form class="col s12">
+		<div class="modal-content">
+			<h4>New offer</h4>
 
-        <div class="range-field">
-            <input type="range" id="test5" min="-100" max="200" [(ngModel)]="enumber"/>
-        </div>
+			<div class="input-field col s12">
+				<input id="strdetail" type="text" required="" class="validate" [(ngModel)]="edetails">
+				<label for="strdetail">Describe the offer</label>
+			</div>
 
-        <div class="input-field col s12">
-            <input id="strmessage" type="text" class="validate" [(ngModel)]="emessage">
-            <label for="strmessage">Per anything?</label>
-        </div>
+			<div class="range-field" >
+				<input type="range" name="rangeInput" min="-100" max="200" value="0" #enumber>
+			</div>
 
-    </div>
-    <div class="modal-footer">
-        <a  class=" modal-action modal-close waves-effect waves-green btn-flat" (click)="newOffer(emessage, enumber)">Offer</a>
-        <a  class=" modal-action modal-close waves-effect waves-red btn-flat" >Cancel</a>
-    </div>
+			<div class="input-field col s12">
+				<input id="strmessage" type="text" class="validate" [(ngModel)]="emessage">
+				<label for="strmessage">Per anything?</label>
+			</div>
+
+		</div>
+		<div class="modal-footer">
+			<button class="btn-flat waves-effect waves-light modal-action" type="submit" 
+			name="action" (click)="newOffer(edetails, emessage, enumber.value)">
+				Offer
+			</button>
+			<a  class=" modal-action modal-close waves-effect waves-red btn-flat" >Cancel</a>
+		</div>
+	</form>
+
 </div>

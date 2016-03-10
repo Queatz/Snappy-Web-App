@@ -1,7 +1,7 @@
-<div class="card white hoverable" *ngIf="inforService.getInforUser()">
+<div class="card white hoverable">
     <div class="card-image">
         <div [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}" class="card-tabbing"></div>
-        <img (load)="loaded()" *ngIf="offer.hasPhoto" src="http://queatz-snappy.appspot.com/api/offer/{{offer.id}}/photo?s=800&auth={{inforService.getInforUser().auth}}" />
+        <img (load)="loaded()" *ngIf="offer.hasPhoto" src="{{offerImage}}" />
     </div>
     <div class="card-content">
         <div class="blox">
@@ -42,7 +42,7 @@
             <div class="file-field input-field">
                 <div class="btn">
                     <span>File</span>
-                    <input type="file" (change)="fileChangeEvent($event)">
+                    <input type="file" accept="image/*" (change)="fileChangeEvent($event)">
                 </div>
                 <div class="file-path-wrapper">
                     <input class="file-path validate" type="text"  [(ngModel)]="efile">

@@ -35,7 +35,9 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
         this.http = http;
         this.element = element.nativeElement;
         this.idCurrentContact = this.routeParams.get('id');
-        this.time = 1000;
+        this.time = 500;
+        this.sendId = '';
+
         if (this.inforService.getInforUser()) {
             this.myId = this.inforService.getInforUser().id;
             this.token = this.inforService.getInforUser().auth;
@@ -44,47 +46,16 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
         }
     }
 
-    haveUserInfor() {
-        if (this.inforService.getInforUser()) {
-            return true;
+    getUserInfoChatWith() {
+        if (typeof this.idCurrentContact !== 'undefined' && this.idCurrentContact !== '') {
+            this.http.get('http://queatz-snappy.appspot.com/api/people/' + this.idCurrentContact + '?auth=' + this.token)
+                .map((res: Response) => res.json())
+                .subscribe(dataInput => {
+                    if (dataInput) {
+                        this.namechater = dataInput.firstName + ' ' + dataInput.lastName;
+                    }
+                });
         }
-        return false;
-    }
-
-    ngOnInit() {
-        this.openInterval();
-    }
-
-    openInterval() {
-        this.timer = setInterval(() => {
-            if (this.idCurrentContact != '') {
-                this.goToGetMessages();
-            }
-            current_count += 1;
-            if (max_count < current_count) {
-                max_count -= 1;
-                current_count = 0;
-
-                if (max_count == 0) {
-                    max_count = 10;
-                    this.time = 100;
-                }
-                if (this.time > 15000)
-                    this.time = 1000;
-                else
-                    this.time = this.time + 1000;
-                clearInterval(this.timer);
-                this.openInterval();
-            }
-        }, this.time);
-    }
-
-  	 routerOnDeactivate() {
-        clearInterval(this.timer);
-    }
-
-    ngAfterViewInit() {
-        $('.scroll').niceScroll();
     }
 
     loadMessages() {
@@ -118,15 +89,8 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
         }
     }
 
-    resetTimeInterval() {
-        clearInterval(this.timer);
-        this.time = 1000;
-        current_count = 0;
-        max_count = 10;
-    }
-
     getMessagesById(contact) {
-        this.resetTimeInterval();
+        //        this.resetTimeInterval();
         this.messageWithSomeone = [];
         if (contact.from.id != this.myId)
             this.idCurrentContact = contact.from.id;
@@ -136,59 +100,90 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
         this.goToGetMessages();
     }
 
+
     goToGetMessages() {
-        this.http.get('http://queatz-snappy.appspot.com/api/people/' + this.idCurrentContact + '/messages?auth=' + this.token)
-            .map((res: Response) => res.json())
-            .subscribe(dataInput => {
-                $('.ms-toogle').toggleClass('ms-toogle-on');
-                if (dataInput.error) {
-                    this.messageWithSomeone = [];
-                    this.endMessage = false;
-                    this.resetTimeInterval();
-                    this.openInterval();
-                } else {
-                    if (dataInput.length > 0) {
-                        if (this.idCurrentContact == dataInput[0].from.id || this.idCurrentContact == dataInput[0].to.id) {
-                            if (this.messageWithSomeone.length == 0) {
-                                this.endMessage = false;
-                                this.messageWithSomeone = dataInput.reverse();
-                                this.resetTimeInterval();
-                                this.openInterval();
-                            } else if (this.messageWithSomeone.length != dataInput.length) {
-                                this.endMessage = false;
-                                this.messageWithSomeone = dataInput.reverse();
-                                this.resetTimeInterval();
-                                this.openInterval();
+        if (this.idCurrentContact != '') {
+            this.http.get('http://queatz-snappy.appspot.com/api/people/' + this.idCurrentContact + '/messages?auth=' + this.token)
+                .map((res: Response) => res.json())
+                .subscribe(dataInput => {
+                    $('.ms-toogle').toggleClass('ms-toogle-on');
+                    if (dataInput.error) {
+                        this.messageWithSomeone = [];
+                        this.endMessage = false;
+                    } else {
+                        if (dataInput.length > 0) {
+                            if (this.idCurrentContact == dataInput[0].from.id || this.idCurrentContact == dataInput[0].to.id) {
+                                if (this.messageWithSomeone.length == 0) {
+                                    this.endMessage = false;
+                                    this.messageWithSomeone = dataInput.reverse();
+                                    this.sendId = dataInput[0].id;
+                                } else {
+                                    if (this.messageWithSomeone.length >= dataInput.length) {
+                                        if (dataInput[0].id != this.messageWithSomeone[this.messageWithSomeone.length - 1].id &&
+                                            this.haveIdInDataInput(dataInput)) {
+                                            
+                                            this.endMessage = false;
+                                            this.messageWithSomeone = dataInput.reverse();
+                                        }
+                                    } else {
+                                        this.endMessage = false;
+                                        this.messageWithSomeone = dataInput.reverse();
+                                    }
+                                }
                             }
                         }
                     }
-                }
-            });
+                    this.goToGetMessages();
+                });
+        } else {
+            setTimeout(() => {
+                this.goToGetMessages();
+            }, 100);
+        }
     }
 
-    getUserInfoChatWith() {
-        this.http.get('http://queatz-snappy.appspot.com/api/people/' + this.idCurrentContact + '?auth=' + this.token)
-            .map((res: Response) => res.json())
-            .subscribe(dataInput => {
-                if (dataInput) {
-                    this.namechater = dataInput.firstName + ' ' + dataInput.lastName;
-                }
-            });
+
+    haveIdInDataInput(data) {
+        if (this.sendId) {
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].id == this.sendId) return true;
+            }
+        }
+        return false;
+    }
+    haveUserInfor() {
+        if (this.inforService.getInforUser()) {
+            return true;
+        }
+        return false;
     }
 
-    getNameChatter() {
-        return this.namechater;
+    ngOnInit() {
+        /*if (this.inforService.getInforUser()) {
+            //this.openInterval();
+            this.goToGetMessages();
+        }*/
     }
 
-    showChat() {
-        $('.ms-toogle').toggleClass('ms-toogle-on');
+    routerOnDeactivate() {
+        clearInterval(this.timer);
     }
 
-    showRecent() {
-        $('.ms-toogle').toggleClass('ms-toogle-on');
+    ngAfterViewInit() {
+        $('.scroll').niceScroll({
+            cursorcolor: "rgb(158, 158, 158)",
+            scrollspeed: 0,
+        });
+    }
+    resetTimeInterval() {
+        clearInterval(this.timer);
+        this.time = 500;
+        current_count = 0;
+        max_count = 10;
     }
 
     sendMessages(message) {
+        //this.resetTimeInterval();
         if (this.idCurrentContact && typeof message !== 'undefined' && message != "") {
             var creds = "auth=" + this.token + "&message=" + message;
             var headers = new Headers();
@@ -201,9 +196,12 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
                     if (dataInput.message == message) {
                         this.endMessage = false;
                         this.strMessage = '';
-                        this.resetTimeInterval();
-                        //this.messageWithSomeone.push(dataInput);
-                        this.openInterval();
+                        //                        this.resetTimeInterval();
+                        this.sendId = dataInput.id;
+                        this.messageWithSomeone.push(dataInput);
+
+                        //this.openInterval();
+                        //this.goToGetMessages(true);
                     }
                 });
         } else {
@@ -252,7 +250,7 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
 
     showContentMessage(message, mode) {
         if (this.messageWithSomeone.indexOf(message) == (this.messageWithSomeone.length - 1) && !this.endMessage) {
-            $('.content').animate({ scrollTop: $('.scrollpanel').height() }, 'slow');
+            $('.content').animate({ scrollTop: $('.scrollpanel').height() }, 0);
             this.endMessage = true;
         }
         switch (mode) {
@@ -265,5 +263,17 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
             default:
                 return '';
         }
+    }
+
+    getNameChatter() {
+        return this.namechater;
+    }
+
+    showChat() {
+        $('.ms-toogle').toggleClass('ms-toogle-on');
+    }
+
+    showRecent() {
+        $('.ms-toogle').toggleClass('ms-toogle-on');
     }
 }
