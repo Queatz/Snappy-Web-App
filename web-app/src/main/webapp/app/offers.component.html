@@ -1,5 +1,5 @@
 <div>
-    <div class="grid center-align">
+    <div class="grid center-align"> 
         <center *ngIf="!offersLoaded" class="waiting">
             <div>
                 <div class="preloader-wrapper active">
@@ -22,7 +22,7 @@
             <a target="_blank" href="https://play.google.com/store/apps/details?id=com.queatz.snappy">Offer some of your own!</a>
         </center>
         <div class="item" *ngFor="#offer of offers">
-            <offer-card class="left-align" [resizeCallback]="boundResizeCallback" [offer]="offer"></offer-card>
+            <offer-card class="left-align" [resizeCallback]="boundResizeCallback" [deleteCallback]="boundDeleteCallback" [offer]="offer" [position]="offers.indexOf(offer)" [size]="offers.length" [profile]="getProfile()"></offer-card>
         </div>
     </div>
 </div>
