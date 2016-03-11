@@ -7,6 +7,7 @@ import { MessagesComponent} from "./messages.component";
 import {InforService} from './infor.service';
 import {enableProdMode} from 'angular2/core';
 
+
 enableProdMode();
 
 @Component({

@@ -9,6 +9,7 @@ var deleteOfferTime = 0;
 export class InforService {
 
     public deletedSomeItem = false;
+    public triggerProfile = true;
     
     getInforUser() {
         if (typeof this.inforUser == 'undefined') {

@@ -65,9 +65,10 @@ export class ProfileComponent implements OnInit, AfterViewInit {
             });
     }
     ngAfterViewInit() {
-        if (this.inforService.getModalTrigger() && this.isMyProfile()) {
+        if (this.inforService.triggerProfile && this.isMyProfile()) {
+            this.inforService.triggerProfile  = false;
             $('.modal-trigger-floating').leanModal();
-        }
+       }
     }
 
     isMyProfile() {

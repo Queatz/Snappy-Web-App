@@ -40,7 +40,7 @@ export class SigninComponent implements AfterViewInit, OnInit {
     }
 
     ngOnInit() {
-        //console.log('vao ngoninit');
+
     }
     ngAfterViewInit() {
         globalService = this.inforService;
@@ -50,7 +50,6 @@ export class SigninComponent implements AfterViewInit, OnInit {
             onsuccess: (googleUser) => {
                 this.signedIn = true;
                 this.onSuccess(googleUser);
-               // $('.modal-trigger').leanModal(); // show modal
             },
             onfailure: (error) => {
                 console.log(error);
@@ -87,7 +86,7 @@ export class SigninComponent implements AfterViewInit, OnInit {
                     this.inforService.setInforUser(dataInput);
                     this._ngZone.run(() => {
                         this.glink = dataInput.googleUrl;
-                        this.gimage = dataInput.imageUrl;
+                        this.gimage = dataInput.imageUrl;                        
                     });
                 } else {
                     this.inforService.setInforUser(dataInput);

@@ -243,7 +243,7 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
 
     getColor(message) {
         if (this.messageWithSomeone.indexOf(message) == (this.messageWithSomeone.length - 1))
-            return 'gray';
+            return '#BDBDBD';
         else
             return 'rgba(0,0,0,0.87)';
     }

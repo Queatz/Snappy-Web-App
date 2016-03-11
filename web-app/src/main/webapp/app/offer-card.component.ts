@@ -106,26 +106,26 @@ export class OfferCardComponent implements AfterViewInit {
         }
     }
     public uploadPhoto() {
-        if(this.filesToUpload.length >0){
-         this.offerImage="";
-        this.makeFileRequest("http://queatz-snappy.appspot.com/api/offer/" + this.offer.id
-            + "/photo?auth=" + this.inforService.getInforUser().auth, [], this.filesToUpload)
-            .then(result => {
-                if (result) {
-                    Materialize.toast('Upload Image success!', 4000);
-                    this.offer.hasPhoto = true;
-                    this.offerImage = 'http://queatz-snappy.appspot.com/api/offer/' + this.offer.id +
-                        '/photo?s=800&auth=ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
-                    this.deleteCallback(this.position, 3);
-                }
-                else
-                    Materialize.toast('Upload Image fail!', 4000);
-            }, (error) => {
-                console.error(error);
-            });
-            }else{
-             Materialize.toast('Empty Image!', 4000);
-            }
+        if (this.filesToUpload.length > 0 && this.filesToUpload[0].type.match(/image/)) {
+            this.offerImage = "";
+            this.makeFileRequest("http://queatz-snappy.appspot.com/api/offer/" + this.offer.id
+                + "/photo?auth=" + this.inforService.getInforUser().auth, [], this.filesToUpload)
+                .then(result => {
+                    if (result) {
+                        Materialize.toast('Upload Image success!', 4000);
+                        this.offer.hasPhoto = true;
+                        this.offerImage = 'http://queatz-snappy.appspot.com/api/offer/' + this.offer.id +
+                            '/photo?s=800&auth=ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
+                        this.deleteCallback(this.position, 3);
+                    }
+                    else
+                        Materialize.toast('Upload Image fail!', 4000);
+                }, (error) => {
+                    console.error(error);
+                });
+        } else {
+            Materialize.toast('Empty Image!', 4000);
+        }
     }
 
     makeFileRequest(url: string, params: Array<string>, files: Array<File>) {

@@ -29,12 +29,15 @@ export class FloatingComponent implements AfterViewInit {
     }
 
     ngAfterViewInit() {
-
+//        if (this.inforService.getModalTrigger()) {
+//            $('.modal-trigger-floating').leanModal();
+//        }
     }
 
     userSignined() {
-        if (this.inforService.getInforUser())
+        if (this.inforService.getInforUser()) {
             return true;
+        }
         return false;
     }
 
@@ -46,7 +49,7 @@ export class FloatingComponent implements AfterViewInit {
             enumber = '0';
         this.token = this.inforService.getInforUser().auth;
         if (typeof edetails !== 'undefined' && edetails != '') {
-             $('#model1').closeModal();
+            $('#model1').closeModal();
             var creds = "auth=" + this.token + "&details=" + edetails + "&price=" + enumber + "&unit=" + emessage;
             var headers = new Headers();
             headers.append('Content-Type', 'application/x-www-form-urlencoded');
@@ -57,9 +60,9 @@ export class FloatingComponent implements AfterViewInit {
                 .subscribe(dataInput => {
                     if (dataInput.id) {
                         Materialize.toast('Offer success!', 4000);
-                        this.inforService.setNewOffer(dataInput);                        
+                        this.inforService.setNewOffer(dataInput);
                         this.edetails = '';
-                        this.emessage = '';                       
+                        this.emessage = '';
                     }
                 });
         }

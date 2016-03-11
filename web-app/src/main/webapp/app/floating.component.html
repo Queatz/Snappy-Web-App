@@ -1,4 +1,4 @@
-<div class="fixed-action-btn" style="bottom: 45px; right: 24px;" *ngIf="userSignined()">
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;" [hidden]="!userSignined()">
 	<a class="waves-effect waves-light red btn-floating btn-large modal-trigger-floating" href="#model1"><i class="material-icons">add</i></a>
 </div>
 <div id="model1" class="modal" >
