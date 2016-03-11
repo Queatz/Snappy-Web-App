@@ -133,12 +133,14 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
                             }
                         }
                     }
-                    this.goToGetMessages();
+                    setTimeout(() => {
+                        this.goToGetMessages();
+                    }, 3000); // TODO exponential backoff
                 });
         } else {
             setTimeout(() => {
                 this.goToGetMessages();
-            }, 100);
+            }, 1000);
         }
     }
 
@@ -233,7 +235,7 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
     }
 
     checkIsLeft(message) {
-        if (message.from.id != this.myId) {
+        if (message.from.id !== this.myId) {
             this.showleft = true;
             return true;
         } else {

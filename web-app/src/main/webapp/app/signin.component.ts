@@ -60,7 +60,7 @@ export class SigninComponent implements AfterViewInit, OnInit {
 
         gapi.load('auth2', function() {
             var auth2 = gapi.auth2.getAuthInstance();
-            if (auth2 !== undefined) {
+            if (auth2) {
                 auth2.then(function() {
                     if (!auth2.isSignedIn.get()) {
                         globalService.setInforUser(null);
