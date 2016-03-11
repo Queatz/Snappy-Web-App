@@ -54,7 +54,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     }
 
     loadPerson(personId) {
-        if (typeof this.inforService.getInforUser() !== 'undefined' && typeof this.inforService.getInforUser().auth !== 'undefined') {
+        if (this.inforService.getInforUser() !== undefined && this.inforService.getInforUser().auth !== undefined) {
             this.token = this.inforService.getInforUser().auth;
         }
         this.http.get('http://queatz-snappy.appspot.com/api/people/by-name/' + personId + '?auth=' + this.token)
@@ -72,9 +72,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     }
 
     isMyProfile() {
-        if (typeof this.inforService.getInforUser() !== 'undefined' && this.myProfile == this.inforService.getInforUser().googleUrl) {
-            return true;
-        }
-        return false;
+        return this.inforService.getInforUser() !== undefined
+                && this.myProfile == this.inforService.getInforUser().googleUrl;
     }
 }

@@ -1,4 +1,4 @@
-<div class="signin-wrapper" [hidden]="signedIn">
+<div class="signin-wrapper" *ngIf="!signedIn">
 </div>
 <div class="profile" *ngIf="signedIn">    
     <a [routerLink]="['Profile', {id: glink}]">

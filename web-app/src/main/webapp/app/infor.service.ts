@@ -5,6 +5,7 @@ var isModelTrigger = true;
 var listOfferCheck = {};
 var sizeOffer = 0;
 var deleteOfferTime = 0;
+
 @Injectable()
 export class InforService {
 
@@ -12,7 +13,7 @@ export class InforService {
     public triggerProfile = true;
     
     getInforUser() {
-        if (typeof this.inforUser == 'undefined') {
+        if (this.inforUser === undefined) {
             this.localData = JSON.parse(localStorage.getItem('myInfo'));
             if (this.localData) {
                 return this.localData;
@@ -22,8 +23,9 @@ export class InforService {
         } else
             return this.inforUser;
     }
+
     setInforUser(inforUser) {
-        if (inforUser != null) {
+        if (inforUser !== null) {
             this.inforUser = inforUser;
             localStorage.setItem('myInfo', JSON.stringify(inforUser));
         } else {
@@ -52,7 +54,7 @@ export class InforService {
     }
 
     getListOfferCheck(position) {
-        if (typeof listOfferCheck[position] === 'undefined' || listOfferCheck[position] == false) {
+        if (listOfferCheck[position] === undefined || listOfferCheck[position] == false) {
             listOfferCheck[position] = true;
             return false;
         }
@@ -62,8 +64,9 @@ export class InforService {
     getOfferSize() {
         return sizeOffer;
     }
+
     setOfferSize(size) {
-        if (size != 0)
+        if (size !== 0)
             sizeOffer += size;
         else
             sizeOffer += sizeOffer;
@@ -73,6 +76,7 @@ export class InforService {
         deleteOfferTime += parseInt(deleteCount);
         this.deletedSomeItem = true;
     }
+
     getDeleteOffer() {
         return deleteOfferTime;
     }

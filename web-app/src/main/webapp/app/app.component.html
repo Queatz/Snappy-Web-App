@@ -1,16 +1,16 @@
 <div class="app">
-	<div class="navbar-fixed">
-		<nav>
-			<div class="nav-wrapper banner bkg-red">
-				<a [routerLink]="['Main']" class="logo" style="margin-left: 2rem;"><img src="img/favicon.png" style="width: .9em; vertical-align: -4%; margin-right: .25em;" />village.city</a>
-				<div class="right">
-					<div class="signin right">
-						<signin></signin>
-					</div>
-					<a class="chat right" *ngIf="userSignined()" [routerLink]="['Messages',{id:''}]"><i class="material-icons">chat_bubble</i></a>
-				</div>
-			</div>
-		</nav>
-	</div>
-	<router-outlet></router-outlet>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper banner bkg-red">
+                <a [routerLink]="['Main']" class="logo" style="margin-left: 2rem;"><img src="img/favicon.png" style="width: .9em; vertical-align: -4%; margin-right: .25em;" />village.city</a>
+                <div class="right">
+                    <div class="signin right">
+                        <signin></signin>
+                    </div>
+                    <a class="chat right" *ngIf="userSignined()" [routerLink]="['Messages',{id:''}]"><i class="material-icons">chat_bubble</i></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <router-outlet></router-outlet>
 </div>

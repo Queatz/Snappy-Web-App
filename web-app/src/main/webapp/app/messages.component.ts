@@ -47,7 +47,7 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
     }
 
     getUserInfoChatWith() {
-        if (typeof this.idCurrentContact !== 'undefined' && this.idCurrentContact !== '') {
+        if (this.idCurrentContact !== undefined && this.idCurrentContact !== '') {
             this.http.get('http://queatz-snappy.appspot.com/api/people/' + this.idCurrentContact + '?auth=' + this.token)
                 .map((res: Response) => res.json())
                 .subscribe(dataInput => {
@@ -102,7 +102,7 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
 
 
     goToGetMessages() {
-        if (this.idCurrentContact != '') {
+        if (this.idCurrentContact !== '') {
             this.http.get('http://queatz-snappy.appspot.com/api/people/' + this.idCurrentContact + '/messages?auth=' + this.token)
                 .map((res: Response) => res.json())
                 .subscribe(dataInput => {
@@ -151,6 +151,7 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
         }
         return false;
     }
+
     haveUserInfor() {
         if (this.inforService.getInforUser()) {
             return true;
@@ -175,6 +176,7 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
             scrollspeed: 0,
         });
     }
+
     resetTimeInterval() {
         clearInterval(this.timer);
         this.time = 500;
@@ -184,7 +186,7 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
 
     sendMessages(message) {
         //this.resetTimeInterval();
-        if (this.idCurrentContact && typeof message !== 'undefined' && message != "") {
+        if (this.idCurrentContact && message !== undefined && message != "") {
             var creds = "auth=" + this.token + "&message=" + message;
             var headers = new Headers();
             headers.append('Content-Type', 'application/x-www-form-urlencoded');
@@ -196,7 +198,6 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
                     if (dataInput.message == message) {
                         this.endMessage = false;
                         this.strMessage = '';
-                        //                        this.resetTimeInterval();
                         this.sendId = dataInput.id;
                         this.messageWithSomeone.push(dataInput);
 
@@ -210,7 +211,7 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
     }
 
     showContactImage(contact, mode) {
-        if (contact.from.id == this.myId) {
+        if (contact.from.id === this.myId) {
             switch (mode) {
                 case 0: //imageUrl
                     return contact.to.imageUrl;
@@ -234,18 +235,11 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
     checkIsLeft(message) {
         if (message.from.id != this.myId) {
             this.showleft = true;
-            return 'true';
+            return true;
         } else {
             this.showleft = false;
-            return 'false';
+            return false;
         }
-    }
-
-    getColor(message) {
-        if (this.messageWithSomeone.indexOf(message) == (this.messageWithSomeone.length - 1))
-            return '#BDBDBD';
-        else
-            return 'rgba(0,0,0,0.87)';
     }
 
     showContentMessage(message, mode) {
@@ -253,6 +247,7 @@ export class MessagesComponent implements AfterViewInit, OnInit, OnDeactivate {
             $('.content').animate({ scrollTop: $('.scrollpanel').height() }, 0);
             this.endMessage = true;
         }
+
         switch (mode) {
             case 0: //show message
                 return message.message;

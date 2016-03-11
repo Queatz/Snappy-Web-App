@@ -3,16 +3,19 @@
     top: 40%;
     left: 65px;
 }
+
 .imageprofile {
     position: absolute;
     top: 18%;
 }
+
 .message {
     display: block;
     min-height: 70px;
     position: relative;
     cursor: pointer;
 }
+
 .rightto {
     text-align: right;
     min-height: 70px;
@@ -20,6 +23,7 @@
     position: relative;
     padding-top: 15px;
 }
+
 .leftto {
     text-align: left;
     min-height: 70px;
@@ -27,51 +31,63 @@
     padding-left: 70px;
     position: relative;
 }
+
 .message-item img.avatar {
     position: absolute;
     top: 0;
 }
+
 .rightto .avatar {
     right: 10px;
 }
+
 .leftto .avatar {
     left: 10px;
 }
+
 .messages {
     padding: 0 20px;
 }
+
 .row.mainmessage {
     position: relative;
     height: 100%;
     min-height: 200px;
     
 }
+
 .mainmessage .col {
     height: 100%;
 }
+
 .mainmessage .col.messages {
     position: relative;
     height: 100%;
 }
+
 .mainmessage .listmessages, .messages .mstitle{
     padding: 0 0.75rem;
 }
+
 .listmessages .content {
     height: 100%;
     max-height:300px;
     overflow-y: scroll;
     padding-right: 5px;
 }
+
 .sendmessage textarea {
     padding: 0;
     max-height: 3rem;
     overflow-y: scroll;
 }
+
 .scroll {
     overflow-y: scroll;
     height: 100%;
 }
-.messagescontainer{
+
+.messagescontainer {
     position: absolute;
     right: 0;
     left: 0;
@@ -79,6 +95,7 @@
     top: 64px;
     overflow: hidden;
 }
+
 .mainmessage .listmessages {
     position: absolute;
     left: 20px;
@@ -87,26 +104,32 @@
     bottom: 126px;
     margin: 0;
 }
+
 .mainmessage .sendmessage {
     position: absolute;
     bottom: 0;
     left: 20px;
     right: 20px;
 }
+
 h3.mstitle {
     font-size: 2.2rem;
     color: #ee6e73;
     position: relative;
 }
-.ms-toogle .messages{
+
+.ms-toogle .messages {
     display: none;
 }
-.ms-toogle.ms-toogle-on  .messages{
+
+.ms-toogle.ms-toogle-on  .messages {
     display: block;
 }
+
 .ms-toogle-on .msrecent{
     display: none;
 }
+
 .recent-actors, .chat-bubble{
     position: absolute;
     right: 0.75rem;
@@ -117,9 +140,11 @@ h3.mstitle {
     .ms-toogle-on .msrecent, .ms-toogle .messages{
         display: block;
     }
+
     .recent-actors, .chat-bubble{
         display: none;
     }
+
     .mainmessage .col.messages {
         position: absolute;
         right: 0;
@@ -133,20 +158,20 @@ h3.mstitle {
     .listmessages .content {
         max-height:100%;
     }
-    .messagescontainer{
+    .messagescontainer {
         min-height: 200px;
     }
 }
 
 @media screen and (min-width: 830px){
-    .row.mainmessage{
+    .row.mainmessage {
         width: 70%;
         margin: 0 auto;
     }
 }
 
 @media screen and (min-width: 900px){
-    .row.mainmessage{
+    .row.mainmessage {
         width: 80%;
     }
 }

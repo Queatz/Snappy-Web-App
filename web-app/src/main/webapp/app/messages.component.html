@@ -23,10 +23,10 @@
                                     <a [routerLink]="['Profile', {id: showContentMessage(message, 2)}]" >
                                         <img class="circle resize avatar" src="{{showContentMessage(message, 1)}}" />
                                     </a>
-                                    <span class="emessage" [style.color]="getColor(message)"> {{showContentMessage(message, 0)}} </span>
+                                    <span class="emessage"> {{showContentMessage(message, 0)}} </span>
                                 </div>
                                 <div class="rightto clear" [hidden]="showleft">
-                                    <span class="emessage" [style.color]="getColor(message)"> {{showContentMessage(message, 0)}} </span>
+                                    <span class="emessage"> {{showContentMessage(message, 0)}} </span>
                                     <a [routerLink]="['Profile', {id: showContentMessage(message, 2)}]" >
                                         <img class="circle resize avatar" src="{{showContentMessage(message, 1)}}" />
                                     </a>

@@ -1,8 +1,7 @@
 import { Component, View, Input, AfterViewInit, ElementRef} from 'angular2/core';
 import { ROUTER_DIRECTIVES } from 'angular2/router';
-import {Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions} from 'angular2/http';
-//import { Observable } from 'rxjs/Observable';
-import {InforService} from './infor.service';
+import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
+import { InforService } from './infor.service';
 
 var firstHeaders = new Headers();
 firstHeaders.append('Content-Type', 'application/json;charset=UTF-8');
@@ -38,10 +37,11 @@ export class OfferCardComponent implements AfterViewInit {
         this.element = element.nativeElement;
         this.filesToUpload = [];
     }
+
     ngAfterViewInit() {
         Waves.displayEffect();
         this.offerImage = 'http://queatz-snappy.appspot.com/api/offer/' + this.offer.id +
-            '/photo?s=800&auth=ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
+            '/photo?s=800&auth=' + this.token;
         this.showModal();
     }
 
@@ -66,7 +66,7 @@ export class OfferCardComponent implements AfterViewInit {
     }
 
     public isRequest() {
-        return this.offer.price != null && this.offer.price < 0;
+        return this.offer.price !== null && this.offer.price < 0;
     }
 
     public getOfferTypeText() {
@@ -86,9 +86,7 @@ export class OfferCardComponent implements AfterViewInit {
     }
 
     public isProfile() {
-        if (this.profile == true)
-            return true;
-        else return false;
+        return this.profile;
     }
 
     public deleteOffer() {
@@ -96,10 +94,10 @@ export class OfferCardComponent implements AfterViewInit {
             this.http.delete('http://queatz-snappy.appspot.com/api/me/offers/' + this.offer.id + '?auth=' + this.inforService.getInforUser().auth, [])
                 .map(res => {
                     if (res.status == 200) {
-                        Materialize.toast('Delete Offer success!', 4000);
+                        Materialize.toast('Offer deleted', 4000);
                         this.deleteCallback(this.position, 1);
                     } else {
-                        Materialize.toast('Delete Offer fail!', 4000);
+                        Materialize.toast('Offer delete failed', 4000);
                     }
                 })
                 .subscribe();
@@ -112,19 +110,19 @@ export class OfferCardComponent implements AfterViewInit {
                 + "/photo?auth=" + this.inforService.getInforUser().auth, [], this.filesToUpload)
                 .then(result => {
                     if (result) {
-                        Materialize.toast('Upload Image success!', 4000);
+                        Materialize.toast('Photo updated', 4000);
                         this.offer.hasPhoto = true;
                         this.offerImage = 'http://queatz-snappy.appspot.com/api/offer/' + this.offer.id +
-                            '/photo?s=800&auth=ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
+                            '/photo?s=800&auth=' + this.token;
                         this.deleteCallback(this.position, 3);
                     }
                     else
-                        Materialize.toast('Upload Image fail!', 4000);
+                        Materialize.toast('Photo update failed', 4000);
                 }, (error) => {
                     console.error(error);
                 });
         } else {
-            Materialize.toast('Empty Image!', 4000);
+            Materialize.toast('No photo', 4000);
         }
     }
 
@@ -132,7 +130,7 @@ export class OfferCardComponent implements AfterViewInit {
         return new Promise((resolve, reject) => {
             var formData: any = new FormData();
             var xhr = new XMLHttpRequest();
-            formData.append("photo", files[0], files[0].name);
+            formData.append('photo', files[0], files[0].name);
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4) {
                     if (xhr.status == 200) {
@@ -142,7 +140,7 @@ export class OfferCardComponent implements AfterViewInit {
                     }
                 }
             }
-            xhr.open("PUT", url, true);
+            xhr.open('PUT', url, true);
             xhr.send(formData);
         });
     }
@@ -155,14 +153,14 @@ export class OfferCardComponent implements AfterViewInit {
             this.http.delete('http://queatz-snappy.appspot.com/api/offer/' + this.offer.id + '/photo?auth=' + this.inforService.getInforUser().auth, [])
                 .map(res => {
                     if (res.status == 200) {
-                        Materialize.toast('Delete Photo success!', 4000);
+                        Materialize.toast('Photo removed', 4000);
                         this.offerImage = '';
                         this.deleteCallback(this.position, 3);
                         setTimeout(() => {
                             this.offer.hasPhoto = false;
                         }, 50);
                     } else {
-                        Materialize.toast('Delete Photo fail!', 4000);
+                        Materialize.toast('Photo remove failed', 4000);
                     }
                 })
                 .subscribe();
@@ -170,8 +168,8 @@ export class OfferCardComponent implements AfterViewInit {
     }
 
     showModal() {
-        if (this.isProfile() && this.inforService.getListOfferCheck(this.getPosition() + '-1') == false) {
-            if (this.inforService.getDeleteOffer() < 0 || (this.inforService.getDeleteOffer() == 0 && !this.inforService.deletedSomeItem)) {
+        if (this.isProfile() && this.inforService.getListOfferCheck(this.getPosition() + '-1') === false) {
+            if (this.inforService.getDeleteOffer() < 0 || (this.inforService.getDeleteOffer() === 0 && !this.inforService.deletedSomeItem)) {
                 $('[href="#modal-action' + this.getPosition() + '-1"]').leanModal();
                 $('[href="#modal-action' + this.getPosition() + '-2"]').leanModal();
             }

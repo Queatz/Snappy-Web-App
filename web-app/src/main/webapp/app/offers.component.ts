@@ -1,9 +1,9 @@
-import {Component, Input, OnInit, ElementRef, AfterViewInit, OnChanges, provide} from 'angular2/core';
-import {Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions} from 'angular2/http';
+import { Component, Input, OnInit, ElementRef, AfterViewInit, OnChanges, provide } from 'angular2/core';
+import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
 import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
 import 'rxjs/add/operator/map';
-import {OfferCardComponent} from './offer-card.component'
-import {InforService} from './infor.service';
+import { OfferCardComponent } from './offer-card.component'
+import { InforService } from './infor.service';
 
 var firstHeaders = new Headers();
 firstHeaders.append('Content-Type', 'application/json;charset=UTF-8');
@@ -59,9 +59,11 @@ export class OffersComponent implements OnInit, AfterViewInit {
         if (!position) {
             return;
         }
-        if (typeof this.inforService.getInforUser() !== 'undefined' && typeof this.inforService.getInforUser().auth !== 'undefined') {
+
+        if (this.inforService.getInforUser() !== undefined && this.inforService.getInforUser().auth !== undefined) {
             this.token = this.inforService.getInforUser().auth;
         }
+
         this.http.get('http://queatz-snappy.appspot.com/api/here?latitude=' + position.coords.latitude + '&longitude=' + position.coords.longitude + '&auth=' + this.token)
             .map((res: Response) => res.json())
             .subscribe(here => {
@@ -74,9 +76,9 @@ export class OffersComponent implements OnInit, AfterViewInit {
     }
 
     public loaded(offers) {
-
         this.offersLoaded = true;
         this.offers = _.sortBy(offers, 'price');
+
         setTimeout(() => {
             var elem = this.element.querySelector('.grid');
             this.masonry = new Masonry(elem, {
@@ -95,10 +97,7 @@ export class OffersComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         this.inforService.setProfileUpdateOffer(this.boundDeleteCallback, this.profile);
-
-        if (typeof this.inforService.getInforUser() == 'undefined' || this.inforService.getInforUser() == null) {
-            this.signed = false;
-        } else { this.signed = true; }
+        this.signed = !!this.inforService.getInforUser();
     }
 
     resizeCallback() {

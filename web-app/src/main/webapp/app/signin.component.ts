@@ -60,11 +60,10 @@ export class SigninComponent implements AfterViewInit, OnInit {
 
         gapi.load('auth2', function() {
             var auth2 = gapi.auth2.getAuthInstance();
-            if (typeof auth2 !== 'undefined') {
+            if (auth2 !== undefined) {
                 auth2.then(function() {
                     if (!auth2.isSignedIn.get()) {
                         globalService.setInforUser(null);
-                        // window.location.reload();
                     }
                 });
             }
@@ -82,7 +81,7 @@ export class SigninComponent implements AfterViewInit, OnInit {
             .map((res: Response) => res.json())
             .subscribe(dataInput => {
 
-                if (this.inforService.getInforUser() === undefined || this.inforService.getInforUser() == null) {
+                if (!this.inforService.getInforUser()) {
                     this.inforService.setInforUser(dataInput);
                     this._ngZone.run(() => {
                         this.glink = dataInput.googleUrl;
