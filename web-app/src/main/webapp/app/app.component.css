@@ -5,3 +5,9 @@
 .chat, .signin {
     padding-right: 10px;
 }
+
+.iconic {
+    background-image: url(img/КИРКА2.png);
+    background-position: 50% 45%;
+    background-repeat: no-repeat;
+}
