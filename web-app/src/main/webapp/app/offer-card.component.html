@@ -15,43 +15,43 @@
         </div>
     </div>
     <div class="card-action">
-        <a [routerLink]="['Messages', {id: offer.person.id}]">
-        <div class="price waves-effect secondary-content waves-light btn white-text" [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}">
-            <b>{{ getPrice() }}</b>
-        </div> </a>
+        <a (click)="clickPrice()">
+            <div class="price waves-effect secondary-content waves-light btn white-text" [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}">
+                <b>{{ getPrice() }}</b>
+            </div>
+        </a>
         <div class="more-action" [hidden]="!isProfile()">
-            <a class="waves-effect waves-light delete modal-trigger" href="#modal-action{{ getPosition() }}-1"><i class="material-icons small">delete</i></a>
-            <a class="waves-effect waves-light add modal-trigger" href="#modal-action{{ getPosition() }}-2"><i class="material-icons small">library_add</i></a>
+            <a class="delete modal-trigger" href="#modal-action{{ getPosition() }}-1"><i class="material-icons small">delete</i></a>
+            <a class="add modal-trigger" href="#modal-action{{ getPosition() }}-2"><i class="material-icons small">library_add</i></a>
         </div>
         <div class="clear"></div>
-
     </div>
     <div id="modal-action{{ getPosition() }}-1" class="modal">
         <div class="modal-content">
-            <p>
-                Are you sure?
-            </p>
+            <h5>
+                Remove <b>{{ offer.details }}</b>?
+            </h5>
         </div>
         <div class="modal-footer">
+            <a class="modal-action modal-close waves-effect waves-red btn-flat" (click)="deleteOffer()">Remove</a>
             <a class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-            <a class="modal-action modal-close waves-effect waves-red btn-flat" (click)="deleteOffer()">Delete</a>
         </div>
     </div>
     <div id="modal-action{{ getPosition() }}-2" class="modal">
         <div class="modal-content">
+            <h4>Set offer photo</h4>
             <div class="file-field input-field">
                 <div class="btn">
                     <span>File</span>
                     <input type="file" accept="image/*" (change)="fileChangeEvent($event)">
                 </div>
                 <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text"  [(ngModel)]="efile">
+                    <input class="file-path validate" type="text" [(ngModel)]="efile">
                 </div>
             </div>
-
         </div>
         <div class="modal-footer">
-            <a class="left modal-action modal-close waves-effect waves-green btn-flat" (click)="deleteImage()">Delete</a>
+            <a class="left modal-action modal-close waves-effect waves-green btn-flat" (click)="deleteImage()">Remove photo</a>
             <a class="right modal-action modal-close waves-effect waves-green btn-flat" (click)="uploadPhoto()">Upload</a>
             <a class="right modal-action modal-close waves-effect waves-red btn-flat">Cancel</a>
         </div>

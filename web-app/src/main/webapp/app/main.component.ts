@@ -18,7 +18,7 @@ export class MainComponent implements AfterViewInit {
 
     ngAfterViewInit() {
         if (this.inforService.getModalTrigger()) {
-            $('.modal-trigger-floating').leanModal();
+            $(this.element).find('.modal-trigger-floating').leanModal();
         }
     }
 }

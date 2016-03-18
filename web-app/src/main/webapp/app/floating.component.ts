@@ -28,7 +28,7 @@ export class FloatingComponent implements AfterViewInit {
 
     ngAfterViewInit() {
 //        if (this.inforService.getModalTrigger()) {
-//            $('.modal-trigger-floating').leanModal();
+//            $(this.element).find('.modal-trigger-floating').leanModal();
 //        }
     }
 
@@ -45,7 +45,7 @@ export class FloatingComponent implements AfterViewInit {
             enumber = '0';
         this.token = this.inforService.getInforUser().auth;
         if (edetails !== undefined && edetails != '') {
-            $('#model1').closeModal();
+            $(this.element).find('#model1').closeModal();
             var creds = "auth=" + this.token + "&details=" + edetails + "&price=" + enumber + "&unit=" + emessage;
             var headers = new Headers();
             headers.append('Content-Type', 'application/x-www-form-urlencoded');

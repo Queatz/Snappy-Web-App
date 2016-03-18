@@ -2,6 +2,7 @@
     position: absolute;
     top: 40%;
     left: 65px;
+    color: initial;
 }
 
 .imageprofile {
@@ -71,7 +72,6 @@
 
 .listmessages .content {
     height: 100%;
-    max-height:300px;
     overflow-y: scroll;
     padding-right: 5px;
 }
@@ -101,7 +101,7 @@
     left: 20px;
     right: 20px;
     top: 75px;
-    bottom: 126px;
+    bottom: 121px;
     margin: 0;
 }
 
@@ -122,7 +122,7 @@ h3.mstitle {
     display: none;
 }
 
-.ms-toogle.ms-toogle-on  .messages {
+.ms-toogle.ms-toogle-on .messages {
     display: block;
 }
 
@@ -130,18 +130,18 @@ h3.mstitle {
     display: none;
 }
 
-.recent-actors, .chat-bubble{
+.recent-actors, .chat-bubble {
     position: absolute;
     right: 0.75rem;
     top: 3px;
 }
     
-@media screen and (min-width: 605px){
-    .ms-toogle-on .msrecent, .ms-toogle .messages{
+@media screen and (min-width: 600px) {
+    .ms-toogle-on .msrecent, .ms-toogle .messages {
         display: block;
     }
 
-    .recent-actors, .chat-bubble{
+    .recent-actors, .chat-bubble {
         display: none;
     }
 
@@ -154,26 +154,24 @@ h3.mstitle {
     .mainmessage .col.messages {
         padding-bottom: 126px;
     }
-    
-    .listmessages .content {
-        max-height:100%;
-    }
+
     .messagescontainer {
         min-height: 200px;
     }
 }
 
-@media screen and (min-width: 830px){
+.clickable {
+    cursor: pointer;
+}
+
+.not-seen {
+    font-weight: bold;
+}
+
+@media screen and (min-width: 830px) {
     .row.mainmessage {
         width: 70%;
         margin: 0 auto;
     }
 }
-
-@media screen and (min-width: 900px){
-    .row.mainmessage {
-        width: 80%;
-    }
-}
-
 

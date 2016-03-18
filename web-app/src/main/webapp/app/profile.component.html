@@ -1,4 +1,7 @@
 <div>
+    <h4 class="grey-text center-align" *ngIf="notFound">
+        <br />Something's coming. Ruuuuun!
+    </h4>
     <div class="z-depth-1 bkg-white" *ngIf="person">
         <img class="photo" [src]="person.imageUrl.split('=')[0] + '=480'" />
         <div class="info">
@@ -19,5 +22,5 @@
         <floating></floating>
     </div>
     <br />
-    <offers [list]="offers" [profile]=isMyProfile()></offers>
+    <offers *ngIf="person" [list]="offers" [profile]=isMyProfile()></offers>
 </div>

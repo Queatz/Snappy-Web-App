@@ -22,6 +22,7 @@ class MyOptions extends BaseRequestOptions {
 
 })
 export class ProfileComponent implements OnInit, AfterViewInit {
+    public notFound = false;
     private offers;
     private myProfile;
     private token = 'ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
@@ -62,12 +63,13 @@ export class ProfileComponent implements OnInit, AfterViewInit {
             .subscribe(person => {
                 this.person = person;
                 this.loaded(person.offers);
-            });
+            },
+            error => this.notFound = true);
     }
     ngAfterViewInit() {
         if (this.inforService.triggerProfile && this.isMyProfile()) {
             this.inforService.triggerProfile  = false;
-            $('.modal-trigger-floating').leanModal();
+            $(this.element).find('.modal-trigger-floating').leanModal();
        }
     }
 
