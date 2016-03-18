@@ -47,7 +47,7 @@ public class Controller extends HttpServlet {
                 "        <script src=\"http://code.jquery.com/jquery-2.1.4.min.js\"></script>\n" +
                 "        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js\"></script>\n" +
                 "\n" +
-                "        <script src=\"jquery.nicescroll.js\"></script>\n" +
+                "        <script src=\"node_modules/nicescroll/dist/jquery.nicescroll.min.js\"></script>\n" +
                 "        <script src=\"node_modules/materialize-css/dist/js/materialize.min.js\" async defer></script>\n" +
                 "        <script src=\"node_modules/masonry-layout/dist/masonry.pkgd.min.js\" async defer></script>\n" +
                 "        <script src=\"https://apis.google.com/js/platform.js\" async defer></script>\n" +

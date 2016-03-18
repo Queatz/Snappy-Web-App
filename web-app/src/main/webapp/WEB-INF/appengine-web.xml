@@ -29,6 +29,7 @@
         <include path="node_modules/materialize-css/dist/font/roboto/*.woff2" />
         <include path="node_modules/materialize-css/dist/css/materialize.min.css" />
         <include path="node_modules/materialize-css/dist/js/materialize.min.js" />
+        <include path="node_modules/nicescroll/dist/jquery.nicescroll.min.js" />
 
         <include path="app/*.js" />
         <include path="app/*.html" />
@@ -56,6 +57,7 @@
         <include path="node_modules/materialize-css/dist/font/roboto/*.woff2" />
         <include path="node_modules/materialize-css/dist/css/materialize.min.css" />
         <include path="node_modules/materialize-css/dist/js/materialize.min.js" />
+        <include path="node_modules/nicescroll/dist/jquery.nicescroll.min.js" />
 
         <include path="app/*.js" />
         <include path="app/*.html" />

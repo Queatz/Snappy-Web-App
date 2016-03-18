@@ -20,7 +20,8 @@
     "lodash": "^3.0.0",
     "normalize.css": "3.0.2",
     "materialize-css": "^0.97.5",
-    "masonry-layout": "4.0"
+    "masonry-layout": "4.0",
+    "nicescroll": "git+https://github.com/inuyaksa/jquery.nicescroll.git"
   },
   "devDependencies": {
     "concurrently": "^1.0.0",

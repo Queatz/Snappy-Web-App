@@ -45,8 +45,8 @@ export class SigninComponent implements AfterViewInit, OnInit {
     ngAfterViewInit() {
         globalService = this.inforService;
         gapi.signin2.render(this.element, {
-            width: 240,
-            longtitle: true,
+            width: 120,
+            longtitle: false,
             onsuccess: (googleUser) => {
                 this.signedIn = true;
                 this.onSuccess(googleUser);
@@ -55,7 +55,7 @@ export class SigninComponent implements AfterViewInit, OnInit {
                 console.log(error);
             },
             scope: 'profile email',
-            redirect_uri: 'http://localhost:3000' //todo
+            redirect_uri: 'postmessage'
         });
 
         gapi.load('auth2', function() {
