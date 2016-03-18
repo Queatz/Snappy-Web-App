@@ -1,0 +1,7 @@
+<div class="signin-wrapper" [hidden]="signedIn">
+</div>
+<div class="profile" *ngIf="signedIn">    
+    <a [routerLink]="['Profile', {id: glink}]">
+        <img class="circle resize" src="{{gimage}}" />
+    </a>
+</div>

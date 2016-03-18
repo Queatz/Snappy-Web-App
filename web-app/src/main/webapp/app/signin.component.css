@@ -1,0 +1,23 @@
+.signin-wrapper {
+    font-size: initial;
+    text-shadow: none;
+    text-align: center;
+    padding-top: 1em;
+    line-height: initial;
+}
+
+.resize {
+    width: 50px;
+    height: 50px;
+    margin-top: 7px;
+}
+
+.profile .resize{
+    margin-top: 3px;
+}
+
+@media screen and (min-width: 605px){
+    .profile .resize{
+        margin-top: 7px;
+    }
+}

@@ -1,0 +1,54 @@
+<div class="messagescontainer">
+    <div class="grey-text center-align" *ngIf="!haveUserInfor()">
+        <p>
+            You're not signed in.
+        </p>
+    </div>
+    <div class="row mainmessage ms-toogle" [ngClass]="{'ms-toogle-on': msToggleOn}" *ngIf="haveUserInfor()">
+        <div class="col s12 m4 l3 scroll msrecent">
+            <div class="scroll">
+                <h3 class="mstitle">Contacts <i class="clickable small material-icons chat-bubble" (click)="showChat()">chat_bubble</i></h3>
+                <div class="item" [ngClass]="{'grey lighten-2': contact.contact.id === idCurrentContact}" *ngFor="#contact of contacts">
+                    <a class="message clear" [ngClass]="{'not-seen': !contact.seen}" (click)="getMessagesById(contact)">
+                        <a [routerLink]="['Profile', {id: contact.contact.googleUrl}]" >
+                            <img class="circle resize imageprofile" src="{{showContactImage(contact, 0)}}"/>
+                        </a>
+                        <div class="name">
+                            {{ showContactImage(contact, 1) }}
+                        </div>
+                    </a>
+                    <div class="divider"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m8 l9 messages">
+            <h3 class="mstitle">{{ messagesWith.firstName }} {{ messagesWith.lastName }}<i class="clickable small material-icons recent-actors" (click)="showRecent()">recent_actors</i></h3>
+            <div class="row s3 listmessages">
+                <div class="content scroll">
+                    <div class="scrollpanel">
+                        <div class="message-item clear scrollspy" *ngFor="#message of messageWithSomeone">
+                            <div class="message-name">
+                                <div class="clear" [ngClass]="{rightto: !checkIsLeft(message), leftto: checkIsLeft(message)}">
+                                    <span class="emessage"> {{showContentMessage(message, 0)}} </span>
+                                    <a [routerLink]="['Profile', {id: showContentMessage(message, 2)}]" >
+                                        <img class="circle resize avatar" src="{{showContentMessage(message, 1)}}" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row s9 sendmessage">
+                <div class="input-field col s12">
+                    <div class="divider"></div>
+                    <textarea id="icon_prefix2" class="validate materialize-textarea scroll" [(ngModel)]="strMessage"></textarea>
+                    <label for="icon_prefix2">Message {{ messagesWith.firstName }}...</label>
+                    <a class="waves-effect waves-light btn" (click)="sendMessages(strMessage)"><i class="material-icons right">done</i>Send</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

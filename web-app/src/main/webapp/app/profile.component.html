@@ -1,4 +1,7 @@
 <div>
+    <h4 class="grey-text center-align" *ngIf="notFound">
+        <br />Something's coming. Ruuuuun!
+    </h4>
     <div class="z-depth-1 bkg-white" *ngIf="person">
         <img class="photo" [src]="person.imageUrl.split('=')[0] + '=480'" />
         <div class="info">
@@ -6,14 +9,18 @@
             <parse-links class="about flow-text">{{ person.about }}</parse-links>
             <br />
             <div>
-                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.queatz.snappy">
-                    <div class="price waves-effect waves-light btn white-text bkg-red">
+                <a [routerLink]="['Messages', {id: person.id}]">
+                    <div class="price waves-effect waves-light btn white-text bkg-red" *ngIf="!isMyProfile()">
                         <b>Message {{ person.firstName }}</b>
                     </div>
-                </a><div *ngIf="person.infoFollowers" class="followers grey-text text-darken-2">{{ person.infoFollowers }} {{ person.infoFollowers === 1 ? 'follower' : 'followers' }}</div>
+                </a>
+                <div *ngIf="person.infoFollowers" class="followers grey-text text-darken-2">{{ person.infoFollowers }} {{ person.infoFollowers === 1 ? 'follower' : 'followers' }}</div>
             </div>
         </div>
     </div>
+    <div [hidden]="!isMyProfile()">
+        <floating></floating>
+    </div>
     <br />
-    <offers [list]="offers"></offers>
+    <offers *ngIf="person" [list]="offers" [profile]=isMyProfile()></offers>
 </div>
