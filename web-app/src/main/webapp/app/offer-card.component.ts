@@ -89,6 +89,14 @@ export class OfferCardComponent implements AfterViewInit {
         return this.profile;
     }
 
+    public clickPrice() {
+        if (this.profile) {
+            return;
+        }
+
+       this._router.navigate( ['Messages', {id: this.offer.person.id}] );
+   }
+
     public deleteOffer() {
         if (this.offer) {
             this.http.delete('http://queatz-snappy.appspot.com/api/me/offers/' + this.offer.id + '?auth=' + this.inforService.getInforUser().auth, [])
