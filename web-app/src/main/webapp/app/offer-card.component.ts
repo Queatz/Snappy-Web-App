@@ -1,5 +1,5 @@
 import { Component, View, Input, AfterViewInit, ElementRef} from 'angular2/core';
-import { ROUTER_DIRECTIVES } from 'angular2/router';
+import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
 import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
 import { InforService } from './infor.service';
 
@@ -31,6 +31,7 @@ export class OfferCardComponent implements AfterViewInit {
 
     constructor(inforService: InforService,
         http: Http,
+        private _router: Router,
         element: ElementRef) {
         this.inforService = inforService;
         this.http = http;
