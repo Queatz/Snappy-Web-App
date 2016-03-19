@@ -11,4 +11,12 @@ import {InforService} from './infor.service';
     styleUrls: ['app/main.component.css'],
     directives: [OffersComponent, BannerComponent, InfoPanelComponent, FloatingComponent]
 })
-export class MainComponent{}
+export class MainComponent{
+    constructor(inforService: InforService) {
+        this.inforService = inforService;
+    }
+
+    newUser() {
+        return !this.inforService.getInforUser();
+    }
+}
