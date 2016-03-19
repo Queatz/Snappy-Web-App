@@ -27,9 +27,7 @@ export class FloatingComponent implements AfterViewInit {
     }
 
     ngAfterViewInit() {
-//        if (this.inforService.getModalTrigger()) {
-//            $(this.element).find('.modal-trigger-floating').leanModal();
-//        }
+        $(this.element).find('.modal-trigger').leanModal();
     }
 
     userSignined() {

@@ -1,5 +1,5 @@
 import { Component, View, Input, AfterViewInit, ElementRef} from 'angular2/core';
-import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
+import { ROUTER_DIRECTIVES } from 'angular2/router';
 import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
 import { InforService } from './infor.service';
 
@@ -31,7 +31,6 @@ export class OfferCardComponent implements AfterViewInit {
 
     constructor(inforService: InforService,
         http: Http,
-        private _router: Router,
         element: ElementRef) {
         this.inforService = inforService;
         this.http = http;
@@ -88,14 +87,6 @@ export class OfferCardComponent implements AfterViewInit {
 
     public isProfile() {
         return this.profile;
-    }
-
-    public clickPrice() {
-        if (this.profile) {
-            return;
-        }
-
-        this._router.navigate( ['Messages', {id: this.offer.person.id}] );
     }
 
     public deleteOffer() {
@@ -179,8 +170,7 @@ export class OfferCardComponent implements AfterViewInit {
     showModal() {
         if (this.isProfile() && this.inforService.getListOfferCheck(this.getPosition() + '-1') === false) {
             if (this.inforService.getDeleteOffer() < 0 || (this.inforService.getDeleteOffer() === 0 && !this.inforService.deletedSomeItem)) {
-                $(this.element).find('[href="#modal-action' + this.getPosition() + '-1"]').leanModal();
-                $(this.element).find('[href="#modal-action' + this.getPosition() + '-2"]').leanModal();
+                $(this.element).find('.modal-trigger').leanModal();
             }
         }
     }
