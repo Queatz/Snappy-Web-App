@@ -6,7 +6,6 @@ import {InforService} from './infor.service';
 
 var firstHeaders = new Headers();
 firstHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
-var globalService;
 
 class MyOptions extends BaseRequestOptions {
     headers: Headers = firstHeaders
@@ -20,6 +19,9 @@ class MyOptions extends BaseRequestOptions {
     directives: [ROUTER_DIRECTIVES]
 })
 export class SigninComponent implements AfterViewInit, OnInit {
+    public signedIn: boolean;
+    private element;
+
     constructor(
         inforService: InforService,
         http: Http,
@@ -28,7 +30,7 @@ export class SigninComponent implements AfterViewInit, OnInit {
         elementRef: ElementRef) {
         this.inforService = inforService;
         this.http = http;
-        this.element = elementRef.nativeElement.children[0];
+        this.element = elementRef.nativeElement;
         this.signedIn = false; // todo -> auth factory
         if (localStorage.getItem('myInfo')) {
             this.localData = JSON.parse(localStorage.getItem('myInfo'));
@@ -43,8 +45,8 @@ export class SigninComponent implements AfterViewInit, OnInit {
 
     }
     ngAfterViewInit() {
-        globalService = this.inforService;
-        gapi.signin2.render(this.element, {
+        var inforService = this.inforService;
+        gapi.signin2.render(this.element.querySelector('.google-signin'), {
             width: 120,
             longtitle: false,
             onsuccess: (googleUser) => {
@@ -63,7 +65,7 @@ export class SigninComponent implements AfterViewInit, OnInit {
             if (auth2) {
                 auth2.then(function() {
                     if (!auth2.isSignedIn.get()) {
-                        globalService.setInforUser(null);
+                        inforService.setInforUser(null);
                     }
                 });
             }

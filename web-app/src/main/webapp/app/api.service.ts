@@ -29,4 +29,12 @@ export public class ApiService {
                               + '&auth='+ this.token())
                            .map((res: Response) => res.json());
     }
+
+    public peopleHere(coords) {
+        return this._http.get('http://queatz-snappy.appspot.com/api/here/people?latitude='
+                              + coords.latitude + '&longitude='
+                              + coords.longitude
+                              + '&auth='+ this.token())
+                           .map((res: Response) => res.json());
+    }
 }

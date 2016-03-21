@@ -10,7 +10,7 @@ import { ApiService } from './api.service';
     selector: 'offers',
     templateUrl: 'app/offers.component.html',
     styleUrls: ['app/offers.component.css'],
-    directives: [OfferCardComponent]
+    directives: [ROUTER_DIRECTIVES, OfferCardComponent]
 })
 export class OffersComponent implements OnInit, AfterViewInit {
     public offers = [];

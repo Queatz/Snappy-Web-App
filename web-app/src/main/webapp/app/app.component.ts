@@ -11,9 +11,7 @@ import { PeopleComponent } from "./people.component";
 import { SearchComponent } from "./search.component";
 import { ProjectComponent } from "./project.component";
 import { InforService } from './infor.service';
-import { ElementRef, enableProdMode } from 'angular2/core';
-
-enableProdMode();
+import { ElementRef } from 'angular2/core';
 
 @Component({
 	selector: 'app',

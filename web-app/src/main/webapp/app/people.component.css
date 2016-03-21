@@ -1,3 +1,11 @@
+.waiting {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #777;
+    padding: .5em;
+    margin-top: 1rem;
+}
+
 .grid {
     margin: 15px auto;
 }
