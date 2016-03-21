@@ -4,19 +4,12 @@ import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
 import 'rxjs/add/operator/map';
 import { OfferCardComponent } from './offer-card.component'
 import { InforService } from './infor.service';
-
-var firstHeaders = new Headers();
-firstHeaders.append('Content-Type', 'application/json;charset=UTF-8');
-
-class MyOptions extends BaseRequestOptions {
-    headers: Headers = firstHeaders
-}
+import { ApiService } from './api.service';
 
 @Component({
     selector: 'offers',
     templateUrl: 'app/offers.component.html',
     styleUrls: ['app/offers.component.css'],
-    viewProviders: [HTTP_PROVIDERS, provide(RequestOptions, { useClass: MyOptions })],
     directives: [OfferCardComponent]
 })
 export class OffersComponent implements OnInit, AfterViewInit {
@@ -24,15 +17,11 @@ export class OffersComponent implements OnInit, AfterViewInit {
     public offersLoaded = false;
     private masonry: Masonry;
     private person;
-    private token = 'ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
 
     @Input() public profile;
     @Input() public list;
 
-    constructor(private router: Router, inforService: InforService, http: Http, element: ElementRef) {
-        this.inforService = inforService;
-        this.http = http;
-        this.router = router;
+    constructor(private router: Router, private inforService: InforService, private api: ApiService, element: ElementRef) {
         this.element = element.nativeElement;
         this.boundResizeCallback = this.resizeCallback.bind(this);
         this.boundDeleteCallback = this.deleteCallback.bind(this);
@@ -64,8 +53,7 @@ export class OffersComponent implements OnInit, AfterViewInit {
             this.token = this.inforService.getInforUser().auth;
         }
 
-        this.http.get('http://queatz-snappy.appspot.com/api/here?latitude=' + position.coords.latitude + '&longitude=' + position.coords.longitude + '&auth=' + this.token)
-            .map((res: Response) => res.json())
+        this.api.here(position.coords)
             .subscribe(here => {
                 // If there aren't any offers near them, then bail.
                 if (here.offers.length < 1) {

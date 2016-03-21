@@ -1,6 +1,7 @@
 import { Component, ElementRef, provide, AfterViewInit } from 'angular2/core';
 import { ROUTER_DIRECTIVES, RouteParams, Router, OnDeactivate } from 'angular2/router';
-import {Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions} from 'angular2/http';
+import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
+import { ViewName } from './view-name.interface';
 
 import {InforService} from './infor.service';
 
@@ -23,14 +24,14 @@ class MyOptions extends BaseRequestOptions {
     viewProviders: [HTTP_PROVIDERS, provide(RequestOptions, { useClass: MyOptions })],
     directives: [ROUTER_DIRECTIVES]
 })
-export class MessagesComponent implements AfterViewInit, OnDeactivate {
+export class MessagesComponent implements AfterViewInit, OnDeactivate, ViewName {
     public currentMessages = [];
     public messageWithSomeone = [];
     public contacts = [];
     public info = [];
     public idCurrentContact;
     public messagesWith = {};
-    public msToggleOn;
+    public msToggleOn = true;
 
     constructor(inforService: InforService, private router: Router, private routeParams: RouteParams, http: Http, element: ElementRef) {
         this.inforService = inforService;
@@ -237,5 +238,9 @@ export class MessagesComponent implements AfterViewInit, OnDeactivate {
 
     showRecent() {
         this.msToggleOn = false;
+    }
+
+    getViewName() {
+        return 'Messages';
     }
 }

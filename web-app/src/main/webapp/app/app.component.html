@@ -1,13 +1,34 @@
 <div class="app">
     <div class="navbar-fixed">
         <nav>
-            <div class="nav-wrapper banner bkg-red iconic">
-                <a [routerLink]="['Main']" class="logo" style="margin-left: 2rem;">village.city</a>
+            <div class="nav-wrapper banner" [ngClass]="{'blue': isActive(['Hubs']), 'deep-orange': isActive(['Projects']), 'brown': isActive(['Resources']), 'bkg-red': !isActive(['Hubs']) && !isActive(['Projects']) && !isActive(['Resources'])}">
+                <a data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+
+                <a class="brand-logo center hide-on-large-only">{{ pageTitle() }}</a>
+
+                <ul id="nav-desktop" class="left hide-on-med-and-down">
+                    <li class="nav-header"><a [routerLink]="['Main']"><img src="img/favicon.png" class="logo-icon left" />Village</a></li>
+                    <li [ngClass]="{'active': isActive(['Hubs'])}"><a [routerLink]="['Hubs']"><i class="material-icons left">room</i>Hubs</a></li>
+                    <li [ngClass]="{'active': isActive(['Projects'])}"><a [routerLink]="['Projects']"><i class="material-icons left">settings</i>Projects</a></li>
+                    <li [ngClass]="{'active': isActive(['Resources'])}"><a [routerLink]="['Resources']"><i class="material-icons left">language</i>Resources</a></li>
+                    <li [ngClass]="{'active': isActive(['People'])}"><a [routerLink]="['People']"><i class="material-icons left">perm_identity</i>People</a></li>
+                    <li [ngClass]="{'active': isActive(['Search', {query: ''}])}"><a [routerLink]="['Search', {query: ''}]"><i class="material-icons left">search</i>Search</a></li>
+                </ul>
+
+                <ul id="slide-out" class="side-nav">
+                    <li class="menu-header"><a [routerLink]="['Main']"><img src="img/favicon.png" class="logo-icon left" />Village</a></li>
+                    <li><a [routerLink]="['Hubs']"><i class="material-icons left">room</i>Hubs</a></li>
+                    <li><a [routerLink]="['Projects']"><i class="material-icons left">settings</i>Projects</a></li>
+                    <li><a [routerLink]="['Resources']"><i class="material-icons left">language</i>Resources</a></li>
+                    <li><a [routerLink]="['People']"><i class="material-icons left">perm_identity</i>People</a></li>
+                    <li><a [routerLink]="['Search', {query: ''}]"><i class="material-icons left">search</i>Search</a></li>
+                </ul>
+
                 <div class="right">
                     <div class="signin right">
                         <signin></signin>
                     </div>
-                    <a class="chat right" *ngIf="userSignined()" [routerLink]="['Messages',{id:''}]"><i class="material-icons">chat_bubble</i></a>
+                    <a class="chat right" *ngIf="userSignined()" [routerLink]="['Messages', {id: ''}]"><i class="material-icons">chat_bubble</i></a>
                 </div>
             </div>
         </nav>

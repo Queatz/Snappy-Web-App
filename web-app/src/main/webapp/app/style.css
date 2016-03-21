@@ -17,3 +17,7 @@ body {
 .clear {
     clear: both;
 }
+
+.side-nav a:hover {
+    background: transparent;
+}

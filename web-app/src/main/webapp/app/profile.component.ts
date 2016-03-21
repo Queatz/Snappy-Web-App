@@ -4,6 +4,7 @@ import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } fro
 import { OffersComponent } from './offers.component';
 import { ParseLinksComponent } from './parseLinks.component';
 import { FloatingComponent } from './floating.component';
+import { ViewName } from './view-name.interface';
 
 import {InforService} from './infor.service';
 
@@ -21,7 +22,7 @@ class MyOptions extends BaseRequestOptions {
     directives: [ROUTER_DIRECTIVES, OffersComponent, ParseLinksComponent, FloatingComponent],
 
 })
-export class ProfileComponent implements OnInit, AfterViewInit {
+export class ProfileComponent implements OnInit, AfterViewInit, ViewName {
     public notFound = false;
     private offers;
     private myProfile;
@@ -76,5 +77,9 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     isMyProfile() {
         return this.inforService.getInforUser() !== undefined
                 && this.myProfile == this.inforService.getInforUser().googleUrl;
+    }
+
+    getViewName() {
+        return this.person ? this.person.firstName : 'Village';
     }
 }

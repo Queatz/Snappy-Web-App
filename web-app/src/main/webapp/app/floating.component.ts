@@ -31,7 +31,7 @@ export class FloatingComponent implements AfterViewInit {
     }
 
     userSignined() {
-        return this.inforService.getInforUser());
+        return this.inforService.getInforUser();
     }
 
     getCurrentUrl() {

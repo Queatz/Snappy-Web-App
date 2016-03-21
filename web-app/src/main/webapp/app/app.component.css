@@ -2,6 +2,30 @@
     font-size: 2.1rem;
 }
 
+.logo-icon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 15px;
+    margin-top: 1rem;
+}
+
+.nav-wrapper {
+    transition: background-color .5s ease-out;
+}
+
+.menu-header {
+    background: #FF6075;
+}
+
+.menu-header:hover {
+    background-color: #A73948 !important;
+}
+
+.menu-header a, .nav-header a {
+    color: white;
+    font-weight: bold;
+}
+
 .chat, .signin {
     padding-right: 10px;
 }
@@ -10,4 +34,8 @@
     background-image: url(img/pickaxe.png);
     background-position: 50% 45%;
     background-repeat: no-repeat;
+}
+
+.button-collapse {
+    padding-left: 1em;
 }
