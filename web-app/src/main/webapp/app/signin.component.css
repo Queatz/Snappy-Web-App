@@ -12,12 +12,12 @@
     margin-top: 7px;
 }
 
-.profile .resize{
+.profile .resize {
     margin-top: 3px;
 }
 
-@media screen and (min-width: 605px){
-    .profile .resize{
+@media screen and (min-width: 605px) {
+    .profile .resize {
         margin-top: 7px;
     }
 }

@@ -1,30 +1,22 @@
 import { Component, ElementRef, provide, AfterViewInit } from 'angular2/core';
-import { ROUTER_DIRECTIVES, RouteParams, Router, OnDeactivate } from 'angular2/router';
-import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
-import { ViewName } from './view-name.interface';
+import { ROUTER_DIRECTIVES, RouteParams, Router, OnActivate, OnDeactivate } from 'angular2/router';
 
 import {InforService} from './infor.service';
+import {ApiService} from './api.service';
 
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
 
-var firstHeaders = new Headers();
-firstHeaders.append('Content-Type', 'application/json;charset=UTF-8');
 var endMessage = false;
 var max_count = 10;
 var current_count = 0;
 
-class MyOptions extends BaseRequestOptions {
-    headers: Headers = firstHeaders
-}
-
 @Component({
     templateUrl: 'app/messages.component.html',
     styleUrls: ['app/messages.component.css'],
-    viewProviders: [HTTP_PROVIDERS, provide(RequestOptions, { useClass: MyOptions })],
     directives: [ROUTER_DIRECTIVES]
 })
-export class MessagesComponent implements AfterViewInit, OnDeactivate, ViewName {
+export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivate {
     public currentMessages = [];
     public messageWithSomeone = [];
     public contacts = [];
@@ -33,9 +25,7 @@ export class MessagesComponent implements AfterViewInit, OnDeactivate, ViewName 
     public messagesWith = {};
     public msToggleOn = true;
 
-    constructor(inforService: InforService, private router: Router, private routeParams: RouteParams, http: Http, element: ElementRef) {
-        this.inforService = inforService;
-        this.http = http;
+    constructor(private inforService: InforService, private api: ApiService, private router: Router, private routeParams: RouteParams, element: ElementRef) {
         this.element = element.nativeElement;
         this.time = 5000;
         this.sendId = '';
@@ -55,8 +45,7 @@ export class MessagesComponent implements AfterViewInit, OnDeactivate, ViewName 
             return;
         }
 
-        this.http.get('http://queatz-snappy.appspot.com/api/people/' + personId + '?auth=' + this.token)
-            .map((res: Response) => res.json())
+        this.api.getPerson(personId)
             .subscribe(dataInput => {
                 if (dataInput) {
                     this.messagesWith = dataInput;
@@ -65,8 +54,7 @@ export class MessagesComponent implements AfterViewInit, OnDeactivate, ViewName 
     }
 
     loadMessages() {
-        this.http.get('http://queatz-snappy.appspot.com/api/messages?auth=' + this.token)
-            .map((res: Response) => res.json())
+        this.api.messages()
             .subscribe(dataInput => {
                 this.showMessages(dataInput);
             });
@@ -87,7 +75,11 @@ export class MessagesComponent implements AfterViewInit, OnDeactivate, ViewName 
 
     getMessagesById(contact) {
         this.msToggleOn = true;
-        contact.seen = true;
+
+        if (!contact.seen) {
+            contact.seen = true;
+            this.api.setSeen(contact.contact.id);
+        }
 
         this.resetTimeInterval();
         this.messageWithSomeone = [];
@@ -107,8 +99,7 @@ export class MessagesComponent implements AfterViewInit, OnDeactivate, ViewName 
             this.messagesTimeout = null;
         }
 
-        this.http.get('http://queatz-snappy.appspot.com/api/people/' + this.idCurrentContact + '/messages?auth=' + this.token)
-            .map((res: Response) => res.json())
+        this.api.personMessages(this.idCurrentContact)
             .subscribe(dataInput => {
                 if (dataInput.error) {
                     this.messageWithSomeone = [];
@@ -179,15 +170,9 @@ export class MessagesComponent implements AfterViewInit, OnDeactivate, ViewName 
         this.resetTimeInterval();
 
         if (this.idCurrentContact && message) {
-            var creds = "auth=" + this.token + "&message=" + message;
-            var headers = new Headers();
-            headers.append('Content-Type', 'application/x-www-form-urlencoded');
-            this.http.post('http://queatz-snappy.appspot.com/api/people/' + this.idCurrentContact, creds, {
-                headers: headers
-            })
-                .map(res => res.json())
+            this.api.sendMessage(this.idCurrentContact, message)
                 .subscribe(dataInput => {
-                    if (dataInput.message == message) {
+                    if (dataInput.message === message) {
                         this.endMessage = false;
                         this.strMessage = '';
                         this.sendId = dataInput.id;
@@ -240,7 +225,7 @@ export class MessagesComponent implements AfterViewInit, OnDeactivate, ViewName 
         this.msToggleOn = false;
     }
 
-    getViewName() {
-        return 'Messages';
+    routerOnActivate() {
+        this.inforService.setPageTitle('Messages');
     }
 }

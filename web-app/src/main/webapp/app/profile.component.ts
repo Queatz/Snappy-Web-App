@@ -1,10 +1,9 @@
 import { Component, OnInit, ElementRef, provide, AfterViewInit } from 'angular2/core';
-import { ROUTER_DIRECTIVES, RouteParams, Router } from 'angular2/router';
+import { ROUTER_DIRECTIVES, RouteParams, Router, OnActivate } from 'angular2/router';
 import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
 import { OffersComponent } from './offers.component';
 import { ParseLinksComponent } from './parseLinks.component';
 import { FloatingComponent } from './floating.component';
-import { ViewName } from './view-name.interface';
 
 import {InforService} from './infor.service';
 
@@ -22,7 +21,7 @@ class MyOptions extends BaseRequestOptions {
     directives: [ROUTER_DIRECTIVES, OffersComponent, ParseLinksComponent, FloatingComponent],
 
 })
-export class ProfileComponent implements OnInit, AfterViewInit, ViewName {
+export class ProfileComponent implements OnInit, AfterViewInit {
     public notFound = false;
     private offers;
     private myProfile;
@@ -63,6 +62,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, ViewName {
             .map((res: Response) => res.json())
             .subscribe(person => {
                 this.person = person;
+                this.inforService.setPageTitle(person.firstName);
                 this.loaded(person.offers);
             },
             error => this.notFound = true);
@@ -79,7 +79,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, ViewName {
                 && this.myProfile == this.inforService.getInforUser().googleUrl;
     }
 
-    getViewName() {
-        return this.person ? this.person.firstName : 'Village';
+    routerOnActivate() {
+        this.inforService.setPageTitle('Village');
     }
 }

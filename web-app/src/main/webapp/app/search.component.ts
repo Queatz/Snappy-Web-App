@@ -1,16 +1,15 @@
 import { Component, ElementRef } from 'angular2/core';
 import { FloatingComponent } from './floating.component';
-import { ROUTER_DIRECTIVES } from 'angular2/router';
+import { ROUTER_DIRECTIVES, OnActivate } from 'angular2/router';
 import { ProjectCardComponent } from './project-card.component';
 import { InforService } from './infor.service';
-import { ViewName } from './view-name.interface';
 
 @Component({
     templateUrl: 'app/search.component.html',
     styleUrls: ['app/search.component.css'],
     directives: [ROUTER_DIRECTIVES, FloatingComponent, ProjectCardComponent]
 })
-export class SearchComponent implements ViewName {
+export class SearchComponent implements OnActivate {
     public projects;
 
     constructor(inforService: InforService, element: ElementRef) {
@@ -32,7 +31,7 @@ export class SearchComponent implements ViewName {
         });
     }
 
-    getViewName() {
-        return 'Search';
+    routerOnActivate() {
+        this.inforService.setPageTitle('Search');
     }
 }

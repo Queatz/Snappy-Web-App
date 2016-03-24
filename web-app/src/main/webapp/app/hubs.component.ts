@@ -1,16 +1,15 @@
 import { Component, ElementRef } from 'angular2/core';
 import { FloatingComponent } from './floating.component';
-import { ROUTER_DIRECTIVES } from 'angular2/router';
+import { ROUTER_DIRECTIVES, OnActivate } from 'angular2/router';
 import { ProjectCardComponent } from './project-card.component';
 import { InforService } from './infor.service';
-import { ViewName } from './view-name.interface';
 
 @Component({
     templateUrl: 'app/hubs.component.html',
     styleUrls: ['app/hubs.component.css'],
     directives: [ROUTER_DIRECTIVES, FloatingComponent, ProjectCardComponent]
 })
-export class HubsComponent implements ViewName {
+export class HubsComponent implements OnActivate {
     public projects;
 
     constructor(inforService: InforService, element: ElementRef) {
@@ -32,7 +31,7 @@ export class HubsComponent implements ViewName {
         });
     }
 
-    getViewName() {
-        return 'Hubs';
+    routerOnActivate() {
+        this.inforService.setPageTitle('Hubs');
     }
 }

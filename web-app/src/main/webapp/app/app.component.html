@@ -1,15 +1,14 @@
 <div class="app">
     <div class="navbar-fixed">
         <nav>
-            <div class="nav-wrapper banner" [ngClass]="{'blue': isActive(['Hubs']), 'deep-orange': isActive(['Projects']), 'brown': isActive(['Resources']), 'bkg-red': !isActive(['Hubs']) && !isActive(['Projects']) && !isActive(['Resources'])}">
-                <a data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-
+            <div class="nav-wrapper banner" [ngClass]="{'yellow darken-4': isActive(['Clubs']), 'blue': isActive(['Hubs']), 'deep-orange': isActive(['Projects']), 'brown': isActive(['Resources']), 'bkg-red': !isActive(['Hubs']) && !isActive(['Clubs']) && !isActive(['Projects']) && !isActive(['Resources'])}">
                 <a class="brand-logo center hide-on-large-only">{{ pageTitle() }}</a>
 
-                <ul id="nav-desktop" class="left hide-on-med-and-down">
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li class="nav-header"><a [routerLink]="['Main']"><img src="img/favicon.png" class="logo-icon left" />Village</a></li>
                     <li [ngClass]="{'active': isActive(['Hubs'])}"><a [routerLink]="['Hubs']"><i class="material-icons left">room</i>Hubs</a></li>
                     <li [ngClass]="{'active': isActive(['Projects'])}"><a [routerLink]="['Projects']"><i class="material-icons left">settings</i>Projects</a></li>
+                    <li [ngClass]="{'active': isActive(['Clubs'])}"><a [routerLink]="['Clubs']"><i class="material-icons left">supervisor_account</i>Clubs</a></li>
                     <li [ngClass]="{'active': isActive(['Resources'])}"><a [routerLink]="['Resources']"><i class="material-icons left">language</i>Resources</a></li>
                     <li [ngClass]="{'active': isActive(['People'])}"><a [routerLink]="['People']"><i class="material-icons left">perm_identity</i>People</a></li>
                     <li [ngClass]="{'active': isActive(['Search', {query: ''}])}"><a [routerLink]="['Search', {query: ''}]"><i class="material-icons left">search</i>Search</a></li>
@@ -19,10 +18,13 @@
                     <li class="menu-header"><a [routerLink]="['Main']"><img src="img/favicon.png" class="logo-icon left" />Village</a></li>
                     <li><a [routerLink]="['Hubs']"><i class="material-icons left">room</i>Hubs</a></li>
                     <li><a [routerLink]="['Projects']"><i class="material-icons left">settings</i>Projects</a></li>
+                    <li><a [routerLink]="['Clubs']"><i class="material-icons left">language</i>Clubs</a></li>
                     <li><a [routerLink]="['Resources']"><i class="material-icons left">language</i>Resources</a></li>
                     <li><a [routerLink]="['People']"><i class="material-icons left">perm_identity</i>People</a></li>
                     <li><a [routerLink]="['Search', {query: ''}]"><i class="material-icons left">search</i>Search</a></li>
                 </ul>
+
+                <a data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 
                 <div class="right">
                     <div class="signin right">

@@ -11,6 +11,7 @@ export class InforService {
 
     public deletedSomeItem = false;
     public triggerProfile = true;
+    private title = 'Village';
     
     getInforUser() {
         if (this.inforUser === undefined) {
@@ -31,6 +32,14 @@ export class InforService {
         } else {
             localStorage.setItem('myInfo', null);
         }
+    }
+
+    setPageTitle(title) {
+        this.title = title;
+    }
+
+    getPageTitle() {
+        return this.title;
     }
 
     setNewOffer(offer) {

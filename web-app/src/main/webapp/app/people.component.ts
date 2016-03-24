@@ -1,17 +1,16 @@
 import { Component, ElementRef } from 'angular2/core';
 import { FloatingComponent } from './floating.component';
-import { ROUTER_DIRECTIVES } from 'angular2/router';
+import { ROUTER_DIRECTIVES, OnActivate } from 'angular2/router';
 import { PersonCardComponent } from './person-card.component';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
-import { ViewName } from './view-name.interface';
 
 @Component({
     templateUrl: 'app/people.component.html',
     styleUrls: ['app/people.component.css'],
     directives: [ROUTER_DIRECTIVES, FloatingComponent, PersonCardComponent]
 })
-export class PeopleComponent implements ViewName {
+export class PeopleComponent implements OnActivate {
     public people;
 
     constructor(private inforService: InforService, element: ElementRef, private api: ApiService) {
@@ -43,7 +42,7 @@ export class PeopleComponent implements ViewName {
         });
     }
 
-    getViewName() {
-        return 'People';
+    routerOnActivate() {
+        this.inforService.setPageTitle('People');
     }
 }

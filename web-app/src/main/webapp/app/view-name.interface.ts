@@ -1,3 +1,0 @@
-interface ViewName {
-  () getViewName: string;
-}

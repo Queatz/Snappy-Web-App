@@ -5,11 +5,11 @@ import { ProjectCardComponent } from './project-card.component';
 import { InforService } from './infor.service';
 
 @Component({
-    templateUrl: 'app/projects.component.html',
-    styleUrls: ['app/projects.component.css'],
+    templateUrl: 'app/clubs.component.html',
+    styleUrls: ['app/clubs.component.css'],
     directives: [ROUTER_DIRECTIVES, FloatingComponent, ProjectCardComponent]
 })
-export class ProjectsComponent implements OnActivate {
+export class ClubsComponent implements OnActivate {
     public projects;
 
     constructor(inforService: InforService, element: ElementRef) {
@@ -32,6 +32,6 @@ export class ProjectsComponent implements OnActivate {
     }
 
     routerOnActivate() {
-        this.inforService.setPageTitle('Projects');
+        this.inforService.setPageTitle('Clubs');
     }
 }
