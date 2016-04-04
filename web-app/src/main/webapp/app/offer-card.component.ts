@@ -2,6 +2,7 @@ import { Component, View, Input, AfterViewInit, ElementRef} from 'angular2/core'
 import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
 import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
 import { InforService } from './infor.service';
+import { ApiService } from './api.service';
 
 var firstHeaders = new Headers();
 firstHeaders.append('Content-Type', 'application/json;charset=UTF-8');
@@ -27,9 +28,8 @@ export class OfferCardComponent implements AfterViewInit {
     @Input() public profile;
     filesToUpload: Array<File>;
 
-    private token = 'ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
-
     constructor(inforService: InforService,
+        private api: ApiService,
         http: Http,
         private _router: Router,
         element: ElementRef) {
@@ -42,7 +42,7 @@ export class OfferCardComponent implements AfterViewInit {
     ngAfterViewInit() {
         Waves.displayEffect();
         this.offerImage = 'http://queatz-snappy.appspot.com/api/offer/' + this.offer.id +
-            '/photo?s=800&auth=' + this.token;
+            '/photo?s=800&auth=' + this.api.token();
         this.showModal();
     }
 
@@ -122,7 +122,7 @@ export class OfferCardComponent implements AfterViewInit {
                         Materialize.toast('Photo updated', 4000);
                         this.offer.hasPhoto = true;
                         this.offerImage = 'http://queatz-snappy.appspot.com/api/offer/' + this.offer.id +
-                            '/photo?s=800&auth=' + this.token;
+                            '/photo?s=800&auth=' + this.api.token();
                         this.deleteCallback(this.position, 3);
                     }
                     else

@@ -1,4 +1,4 @@
-import { Component, ElementRef, provide, OnChanges, AfterViewInit } from 'angular2/core';
+import { Component, DynamicComponentLoader, Injector, ElementRef, Input, provide, OnChanges, OnInit, AfterViewInit } from 'angular2/core';
 import { RouteParams, Router } from 'angular2/router';
 import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
 import { InforService } from './infor.service';
@@ -16,14 +16,27 @@ class MyOptions extends BaseRequestOptions {
     styleUrls: ['app/floating.component.css'],
     viewProviders: [HTTP_PROVIDERS, provide(RequestOptions, { useClass: MyOptions })]
 })
-export class FloatingComponent implements AfterViewInit {
-    constructor(inforService: InforService, private router: Router, private routeParams: RouteParams, http: Http, element: ElementRef) {
+export class FloatingComponent implements OnInit, AfterViewInit {
+    @Input() public color;
+    @Input() public modal;
+
+    constructor(private dcl: DynamicComponentLoader, injector: Injector, inforService: InforService, private router: Router, private routeParams: RouteParams, http: Http, private elementRef: ElementRef) {
         this.inforService = inforService;
         this.http = http;
         this.router = router;
-        this.element = element.nativeElement;
+        this.element = elementRef.nativeElement;
         this.edetails = '';
         this.emessage = '';
+    }
+
+    ngOnInit() {
+        if (!this.color) {
+            this.color = 'bkg-red';
+        }
+
+        if (this.modal) {
+            this.dcl.loadNextToLocation(this.modal, this.elementRef);
+        }
     }
 
     ngAfterViewInit() {
@@ -37,29 +50,4 @@ export class FloatingComponent implements AfterViewInit {
     getCurrentUrl() {
         return this.routeParams.get('id');
     }
-
-    newOffer(edetails, emessage, enumber) {
-        if (enumber === undefined)
-            enumber = '0';
-        this.token = this.inforService.getInforUser().auth;
-        if (edetails !== undefined && edetails != '') {
-            $(this.element).find('#model1').closeModal();
-            var creds = "auth=" + this.token + "&details=" + edetails + "&price=" + enumber + "&unit=" + emessage;
-            var headers = new Headers();
-            headers.append('Content-Type', 'application/x-www-form-urlencoded');
-            this.http.post('http://queatz-snappy.appspot.com/api/me/offers', creds, {
-                headers: headers
-            })
-                .map(res => res.json())
-                .subscribe(dataInput => {
-                    if (dataInput.id) {
-                        Materialize.toast('Offer success!', 4000);
-                        this.inforService.setNewOffer(dataInput);
-                        this.edetails = '';
-                        this.emessage = '';
-                    }
-                });
-        }
-    }
-
 }

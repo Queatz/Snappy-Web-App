@@ -4,6 +4,8 @@ import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } fro
 import { OffersComponent } from './offers.component';
 import { ParseLinksComponent } from './parseLinks.component';
 import { FloatingComponent } from './floating.component';
+import { NewOfferModal } from './new-offer.modal';
+import { ApiService } from './api.service';
 
 import {InforService} from './infor.service';
 
@@ -25,9 +27,10 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     public notFound = false;
     private offers;
     private myProfile;
-    private token = 'ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
+
     constructor(
         inforService: InforService,
+        private api: ApiService,
         private router: Router,
         private routeParams: RouteParams,
         http: Http,
@@ -38,6 +41,8 @@ export class ProfileComponent implements OnInit, AfterViewInit {
         this.element = element.nativeElement;
         this.offers = null;
         this.person = null;
+
+        this.newOfferModal = NewOfferModal;
     }
 
     ngOnInit() {
@@ -54,12 +59,8 @@ export class ProfileComponent implements OnInit, AfterViewInit {
         this.offers = offers;
     }
 
-    loadPerson(personId) {
-        if (this.inforService.getInforUser() !== undefined && this.inforService.getInforUser().auth !== undefined) {
-            this.token = this.inforService.getInforUser().auth;
-        }
-        this.http.get('http://queatz-snappy.appspot.com/api/people/by-name/' + personId + '?auth=' + this.token)
-            .map((res: Response) => res.json())
+    loadPerson(personName) {
+            this.api.getPersonByName(personName)
             .subscribe(person => {
                 this.person = person;
                 this.inforService.setPageTitle(person.firstName);
@@ -67,9 +68,10 @@ export class ProfileComponent implements OnInit, AfterViewInit {
             },
             error => this.notFound = true);
     }
+
     ngAfterViewInit() {
         if (this.inforService.triggerProfile && this.isMyProfile()) {
-            this.inforService.triggerProfile  = false;
+            this.inforService.triggerProfile = false;
             $(this.element).find('.modal-trigger-floating').leanModal();
        }
     }

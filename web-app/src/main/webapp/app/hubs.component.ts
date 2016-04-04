@@ -3,6 +3,7 @@ import { FloatingComponent } from './floating.component';
 import { ROUTER_DIRECTIVES, OnActivate } from 'angular2/router';
 import { ProjectCardComponent } from './project-card.component';
 import { InforService } from './infor.service';
+import { NewHubModal } from './new-hub.modal';
 
 @Component({
     templateUrl: 'app/hubs.component.html',
@@ -16,6 +17,7 @@ export class HubsComponent implements OnActivate {
         this.inforService = inforService;
         this.element = element.nativeElement;
         this.loaded([{}, {}, {}]);
+        this.newHubModal = NewHubModal;
     }
 
     private loaded(projects) {

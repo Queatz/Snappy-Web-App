@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, ElementRef, AfterViewInit, OnChanges, provide } from 'angular2/core';
-import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
 import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
 import 'rxjs/add/operator/map';
 import { OfferCardComponent } from './offer-card.component'

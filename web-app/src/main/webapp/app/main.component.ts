@@ -4,7 +4,8 @@ import { OffersComponent } from './offers.component';
 import { BannerComponent } from './banner.component';
 import { InfoPanelComponent } from './info-panel.component';
 import { FloatingComponent } from './floating.component';
-import {InforService} from './infor.service';
+import { InforService } from './infor.service';
+import { NewOfferModal } from './new-offer.modal';
 
 @Component({
     templateUrl: 'app/main.component.html',
@@ -14,6 +15,7 @@ import {InforService} from './infor.service';
 export class MainComponent implements OnActivate {
     constructor(inforService: InforService) {
         this.inforService = inforService;
+        this.newOfferModal = NewOfferModal;
     }
 
     newUser() {

@@ -19,7 +19,7 @@
         </div>
     </div>
     <div [hidden]="!isMyProfile()">
-        <floating></floating>
+        <floating [modal]="newOfferModal"></floating>
     </div>
     <br />
     <offers *ngIf="person" [list]="offers" [profile]=isMyProfile()></offers>

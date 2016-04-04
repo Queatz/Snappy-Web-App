@@ -2,13 +2,25 @@
     <div class="card-image">
         <div class="card-tabbing {{typeClass}}"></div>
         <img src="img/img-150924195412-0001.png">
-        <!--<span class="card-title">Card Title</span>-->
+        <span class="card-title">Rosie's Flower Garden</span>
     </div>
     <div class="card-content">
         <p>I am a very simple card. I am good at containing small bits of information.
             I am convenient because I require little markup to use effectively.</p>
     </div>
     <div class="card-action">
-        <a href="#">This is a link</a>
+        {{431}}
+        <span class="grey-text" [ngPlural]="431">
+            <template ngPluralCase="=1">follower</template>
+            <template ngPluralCase="other">followers</template>
+        </span>
+        <span class="grey-text">&bull;</span>
+        {{88}}
+        <span class="grey-text" [ngPlural]="88">
+            <template ngPluralCase="=1">member</template>
+            <template ngPluralCase="other">members</template>
+        </span>
+
+        <a [routerLink]="['Main']" class="secondary-content {{typeClass.indexOf('yellow') != -1 ? 'yellow-text text-darken-4' : typeClass + '-text'}}">{{typeClass == 'deep-orange' ? 'View Project' : typeClass == 'brown' ? 'View Resource' : typeClass == 'blue' ? 'Go To Hub' : 'Go to Club'}}</a>
     </div>
 </div>
