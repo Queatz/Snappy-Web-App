@@ -1,0 +1,19 @@
+<div id="setPhotoModal" class="modal">
+    <div class="modal-content">
+        <h4>Set photo</h4>
+        <div class="file-field input-field">
+            <div class="btn">
+                <span>File</span>
+                <input type="file" accept="image/*" (change)="fileChangeEvent($event)">
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" [(ngModel)]="efile">
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="left modal-action modal-close waves-effect waves-green btn-flat" (click)="deleteImage()">Remove photo</a>
+        <a class="right modal-action modal-close waves-effect waves-green btn-flat" (click)="uploadPhoto()">Upload</a>
+        <a class="right modal-action modal-close waves-effect waves-red btn-flat">Cancel</a>
+    </div>
+</div>

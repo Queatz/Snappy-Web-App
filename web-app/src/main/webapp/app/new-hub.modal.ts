@@ -6,11 +6,10 @@ import { ApiService } from './api.service';
     templateUrl: 'app/new-hub.modal.html',
     styleUrls: ['app/new-hub.modal.css']
 })
-export class NewHubModal implements AfterViewInit{
+export class NewHubModal implements AfterViewInit {
     @Input() modalId;
 
-    constructor(private api: ApiService, inforService: InforService, element: ElementRef) {
-        this.inforService = inforService;
+    constructor(private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;
         this.name = '';
         this.address = '';

@@ -17,7 +17,7 @@ export class ProjectCardComponent {
 
     public getPhotoUrl() {
         if (this.thing && this.thing.photo) {
-            return this.api.getPhotoUrl(this.thing.id);
+            return this.api.earthPhotoUrl(this.thing.id);
         }
     }
 

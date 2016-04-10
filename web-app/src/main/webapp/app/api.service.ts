@@ -29,8 +29,22 @@ export public class ApiService {
     }
 
     public earthPhotoUrl(id: String) {
-        return this._apiBaseUrl + 'temporary-earth-logic/' + this.offer.id +
-                    '/photo?s=800&auth=' + this.api.token();
+        return this._apiBaseUrl + 'temporary-earth-logic/' + id + '/photo?s=800&auth=' + this.token();
+    }
+
+    // XXX currently returns a promise, so must use .then()
+    public earthPutPhoto(id: String, photoFile: File) {
+        var formData = new FormData();
+        formData.append('photo', photoFile, photoFile.name);
+
+        var headers = new Headers();
+        headers.append('Content-Type', undefined);
+
+        return this.makeFilePostRequest(this.earthPhotoUrl(id), formData);
+    }
+
+    public earthDeletePhoto(id: String) {
+        return this._http.post(this.earthPhotoUrl(id));
     }
 
     public earthHere(coords, kind: String) {
@@ -104,5 +118,23 @@ export public class ApiService {
             headers: headers
         })
             .map(res => res.json());
+    }
+
+    private makeFilePostRequest(url: String, formData: FormData) {
+        return new Promise((resolve, reject) => {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        resolve(xhr.response);
+                    } else {
+                        reject(xhr.response);
+                    }
+                }
+            }
+
+            xhr.open('POST', url, true);
+            xhr.send(formData);
+        });
     }
 }

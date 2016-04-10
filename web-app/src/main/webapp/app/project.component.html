@@ -3,13 +3,18 @@
         <br />You see nothing.
     </h4>
     <div class="z-depth-1 bkg-white" *ngIf="thing">
-        <img class="photo" *ngIf="thing.photo" [src]="'getUrl()'" />
+        <img class="photo" *ngIf="thing.photo" [src]="getUrl()" />
         <div class="info">
-            <h3>{{ thing.name }}</h3>
+            <h3>{{ thing.name }}
+                <span *ngIf="!isMine()">
+                    <a class="modal-trigger" href="#setPhotoModal"><i class="material-icons small">library_add</i></a>
+                </span>
+            </h3>
             <parse-links class="about flow-text">{{ thing.about }}</parse-links>
             <br />
         </div>
     </div>
     <br />
-    <!--<updates *ngIf="thing"></updates>-->
+    <!--<updates *ngIf="thing" [thing]="thing"></updates>-->
+    <set-photo-modal *ngIf="thing" [thing]="thing"></set-photo-modal>
 </div>
