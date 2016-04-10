@@ -3,6 +3,7 @@ import { FloatingComponent } from './floating.component';
 import { ROUTER_DIRECTIVES, OnActivate } from 'angular2/router';
 import { ProjectCardComponent } from './project-card.component';
 import { InforService } from './infor.service';
+import { ApiService } from './api.service';
 import { NewHubModal } from './new-hub.modal';
 
 @Component({
@@ -13,11 +14,21 @@ import { NewHubModal } from './new-hub.modal';
 export class HubsComponent implements OnActivate {
     public hubs;
 
-    constructor(inforService: InforService, element: ElementRef) {
-        this.inforService = inforService;
+    constructor(private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;
-        this.loaded([{kind: 'hub', id: '1'}, {kind: 'hub', id: '2'}, {kind: 'hub', id: '3'}]);
         this.newHubModal = NewHubModal;
+
+        navigator.geolocation.getCurrentPosition(this.loadNearby.bind(this));
+    }
+
+    private loadNearby(position) {
+        this.api.earthHere(position.coords, 'hub')
+            .subscribe(hubs => {
+                this.loaded(hubs);
+            },
+            error => {
+                this.hubs = [];
+            });
     }
 
     private loaded(hubs) {

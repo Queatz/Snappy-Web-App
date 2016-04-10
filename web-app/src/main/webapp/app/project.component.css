@@ -1,0 +1,32 @@
+.bkg-white {
+    background: #fff;
+}
+
+.photo {
+    display: inline-block;
+    vertical-align: top;
+}
+
+@media only screen and (max-width: 900px) {
+    .photo {
+        width: 100vw;
+    }
+}
+
+
+.info {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.about {
+    white-space: pre;
+    display: block;
+}
+
+.followers {
+    display: inline-block;
+    margin-left: 1em;
+}

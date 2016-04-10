@@ -23,6 +23,24 @@ export public class ApiService {
         return this._token;
     }
 
+    public earthThing(id: String) {
+        return this._http.get(this._apiBaseUrl + 'temporary-earth-logic/' + id + '?auth='+ this.token())
+                           .map((res: Response) => res.json());
+    }
+
+    public earthPhotoUrl(id: String) {
+        return this._apiBaseUrl + 'temporary-earth-logic/' + this.offer.id +
+                    '/photo?s=800&auth=' + this.api.token();
+    }
+
+    public earthHere(coords, kind: String) {
+        return this._http.get(this._apiBaseUrl + 'temporary-earth-logic/here/' + kind
+                                + '?latitude=' + coords.latitude
+                                + '&longitude=' + coords.longitude
+                                + '&auth='+ this.token())
+                            .map((res: Response) => res.json());
+    }
+
     public here(coords) {
         return this._http.get(this._apiBaseUrl + 'here?latitude='
                               + coords.latitude + '&longitude='

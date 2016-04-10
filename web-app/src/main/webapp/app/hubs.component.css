@@ -11,3 +11,10 @@
         width: 98vw;
     }
 }
+
+.waiting {
+    font-size: 1.5rem;
+    color: #777;
+    padding: .5em;
+    margin-top: 1rem;
+}

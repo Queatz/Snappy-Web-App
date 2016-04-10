@@ -1,4 +1,21 @@
 <div>
+    <center *ngIf="!hubs" class="waiting">
+        <div class="preloader-wrapper active">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <span><br />Loading Hubs...</span>
+    </center>
+
     <div class="grid center-align">
         <div class="item" *ngFor="#hub of hubs">
             <project-card class="left-align" [typeClass]="'blue'" [thing]="hub"></project-card>

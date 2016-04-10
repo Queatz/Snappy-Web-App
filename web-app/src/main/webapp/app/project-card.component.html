@@ -1,22 +1,23 @@
-<div class="card hoverable large">
+<div class="card hoverable large" *ngIf="thing">
     <div class="card-image">
         <div class="card-tabbing {{typeClass}}"></div>
-        <img src="img/img-150924195412-0001.png">
-        <span class="card-title">Rosie's Flower Garden</span>
+        <img *ngIf="getPhotoUrl()" src="{{ getPhotoUrl() }}">
+        <img *ngIf="!getPhotoUrl()" src="img/night.png">
+        <span class="card-title">{{ thing.name }}</span>
     </div>
     <div class="card-content">
-        <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
+        <p>{{ thing.about }}</p>
+        <i *ngIf="!thing.about" class="grey-text">No description provided...</i>
     </div>
     <div class="card-action">
-        {{431}}
-        <span class="grey-text" [ngPlural]="431">
+        {{ thing.followers }}
+        <span class="grey-text" [ngPlural]="thing.followers">
             <template ngPluralCase="=1">follower</template>
             <template ngPluralCase="other">followers</template>
         </span>
         <span class="grey-text">&bull;</span>
-        {{88}}
-        <span class="grey-text" [ngPlural]="88">
+        {{ thing.members }}
+        <span class="grey-text" [ngPlural]="thing.members">
             <template ngPluralCase="=1">member</template>
             <template ngPluralCase="other">members</template>
         </span>

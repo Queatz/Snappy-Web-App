@@ -1,1 +1,15 @@
-{{id}}
+<div>
+    <h4 class="grey-text center-align" *ngIf="notFound">
+        <br />You see nothing.
+    </h4>
+    <div class="z-depth-1 bkg-white" *ngIf="thing">
+        <img class="photo" *ngIf="thing.photo" [src]="'getUrl()'" />
+        <div class="info">
+            <h3>{{ thing.name }}</h3>
+            <parse-links class="about flow-text">{{ thing.about }}</parse-links>
+            <br />
+        </div>
+    </div>
+    <br />
+    <!--<updates *ngIf="thing"></updates>-->
+</div>
