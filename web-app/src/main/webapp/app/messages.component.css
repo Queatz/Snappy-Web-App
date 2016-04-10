@@ -105,6 +105,14 @@
     margin: 0;
 }
 
+.fill {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 .mainmessage .sendmessage {
     position: absolute;
     bottom: 0;
@@ -152,6 +160,10 @@ h3.mstitle {
     }
     
     .mainmessage .col.messages {
+        padding-bottom: 126px;
+    }
+
+    .fill {
         padding-bottom: 126px;
     }
 

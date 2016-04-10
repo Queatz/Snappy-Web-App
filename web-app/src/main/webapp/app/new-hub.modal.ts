@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input } from 'angular2/core';
+import { Component, ElementRef, Input, AfterViewInit } from 'angular2/core';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 
@@ -6,17 +6,24 @@ import { ApiService } from './api.service';
     templateUrl: 'app/new-hub.modal.html',
     styleUrls: ['app/new-hub.modal.css']
 })
-export class NewHubModal {
+export class NewHubModal implements AfterViewInit{
     @Input() modalId;
 
     constructor(private api: ApiService, inforService: InforService, element: ElementRef) {
         this.inforService = inforService;
         this.element = element.nativeElement;
         this.name = '';
+        this.address = '';
+        this.photo = '';
     }
 
-    newHub(name) {
-        if (!name) {
+    ngAfterViewInit() {
+        Waves.displayEffect();
+        $(this.element.querySelector('#hubVisibility')).material_select();
+    }
+
+    newHub() {
+        if (!this.name || !this.address) {
             return;
         }
 

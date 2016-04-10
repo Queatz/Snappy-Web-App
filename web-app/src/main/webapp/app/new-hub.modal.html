@@ -1,20 +1,60 @@
-<div id="modal" class="modal">
-    <form class="col s12">
-        <div class="modal-content">
-            <h4>Add a Hub</h4>
+ <div id="modal" class="modal">
+    <div class="modal-content">
+        <h4>Add a Hub</h4>
 
-            <div class="input-field col s12">
-                <input id="hubName" type="text" required class="validate" [(ngModel)]="name">
-                <label for="hubName">Enter name</label>
-            </div>
+        <form>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">label</i>
+                    <input id="hubName" type="text" required [(ngModel)]="name">
+                    <label for="hubName">Enter name</label>
+                </div>
 
-            <div class="modal-footer">
-                <button class="btn-flat waves-effect waves-light modal-action" type="submit"
-                        name="action" (click)="newHub(name)">
-                    Add Hub
-                </button>
-                <a class="modal-action modal-close waves-effect waves-red btn-flat">Cancel</a>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">room</i>
+                    <input id="hubAddress" type="text" required [(ngModel)]="address">
+                    <label for="hubAddress">Enter address</label>
+                </div>
+
+                <div class="hide input-field col s12">
+                    <i class="material-icons prefix">edit</i>
+                    <input id="hubAbout" type="text" [(ngModel)]="about">
+                    <label for="hubAbout">Enter description</label>
+                </div>
+
+                <div class="hide input-field col s12 select-wrapper">
+                    <i class="material-icons prefix">visibility</i>
+                    <select id="hubVisibility" [(ngModel)]="visibility">
+                        <option value="" disabled selected>Select one...</option>
+                        <option value="1">Public</option>
+                        <option value="3">People that follow me</option>
+                        <option value="4">People that I follow</option>
+                        <optgroup label="Clubs">
+                            <option value="2">Members of <b>Mai's Coffee Garden</b></option>
+                        </optgroup>
+                    </select>
+                    <label for="hubVisibility">Visibility</label>
+                </div>
+
+                <div class="file-field input-field col s12">
+                    <div class="btn">
+                        <span>Add cover photo</span>
+                        <input type="file" accept="image/*" (change)="fileChangeEvent($event)">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path" type="text" [(ngModel)]="photo">
+                    </div>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <a class="btn-flat waves-effect modal-action" type="submit"
+           name="action" (click)="newHub()">
+            Add Hub
+        </a>
+        <a class="modal-action modal-close waves-effect waves-red btn-flat">Cancel</a>
+    </div>
+
 </div>

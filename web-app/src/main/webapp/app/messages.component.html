@@ -1,11 +1,32 @@
 <div class="messagescontainer">
-    <div class="grey-text center-align" *ngIf="!haveUserInfor()">
-        <p>
-            You're not signed in.
-        </p>
+    <div class="row" *ngIf="!haveUserInfor()">
+        <br />
+        <div class="grey-text text-darken-2 center-align col s6 offset-s3 card-panel">
+            <p>
+                Sign in to continue.
+            </p>
+        </div>
     </div>
     <div class="row mainmessage ms-toogle" [ngClass]="{'ms-toogle-on': msToggleOn}" *ngIf="haveUserInfor()">
-        <div class="col s12 m4 l3 scroll msrecent">
+        <div class="col s12 m4 l3 scroll msrecent" style="position: relative;">
+            <div *ngIf="!contacts" class="fill valign-wrapper">
+                <div style="margin: auto;" class="valign">
+                    <div class="preloader-wrapper active">
+                        <div class="spinner-layer spinner-red-only">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="scroll">
                 <h3 class="mstitle">Contacts <i class="clickable small material-icons chat-bubble" (click)="showChat()">chat_bubble</i></h3>
                 <div class="item" [ngClass]="{'grey lighten-2': contact.contact.id === idCurrentContact}" *ngFor="#contact of contacts">
@@ -22,6 +43,24 @@
             </div>
         </div>
         <div class="col s12 m8 l9 messages">
+            <div *ngIf="!messageWithSomeone" class="fill valign-wrapper">
+                <div style="margin: auto;" class="valign">
+                    <div class="preloader-wrapper active">
+                        <div class="spinner-layer spinner-red-only">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <h3 class="mstitle">{{ messagesWith.firstName }} {{ messagesWith.lastName }}<i class="clickable small material-icons recent-actors" (click)="showRecent()">recent_actors</i></h3>
             <div class="row s3 listmessages">
                 <div class="content scroll">
@@ -38,7 +77,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <div class="row s9 sendmessage">

@@ -40,3 +40,7 @@
     padding-left: 1em;
     cursor: pointer;
 }
+
+.mdi-navigation-menu:before {
+    content: "\e8af";
+}

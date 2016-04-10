@@ -21,6 +21,6 @@
             <template ngPluralCase="other">members</template>
         </span>
 
-        <a [routerLink]="['Main']" class="secondary-content {{typeClass.indexOf('yellow') != -1 ? 'yellow-text text-darken-4' : typeClass + '-text'}}">{{typeClass == 'deep-orange' ? 'View Project' : typeClass == 'brown' ? 'View Resource' : typeClass == 'blue' ? 'Go To Hub' : 'Go to Club'}}</a>
+        <a (click)="go()" class="secondary-content {{typeClass.indexOf('yellow') != -1 ? 'yellow-text text-darken-4' : typeClass + '-text'}}">{{typeClass == 'deep-orange' ? 'View Project' : typeClass == 'brown' ? 'View Resource' : typeClass == 'blue' ? 'Go To Hub' : 'Go to Club'}}</a>
     </div>
 </div>

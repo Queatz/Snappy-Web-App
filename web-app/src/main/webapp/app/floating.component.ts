@@ -19,6 +19,7 @@ class MyOptions extends BaseRequestOptions {
 export class FloatingComponent implements OnInit, AfterViewInit {
     @Input() public color;
     @Input() public modal;
+    @Input() public icon;
 
     constructor(private dcl: DynamicComponentLoader, injector: Injector, inforService: InforService, private router: Router, private routeParams: RouteParams, http: Http, private elementRef: ElementRef) {
         this.inforService = inforService;
@@ -32,6 +33,10 @@ export class FloatingComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         if (!this.color) {
             this.color = 'bkg-red';
+        }
+
+        if (!this.icon) {
+            this.icon = 'add';
         }
 
         if (this.modal) {

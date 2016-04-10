@@ -11,17 +11,17 @@ import { NewHubModal } from './new-hub.modal';
     directives: [ROUTER_DIRECTIVES, FloatingComponent, ProjectCardComponent]
 })
 export class HubsComponent implements OnActivate {
-    public projects;
+    public hubs;
 
     constructor(inforService: InforService, element: ElementRef) {
         this.inforService = inforService;
         this.element = element.nativeElement;
-        this.loaded([{}, {}, {}]);
+        this.loaded([{kind: 'hub', id: '1'}, {kind: 'hub', id: '2'}, {kind: 'hub', id: '3'}]);
         this.newHubModal = NewHubModal;
     }
 
-    private loaded(projects) {
-        this.projects = projects;
+    private loaded(hubs) {
+        this.hubs = hubs;
 
         setTimeout(() => {
             var elem = this.element.querySelector('.grid');

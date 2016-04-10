@@ -18,8 +18,8 @@ var current_count = 0;
 })
 export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivate {
     public currentMessages = [];
-    public messageWithSomeone = [];
-    public contacts = [];
+    public messageWithSomeone = null;
+    public contacts = null;
     public info = [];
     public idCurrentContact;
     public messagesWith = {};
@@ -82,7 +82,7 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
         }
 
         this.resetTimeInterval();
-        this.messageWithSomeone = [];
+        this.messageWithSomeone = null;
         this.idCurrentContact = contact.contact.id;
 
         this.messagesWith = contact.contact;
@@ -102,27 +102,25 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
         this.api.personMessages(this.idCurrentContact)
             .subscribe(dataInput => {
                 if (dataInput.error) {
-                    this.messageWithSomeone = [];
+                    this.messageWithSomeone = null;
                     this.endMessage = false;
                 } else {
                     if (dataInput.length > 0) {
                         if (this.idCurrentContact == dataInput[0].from.id || this.idCurrentContact == dataInput[0].to.id) {
-                            if (this.messageWithSomeone.length == 0) {
+                            if (!this.messageWithSomeone) {
                                 this.endMessage = false;
                                 this.messageWithSomeone = dataInput.reverse();
                                 this.sendId = dataInput[0].id;
-                            } else {
-                                if (this.messageWithSomeone.length >= dataInput.length) {
+                            } else if (this.messageWithSomeone.length >= dataInput.length) {
                                     if (dataInput[0].id != this.messageWithSomeone[this.messageWithSomeone.length - 1].id &&
                                         this.haveIdInDataInput(dataInput)) {
 
                                         this.endMessage = false;
                                         this.messageWithSomeone = dataInput.reverse();
                                     }
-                                } else {
-                                    this.endMessage = false;
-                                    this.messageWithSomeone = dataInput.reverse();
-                                }
+                            } else {
+                                this.endMessage = false;
+                                this.messageWithSomeone = dataInput.reverse();
                             }
                         }
                     }
@@ -176,6 +174,11 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
                         this.endMessage = false;
                         this.strMessage = '';
                         this.sendId = dataInput.id;
+
+                        if (!this.messageWithSomeone) {
+                            this.messageWithSomeone = [];
+                        }
+
                         this.messageWithSomeone.push(dataInput);
                     }
                 });
@@ -200,7 +203,7 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
     }
 
     showContentMessage(message, mode) {
-        if (this.messageWithSomeone.indexOf(message) == (this.messageWithSomeone.length - 1) && !this.endMessage) {
+        if (this.messageWithSomeone && this.messageWithSomeone.indexOf(message) === (this.messageWithSomeone.length - 1) && !this.endMessage) {
             $(this.element).find('.content').animate({ scrollTop: $(this.element).find('.scrollpanel').height() }, 0);
             this.endMessage = true;
         }

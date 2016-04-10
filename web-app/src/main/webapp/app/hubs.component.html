@@ -1,7 +1,7 @@
 <div>
     <div class="grid center-align">
-        <div class="item" *ngFor="#project of projects">
-            <project-card class="left-align" [typeClass]="'blue'" [project]="project"></project-card>
+        <div class="item" *ngFor="#hub of hubs">
+            <project-card class="left-align" [typeClass]="'blue'" [thing]="hub"></project-card>
         </div>
     </div>
     <floating [color]="'blue'" [modal]="newHubModal"></floating>
