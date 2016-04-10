@@ -15,36 +15,6 @@
                     <input id="hubAddress" type="text" required [(ngModel)]="address">
                     <label for="hubAddress">Enter address</label>
                 </div>
-
-                <div class="hide input-field col s12">
-                    <i class="material-icons prefix">edit</i>
-                    <input id="hubAbout" type="text" [(ngModel)]="about">
-                    <label for="hubAbout">Enter description</label>
-                </div>
-
-                <div class="hide input-field col s12 select-wrapper">
-                    <i class="material-icons prefix">visibility</i>
-                    <select id="hubVisibility" [(ngModel)]="visibility">
-                        <option value="" disabled selected>Select one...</option>
-                        <option value="1">Public</option>
-                        <option value="3">People that follow me</option>
-                        <option value="4">People that I follow</option>
-                        <optgroup label="Clubs">
-                            <option value="2">Members of <b>Mai's Coffee Garden</b></option>
-                        </optgroup>
-                    </select>
-                    <label for="hubVisibility">Visibility</label>
-                </div>
-
-                <div class="hide file-field input-field col s12">
-                    <div class="btn">
-                        <span>Add cover photo</span>
-                        <input type="file" accept="image/*" (change)="fileChangeEvent($event)">
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path" type="text" [(ngModel)]="photo">
-                    </div>
-                </div>
             </div>
         </form>
     </div>

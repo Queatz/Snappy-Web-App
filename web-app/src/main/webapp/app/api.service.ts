@@ -28,6 +28,37 @@ export public class ApiService {
                            .map((res: Response) => res.json());
     }
 
+    public earthCreate(params) {
+        var data = 'auth=' + this.token();
+
+        for (var key in params) {
+            data += '&' + key + '=' + encodeURI(params[key]);
+        }
+
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+        return this._http.post(this._apiBaseUrl + 'temporary-earth-logic', data, {
+            headers: headers
+        })
+            .map((res: Response) => res.json());
+    }
+
+    public earthEdit(id: String, params) {
+        var data = 'auth=' + this.token();
+
+        for (var key in params) {
+            data += '&' + key + '=' + encodeURI(params[key]);
+        }
+
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+        return this._http.post(this._apiBaseUrl + 'temporary-earth-logic/' + id, data, {
+            headers: headers
+        });
+    }
+
     public earthPhotoUrl(id: String) {
         return this._apiBaseUrl + 'temporary-earth-logic/' + id + '/photo?s=800&auth=' + this.token();
     }
@@ -100,7 +131,7 @@ export public class ApiService {
     }
 
     public newOffer(details, price, unit) {
-        var creds = "auth=" + this.token() + "&details=" + details + "&price=" + price + "&unit=" + unit;
+        var creds = "auth=" + this.token() + "&details=" + encodeURI(details) + "&price=" + encodeURI(price) + "&unit=" + encodeURI(unit);
         var headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
 

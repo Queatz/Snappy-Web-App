@@ -7,6 +7,7 @@
         <div class="info">
             <h3>{{ thing.name }}
                 <span *ngIf="!isMine()">
+                    <a class="modal-trigger" href="#editDetailsModal"><i class="material-icons small">edit</i></a>
                     <a class="modal-trigger" href="#setPhotoModal"><i class="material-icons small">library_add</i></a>
                 </span>
             </h3>
@@ -16,5 +17,6 @@
     </div>
     <br />
     <!--<updates *ngIf="thing" [thing]="thing"></updates>-->
+    <edit-details-modal *ngIf="thing" [thing]="thing"></edit-details-modal>
     <set-photo-modal *ngIf="thing" [thing]="thing"></set-photo-modal>
 </div>

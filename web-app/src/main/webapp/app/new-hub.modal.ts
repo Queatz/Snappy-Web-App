@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, AfterViewInit } from 'angular2/core';
+import { Router } from 'angular2/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 
@@ -9,11 +10,10 @@ import { ApiService } from './api.service';
 export class NewHubModal implements AfterViewInit {
     @Input() modalId;
 
-    constructor(private api: ApiService, private inforService: InforService, element: ElementRef) {
+    constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;
         this.name = '';
         this.address = '';
-        this.photo = '';
     }
 
     ngAfterViewInit() {
@@ -26,6 +26,13 @@ export class NewHubModal implements AfterViewInit {
             return;
         }
 
-        $(this.element.querySelector('#modal')).closeModal();
+        this.api.earthCreate({
+            kind: 'hub',
+            name: this.name,
+            address: this.address
+        }).subscribe(hub => {
+            $(this.element.querySelector('#modal')).closeModal();
+            this.router.navigate(['Hub', {id: hub.id}]);
+        });
     }
 }

@@ -3,11 +3,12 @@ import { ROUTER_DIRECTIVES, RouteParams } from 'angular2/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import { SetPhotoModal } from './set-photo.modal';
+import { EditDetailsModal } from './edit-details.modal';
 
 @Component({
     templateUrl: 'app/project.component.html',
     styleUrls: ['app/project.component.css'],
-    directives: [ROUTER_DIRECTIVES, SetPhotoModal]
+    directives: [ROUTER_DIRECTIVES, SetPhotoModal, EditDetailsModal]
 })
 export class ProjectComponent implements AfterViewInit {
     public thing;
