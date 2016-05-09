@@ -72,18 +72,17 @@
 
 .listmessages .content {
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding-right: 5px;
 }
 
 .sendmessage textarea {
     padding: 0;
     max-height: 3rem;
-    overflow-y: scroll;
 }
 
 .scroll {
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 100%;
 }
 

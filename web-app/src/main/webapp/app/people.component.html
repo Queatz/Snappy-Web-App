@@ -1,5 +1,6 @@
 <div>
     <center *ngIf="!people" class="waiting">
+        <br />
         <div>
             <div class="preloader-wrapper active">
                 <div class="spinner-layer spinner-blue">
@@ -43,12 +44,15 @@
                 </div>
             </div>
         </div>
-        <span *ngIf="list !== null"><br />Loading People...</span>
+        <span *ngIf="list !== null"><br />Finding people near you...</span>
     </center>
     <div class="grid center-align">
         <div class="item" *ngFor="#person of people">
             <person-card class="left-align" [person]="person"></person-card>
         </div>
+    </div>
+    <div *ngIf="people && !people.length" class="center-align">
+        <h5 class="grey-text"><br />Ain't nobody here.</h5>
     </div>
     <floating [icon]="'email'"></floating>
 </div>

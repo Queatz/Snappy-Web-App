@@ -1,19 +1,33 @@
-import { Component, ElementRef, Input, AfterViewInit } from 'angular2/core';
+import { Component, ElementRef, Input, AfterViewInit, ViewChild } from 'angular2/core';
 import { Router } from 'angular2/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
+import { MapComponent } from './map.component';
 
 @Component({
     templateUrl: 'app/new-hub.modal.html',
-    styleUrls: ['app/new-hub.modal.css']
+    styleUrls: ['app/new-hub.modal.css'],
+    directives: [MapComponent]
 })
 export class NewHubModal implements AfterViewInit {
     @Input() modalId;
+
+    @ViewChild(MapComponent)
+    private map: MapComponent;
 
     constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;
         this.name = '';
         this.address = '';
+
+        navigator.geolocation.getCurrentPosition((position) => {
+            this.thing = {
+                geo: {
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
+                }
+            };
+        });
     }
 
     ngAfterViewInit() {
@@ -29,7 +43,9 @@ export class NewHubModal implements AfterViewInit {
         this.api.earthCreate({
             kind: 'hub',
             name: this.name,
-            address: this.address
+            address: this.address,
+            latitude: this.map.getMarkerPosition().lat(),
+            longitude: this.map.getMarkerPosition().lng()
         }).subscribe(hub => {
             $(this.element.querySelector('#modal')).closeModal();
             this.router.navigate(['Hub', {id: hub.id}]);

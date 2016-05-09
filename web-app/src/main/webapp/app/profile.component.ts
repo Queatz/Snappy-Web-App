@@ -57,6 +57,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
     loaded(offers) {
         this.offers = offers;
+        setTimeout(this.ngAfterViewInit.bind(this), 500);
     }
 
     loadPerson(personName) {
@@ -74,6 +75,8 @@ export class ProfileComponent implements OnInit, AfterViewInit {
             this.inforService.triggerProfile = false;
             $(this.element).find('.modal-trigger-floating').leanModal();
        }
+
+       $(this.element).find('ul.tabs').tabs();
     }
 
     isMyProfile() {

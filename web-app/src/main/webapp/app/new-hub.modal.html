@@ -4,16 +4,21 @@
 
         <form>
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">label</i>
-                    <input id="hubName" type="text" required [(ngModel)]="name">
-                    <label for="hubName">Enter name</label>
-                </div>
+                <div class="col s6">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">label</i>
+                        <input id="hubName" type="text" required [(ngModel)]="name">
+                        <label for="hubName">Enter name</label>
+                    </div>
 
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">room</i>
-                    <input id="hubAddress" type="text" required [(ngModel)]="address">
-                    <label for="hubAddress">Enter address</label>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">room</i>
+                        <input id="hubAddress" type="text" required [(ngModel)]="address">
+                        <label for="hubAddress">Enter address</label>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <map *ngIf="thing" [thing]="thing"></map>
                 </div>
             </div>
         </form>

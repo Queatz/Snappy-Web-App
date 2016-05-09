@@ -4,36 +4,41 @@
 
         <form>
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">label</i>
-                    <input id="name" type="text" required [(ngModel)]="name">
-                    <label class="active" for="name">Enter name</label>
-                </div>
+                <div class="col s6">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">label</i>
+                        <input id="name" type="text" required [(ngModel)]="name">
+                        <label class="active" for="name">Enter name</label>
+                    </div>
 
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">room</i>
-                    <input id="address" type="text" required [(ngModel)]="address">
-                    <label class="active" for="address">Enter address</label>
-                </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">room</i>
+                        <input id="address" type="text" required [(ngModel)]="address" (input)="updateAddress()">
+                        <label class="active" for="address">Enter address</label>
+                    </div>
 
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">edit</i>
-                    <input id="about" type="text" [(ngModel)]="about">
-                    <label class="active" for="about">Enter description</label>
-                </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">edit</i>
+                        <input id="about" type="text" [(ngModel)]="about">
+                        <label class="active" for="about">Enter description</label>
+                    </div>
 
-                <div class="input-field col s12 select-wrapper">
-                    <i class="material-icons prefix">visibility</i>
-                    <select id="visibility" [(ngModel)]="visibility">
-                        <option value="" disabled selected>Select one...</option>
-                        <option value="1">Public</option>
-                        <option value="3">People that follow me</option>
-                        <option value="4">People that I follow</option>
-                        <optgroup label="Clubs">
-                            <option value="2">Members of <b>Mai's Coffee Garden</b></option>
-                        </optgroup>
-                    </select>
-                    <label for="visibility">Visibility</label>
+                    <div class="input-field col s12 select-wrapper">
+                        <i class="material-icons prefix">visibility</i>
+                        <select id="visibility" [(ngModel)]="visibility" multiple>
+                            <option value="" disabled selected>Select one...</option>
+                            <option value="1">Public</option>
+                            <option value="3">People that follow me</option>
+                            <option value="4">People that I follow</option>
+                            <optgroup label="Clubs">
+                                <option value="2">Members of <b>Mai's Coffee Garden</b></option>
+                            </optgroup>
+                        </select>
+                        <label for="visibility">Visibility</label>
+                    </div>
+                </div>
+                <div class="col s6">
+                    <map [thing]="thing"></map>
                 </div>
             </div>
         </form>

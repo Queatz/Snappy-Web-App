@@ -24,17 +24,21 @@ export class SetPhotoModal implements AfterViewInit {
     }
 
     public uploadPhoto() {
+        var previous = this.thing.photo;
+
         if (this.filesToUpload.length > 0 && this.filesToUpload[0].type.match(/image/)) {
-            // TODO don't use custom API caller
+           this.thing.photo = false;
             this.api.earthPutPhoto(this.thing.id, this.filesToUpload[0])
                 .then(result => {
                     Materialize.toast('Photo updated', 4000);
                     this.thing.photo = true;
                 },
                 error => {
+                    this.thing.photo = previous;
                     Materialize.toast('Photo update failed', 4000);
                 });
         } else {
+            this.thing.photo = previous;
             Materialize.toast('No photo', 4000);
         }
     }

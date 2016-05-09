@@ -95,8 +95,12 @@ export class OfferCardComponent implements AfterViewInit {
             return;
         }
 
-       this._router.navigate( ['Messages', {id: this.offer.person.id}] );
-   }
+       this._router.navigate( ['Messages', {id: this.offer.person.id, q: this.getPrefillText()}] );
+    }
+
+    private getPrefillText() {
+        return (this.isRequest() ? 'I\'ve got ' : 'I\'d like ') + this.offer.details;
+    }
 
     public deleteOffer() {
         if (this.offer) {

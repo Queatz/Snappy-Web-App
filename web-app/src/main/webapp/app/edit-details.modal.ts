@@ -1,14 +1,19 @@
-import { Component, ElementRef, Input, AfterViewInit } from 'angular2/core';
+import { Component, ElementRef, Input, AfterViewInit, ViewChild } from 'angular2/core';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
+import { MapComponent } from './map.component';
 
 @Component({
     selector: 'edit-details-modal',
     templateUrl: 'app/edit-details.modal.html',
-    styleUrls: ['app/edit-details.modal.css']
+    styleUrls: ['app/edit-details.modal.css'],
+    directives: [MapComponent]
 })
 export class EditDetailsModal implements AfterViewInit {
     @Input() thing;
+
+    @ViewChild(MapComponent)
+    private map: MapComponent;
 
     constructor(private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;
@@ -24,6 +29,10 @@ export class EditDetailsModal implements AfterViewInit {
         this.visibility = '';
     }
 
+    updateAddress() {
+        this.map.updateAddress(this.address);
+    }
+
     save() {
         if (!this.name || !this.address) {
             return;
@@ -32,7 +41,9 @@ export class EditDetailsModal implements AfterViewInit {
         this.api.earthEdit(this.thing.id, {
             name: this.name,
             address: this.address,
-            about: this.about
+            about: this.about,
+            latitude: this.map.getMarkerPosition().lat(),
+            longitude: this.map.getMarkerPosition().lng()
         }).subscribe(success => {
             this.thing.name = this.name;
             this.thing.address = this.address;

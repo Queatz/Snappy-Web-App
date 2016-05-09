@@ -35,6 +35,13 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
             this.token = this.inforService.getInforUser().auth;
 
             this.idCurrentContact = this.routeParams.get('id');
+
+            var prefill = routeParams.get('q');
+
+            if (prefill) {
+                this.strMessage = decodeURI(prefill);
+            }
+
             this.getUserInfoChatWith(this.idCurrentContact);
             this.loadMessages();
         }
@@ -46,23 +53,23 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
         }
 
         this.api.getPerson(personId)
-            .subscribe(dataInput => {
-                if (dataInput) {
-                    this.messagesWith = dataInput;
+            .subscribe(person => {
+                if (person) {
+                    this.messagesWith = person;
                 }
             });
     }
 
     loadMessages() {
         this.api.messages()
-            .subscribe(dataInput => {
-                this.showMessages(dataInput);
+            .subscribe(messagesAndContacts => {
+                this.showMessages(messagesAndContacts);
             });
     }
 
-    showMessages(dataInput) {
-        this.currentMessages = dataInput.messages;
-        this.contacts = _.sortBy(dataInput.contacts, contact => -moment(contact.updated));
+    showMessages(messagesAndContacts) {
+        this.currentMessages = messagesAndContacts.messages;
+        this.contacts = _.sortBy(messagesAndContacts.contacts, contact => -moment(contact.updated));
 
         if (this.contacts.length > 0) {
             if (this.idCurrentContact) {
@@ -100,27 +107,29 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
         }
 
         this.api.personMessages(this.idCurrentContact)
-            .subscribe(dataInput => {
-                if (dataInput.error) {
+            .subscribe(messages => {
+                if (messages.error) {
                     this.messageWithSomeone = null;
                     this.endMessage = false;
                 } else {
-                    if (dataInput.length > 0) {
-                        if (this.idCurrentContact == dataInput[0].from.id || this.idCurrentContact == dataInput[0].to.id) {
+                    if (!messages.length) {
+                        this.messageWithSomeone = messages;
+                    } else {
+                        if (this.idCurrentContact == messages[0].from.id || this.idCurrentContact == messages[0].to.id) {
                             if (!this.messageWithSomeone) {
                                 this.endMessage = false;
-                                this.messageWithSomeone = dataInput.reverse();
-                                this.sendId = dataInput[0].id;
-                            } else if (this.messageWithSomeone.length >= dataInput.length) {
-                                    if (dataInput[0].id != this.messageWithSomeone[this.messageWithSomeone.length - 1].id &&
-                                        this.haveIdInDataInput(dataInput)) {
+                                this.messageWithSomeone = messages.reverse();
+                                this.sendId = messages[0].id;
+                            } else if (this.messageWithSomeone.length >= messages.length) {
+                                    if (messages[0].id != this.messageWithSomeone[this.messageWithSomeone.length - 1].id &&
+                                        this.haveIdInDataInput(messages)) {
 
                                         this.endMessage = false;
-                                        this.messageWithSomeone = dataInput.reverse();
+                                        this.messageWithSomeone = messages.reverse();
                                     }
                             } else {
                                 this.endMessage = false;
-                                this.messageWithSomeone = dataInput.reverse();
+                                this.messageWithSomeone = messages.reverse();
                             }
                         }
                     }
@@ -132,6 +141,12 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
 
                 this.time = Math.min(30000, this.time + 500);
             });
+    }
+
+    public enterPressed(event) {
+        this.sendMessages(this.strMessage);
+
+        event.preventDefault();
     }
 
     haveIdInDataInput(data) {
@@ -154,10 +169,6 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
     }
 
     ngAfterViewInit() {
-        $(this.element).find('.scroll').niceScroll({
-            cursorcolor: "rgb(158, 158, 158)",
-            scrollspeed: 0,
-        });
     }
 
     private resetTimeInterval() {
@@ -169,21 +180,19 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
 
         if (this.idCurrentContact && message) {
             this.api.sendMessage(this.idCurrentContact, message)
-                .subscribe(dataInput => {
-                    if (dataInput.message === message) {
+                .subscribe(newMessage => {
+                    if (newMessage.message === message) {
                         this.endMessage = false;
                         this.strMessage = '';
-                        this.sendId = dataInput.id;
+                        this.sendId = newMessage.id;
 
                         if (!this.messageWithSomeone) {
                             this.messageWithSomeone = [];
                         }
 
-                        this.messageWithSomeone.push(dataInput);
+                        this.messageWithSomeone.push(newMessage);
                     }
                 });
-        } else {
-            console.log("empty input or idcontact");
         }
     }
 
