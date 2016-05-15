@@ -8,7 +8,7 @@ export public class ApiService {
     private _apiBaseUrl = 'http://queatz-snappy.appspot.com/api/';
 
     constructor(private _http: Http, private inforService: InforService) {
-
+        this._apiBaseUrl = 'https://beta-dot-queatz-snappy.appspot.com/api/';
     }
 
     public http() {
@@ -23,6 +23,13 @@ export public class ApiService {
         return this._token;
     }
 
+    public getMe(gemail: string, gtoken: string) {
+        var creds = 'email=' + gemail + '&auth=' + gtoken;
+
+        return this._http.get(this._apiBaseUrl + 'temporary-earth-logic/me?' + creds)
+                .map((res: Response) => res.json());
+    }
+
     public earthThing(id: String) {
         return this._http.get(this._apiBaseUrl + 'temporary-earth-logic/' + id + '?auth='+ this.token())
                            .map((res: Response) => res.json());
@@ -35,12 +42,7 @@ export public class ApiService {
             data += '&' + key + '=' + encodeURI(params[key]);
         }
 
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
-
-        return this._http.post(this._apiBaseUrl + 'temporary-earth-logic', data, {
-            headers: headers
-        })
+        return this._http.post(this._apiBaseUrl + 'temporary-earth-logic', data, this.formHeaders())
             .map((res: Response) => res.json());
     }
 
@@ -51,12 +53,7 @@ export public class ApiService {
             data += '&' + key + '=' + encodeURI(params[key]);
         }
 
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
-
-        return this._http.post(this._apiBaseUrl + 'temporary-earth-logic/' + id, data, {
-            headers: headers
-        });
+        return this._http.post(this._apiBaseUrl + 'temporary-earth-logic/' + id, data, this.formHeaders());
     }
 
     public earthPhotoUrl(id: String) {
@@ -86,68 +83,55 @@ export public class ApiService {
                             .map((res: Response) => res.json());
     }
 
-    public here(coords) {
-        return this._http.get(this._apiBaseUrl + 'here?latitude='
-                              + coords.latitude + '&longitude='
-                              + coords.longitude
-                              + '&auth='+ this.token())
-                           .map((res: Response) => res.json());
-    }
-
-    public peopleHere(coords) {
-        return this._http.get(this._apiBaseUrl + 'here/people?latitude='
-                              + coords.latitude + '&longitude='
-                              + coords.longitude
-                              + '&auth='+ this.token())
-                           .map((res: Response) => res.json());
-    }
-
     public setSeen(personId) {
-        return this._http.get(this._apiBaseUrl + 'people/' + personId + '?seen=true'
+        return this._http.get(this._apiBaseUrl + 'temporary-earth-logic/' + personId + '?seen=true'
                               + '&auth='+ this.token())
                            .map((res: Response) => res.json());
     }
 
     public getPerson(personId) {
-        return this._http.get(this._apiBaseUrl + 'people/' + personId
+        return this._http.get(this._apiBaseUrl + 'temporary-earth-logic/' + personId
                               + '?auth=' + this.token())
                            .map((res: Response) => res.json());
     }
 
     public getPersonByName(personName) {
-        return this._http.get(this._apiBaseUrl + 'people/by-name/' + personName + '?auth=' + this.token())
+        return this._http.get(this._apiBaseUrl + 'temporary-earth-logic/by-name/' + personName + '?auth=' + this.token())
             .map(res => res.json());
     }
 
     public messages() {
-        return this._http.get(this._apiBaseUrl + 'messages?auth=' + this.token())
+        return this._http.get(this._apiBaseUrl + 'temporary-earth-logic/me/messages?auth=' + this.token())
                            .map((res: Response) => res.json());
     }
 
     public personMessages(personId) {
-        return this._http.get(this._apiBaseUrl + 'people/' + personId
+        return this._http.get(this._apiBaseUrl + 'temporary-earth-logic/' + personId
                               + '/messages?auth=' + this.token())
                            .map((res: Response) => res.json());
     }
 
     public newOffer(details, price, unit) {
         var creds = "auth=" + this.token() + "&details=" + encodeURI(details) + "&price=" + encodeURI(price) + "&unit=" + encodeURI(unit);
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        return this._http.post(this._apiBaseUrl + 'temporary-earth-logic/me/offers', creds, this.formHeaders()).map((res: Response) => res.json());
+    }
 
-        return this._http.post(this._apiBaseUrl + 'me/offers', creds, {
-            headers: headers
-        }).map((res: Response) => res.json());
+    public deleteOffer(id: string) {
+        return this._http.post(this._apiBaseUrl + 'temporary-earth-logic/' + id + '/delete?auth=' + this.token());
+    }
+
+    public deleteOfferPhoto(id: string) {
+        return this._http.post(this._apiBaseUrl + 'temporary-earth-logic/' + id + '/photo/delete?auth=' + this.token());
+    }
+
+    public offerImageUrl(id: string) {
+        return this._apiBaseUrl + id + 'temporary-earth-logic/' + this.offer.id + '/photo?s=800&auth=' + this.token();
     }
 
     public sendMessage(personId, message) {
         var creds = "auth=" + this.token() + "&message=" + message;
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-        return this._http.post(this._apiBaseUrl + 'people/' + personId, creds, {
-            headers: headers
-        })
+        return this._http.post(this._apiBaseUrl + 'temporary-earth-logic/' + personId, creds, this.formHeaders())
             .map(res => res.json());
     }
 
@@ -167,5 +151,14 @@ export public class ApiService {
             xhr.open('POST', url, true);
             xhr.send(formData);
         });
+    }
+
+    private formHeaders() {
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+        return {
+            headers: headers
+        };
     }
 }

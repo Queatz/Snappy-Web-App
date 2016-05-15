@@ -1,15 +1,7 @@
 import { Component, View, Input, AfterViewInit, ElementRef} from 'angular2/core';
 import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
-import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
-
-var firstHeaders = new Headers();
-firstHeaders.append('Content-Type', 'application/json;charset=UTF-8');
-
-class MyOptions extends BaseRequestOptions {
-    headers: Headers = firstHeaders
-}
 
 var checkFirst = true;
 
@@ -28,21 +20,17 @@ export class OfferCardComponent implements AfterViewInit {
     @Input() public profile;
     filesToUpload: Array<File>;
 
-    constructor(inforService: InforService,
+    constructor(private inforService: InforService,
         private api: ApiService,
-        http: Http,
         private _router: Router,
         element: ElementRef) {
-        this.inforService = inforService;
-        this.http = http;
         this.element = element.nativeElement;
         this.filesToUpload = [];
     }
 
     ngAfterViewInit() {
         Waves.displayEffect();
-        this.offerImage = 'http://queatz-snappy.appspot.com/api/offer/' + this.offer.id +
-            '/photo?s=800&auth=' + this.api.token();
+        this.offerImage = this.api.offerImageUrl(this.offer.id);
         this.showModal();
     }
 
@@ -104,7 +92,7 @@ export class OfferCardComponent implements AfterViewInit {
 
     public deleteOffer() {
         if (this.offer) {
-            this.http.delete('http://queatz-snappy.appspot.com/api/me/offers/' + this.offer.id + '?auth=' + this.inforService.getInforUser().auth, [])
+            this.api.deleteOffer(this.offer.id)
                 .map(res => {
                     if (res.status == 200) {
                         Materialize.toast('Offer deleted', 4000);
@@ -119,14 +107,12 @@ export class OfferCardComponent implements AfterViewInit {
     public uploadPhoto() {
         if (this.filesToUpload.length > 0 && this.filesToUpload[0].type.match(/image/)) {
             this.offerImage = "";
-            this.makeFileRequest("http://queatz-snappy.appspot.com/api/offer/" + this.offer.id
-                + "/photo?auth=" + this.inforService.getInforUser().auth, [], this.filesToUpload)
+            this.makeFileRequest(this.api.offerImageUrl(this.offer.id), this.filesToUpload)
                 .then(result => {
                     if (result) {
                         Materialize.toast('Photo updated', 4000);
                         this.offer.hasPhoto = true;
-                        this.offerImage = 'http://queatz-snappy.appspot.com/api/offer/' + this.offer.id +
-                            '/photo?s=800&auth=' + this.api.token();
+                        this.offerImage = this.api.offerImageUrl(this.offer.id);
                         this.deleteCallback(this.position, 3);
                     }
                     else
@@ -163,7 +149,7 @@ export class OfferCardComponent implements AfterViewInit {
     }
     deleteImage() {
         if (this.offer) {
-            this.http.delete('http://queatz-snappy.appspot.com/api/offer/' + this.offer.id + '/photo?auth=' + this.inforService.getInforUser().auth, [])
+            this.api.deleteOfferPhoto(this.offer.id)
                 .map(res => {
                     if (res.status == 200) {
                         Materialize.toast('Photo removed', 4000);

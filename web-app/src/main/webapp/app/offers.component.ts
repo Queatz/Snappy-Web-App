@@ -52,13 +52,13 @@ export class OffersComponent implements OnInit, AfterViewInit {
             this.token = this.inforService.getInforUser().auth;
         }
 
-        this.api.here(position.coords)
-            .subscribe(here => {
+        this.api.earthHere(position.coords, 'offer')
+            .subscribe(offers => {
                 // If there aren't any offers near them, then bail.
-                if (here.offers.length < 1) {
+                if (offers.length < 1) {
                     return;
                 }
-                this.loaded(here.offers);
+                this.loaded(offers);
             });
     }
 

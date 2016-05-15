@@ -85,14 +85,14 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
 
         if (!contact.seen) {
             contact.seen = true;
-            this.api.setSeen(contact.contact.id);
+            this.api.setSeen(contact.target.id);
         }
 
         this.resetTimeInterval();
         this.messageWithSomeone = null;
-        this.idCurrentContact = contact.contact.id;
+        this.idCurrentContact = contact.target.id;
 
-        this.messagesWith = contact.contact;
+        this.messagesWith = contact.target;
         this.goToGetMessages();
     }
 
@@ -199,9 +199,9 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
     showContactImage(contact, mode) {
         switch (mode) {
             case 0: //imageUrl
-                return contact.contact.imageUrl;
+                return contact.target.imageUrl;
             case 1: // name
-                return contact.contact.firstName + ' ' + contact.contact.lastName;
+                return contact.target.firstName + ' ' + contact.target.lastName;
             default:
                 return '';
         }

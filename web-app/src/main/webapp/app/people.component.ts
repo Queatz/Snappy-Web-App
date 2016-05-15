@@ -20,7 +20,7 @@ export class PeopleComponent implements OnActivate {
     }
 
     private loadNearby(position) {
-        this.api.peopleHere(position.coords)
+        this.api.earthHere(position.coords, 'person')
             .subscribe(people => {
                 this.loaded(people);
             },

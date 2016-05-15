@@ -1,21 +1,13 @@
 import {Component, AfterViewInit, ElementRef, Inject, OnInit, provide, NgZone} from 'angular2/core';
 import {ROUTER_DIRECTIVES, RouteParams, Router } from 'angular2/router';
-import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
 
 import {InforService} from './infor.service';
-
-var firstHeaders = new Headers();
-firstHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
-
-class MyOptions extends BaseRequestOptions {
-    headers: Headers = firstHeaders
-}
+import {ApiService} from './api.service';
 
 @Component({
     selector: 'signin',
     templateUrl: 'app/signin.component.html',
     styleUrls: ['app/signin.component.css'],
-    viewProviders: [HTTP_PROVIDERS, provide(RequestOptions, { useClass: MyOptions })],
     directives: [ROUTER_DIRECTIVES]
 })
 export class SigninComponent implements AfterViewInit, OnInit {
@@ -23,13 +15,11 @@ export class SigninComponent implements AfterViewInit, OnInit {
     private element;
 
     constructor(
-        inforService: InforService,
-        http: Http,
+        private inforService: InforService,
+        private api: ApiService,
         private _ngZone: NgZone,
         private router: Router,
         elementRef: ElementRef) {
-        this.inforService = inforService;
-        this.http = http;
         this.element = elementRef.nativeElement;
         this.signedIn = false; // todo -> auth factory
         if (localStorage.getItem('myInfo')) {
@@ -79,10 +69,8 @@ export class SigninComponent implements AfterViewInit, OnInit {
         var gemail = googleUser.getBasicProfile().getEmail();
         var gtoken = googleUser.getAuthResponse().access_token;
 
-        this.http.get('http://queatz-snappy.appspot.com/api/me' + '?email=' + gemail + '&auth=' + gtoken)
-            .map((res: Response) => res.json())
+        this.api.getMe(gemail, gtoken)
             .subscribe(dataInput => {
-
                 if (!this.inforService.getInforUser()) {
                     this.inforService.setInforUser(dataInput);
                     this._ngZone.run(() => {
