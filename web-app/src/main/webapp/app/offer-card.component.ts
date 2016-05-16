@@ -87,7 +87,7 @@ export class OfferCardComponent implements AfterViewInit {
     }
 
     private getPrefillText() {
-        return (this.isRequest() ? 'I\'ve got ' : 'I\'d like ') + this.offer.details;
+        return (this.isRequest() ? 'I\'ve got ' : 'I\'d like ') + this.offer.about;
     }
 
     public deleteOffer() {
@@ -111,7 +111,7 @@ export class OfferCardComponent implements AfterViewInit {
                 .then(result => {
                     if (result) {
                         Materialize.toast('Photo updated', 4000);
-                        this.offer.hasPhoto = true;
+                        this.offer.photo = true;
                         this.offerImage = this.api.offerImageUrl(this.offer.id);
                         this.deleteCallback(this.position, 3);
                     }
@@ -125,7 +125,7 @@ export class OfferCardComponent implements AfterViewInit {
         }
     }
 
-    makeFileRequest(url: string, params: Array<string>, files: Array<File>) {
+    makeFileRequest(url: string, files: Array<File>) {
         return new Promise((resolve, reject) => {
             var formData: any = new FormData();
             var xhr = new XMLHttpRequest();
@@ -139,7 +139,7 @@ export class OfferCardComponent implements AfterViewInit {
                     }
                 }
             }
-            xhr.open('PUT', url, true);
+            xhr.open('POST', url, true);
             xhr.send(formData);
         });
     }
@@ -156,7 +156,7 @@ export class OfferCardComponent implements AfterViewInit {
                         this.offerImage = '';
                         this.deleteCallback(this.position, 3);
                         setTimeout(() => {
-                            this.offer.hasPhoto = false;
+                            this.offer.photo = false;
                         }, 50);
                     } else {
                         Materialize.toast('Photo remove failed', 4000);

@@ -1,7 +1,7 @@
 <div class="card white hoverable">
     <div class="card-image">
         <div [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}" class="card-tabbing"></div>
-        <img (load)="loaded()" *ngIf="offer.hasPhoto" src="{{offerImage}}" />
+        <img (load)="loaded()" *ngIf="offer.photo" src="{{offerImage}}" />
     </div>
     <div class="card-content">
         <div class="blox">
@@ -10,7 +10,7 @@
         <div class="blox">
             <span class="title offer-type" [ngClass]="{'purple-text': isRequest()}">{{ getOfferTypeText() }}</span>
             <p class="flow-text">
-                {{ offer.details }}
+                {{ offer.about }}
             </p>
         </div>
     </div>
@@ -29,7 +29,7 @@
     <div id="modal-action{{ getPosition() }}-1" class="modal">
         <div class="modal-content">
             <h5>
-                Remove <b>{{ offer.details }}</b>?
+                Remove <b>{{ offer.about }}</b>?
             </h5>
         </div>
         <div class="modal-footer">

@@ -8,6 +8,7 @@ export public class ApiService {
     private _apiBaseUrl = 'http://queatz-snappy.appspot.com/api/';
 
     constructor(private _http: Http, private inforService: InforService) {
+        // XXX TODO graduate it when the app is updated
         this._apiBaseUrl = 'https://beta-dot-queatz-snappy.appspot.com/api/';
     }
 
@@ -26,12 +27,12 @@ export public class ApiService {
     public getMe(gemail: string, gtoken: string) {
         var creds = 'email=' + gemail + '&auth=' + gtoken;
 
-        return this._http.get(this._apiBaseUrl + 'temporary-earth-logic/me?' + creds)
+        return this._http.get(this._apiBaseUrl + 'earth/me?' + creds)
                 .map((res: Response) => res.json());
     }
 
     public earthThing(id: String) {
-        return this._http.get(this._apiBaseUrl + 'temporary-earth-logic/' + id + '?auth='+ this.token())
+        return this._http.get(this._apiBaseUrl + 'earth/' + id + '?auth='+ this.token())
                            .map((res: Response) => res.json());
     }
 
@@ -42,7 +43,7 @@ export public class ApiService {
             data += '&' + key + '=' + encodeURI(params[key]);
         }
 
-        return this._http.post(this._apiBaseUrl + 'temporary-earth-logic', data, this.formHeaders())
+        return this._http.post(this._apiBaseUrl + 'earth', data, this.formHeaders())
             .map((res: Response) => res.json());
     }
 
@@ -53,11 +54,11 @@ export public class ApiService {
             data += '&' + key + '=' + encodeURI(params[key]);
         }
 
-        return this._http.post(this._apiBaseUrl + 'temporary-earth-logic/' + id, data, this.formHeaders());
+        return this._http.post(this._apiBaseUrl + 'earth/' + id, data, this.formHeaders());
     }
 
     public earthPhotoUrl(id: String) {
-        return this._apiBaseUrl + 'temporary-earth-logic/' + id + '/photo?s=800&auth=' + this.token();
+        return this._apiBaseUrl + 'earth/' + id + '/photo?s=800&auth=' + this.token();
     }
 
     // XXX currently returns a promise, so must use .then()
@@ -76,7 +77,7 @@ export public class ApiService {
     }
 
     public earthHere(coords, kind: String) {
-        return this._http.get(this._apiBaseUrl + 'temporary-earth-logic/here/' + kind
+        return this._http.get(this._apiBaseUrl + 'earth/here/' + kind
                                 + '?latitude=' + coords.latitude
                                 + '&longitude=' + coords.longitude
                                 + '&auth='+ this.token())
@@ -84,54 +85,54 @@ export public class ApiService {
     }
 
     public setSeen(personId) {
-        return this._http.get(this._apiBaseUrl + 'temporary-earth-logic/' + personId + '?seen=true'
+        return this._http.get(this._apiBaseUrl + 'earth/' + personId + '?seen=true'
                               + '&auth='+ this.token())
                            .map((res: Response) => res.json());
     }
 
     public getPerson(personId) {
-        return this._http.get(this._apiBaseUrl + 'temporary-earth-logic/' + personId
+        return this._http.get(this._apiBaseUrl + 'earth/' + personId
                               + '?auth=' + this.token())
                            .map((res: Response) => res.json());
     }
 
     public getPersonByName(personName) {
-        return this._http.get(this._apiBaseUrl + 'temporary-earth-logic/by-name/' + personName + '?auth=' + this.token())
+        return this._http.get(this._apiBaseUrl + 'earth/by-name/' + personName + '?auth=' + this.token())
             .map(res => res.json());
     }
 
     public messages() {
-        return this._http.get(this._apiBaseUrl + 'temporary-earth-logic/me/messages?auth=' + this.token())
+        return this._http.get(this._apiBaseUrl + 'earth/me/messages?auth=' + this.token())
                            .map((res: Response) => res.json());
     }
 
     public personMessages(personId) {
-        return this._http.get(this._apiBaseUrl + 'temporary-earth-logic/' + personId
+        return this._http.get(this._apiBaseUrl + 'earth/' + personId
                               + '/messages?auth=' + this.token())
                            .map((res: Response) => res.json());
     }
 
     public newOffer(details, price, unit) {
         var creds = "auth=" + this.token() + "&details=" + encodeURI(details) + "&price=" + encodeURI(price) + "&unit=" + encodeURI(unit);
-        return this._http.post(this._apiBaseUrl + 'temporary-earth-logic/me/offers', creds, this.formHeaders()).map((res: Response) => res.json());
+        return this._http.post(this._apiBaseUrl + 'earth/me/offers', creds, this.formHeaders()).map((res: Response) => res.json());
     }
 
     public deleteOffer(id: string) {
-        return this._http.post(this._apiBaseUrl + 'temporary-earth-logic/' + id + '/delete?auth=' + this.token());
+        return this._http.post(this._apiBaseUrl + 'earth/' + id + '/delete?auth=' + this.token());
     }
 
     public deleteOfferPhoto(id: string) {
-        return this._http.post(this._apiBaseUrl + 'temporary-earth-logic/' + id + '/photo/delete?auth=' + this.token());
+        return this._http.post(this._apiBaseUrl + 'earth/' + id + '/photo/delete?auth=' + this.token());
     }
 
     public offerImageUrl(id: string) {
-        return this._apiBaseUrl + id + 'temporary-earth-logic/' + this.offer.id + '/photo?s=800&auth=' + this.token();
+        return this._apiBaseUrl + 'earth/' + id + '/photo?s=800&auth=' + this.token();
     }
 
     public sendMessage(personId, message) {
         var creds = "auth=" + this.token() + "&message=" + message;
 
-        return this._http.post(this._apiBaseUrl + 'temporary-earth-logic/' + personId, creds, this.formHeaders())
+        return this._http.post(this._apiBaseUrl + 'earth/' + personId, creds, this.formHeaders())
             .map(res => res.json());
     }
 

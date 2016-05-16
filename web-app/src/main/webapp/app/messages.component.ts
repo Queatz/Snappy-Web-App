@@ -67,8 +67,12 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
             });
     }
 
+    sortedMessages(messages) {
+        return _.sortBy(messages, message => moment(message.date));
+    }
+
     showMessages(messagesAndContacts) {
-        this.currentMessages = messagesAndContacts.messages;
+        this.currentMessages = this.sortedMessages(messagesAndContacts.messages);
         this.contacts = _.sortBy(messagesAndContacts.contacts, contact => -moment(contact.updated));
 
         if (this.contacts.length > 0) {
@@ -112,24 +116,26 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
                     this.messageWithSomeone = null;
                     this.endMessage = false;
                 } else {
+                    messages = this.sortedMessages(messages);
+
                     if (!messages.length) {
                         this.messageWithSomeone = messages;
                     } else {
                         if (this.idCurrentContact == messages[0].from.id || this.idCurrentContact == messages[0].to.id) {
                             if (!this.messageWithSomeone) {
                                 this.endMessage = false;
-                                this.messageWithSomeone = messages.reverse();
+                                this.messageWithSomeone = messages;
                                 this.sendId = messages[0].id;
                             } else if (this.messageWithSomeone.length >= messages.length) {
                                     if (messages[0].id != this.messageWithSomeone[this.messageWithSomeone.length - 1].id &&
                                         this.haveIdInDataInput(messages)) {
 
                                         this.endMessage = false;
-                                        this.messageWithSomeone = messages.reverse();
+                                        this.messageWithSomeone = messages;
                                     }
                             } else {
                                 this.endMessage = false;
-                                this.messageWithSomeone = messages.reverse();
+                                this.messageWithSomeone = messages;
                             }
                         }
                     }

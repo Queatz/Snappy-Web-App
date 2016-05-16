@@ -24,7 +24,7 @@ export class NewOfferModal {
         if (edetails) {
             $(this.element.querySelector('#modal')).closeModal();
 
-            this.api.newOffer(this.edetails, this.enumber, this.emessage)
+            this.api.newOffer(edetails, enumber, emessage)
                 .subscribe(dataInput => {
                     if (dataInput.id) {
                         Materialize.toast('Offer success!', 4000);

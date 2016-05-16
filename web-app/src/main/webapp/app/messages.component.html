@@ -29,9 +29,9 @@
 
             <div class="scroll">
                 <h3 class="mstitle">Contacts <i class="clickable small material-icons chat-bubble" (click)="showChat()">chat_bubble</i></h3>
-                <div class="item" [ngClass]="{'grey lighten-2': contact.contact.id === idCurrentContact}" *ngFor="#contact of contacts">
+                <div class="item" [ngClass]="{'grey lighten-2': contact.target.id === idCurrentContact}" *ngFor="#contact of contacts">
                     <a class="message clear" [ngClass]="{'not-seen': !contact.seen}" (click)="getMessagesById(contact)">
-                        <a [routerLink]="['Profile', {id: contact.contact.googleUrl}]" >
+                        <a [routerLink]="['Profile', {id: contact.target.googleUrl}]" >
                             <img class="circle resize imageprofile" src="{{showContactImage(contact, 0)}}"/>
                         </a>
                         <div class="name">
