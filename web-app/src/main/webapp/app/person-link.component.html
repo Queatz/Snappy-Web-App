@@ -1,0 +1,5 @@
+<a [routerLink]="['Profile', {id: person.googleUrl}]" class="person-link">
+    <img src="{{ person.imageUrl }}" alt="Profile picture" class="circle" />
+    <br />
+    {{ person.firstName }} {{ person.lastName }}
+</a>

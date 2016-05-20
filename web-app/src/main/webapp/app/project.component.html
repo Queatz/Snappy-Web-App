@@ -6,11 +6,20 @@
         <img class="photo" *ngIf="thing.photo" [src]="getUrl()" />
         <div class="info">
             <h3>{{ thing.name }}
-                <span *ngIf="!isMine()">
+                <span *ngIf="canEdit()">
                     <a class="modal-trigger" href="#editDetailsModal"><i class="material-icons small">edit</i></a>
                     <a class="modal-trigger" href="#setPhotoModal"><i class="material-icons small">library_add</i></a>
                 </span>
             </h3>
+            <div *ngIf="thing.contacts.length">
+                <h6 class="metadata grey-text">CONTACTS</h6>
+                <person-link *ngFor="#contact of thing.contacts" [person]="contact.target"></person-link>
+            </div>
+            <div *ngIf="thing.address">
+                <h6 class="metadata grey-text">ADDRESS</h6>
+                <a href="{{ addressLink() }}" target="_blank">{{ thing.address }}</a>
+            </div>
+            <h6 class="metadata grey-text">ABOUT</h6>
             <parse-links class="about flow-text">{{ thing.about }}</parse-links>
             <br />
         </div>

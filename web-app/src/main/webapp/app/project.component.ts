@@ -4,11 +4,12 @@ import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import { SetPhotoModal } from './set-photo.modal';
 import { EditDetailsModal } from './edit-details.modal';
+import { PersonLinkComponent } from './person-link.component';
 
 @Component({
     templateUrl: 'app/project.component.html',
     styleUrls: ['app/project.component.css'],
-    directives: [ROUTER_DIRECTIVES, SetPhotoModal, EditDetailsModal]
+    directives: [ROUTER_DIRECTIVES, SetPhotoModal, EditDetailsModal, PersonLinkComponent]
 })
 export class ProjectComponent implements AfterViewInit {
     public thing;
@@ -38,5 +39,15 @@ export class ProjectComponent implements AfterViewInit {
         if (this.thing && this.thing.photo) {
             return this.api.earthPhotoUrl(this.thing.id);
         }
+    }
+
+    public canEdit() {
+        var me = this.inforService.getInforUser().id;
+
+        return _.some(this.thing.contacts, t => t.target.id === me);
+    }
+
+    public addressLink() {
+        return 'https://www.google.com/maps/place/' + this.thing.address + '/@' + this.thing.geo.latitude + ',' + this.thing.geo.longitude + ',15z'
     }
 }

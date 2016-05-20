@@ -1,0 +1,9 @@
+.person-link {
+    display: inline-block;
+    text-align: center;
+}
+
+img {
+    vertical-align: middle;
+    margin-bottom: .5rem;
+}

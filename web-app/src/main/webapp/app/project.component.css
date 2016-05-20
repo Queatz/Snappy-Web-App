@@ -22,11 +22,18 @@
 }
 
 .about {
-    white-space: pre;
+    white-space: pre-wrap;
+    max-width: 900px;
     display: block;
 }
 
 .followers {
     display: inline-block;
     margin-left: 1em;
+}
+
+.metadata {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
 }

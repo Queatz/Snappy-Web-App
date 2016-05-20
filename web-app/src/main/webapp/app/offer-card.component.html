@@ -5,7 +5,7 @@
     </div>
     <div class="card-content">
         <div class="blox">
-            <a [routerLink]="['Profile', {id: offer.person.googleUrl}]"> <img src="{{ offer.person.imageUrl }}" alt="Profile picture" class="circle"> </a>
+            <a [routerLink]="['Profile', {id: offer.person.googleUrl}]"> <img src="{{ offer.person.imageUrl }}" alt="Profile picture" class="circle" /> </a>
         </div>
         <div class="blox">
             <span class="title offer-type" [ngClass]="{'purple-text': isRequest()}">{{ getOfferTypeText() }}</span>
