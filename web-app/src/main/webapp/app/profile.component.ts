@@ -1,27 +1,17 @@
-import { Component, OnInit, ElementRef, provide, AfterViewInit } from 'angular2/core';
+import { Component, OnInit, ElementRef, AfterViewInit } from 'angular2/core';
 import { ROUTER_DIRECTIVES, RouteParams, Router, OnActivate } from 'angular2/router';
-import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
 import { OffersComponent } from './offers.component';
 import { ParseLinksComponent } from './parseLinks.component';
 import { FloatingComponent } from './floating.component';
 import { NewOfferModal } from './new-offer.modal';
 import { ApiService } from './api.service';
-
-import {InforService} from './infor.service';
-
-var firstHeaders = new Headers();
-firstHeaders.append('Content-Type', 'application/json;charset=UTF-8');
-
-class MyOptions extends BaseRequestOptions {
-    headers: Headers = firstHeaders
-}
+import { PostUpdateModal } from './post-update.modal';
+import { InforService } from './infor.service';
 
 @Component({
     templateUrl: 'app/profile.component.html',
     styleUrls: ['app/profile.component.css'],
-    viewProviders: [HTTP_PROVIDERS, provide(RequestOptions, { useClass: MyOptions })],
-    directives: [ROUTER_DIRECTIVES, OffersComponent, ParseLinksComponent, FloatingComponent],
-
+    directives: [ROUTER_DIRECTIVES, OffersComponent, ParseLinksComponent, FloatingComponent, PostUpdateModal],
 })
 export class ProfileComponent implements OnInit, AfterViewInit {
     public notFound = false;
@@ -33,11 +23,9 @@ export class ProfileComponent implements OnInit, AfterViewInit {
         private api: ApiService,
         private router: Router,
         private routeParams: RouteParams,
-        http: Http,
         element: ElementRef
     ) {
         this.inforService = inforService;
-        this.http = http;
         this.element = element.nativeElement;
         this.offers = null;
         this.person = null;

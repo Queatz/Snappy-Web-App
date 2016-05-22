@@ -76,6 +76,26 @@ export public class ApiService {
         return this._http.post(this.earthPhotoUrl(id));
     }
 
+    // XXX currently returns a promise, so must use .then()
+    public earthPostUpdate(thingId: String, message: String, photoFile: File) {
+        var formData = new FormData();
+
+        if (photoFile) {
+            formData.append('photo', photoFile, photoFile.name);
+        }
+
+        formData.append('thing', thingId);
+
+        if (message) {
+            formData.append('message', message);
+        }
+
+        var headers = new Headers();
+        headers.append('Content-Type', undefined);
+
+        return this.makeFilePostRequest(this._apiBaseUrl + 'earth?kind=update&auth=' + this.token(), formData);
+    }
+
     public earthHere(coords, kind: String) {
         return this._http.get(this._apiBaseUrl + 'earth/here/' + kind
                                 + '?latitude=' + coords.latitude
