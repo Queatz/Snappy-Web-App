@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, AfterViewInit } from 'angular2/core';
 import { ROUTER_DIRECTIVES, RouteParams, Router, OnActivate } from 'angular2/router';
 import { OffersComponent } from './offers.component';
+import { ThingUpdatesComponent } from './thing-updates.component';
 import { ParseLinksComponent } from './parseLinks.component';
 import { FloatingComponent } from './floating.component';
 import { NewOfferModal } from './new-offer.modal';
@@ -11,8 +12,12 @@ import { InforService } from './infor.service';
 @Component({
     templateUrl: 'app/profile.component.html',
     styleUrls: ['app/profile.component.css'],
-    directives: [ROUTER_DIRECTIVES, OffersComponent, ParseLinksComponent, FloatingComponent, PostUpdateModal],
+    directives: [ROUTER_DIRECTIVES, OffersComponent, ParseLinksComponent, FloatingComponent, PostUpdateModal, ThingUpdatesComponent],
 })
+//@RouteConfig([
+//  { path: '/',       component: OffersTabComponent, useAsDefault: true },
+//  { path: '/updates', component: UpdatesTabComponent },
+//])
 export class ProfileComponent implements OnInit, AfterViewInit {
     public notFound = false;
     private offers;
@@ -35,6 +40,9 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
         let id = this.routeParams.get('id');
+        let tab = this.routeParams.get('tab');
+
+        // XXX wat
         if (id !== 'messages') {
             this.loadPerson(id);
             this.myProfile = id;

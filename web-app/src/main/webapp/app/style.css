@@ -14,10 +14,27 @@ body {
     background-color: #c54859 !important;
 }
 
+
+.txt-green {
+    color: #629252 !important;
+}
+
+.txt-purple {
+    color: #9848C5 !important;
+}
+
+.txt-red {
+    color: #c54859 !important;
+}
+
 .clear {
     clear: both;
 }
 
 .side-nav a:hover {
     background: transparent;
+}
+
+.tabs .indicator {
+    background-color: #9e9e9e !important;
 }

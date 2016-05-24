@@ -3,10 +3,10 @@
 }
 
 .grid > div {
-    width: 400px;
+    width: 540px;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 540px) {
     .grid > div {
         width: 98vw;
     }
@@ -16,5 +16,4 @@
     font-size: 1.5rem;
     color: #777;
     padding: .5em;
-    margin-top: 1rem;
 }

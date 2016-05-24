@@ -30,7 +30,7 @@ export class OfferCardComponent implements AfterViewInit {
 
     ngAfterViewInit() {
         Waves.displayEffect();
-        this.offerImage = this.api.offerImageUrl(this.offer.id);
+        this.offerImage = this.api.earthImageUrl(this.offer.id);
         this.showModal();
     }
 
@@ -92,7 +92,7 @@ export class OfferCardComponent implements AfterViewInit {
 
     public deleteOffer() {
         if (this.offer) {
-            this.api.deleteOffer(this.offer.id)
+            this.api.earthDelete(this.offer.id)
                 .map(res => {
                     if (res.status == 200) {
                         Materialize.toast('Offer deleted', 4000);
@@ -107,12 +107,12 @@ export class OfferCardComponent implements AfterViewInit {
     public uploadPhoto() {
         if (this.filesToUpload.length > 0 && this.filesToUpload[0].type.match(/image/)) {
             this.offerImage = "";
-            this.makeFileRequest(this.api.offerImageUrl(this.offer.id), this.filesToUpload)
+            this.makeFileRequest(this.api.earthImageUrl(this.offer.id), this.filesToUpload)
                 .then(result => {
                     if (result) {
                         Materialize.toast('Photo updated', 4000);
                         this.offer.photo = true;
-                        this.offerImage = this.api.offerImageUrl(this.offer.id);
+                        this.offerImage = this.api.earthImageUrl(this.offer.id);
                         this.deleteCallback(this.position, 3);
                     }
                     else
@@ -149,7 +149,7 @@ export class OfferCardComponent implements AfterViewInit {
     }
     deleteImage() {
         if (this.offer) {
-            this.api.deleteOfferPhoto(this.offer.id)
+            this.api.earthDeletePhoto(this.offer.id)
                 .map(res => {
                     if (res.status == 200) {
                         Materialize.toast('Photo removed', 4000);

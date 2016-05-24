@@ -1,8 +1,26 @@
 <div>
+    <center *ngIf="!resources" class="waiting">
+        <br />
+        <div class="preloader-wrapper active">
+            <div class="spinner-layer spinner-brown-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <span><br /><br />Finding resources near you...</span>
+    </center>
+
     <div class="grid center-align">
-        <div class="item" *ngFor="#project of projects">
-            <project-card class="left-align" [typeClass]="'brown'" [project]="project"></project-card>
+        <div class="item" *ngFor="#resource of resources">
+            <project-card class="left-align" [typeClass]="'brown'" [thing]="resource"></project-card>
         </div>
     </div>
-    <floating [color]="'brown'"></floating>
+    <floating [color]="'brown'" [modal]="newResourceModal"></floating>
 </div>

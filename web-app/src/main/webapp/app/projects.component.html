@@ -1,8 +1,26 @@
 <div>
+    <center *ngIf="!projects" class="waiting">
+        <br />
+        <div class="preloader-wrapper active">
+            <div class="spinner-layer spinner-deep-orange-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <span><br /><br />Finding projects near you...</span>
+    </center>
+
     <div class="grid center-align">
         <div class="item" *ngFor="#project of projects">
-            <project-card class="left-align" [typeClass]="'deep-orange'" [project]="project"></project-card>
+            <project-card class="left-align" [typeClass]="'deep-orange'" [thing]="project"></project-card>
         </div>
     </div>
-    <floating [color]="'deep-orange'"></floating>
+    <floating [color]="'deep-orange'" [modal]="newProjectModal"></floating>
 </div>

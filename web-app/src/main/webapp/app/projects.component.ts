@@ -2,7 +2,9 @@ import { Component, ElementRef } from 'angular2/core';
 import { FloatingComponent } from './floating.component';
 import { ROUTER_DIRECTIVES, OnActivate } from 'angular2/router';
 import { ProjectCardComponent } from './project-card.component';
+import { NewProjectModal } from './new-project.modal';
 import { InforService } from './infor.service';
+import { ApiService } from './api.service';
 
 @Component({
     templateUrl: 'app/projects.component.html',
@@ -12,10 +14,22 @@ import { InforService } from './infor.service';
 export class ProjectsComponent implements OnActivate {
     public projects;
 
-    constructor(inforService: InforService, element: ElementRef) {
-        this.inforService = inforService;
+    constructor(private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;
-        this.loaded([{}, {}, {}, {}, {}, {}, {}]);
+
+        this.newProjectModal = NewProjectModal;
+
+        navigator.geolocation.getCurrentPosition(this.loadNearby.bind(this));
+    }
+
+    private loadNearby(position) {
+        this.api.earthHere(position.coords, 'project')
+            .subscribe(projects => {
+                this.loaded(projects);
+            },
+            error => {
+                this.projects = [];
+            });
     }
 
     private loaded(projects) {

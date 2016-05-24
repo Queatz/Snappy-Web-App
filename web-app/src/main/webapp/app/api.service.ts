@@ -137,15 +137,15 @@ export public class ApiService {
         return this._http.post(this._apiBaseUrl + 'earth/me/offers', creds, this.formHeaders()).map((res: Response) => res.json());
     }
 
-    public deleteOffer(id: string) {
+    public earthDelete(id: string) {
         return this._http.post(this._apiBaseUrl + 'earth/' + id + '/delete?auth=' + this.token());
     }
 
-    public deleteOfferPhoto(id: string) {
+    public earthDeletePhoto(id: string) {
         return this._http.post(this._apiBaseUrl + 'earth/' + id + '/photo/delete?auth=' + this.token());
     }
 
-    public offerImageUrl(id: string) {
+    public earthImageUrl(id: string) {
         return this._apiBaseUrl + 'earth/' + id + '/photo?s=800&auth=' + this.token();
     }
 

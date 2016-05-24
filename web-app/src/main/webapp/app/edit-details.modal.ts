@@ -23,10 +23,19 @@ export class EditDetailsModal implements AfterViewInit {
         Waves.displayEffect();
         $(this.element.querySelector('#visibility')).material_select();
 
-        this.name = this.thing.name;
-        this.about = this.thing.about;
-        this.address = this.thing.address;
-        this.visibility = '';
+        switch (this.thing.kind) {
+            case 'hub':
+                this.name = this.thing.name;
+                this.about = this.thing.about;
+                this.address = this.thing.address;
+                this.visibility = '';
+                break;
+            case 'resource':
+            case 'project':
+                this.name = this.thing.name;
+                this.about = this.thing.about;
+                break;
+        }
     }
 
     updateAddress() {
@@ -34,6 +43,31 @@ export class EditDetailsModal implements AfterViewInit {
     }
 
     save() {
+        switch (this.thing.kind) {
+            case 'hub':
+                return this.saveHub();
+            case 'resource':
+            case 'project':
+                return this.saveResource();
+        }
+    }
+
+    saveResource() {
+        if (!this.name) {
+            return;
+        }
+
+        this.api.earthEdit(this.thing.id, {
+            name: this.name,
+            about: this.about
+        }).subscribe(success => {
+            this.thing.name = this.name;
+            this.thing.about = this.about;
+            $(this.element.querySelector('#editDetailsModal')).closeModal();
+        });
+    }
+
+    saveHub() {
         if (!this.name || !this.address) {
             return;
         }

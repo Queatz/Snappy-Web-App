@@ -1,0 +1,23 @@
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h4>Add a Project</h4>
+
+        <form>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">label</i>
+                    <input id="projectName" type="text" required [(ngModel)]="name">
+                    <label for="projectName">Enter name</label>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <a class="btn-flat waves-effect modal-action" type="submit"
+           name="action" (click)="newProject()">
+            Add Project
+        </a>
+        <a class="modal-action modal-close waves-effect waves-red btn-flat">Cancel</a>
+    </div>
+</div>

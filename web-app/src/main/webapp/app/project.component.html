@@ -25,13 +25,13 @@
         </div>
     </div>
     <br />
-    <center *ngIf="canEdit()">
+    <center *ngIf="thing">
         <a href="#postUpdateModal" class="modal-trigger price waves-effect waves-light btn white-text bkg-red">
-            <b>Post Update</b>
+            <b><i class="material-icons left">edit</i>New Post</b>
         </a>
     </center>
-    <!--<updates *ngIf="thing" [thing]="thing"></updates>-->
+    <thing-updates *ngIf="thing && thing.updates" [updates]="thing.updates"></thing-updates>
     <edit-details-modal *ngIf="canEdit()" [thing]="thing"></edit-details-modal>
     <set-photo-modal *ngIf="canEdit()" [thing]="thing"></set-photo-modal>
-    <post-update-modal *ngIf="canEdit()" [thing]="thing"></post-update-modal>
+    <post-update-modal *ngIf="thing" [thing]="thing"></post-update-modal>
 </div>

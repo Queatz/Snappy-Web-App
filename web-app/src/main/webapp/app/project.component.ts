@@ -6,11 +6,12 @@ import { SetPhotoModal } from './set-photo.modal';
 import { EditDetailsModal } from './edit-details.modal';
 import { PostUpdateModal } from './post-update.modal';
 import { PersonLinkComponent } from './person-link.component';
+import { ThingUpdatesComponent } from './thing-updates.component';
 
 @Component({
     templateUrl: 'app/project.component.html',
     styleUrls: ['app/project.component.css'],
-    directives: [ROUTER_DIRECTIVES, SetPhotoModal, EditDetailsModal, PersonLinkComponent, PostUpdateModal]
+    directives: [ROUTER_DIRECTIVES, SetPhotoModal, EditDetailsModal, PersonLinkComponent, PostUpdateModal, ThingUpdatesComponent]
 })
 export class ProjectComponent implements AfterViewInit {
     public thing;

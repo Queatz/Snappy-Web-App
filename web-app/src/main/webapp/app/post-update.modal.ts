@@ -26,6 +26,10 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
         if (this.message || isFile) {
             this.api.earthPostUpdate(this.thing.id, this.message, isFile ? this.filesToUpload[0] : null)
                 .then(result => {
+                    if (_.isArray(this.thing.updates)) {
+                        this.thing.updates.unshift(result);
+                    }
+
                     Materialize.toast('Update posted', 4000);
                 },
                 error => {

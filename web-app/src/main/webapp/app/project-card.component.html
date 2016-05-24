@@ -15,12 +15,6 @@
             <template ngPluralCase="=1">follower</template>
             <template ngPluralCase="other">followers</template>
         </span>
-        <span class="grey-text">&bull;</span>
-        {{ thing.members }}
-        <span class="grey-text" [ngPlural]="thing.members">
-            <template ngPluralCase="=1">member</template>
-            <template ngPluralCase="other">members</template>
-        </span>
 
         <a (click)="go()" class="secondary-content {{typeClass.indexOf('yellow') != -1 ? 'yellow-text text-darken-4' : typeClass + '-text'}}">{{typeClass == 'deep-orange' ? 'View Project' : typeClass == 'brown' ? 'View Resource' : typeClass == 'blue' ? 'Go To Hub' : 'Go to Club'}}</a>
     </div>
