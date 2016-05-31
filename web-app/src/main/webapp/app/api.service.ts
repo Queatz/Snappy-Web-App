@@ -4,7 +4,7 @@ import { InforService } from './infor.service';
 
 @Injectable()
 export public class ApiService {
-    private _token = 'ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U';
+    private _token = 'ya29.CjLqAqF_yxNzGvQ8hfhWMWl_E09U3WUpxp09C_saGaNaYuQNupXL628L1MW3MhhX-tEIDQ';
     private _apiBaseUrl = 'http://queatz-snappy.appspot.com/api/';
 
     constructor(private _http: Http, private inforService: InforService) {
@@ -40,7 +40,7 @@ export public class ApiService {
         var data = 'auth=' + this.token();
 
         for (var key in params) {
-            data += '&' + key + '=' + encodeURI(params[key]);
+            data += '&' + key + '=' + encodeURIComponent(params[key]);
         }
 
         return this._http.post(this._apiBaseUrl + 'earth', data, this.formHeaders())
@@ -51,7 +51,7 @@ export public class ApiService {
         var data = 'auth=' + this.token();
 
         for (var key in params) {
-            data += '&' + key + '=' + encodeURI(params[key]);
+            data += '&' + key + '=' + encodeURIComponent(params[key]);
         }
 
         return this._http.post(this._apiBaseUrl + 'earth/' + id, data, this.formHeaders());
@@ -126,6 +126,11 @@ export public class ApiService {
                            .map((res: Response) => res.json());
     }
 
+    public saveAbout(about: String) {
+        return this._http.post(this._apiBaseUrl + 'earth/me/?about=' + encodeURIComponent(about) + '&auth=' + this.token())
+                           .map((res: Response) => res.json());
+    }
+
     public personMessages(personId) {
         return this._http.get(this._apiBaseUrl + 'earth/' + personId
                               + '/messages?auth=' + this.token())
@@ -133,7 +138,7 @@ export public class ApiService {
     }
 
     public newOffer(details, price, unit) {
-        var creds = "auth=" + this.token() + "&details=" + encodeURI(details) + "&price=" + encodeURI(price) + "&unit=" + encodeURI(unit);
+        var creds = "auth=" + this.token() + "&details=" + encodeURIComponent(details) + "&price=" + encodeURIComponent(price) + "&unit=" + encodeURIComponent(unit);
         return this._http.post(this._apiBaseUrl + 'earth/me/offers', creds, this.formHeaders()).map((res: Response) => res.json());
     }
 

@@ -1,0 +1,25 @@
+<div>
+    <center *ngIf="!things" class="waiting">
+        <br />
+        <div class="preloader-wrapper active">
+            <div class="spinner-layer spinner-brown-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <span><br /><br />Loading...</span>
+    </center>
+
+    <div class="grid center-align">
+        <div class="item" *ngFor="#thing of things">
+            <project-card class="left-align" [thing]="thing"></project-card>
+        </div>
+    </div>
+</div>

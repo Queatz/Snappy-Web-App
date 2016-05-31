@@ -1,6 +1,14 @@
-<div>
-    <banner *ngIf="newUser()"></banner>
-    <info-panel *ngIf="newUser()"></info-panel>
+<div *ngIf="!newUser()">
     <offers></offers>
     <floating [modal]="newOfferModal"></floating>
+</div>
+<div *ngIf="newUser()">
+    <div class="row">
+        <br />
+        <div class="grey-text text-darken-2 center-align col s6 offset-s3 card-panel">
+            <p>
+                Sign in.
+            </p>
+        </div>
+    </div>
 </div>

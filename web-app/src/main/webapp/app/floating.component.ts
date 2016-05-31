@@ -20,6 +20,7 @@ export class FloatingComponent implements OnInit, AfterViewInit {
     @Input() public color;
     @Input() public modal;
     @Input() public icon;
+    @Input() public params;
 
     constructor(private dcl: DynamicComponentLoader, injector: Injector, inforService: InforService, private router: Router, private routeParams: RouteParams, http: Http, private elementRef: ElementRef) {
         this.inforService = inforService;
