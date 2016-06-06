@@ -44,6 +44,10 @@ export class ProjectComponent implements AfterViewInit {
     }
 
     public canEdit() {
+        if (!this.inforService.getInforUser()) {
+            return false;
+        }
+
         var me = this.inforService.getInforUser().id;
 
         return this.thing && _.some(this.thing.contacts, t => t.target.id === me);

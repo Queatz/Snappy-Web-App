@@ -1,0 +1,23 @@
+<div id="feedbackModal" class="modal">
+    <div class="modal-content">
+        <h4>Feedback</h4>
+
+        <form>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">edit</i>
+                    <input id="strdetail" type="text" required [(ngModel)]="feedback">
+                    <label for="strdetail">Enter feedback here...</label>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <a class="btn-flat waves-effect waves-green modal-action" type="submit"
+           name="action" (click)="submit()">
+            Submit
+        </a>
+        <a class="modal-action modal-close waves-effect waves-red btn-flat">Close</a>
+    </div>
+</div>

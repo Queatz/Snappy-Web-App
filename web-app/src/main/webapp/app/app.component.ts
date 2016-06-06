@@ -11,6 +11,7 @@ import { ResourcesComponent } from "./resources.component";
 import { PeopleComponent } from "./people.component";
 import { SearchComponent } from "./search.component";
 import { ProjectComponent } from "./project.component";
+import { FeedbackModal } from "./feedback.modal";
 import { InforService } from './infor.service';
 import { ElementRef } from 'angular2/core';
 
@@ -18,7 +19,7 @@ import { ElementRef } from 'angular2/core';
 	selector: 'app',
 	templateUrl: 'app/app.component.html',
 	styleUrls: ['app/app.component.css'],
-	directives: [ROUTER_DIRECTIVES, SigninComponent]
+	directives: [ROUTER_DIRECTIVES, SigninComponent, FeedbackModal]
 })
 @RouteConfig([
   { path: '/',              name: 'Main',       component: MainComponent, useAsDefault: true },
@@ -44,6 +45,8 @@ export class AppComponent implements OnActivate, AfterViewInit {
     	$(this.element).find('.button-collapse').sideNav({
     	    closeOnClick: true
     	});
+
+    	$('.modal-trigger').leanModal();
     }
 
     userSignined() {

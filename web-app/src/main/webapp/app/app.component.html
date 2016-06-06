@@ -9,9 +9,9 @@
                     <li [ngClass]="{'active': isActive(['Projects'])}"><a [routerLink]="['Projects']"><i class="material-icons left">settings</i>Projects</a></li>
                     <li [ngClass]="{'active': isActive(['Resources'])}"><a [routerLink]="['Resources']"><i class="material-icons left">language</i>Resources</a></li>
                     <li [ngClass]="{'active': isActive(['Hubs'])}"><a [routerLink]="['Hubs']"><i class="material-icons left">room</i>Hubs</a></li>
-                    <li [ngClass]="{'active': isActive(['Clubs'])}"><a [routerLink]="['Clubs']"><i class="material-icons left">supervisor_account</i>Clubs</a></li>
+                    <!--<li [ngClass]="{'active': isActive(['Clubs'])}"><a [routerLink]="['Clubs']"><i class="material-icons left">supervisor_account</i>Clubs</a></li>-->
                     <li [ngClass]="{'active': isActive(['People'])}"><a [routerLink]="['People']"><i class="material-icons left">perm_identity</i>People</a></li>
-                    <li [ngClass]="{'active': isActive(['Search', {query: ''}])}"><a [routerLink]="['Search', {query: ''}]"><i class="material-icons left">search</i>Search</a></li>
+                    <!--<li [ngClass]="{'active': isActive(['Search', {query: ''}])}"><a [routerLink]="['Search', {query: ''}]"><i class="material-icons left">search</i>Search</a></li>-->
                 </ul>
 
                 <ul id="slide-out" class="side-nav">
@@ -19,9 +19,9 @@
                     <li><a [routerLink]="['Projects']"><i class="material-icons left">settings</i>Projects</a></li>
                     <li><a [routerLink]="['Resources']"><i class="material-icons left">language</i>Resources</a></li>
                     <li><a [routerLink]="['Hubs']"><i class="material-icons left">room</i>Hubs</a></li>
-                    <li><a [routerLink]="['Clubs']"><i class="material-icons left">supervisor_account</i>Clubs</a></li>
+                    <!--<li><a [routerLink]="['Clubs']"><i class="material-icons left">supervisor_account</i>Clubs</a></li>-->
                     <li><a [routerLink]="['People']"><i class="material-icons left">perm_identity</i>People</a></li>
-                    <li><a [routerLink]="['Search', {query: ''}]"><i class="material-icons left">search</i>Search</a></li>
+                    <!--<li><a [routerLink]="['Search', {query: ''}]"><i class="material-icons left">search</i>Search</a></li>-->
                 </ul>
 
                 <a data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -31,9 +31,11 @@
                         <signin></signin>
                     </div>
                     <a class="chat right" *ngIf="userSignined()" [routerLink]="['Messages', {id: ''}]"><i class="material-icons">chat_bubble</i></a>
+                    <a class="feedback modal-trigger right" *ngIf="userSignined()" href="#feedbackModal">Feedback</a>
                 </div>
             </div>
         </nav>
     </div>
+    <feedback-modal></feedback-modal>
     <router-outlet></router-outlet>
 </div>
