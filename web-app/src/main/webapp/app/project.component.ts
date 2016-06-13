@@ -23,6 +23,8 @@ export class ProjectComponent implements AfterViewInit {
 
         api.earthThing(this.id).subscribe(thing => {
                     this.thing = thing;
+                    this.thing.updates = _.sortBy(this.thing.updates, update => -moment(update.date));
+                    this.inforService.setPageTitle(this.thing.name);
                     setTimeout(this.ngAfterViewInit.bind(this), 500);
                 },
                 error => this.notFound = true);
@@ -55,5 +57,9 @@ export class ProjectComponent implements AfterViewInit {
 
     public addressLink() {
         return 'https://www.google.com/maps/place/' + this.thing.address + '/@' + this.thing.geo.latitude + ',' + this.thing.geo.longitude + ',15z'
+    }
+
+    routerOnActivate() {
+        this.inforService.setPageTitle('Village');
     }
 }

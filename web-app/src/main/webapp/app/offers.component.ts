@@ -59,6 +59,8 @@ export class OffersComponent implements OnInit, AfterViewInit {
                     return;
                 }
                 this.loaded(offers);
+            }, error => {
+                this.loaded([]);
             });
     }
 

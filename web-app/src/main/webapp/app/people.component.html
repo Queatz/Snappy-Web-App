@@ -46,6 +46,7 @@
         </div>
         <span *ngIf="list !== null"><br />Finding people near you...</span>
     </center>
+
     <div class="grid center-align">
         <div class="item" *ngFor="#person of people">
             <person-card class="left-align" [person]="person"></person-card>

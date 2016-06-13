@@ -16,6 +16,7 @@
         </div>
         <span><br /><br />Finding hubs near you...</span>
     </center>
+    <center *ngIf="hubs && !hubs.length" class="waiting">No hubs near you.</center>
 
     <div class="grid center-align">
         <div class="item" *ngFor="#hub of hubs">

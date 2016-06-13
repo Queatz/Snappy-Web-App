@@ -5,7 +5,7 @@ import { InforService } from './infor.service';
 @Injectable()
 export public class ApiService {
     private _token = 'ya29.CjLqAqF_yxNzGvQ8hfhWMWl_E09U3WUpxp09C_saGaNaYuQNupXL628L1MW3MhhX-tEIDQ';
-    private _apiBaseUrl = 'http://queatz-snappy.appspot.com/api/';
+    private _apiBaseUrl = 'https://queatz-snappy.appspot.com/api/';
 
     constructor(private _http: Http, private inforService: InforService) {
         // XXX TODO graduate it when the app is updated
@@ -155,9 +155,16 @@ export public class ApiService {
     }
 
     public sendMessage(personId, message) {
-        var creds = "auth=" + this.token() + "&message=" + message;
+        var creds = "auth=" + this.token() + "&message=" + encodeURIComponent(message);
 
         return this._http.post(this._apiBaseUrl + 'earth/' + personId, creds, this.formHeaders())
+            .map(res => res.json());
+    }
+
+    public sendFeedback(feedback) {
+        var creds = "auth=" + this.token() + "&feedback=" + encodeURIComponent(feedback);
+
+        return this._http.post(this._apiBaseUrl + 'earth/feedback', creds, this.formHeaders())
             .map(res => res.json());
     }
 

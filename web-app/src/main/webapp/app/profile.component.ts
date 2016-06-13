@@ -76,6 +76,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
             this.api.getPersonByName(personName)
             .subscribe(person => {
                 this.person = person;
+                this.person.updates = _.sortBy(this.person.updates, update => -moment(update.date));
                 this.editAbout = person.about;
                 this.inforService.setPageTitle(person.firstName);
                 this.loaded(person.offers);

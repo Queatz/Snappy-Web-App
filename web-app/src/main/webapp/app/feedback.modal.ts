@@ -12,6 +12,7 @@ export class FeedbackModal implements AfterViewInit {
     public feedback: String;
 
     constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
+        this.element = element.nativeElement;
     }
 
     ngAfterViewInit() {
@@ -23,14 +24,12 @@ export class FeedbackModal implements AfterViewInit {
             return;
         }
 
-        this.api.earthCreate({
-            kind: 'hub',
-            name: this.name,
-            address: this.address,
-            latitude: this.map.getMarkerPosition().lat(),
-            longitude: this.map.getMarkerPosition().lng()
-        }).subscribe(hub => {
-            $(this.element.querySelector('#feedbackModal')).closeModal();
+        this.api.sendFeedback(this.feedback).subscribe(() => {
+            $(this.element).find('#feedbackModal').closeModal();
+            Materialize.toast('Thanks!', 4000);
+            this.feedback = '';
+        }, () => {
+            Materialize.toast('That didn\'t work...', 4000);
         });
     }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, OnInit } from 'angular2/core';
+import { Component, Input, ElementRef, OnInit, OnChanges, DoCheck } from 'angular2/core';
 import { ThingUpdateComponent } from './thing-update.component'
 
 @Component({
@@ -7,7 +7,7 @@ import { ThingUpdateComponent } from './thing-update.component'
     styleUrls: ['app/thing-updates.component.css'],
     directives: [ThingUpdateComponent]
 })
-export class ThingUpdatesComponent implements OnInit {
+export class ThingUpdatesComponent implements OnInit, OnChanges {
     private masonry: Masonry;
     @Input() public updates;
 
@@ -16,12 +16,22 @@ export class ThingUpdatesComponent implements OnInit {
         this.boundResizeCallback = this.resizeCallback.bind(this);
     }
 
+    ngDoCheck() {
+        if(this.previousArraySize !== this.updates.length) {
+            this.loaded(this.updates);
+        }
+    }
+
     ngOnInit() {
         this.loaded(this.updates);
     }
 
+    ngOnChanges() {
+        this.loaded(this.updates);
+    }
+
     public loaded(updates) {
-        this.updates = _.sortBy(updates, update => -moment(update.date));
+        this.previousArraySize = updates.length;
 
         setTimeout(() => {
             var elem = this.element.querySelector('.grid');

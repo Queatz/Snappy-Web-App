@@ -40,17 +40,15 @@ public class Controller extends HttpServlet {
                 "        <script src=\"node_modules/angular2/bundles/router.dev.js\"></script>\n" +
                 "        <script src=\"node_modules/moment/moment.js\"></script>\n" +
                 "        <script src=\"config.js\"></script>\n" +
-                "        <script>\n" +
-                "            System.import('app/boot').then(null, console.error.bind(console));\n" +
-                "        </script>\n" +
+                "        <script>System.import('app/boot').then(null, console.error.bind(console));</script>\n" +
                 "\n" +
-                "        <script src=\"http://code.jquery.com/jquery-2.1.4.min.js\"></script>\n" +
+                "        <script src=\"https://code.jquery.com/jquery-2.1.4.min.js\"></script>\n" +
                 "        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js\"></script>\n" +
                 "\n" +
                 "        <script src=\"node_modules/materialize-css/dist/js/materialize.min.js\" async defer></script>\n" +
                 "        <script src=\"node_modules/masonry-layout/dist/masonry.pkgd.min.js\" async defer></script>\n" +
                 "        <script src=\"https://apis.google.com/js/platform.js\" async defer></script>\n" +
-                "        <script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyBuqXrG4rHZ52S8Z71vdLuc2hTb2Oigbj4\" async defer></script>" +
+                "        <script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyBuqXrG4rHZ52S8Z71vdLuc2hTb2Oigbj4\" async defer></script>\n" +
                 "    </head>\n" +
                 "    <body>\n" +
                 "        <app></app>\n" +

@@ -16,6 +16,7 @@
         </div>
         <span><br /><br />Finding projects near you...</span>
     </center>
+    <center *ngIf="projects && !projects.length" class="waiting">No projects near you.</center>
 
     <div class="grid center-align">
         <div class="item" *ngFor="#project of projects">

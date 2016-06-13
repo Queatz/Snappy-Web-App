@@ -16,21 +16,24 @@
 
         <include path="node_modules/angular2/bundles/angular2-polyfills.js" />
         <include path="node_modules/systemjs/dist/system-polyfills.js" />
+        <include path="node_modules/systemjs/dist/system-polyfills.js.map" />
         <include path="node_modules/systemjs/dist/system.src.js" />
         <include path="node_modules/rxjs/bundles/Rx.js" />
         <include path="node_modules/angular2/bundles/angular2.dev.js" />
         <include path="node_modules/es6-shim/es6-shim.min.js" />
+        <include path="node_modules/es6-shim/es6-shim.map" />
         <include path="node_modules/angular2/bundles/http.js" />
         <include path="node_modules/angular2/bundles/router.dev.js" />
 
         <include path="node_modules/masonry-layout/dist/masonry.pkgd.min.js" />
         <include path="node_modules/moment/moment.js" />
         <include path="node_modules/normalize.css/normalize.css" />
-        <include path="node_modules/materialize-css/dist/font/roboto/*.woff2" />
+        <include path="node_modules/materialize-css/dist/fonts/roboto/*.woff2" />
         <include path="node_modules/materialize-css/dist/css/materialize.min.css" />
         <include path="node_modules/materialize-css/dist/js/materialize.min.js" />
 
         <include path="app/*.js" />
+        <include path="app/*.map" />
         <include path="app/*.html" />
         <include path="app/*.css" />
     </static-files>
@@ -43,21 +46,24 @@
 
         <include path="node_modules/angular2/bundles/angular2-polyfills.js" />
         <include path="node_modules/systemjs/dist/system-polyfills.js" />
+        <include path="node_modules/systemjs/dist/system-polyfills.js.map" />
         <include path="node_modules/systemjs/dist/system.src.js" />
         <include path="node_modules/rxjs/bundles/Rx.js" />
         <include path="node_modules/angular2/bundles/angular2.dev.js" />
         <include path="node_modules/es6-shim/es6-shim.min.js" />
+        <include path="node_modules/es6-shim/es6-shim.map" />
         <include path="node_modules/angular2/bundles/http.js" />
         <include path="node_modules/angular2/bundles/router.dev.js" />
 
         <include path="node_modules/masonry-layout/dist/masonry.pkgd.min.js" />
         <include path="node_modules/moment/moment.js" />
         <include path="node_modules/normalize.css/normalize.css" />
-        <include path="node_modules/materialize-css/dist/font/roboto/*.woff2" />
+        <include path="node_modules/materialize-css/dist/fonts/roboto/*.woff2" />
         <include path="node_modules/materialize-css/dist/css/materialize.min.css" />
         <include path="node_modules/materialize-css/dist/js/materialize.min.js" />
 
         <include path="app/*.js" />
+        <include path="app/*.map" />
         <include path="app/*.html" />
         <include path="app/*.css" />
         <exclude path="**" />
