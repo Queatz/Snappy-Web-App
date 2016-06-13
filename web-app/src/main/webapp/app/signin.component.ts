@@ -71,14 +71,13 @@ export class SigninComponent implements AfterViewInit, OnInit {
 
         this.api.getMe(gemail, gtoken)
             .subscribe(dataInput => {
+                this.inforService.setInforUser(dataInput);
+
                 if (!this.inforService.getInforUser()) {
-                    this.inforService.setInforUser(dataInput);
                     this._ngZone.run(() => {
                         this.glink = dataInput.googleUrl;
                         this.gimage = dataInput.imageUrl;                        
                     });
-                } else {
-                    this.inforService.setInforUser(dataInput);
                 }
             });
     }
