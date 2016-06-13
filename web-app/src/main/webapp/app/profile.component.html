@@ -90,10 +90,14 @@
                 <textarea id="editAbout" class="materialize-textarea" type="text" [(ngModel)]="editAbout"></textarea>
                 <label class="active" for="editAbout">Enter about</label>
             </div>
+            <br />
+            <div class="grey-text">
+                Change your name and photo on <a href="https://aboutme.google.com" target="_blank">Google+</a>.
+            </div>
         </div>
         <div class="modal-footer">
-            <a class="right modal-action modal-close waves-effect waves-green btn-flat" (click)="saveEdit()">Save</a>
-            <a class="right modal-action modal-close waves-effect waves-red btn-flat">Nope</a>
+            <a class="right modal-action modal-close waves-effect waves-blue btn-flat blue-text" (click)="saveEdit()">Save</a>
+            <a class="right modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
         </div>
     </div>
 </div>

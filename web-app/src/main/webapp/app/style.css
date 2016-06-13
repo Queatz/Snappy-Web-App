@@ -38,3 +38,7 @@ body {
 .tabs .indicator {
     background-color: #9e9e9e !important;
 }
+
+.waves-effect.waves-blue .waves-ripple {
+    background-color: rgba(33, 150, 243, 0.65);
+}

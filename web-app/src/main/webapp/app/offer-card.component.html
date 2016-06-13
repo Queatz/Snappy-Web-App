@@ -33,8 +33,8 @@
             </h5>
         </div>
         <div class="modal-footer">
-            <a class="modal-action modal-close waves-effect waves-red btn-flat" (click)="deleteOffer()">Remove</a>
-            <a class="modal-action modal-close waves-effect waves-green btn-flat">Nope</a>
+            <a class="modal-action modal-close waves-effect waves-red btn-flat red-text" (click)="deleteOffer()">Remove</a>
+            <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
         </div>
     </div>
     <div id="modal-action{{ getPosition() }}-2" class="modal">
@@ -51,9 +51,9 @@
             </div>
         </div>
         <div class="modal-footer">
-            <a class="left modal-action modal-close waves-effect waves-green btn-flat" (click)="deleteImage()">Remove photo</a>
-            <a class="right modal-action modal-close waves-effect waves-green btn-flat" (click)="uploadPhoto()">Upload</a>
-            <a class="right modal-action modal-close waves-effect waves-red btn-flat">Nope</a>
+            <a class="left modal-action modal-close waves-effect waves-red btn-flat red-text" (click)="deleteImage()">Remove photo</a>
+            <a class="right modal-action modal-close waves-effect waves-blue btn-flat blue-text" (click)="uploadPhoto()">Upload</a>
+            <a class="right modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
         </div>
     </div>
 </div>
