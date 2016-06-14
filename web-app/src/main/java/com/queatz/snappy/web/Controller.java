@@ -29,6 +29,9 @@ public class Controller extends HttpServlet {
                 "        <link rel=\"stylesheet\" href=\"node_modules/materialize-css/dist/css/materialize.min.css\" />\n" +
                 "        <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\" />\n" +
                 "        <link rel=\"shortcut icon\" href=\"/img/favicon.png\" />\n" +
+                "        <meta name=\"mobile-web-app-capable\" content=\"yes\" />" +
+                "        <link rel=\"apple-touch-icon\" sizes=\"1448x1448\" href=\"/img/pickaxe.png\" />" +
+                "        <link rel=\"icon\" href=\"/img/favicon.png\" />\n" +
                 "\n" +
                 "        <script src=\"node_modules/es6-shim/es6-shim.min.js\"></script>\n" +
                 "        <script src=\"node_modules/systemjs/dist/system-polyfills.js\"></script>\n" +
