@@ -1,4 +1,4 @@
 <div>
     <offers></offers>
-    <floating  *ngIf="!newUser()" [modal]="newOfferModal"></floating>
+    <floating [tooltip]="'Add an offer'" *ngIf="!newUser()" [modal]="newOfferModal"></floating>
 </div>

@@ -21,6 +21,7 @@ export class FloatingComponent implements OnInit, AfterViewInit {
     @Input() public modal;
     @Input() public icon;
     @Input() public params;
+    @Input() public tooltip;
 
     constructor(private dcl: DynamicComponentLoader, injector: Injector, inforService: InforService, private router: Router, private routeParams: RouteParams, http: Http, private elementRef: ElementRef) {
         this.inforService = inforService;
@@ -47,6 +48,7 @@ export class FloatingComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         $(this.element).find('.modal-trigger').leanModal();
+        $('.tooltipped').tooltip({delay: 50});
     }
 
     userSignined() {

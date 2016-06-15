@@ -1,4 +1,4 @@
-import { Component } from 'angular2/core';
+import { Component, AfterViewInit } from 'angular2/core';
 import { OnActivate } from 'angular2/router';
 import { OffersComponent } from './offers.component';
 import { BannerComponent } from './banner.component';
@@ -12,7 +12,7 @@ import { NewOfferModal } from './new-offer.modal';
     styleUrls: ['app/main.component.css'],
     directives: [OffersComponent, BannerComponent, InfoPanelComponent, FloatingComponent]
 })
-export class MainComponent implements OnActivate {
+export class MainComponent implements OnActivate, AfterViewInit {
     constructor(inforService: InforService) {
         this.inforService = inforService;
         this.newOfferModal = NewOfferModal;
@@ -24,5 +24,9 @@ export class MainComponent implements OnActivate {
 
     routerOnActivate() {
         this.inforService.setPageTitle('Village');
+    }
+
+    ngAfterViewInit() {
+        $('.tooltipped').tooltip({delay: 50});
     }
 }

@@ -32,6 +32,7 @@ export class ProjectComponent implements AfterViewInit {
 
     ngAfterViewInit() {
         $(this.element).find('.modal-trigger').leanModal();
+        $('.tooltipped').tooltip({delay: 50});
     }
 
     public isMine() {

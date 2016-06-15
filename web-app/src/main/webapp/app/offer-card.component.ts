@@ -30,6 +30,7 @@ export class OfferCardComponent implements AfterViewInit {
 
     ngAfterViewInit() {
         Waves.displayEffect();
+        $('.tooltipped').tooltip({delay: 50});
         this.offerImage = this.api.earthImageUrl(this.offer.id);
         this.showModal();
     }

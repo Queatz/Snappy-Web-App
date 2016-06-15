@@ -20,6 +20,7 @@ export class ThingUpdateComponent implements AfterViewInit {
 
     ngAfterViewInit() {
         Waves.displayEffect();
+      	$('.tooltipped').tooltip({delay: 50});
         this.updateImage = this.api.earthImageUrl(this.update.id);
     }
 

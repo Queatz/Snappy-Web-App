@@ -86,6 +86,8 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         $(this.element).find('.modal-trigger').leanModal();
+        $('.tooltipped').tooltip({delay: 50});
+
         if (this.inforService.triggerProfile && this.isMyProfile()) {
             this.inforService.triggerProfile = false;
             $(this.element).find('.modal-trigger-floating').leanModal();
@@ -98,6 +100,16 @@ export class ProfileComponent implements OnInit, AfterViewInit {
         this.api.saveAbout(this.editAbout).subscribe(() => {
             this.person.about = this.editAbout;
         });
+    }
+
+    toggleFollow() {
+        if (this.isFollowing) {
+            // Show unfollow modal ->
+            this.isFollowing = false;
+        } else {
+            // Follow -> this.isFollowing => true
+            this.isFollowing = true;
+        }
     }
 
     isMyProfile() {

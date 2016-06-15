@@ -25,8 +25,8 @@
         <div class="info">
             <h3>{{ thing.name }}
                 <span *ngIf="canEdit()">
-                    <a class="modal-trigger" href="#editDetailsModal"><i class="material-icons small">edit</i></a>
-                    <a class="modal-trigger" href="#setPhotoModal"><i class="material-icons small">aspect_ratio</i></a>
+                    <a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit details'" href="#editDetailsModal"><i class="material-icons small">edit</i></a>
+                    <a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Change photo'" href="#setPhotoModal"><i class="material-icons small">aspect_ratio</i></a>
                 </span>
             </h3>
             <div *ngIf="thing.contacts.length">
@@ -44,7 +44,7 @@
     </div>
     <br />
     <center *ngIf="thing">
-        <a href="#postUpdateModal" class="modal-trigger price waves-effect waves-light btn white-text bkg-red">
+        <a href="#postUpdateModal" class="modal-trigger price waves-effect waves-light btn white-text bkg-red tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Post a new update on ' + thing.name">
             <b><i class="material-icons left">edit</i>New Post</b>
         </a>
     </center>

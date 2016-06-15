@@ -28,11 +28,11 @@
                 <a data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 
                 <div class="right">
-                    <div class="signin right">
+                    <div class="signin right tooltipped" [attr.data-position]="'left'" [attr.data-tooltip]="'View your profile'">
                         <signin></signin>
                     </div>
-                    <a class="chat right" *ngIf="userSignined()" [routerLink]="['Messages', {id: ''}]"><i class="material-icons">chat_bubble</i></a>
-                    <a class="feedback hide-on-med-and-down modal-trigger right" *ngIf="userSignined()" href="#feedbackModal">Feedback</a>
+                    <a class="chat right tooltipped" *ngIf="userSignined()" [routerLink]="['Messages', {id: ''}]" [attr.data-position]="'bottom'" [attr.data-tooltip]="'View your messages'"><i class="material-icons">chat_bubble</i></a>
+                    <a class="feedback hide-on-med-and-down modal-trigger right tooltipped" *ngIf="userSignined()" href="#feedbackModal" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Send feedback about Village to the development team'">Feedback</a>
                 </div>
             </div>
         </nav>

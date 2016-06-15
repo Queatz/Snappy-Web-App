@@ -85,6 +85,8 @@ export class OffersComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
+        $('.tooltipped').tooltip({delay: 50});
+
         this.inforService.setProfileUpdateOffer(this.boundDeleteCallback, this.profile);
         this.signed = !!this.inforService.getInforUser();
     }

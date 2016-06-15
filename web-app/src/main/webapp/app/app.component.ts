@@ -47,6 +47,7 @@ export class AppComponent implements OnActivate, AfterViewInit {
     	});
 
     	$('.modal-trigger').leanModal();
+    	$('.tooltipped').tooltip({delay: 50});
     }
 
     userSignined() {
