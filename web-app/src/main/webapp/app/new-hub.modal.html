@@ -4,7 +4,7 @@
 
         <form>
             <div class="row">
-                <div class="col s6">
+                <div class="col s12 m6">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">label</i>
                         <input id="hubName" type="text" required [(ngModel)]="name">
@@ -17,7 +17,7 @@
                         <label for="hubAddress">Enter address</label>
                     </div>
                 </div>
-                <div class="col s6">
+                <div class="col s12 m6">
                     <map *ngIf="thing" [thing]="thing"></map>
                 </div>
             </div>

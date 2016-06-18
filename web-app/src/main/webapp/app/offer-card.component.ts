@@ -1,4 +1,4 @@
-import { Component, View, Input, AfterViewInit, ElementRef} from 'angular2/core';
+import { Component, View, Input, AfterViewInit, ElementRef, OnDestroy } from 'angular2/core';
 import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
@@ -11,7 +11,7 @@ var checkFirst = true;
     styleUrls: ['app/offer-card.component.css'],
     directives: [ROUTER_DIRECTIVES]
 })
-export class OfferCardComponent implements AfterViewInit {
+export class OfferCardComponent implements AfterViewInit, OnDestroy {
     @Input() public position;
     @Input() public size;
     @Input() public offer;
@@ -33,6 +33,11 @@ export class OfferCardComponent implements AfterViewInit {
         $('.tooltipped').tooltip({delay: 50});
         this.offerImage = this.api.earthImageUrl(this.offer.id);
         this.showModal();
+    }
+
+    ngOnDestroy() {
+        $('.tooltipped').tooltip('remove');
+        $('.material-tooltip').remove();
     }
 
     public getPrice() {

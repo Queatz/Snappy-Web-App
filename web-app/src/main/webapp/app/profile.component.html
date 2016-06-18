@@ -38,8 +38,8 @@
                             <b>Message {{ person.firstName }}</b>
                         </div>
                     </a>
-                    <div class="price waves-effect waves-light btn white-text teal tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'You\'ll get updates from ' + person.firstName + ' ' + person.lastName" *ngIf="!isMyProfile()" (click)="toggleFollow()">
-                        <b *ngIf="!isFollowing">Follow {{ person.firstName }}</b>
+                    <div class="waves-effect waves-light btn white-text teal tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'You\'ll get updates from ' + person.firstName + ' ' + person.lastName" *ngIf="!isMyProfile()" (click)="toggleFollow()">
+                        <b *ngIf="!isFollowing">Follow</b>
                         <i *ngIf="isFollowing" class="material-icons">check</i>
                     </div>
                     <div *ngIf="person.infoFollowers" class="followers grey-text text-darken-2">{{ person.infoFollowers }} {{ person.infoFollowers === 1 ? 'follower' : 'followers' }}</div>

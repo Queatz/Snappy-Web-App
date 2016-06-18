@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, AfterViewInit } from 'angular2/core';
+import { Component, OnInit, ElementRef, AfterViewInit, OnDestroy } from 'angular2/core';
 import { ROUTER_DIRECTIVES, RouteParams, Router, OnActivate } from 'angular2/router';
 import { OffersComponent } from './offers.component';
 import { ThingUpdatesComponent } from './thing-updates.component';
@@ -22,7 +22,7 @@ import { ThingsComponent } from './things.component';
 //  { path: '/',       component: OffersTabComponent, useAsDefault: true },
 //  { path: '/updates', component: UpdatesTabComponent },
 //])
-export class ProfileComponent implements OnInit, AfterViewInit {
+export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     public notFound = false;
     private offers;
     private myProfile;
@@ -94,6 +94,11 @@ export class ProfileComponent implements OnInit, AfterViewInit {
        }
 
        $(this.element).find('ul.tabs').tabs();
+    }
+
+    ngOnDestroy() {
+        $('.tooltipped').tooltip('remove');
+        $('.material-tooltip').remove();
     }
 
     saveEdit() {

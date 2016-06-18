@@ -6,19 +6,19 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">edit</i>
-                    <input id="strdetail" type="text" required="" [(ngModel)]="edetails">
+                    <input id="strdetail" type="text" required="" [(ngModel)]="edetails" />
                     <label for="strdetail">Describe the offer</label>
                 </div>
 
                 <div class="input-field range-field col s12">
-                    <i class="material-icons prefix">swap_horiz</i>
+                    <i class="material-icons prefix tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Price of offer'">swap_horiz</i>
                     <input type="range" id="rangeInput" min="-200" step="10" max="200" value="0" #enumber>
                 </div>
 
                 <div class="input-field col s12">
-                    <i class="material-icons prefix">replay</i>
+                    <i class="material-icons prefix tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Per anything?'">replay</i>
                     <input id="strmessage" type="text" [(ngModel)]="emessage">
-                    <label for="strmessage">Per anything?</label>
+                    <label for="strmessage">I.e. Per hour, month, item, foot (optional)</label>
                 </div>
             </div>
         </form>

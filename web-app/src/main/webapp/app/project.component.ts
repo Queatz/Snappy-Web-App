@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, NgZone } from 'angular2/core';
+import { Component, AfterViewInit, ElementRef, NgZone, OnDestroy } from 'angular2/core';
 import { ROUTER_DIRECTIVES, RouteParams } from 'angular2/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
@@ -13,7 +13,7 @@ import { ThingUpdatesComponent } from './thing-updates.component';
     styleUrls: ['app/project.component.css'],
     directives: [ROUTER_DIRECTIVES, SetPhotoModal, EditDetailsModal, PersonLinkComponent, PostUpdateModal, ThingUpdatesComponent]
 })
-export class ProjectComponent implements AfterViewInit {
+export class ProjectComponent implements AfterViewInit, OnDestroy {
     public thing;
     public notFound = false;
 
@@ -35,9 +35,9 @@ export class ProjectComponent implements AfterViewInit {
         $('.tooltipped').tooltip({delay: 50});
     }
 
-    public isMine() {
-        return this.thing && this.inforService.getInforUser()
-                && this.thing.contactId === this.inforService.getInforUser().id;
+    ngOnDestroy() {
+        $('.tooltipped').tooltip('remove');
+        $('.material-tooltip').remove();
     }
 
     public getUrl() {
@@ -53,11 +53,21 @@ export class ProjectComponent implements AfterViewInit {
 
         var me = this.inforService.getInforUser().id;
 
-        return this.thing && _.some(this.thing.contacts, t => t.target.id === me);
+        return this.thing && _.any(this.thing.contacts, t => t.target.id === me);
     }
 
     public addressLink() {
         return 'https://www.google.com/maps/place/' + this.thing.address + '/@' + this.thing.geo.latitude + ',' + this.thing.geo.longitude + ',15z'
+    }
+
+    toggleFollow() {
+        if (this.isFollowing) {
+            // Show unfollow modal ->
+            this.isFollowing = false;
+        } else {
+            // Follow -> this.isFollowing => true
+            this.isFollowing = true;
+        }
     }
 
     routerOnActivate() {

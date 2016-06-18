@@ -4,7 +4,7 @@
 
         <form>
             <div class="row" *ngIf="thing.kind === 'hub'">
-                <div class="col s6">
+                <div class="col s12 m6">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">label</i>
                         <input id="name" type="text" required [(ngModel)]="name">
@@ -19,7 +19,7 @@
 
                     <div class="input-field col s12">
                         <i class="material-icons prefix">edit</i>
-                        <input id="about" type="text" [(ngModel)]="about">
+                        <textarea class="materialize-textarea" id="about" type="text" [(ngModel)]="about"></textarea>
                         <label class="active" for="about">Enter description</label>
                     </div>
 
@@ -37,7 +37,7 @@
                         <label for="visibility">Visibility</label>
                     </div>
                 </div>
-                <div class="col s6">
+                <div class="col s12 m6">
                     <map [thing]="thing"></map>
                 </div>
             </div>
@@ -60,10 +60,43 @@
     </div>
 
     <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect btn-flat grey-text left" (click)="remove()" *ngIf="canEdit()">Remove {{ thing.kind }}</a>
         <a class="btn-flat waves-effect waves-blue modal-action blue-text" type="submit" name="action" (click)="save()">
             Save
         </a>
         <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
     </div>
 
+</div>
+<div id="modal-remove" class="modal">
+    <div class="modal-content">
+        <h5>
+            Completely remove <b>{{ thing.name }}</b>?
+        </h5>
+        <div>
+            <p>You can't undo this.</p>
+            <ul class="collection">
+                <li class="collection-item">
+                    <i class="material-icons left red-text text-lighten-2">delete</i>
+                    All contacts and members will be alerted and removed
+                </li>
+                <li class="collection-item">
+                    <i class="material-icons left red-text text-lighten-2">delete</i>
+                    All followers will be removed
+                </li>
+                <li class="collection-item">
+                    <i class="material-icons left red-text text-lighten-2">delete</i>
+                    All updates will be removed
+                </li>
+                <li class="collection-item">
+                    <i class="material-icons left orange-text text-lighten-2">warning</i>
+                    All resources, projects, and hubs, will be unlinked.
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action waves-effect waves-red btn-flat red-text" (click)="confirmRemove()">Remove</a>
+        <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
+    </div>
 </div>

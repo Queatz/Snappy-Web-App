@@ -1,4 +1,4 @@
-import { Component, ElementRef, provide, AfterViewInit } from 'angular2/core';
+import { Component, ElementRef, provide, AfterViewInit, OnDestroy } from 'angular2/core';
 import { ROUTER_DIRECTIVES, RouteParams, Router, OnActivate, OnDeactivate } from 'angular2/router';
 
 import {InforService} from './infor.service';
@@ -16,7 +16,7 @@ var current_count = 0;
     styleUrls: ['app/messages.component.css'],
     directives: [ROUTER_DIRECTIVES]
 })
-export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivate {
+export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivate, OnDestroy {
     public currentMessages = [];
     public messageWithSomeone = null;
     public contacts = null;
@@ -174,11 +174,17 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
         }
     }
 
-    ngAfterViewInit() {
-    }
-
     private resetTimeInterval() {
         this.time = 5000;
+    }
+
+    ngAfterViewInit() {
+        $('.tooltipped').tooltip({delay: 50});
+    }
+
+    ngOnDestroy() {
+        $('.tooltipped').tooltip('remove');
+        $('.material-tooltip').remove();
     }
 
     sendMessages(message) {

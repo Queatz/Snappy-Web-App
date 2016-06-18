@@ -1,4 +1,4 @@
-import { Component, View, Input, AfterViewInit, ElementRef} from 'angular2/core';
+import { Component, View, Input, AfterViewInit, ElementRef, OnDestroy } from 'angular2/core';
 import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
 import { ApiService } from './api.service';
 
@@ -10,7 +10,7 @@ var checkFirst = true;
     styleUrls: ['app/thing-update.component.css'],
     directives: [ROUTER_DIRECTIVES]
 })
-export class ThingUpdateComponent implements AfterViewInit {
+export class ThingUpdateComponent implements AfterViewInit, OnDestroy {
     @Input() public update;
     @Input() public resizeCallback;
 
@@ -22,6 +22,11 @@ export class ThingUpdateComponent implements AfterViewInit {
         Waves.displayEffect();
       	$('.tooltipped').tooltip({delay: 50});
         this.updateImage = this.api.earthImageUrl(this.update.id);
+    }
+
+    ngOnDestroy() {
+        $('.tooltipped').tooltip('remove');
+        $('.material-tooltip').remove();
     }
 
     public loaded() {

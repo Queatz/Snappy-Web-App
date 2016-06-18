@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from 'angular2/core';
-import { RouteConfig, Router, ROUTER_DIRECTIVES, OnActivate } from 'angular2/router';
+import { RouteConfig, Router, ROUTER_DIRECTIVES, OnActivate, OnDestroy } from 'angular2/router';
 import { MainComponent } from './main.component';
 import { ProfileComponent } from './profile.component';
 import { SigninComponent} from "./signin.component";
@@ -36,7 +36,7 @@ import { ElementRef } from 'angular2/core';
   { path: '/resources/:id', name: 'Resource',   component: ProjectComponent },
   { path: '/search/:query', name: 'Search',     component: SearchComponent }
 ])
-export class AppComponent implements OnActivate, AfterViewInit {
+export class AppComponent implements OnActivate, AfterViewInit, OnDestroy {
 	constructor(private inforService: InforService, element: ElementRef, private router: Router) {
     	this.element = element.nativeElement;
     }
@@ -48,6 +48,11 @@ export class AppComponent implements OnActivate, AfterViewInit {
 
     	$('.modal-trigger').leanModal();
     	$('.tooltipped').tooltip({delay: 50});
+    }
+
+    ngOnDestroy() {
+        $('.tooltipped').tooltip('remove');
+        $('.material-tooltip').remove();
     }
 
     userSignined() {

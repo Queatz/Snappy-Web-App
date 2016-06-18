@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, AfterViewInit, ViewChild } from 'angular2/core';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
+import { Router } from 'angular2/router';
 import { MapComponent } from './map.component';
 
 @Component({
@@ -15,7 +16,7 @@ export class EditDetailsModal implements AfterViewInit {
     @ViewChild(MapComponent)
     private map: MapComponent;
 
-    constructor(private api: ApiService, private inforService: InforService, element: ElementRef) {
+    constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;
     }
 
@@ -50,6 +51,27 @@ export class EditDetailsModal implements AfterViewInit {
             case 'project':
                 return this.saveResource();
         }
+    }
+
+    public canEdit() {
+        if (!this.inforService.getInforUser()) {
+            return false;
+        }
+
+        var me = this.inforService.getInforUser().id;
+
+        return this.thing && _.any(this.thing.contacts, t => t.target.id === me);
+    }
+
+    remove() {
+        $(this.element.querySelector('#modal-remove')).openModal();
+    }
+
+    confirmRemove() {
+        this.api.earthDelete(this.thing.id).subscribe(() => {
+            $(this.element.querySelector('#modal-remove')).closeModal();
+           this.router.navigate(['Main']);
+        })
     }
 
     saveResource() {

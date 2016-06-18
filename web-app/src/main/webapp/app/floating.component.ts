@@ -1,4 +1,4 @@
-import { Component, DynamicComponentLoader, Injector, ElementRef, Input, provide, OnChanges, OnInit, AfterViewInit } from 'angular2/core';
+import { Component, DynamicComponentLoader, Injector, ElementRef, Input, provide, OnChanges, OnInit, AfterViewInit, OnDestroy } from 'angular2/core';
 import { RouteParams, Router } from 'angular2/router';
 import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
 import { InforService } from './infor.service';
@@ -16,7 +16,7 @@ class MyOptions extends BaseRequestOptions {
     styleUrls: ['app/floating.component.css'],
     viewProviders: [HTTP_PROVIDERS, provide(RequestOptions, { useClass: MyOptions })]
 })
-export class FloatingComponent implements OnInit, AfterViewInit {
+export class FloatingComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() public color;
     @Input() public modal;
     @Input() public icon;
@@ -49,6 +49,11 @@ export class FloatingComponent implements OnInit, AfterViewInit {
     ngAfterViewInit() {
         $(this.element).find('.modal-trigger').leanModal();
         $('.tooltipped').tooltip({delay: 50});
+    }
+
+    ngOnDestroy() {
+        $('.tooltipped').tooltip('remove');
+        $('.material-tooltip').remove();
     }
 
     userSignined() {

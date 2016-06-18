@@ -21,7 +21,7 @@
             </div>
         </a>
         <div class="more-action" [hidden]="!isProfile()">
-            <a class="delete modal-trigger tooltipped" href="#modal-action{{ getPosition() }}-1" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Delete'"><i class="material-icons small">delete</i></a>
+            <a class="delete modal-trigger tooltipped" href="#modal-action{{ getPosition() }}-1" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Remove'"><i class="material-icons small">delete</i></a>
             <a class="add modal-trigger tooltipped" href="#modal-action{{ getPosition() }}-2" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Change photo'"><i class="material-icons small">aspect_ratio</i></a>
         </div>
         <div class="clear"></div>
@@ -31,6 +31,7 @@
             <h5>
                 Remove <b>{{ offer.about }}</b>?
             </h5>
+            <span>You can't undo this.</span>
         </div>
         <div class="modal-footer">
             <a class="modal-action modal-close waves-effect waves-red btn-flat red-text" (click)="deleteOffer()">Remove</a>

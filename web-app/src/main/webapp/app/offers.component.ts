@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ElementRef, AfterViewInit, OnChanges, provide } from 'angular2/core';
+import { Component, Input, OnInit, ElementRef, AfterViewInit, OnChanges, provide, OnDestroy } from 'angular2/core';
 import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
 import 'rxjs/add/operator/map';
 import { OfferCardComponent } from './offer-card.component'
@@ -11,7 +11,7 @@ import { ApiService } from './api.service';
     styleUrls: ['app/offers.component.css'],
     directives: [ROUTER_DIRECTIVES, OfferCardComponent]
 })
-export class OffersComponent implements OnInit, AfterViewInit {
+export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
     public offers = [];
     public offersLoaded = false;
     private masonry: Masonry;
@@ -89,6 +89,11 @@ export class OffersComponent implements OnInit, AfterViewInit {
 
         this.inforService.setProfileUpdateOffer(this.boundDeleteCallback, this.profile);
         this.signed = !!this.inforService.getInforUser();
+    }
+
+    ngOnDestroy() {
+        $('.tooltipped').tooltip('remove');
+        $('.material-tooltip').remove();
     }
 
     resizeCallback() {

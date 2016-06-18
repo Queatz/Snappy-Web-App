@@ -28,7 +28,10 @@
             </div>
 
             <div class="scroll">
-                <h3 class="mstitle">Contacts <i class="clickable small material-icons chat-bubble" (click)="showChat()">chat_bubble</i></h3>
+                <h3 class="mstitle">Contacts <i class="clickable small material-icons chat-bubble tooltipped" [attr.data-position]="'left'" [attr.data-tooltip]="'Show conversation with ' + messagesWith.firstName" (click)="showChat()">chat_bubble</i></h3>
+                <div class="center-align grey-text" *ngIf="contacts && !contacts.length">
+                    You haven't started any conversations yet.
+                </div>
                 <div class="item" [ngClass]="{'grey lighten-2': contact.target.id === idCurrentContact}" *ngFor="#contact of contacts">
                     <a class="message clear" [ngClass]="{'not-seen': !contact.seen}" (click)="getMessagesById(contact)">
                         <a [routerLink]="['Profile', {id: contact.target.googleUrl}]" >
@@ -61,10 +64,13 @@
                 </div>
             </div>
 
-            <h3 class="mstitle">{{ messagesWith.firstName }} {{ messagesWith.lastName }}<i class="clickable small material-icons recent-actors" (click)="showRecent()">recent_actors</i></h3>
+            <h3 class="mstitle">{{ messagesWith.firstName }} {{ messagesWith.lastName }}<i class="clickable small material-icons recent-actors tooltipped" (click)="showRecent()" [attr.data-position]="'left'" [attr.data-tooltip]="'Show recent conversations'">recent_actors</i></h3>
             <div class="row s3 listmessages">
                 <div class="content scroll">
                     <div class="scrollpanel">
+                        <div class="center-align grey-text" *ngIf="messageWithSomeone && !messageWithSomeone.length">
+                            Start your conversation with {{ messagesWith.firstName }} below.
+                        </div>
                         <div class="message-item clear scrollspy" *ngFor="#message of messageWithSomeone">
                             <div class="message-name">
                                 <div class="clear" [ngClass]="{rightto: !checkIsLeft(message), leftto: checkIsLeft(message)}">
