@@ -21,7 +21,7 @@ export class SigninComponent implements AfterViewInit, OnInit {
         private router: Router,
         elementRef: ElementRef) {
         this.element = elementRef.nativeElement;
-        this.signedIn = false; // todo -> auth factory
+        this.signedIn = !!inforService.getInforUser();
         if (localStorage.getItem('myInfo')) {
             this.localData = JSON.parse(localStorage.getItem('myInfo'));
             if (this.localData) {

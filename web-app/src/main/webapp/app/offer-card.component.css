@@ -10,6 +10,11 @@
 
 .card .card-image img {
     border-radius: 0;
+    min-height: 250px;
+    background: #c2c2c2;
+    background-image: url('/img/loader.png');
+    background-repeat: no-repeat;
+    background-position: 50%;
 }
 
 .offer-type {
