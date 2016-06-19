@@ -2,6 +2,7 @@
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper banner" [ngClass]="{'yellow darken-4': isActive(['Clubs']), 'blue': isActive(['Hubs']), 'deep-orange': isActive(['Projects']), 'brown': isActive(['Resources']), 'bkg-red': !isActive(['Hubs']) && !isActive(['Clubs']) && !isActive(['Projects']) && !isActive(['Resources'])}">
+                <div class="skylike"></div>
                 <a class="brand-logo center hide-on-large-only">{{ pageTitle() }}</a>
 
                 <ul id="nav-mobile" class="left hide-on-med-and-down">

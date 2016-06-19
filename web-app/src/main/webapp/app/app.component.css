@@ -1,3 +1,14 @@
+.skylike {
+    background: linear-gradient(rgba(255,255,255,0.125), transparent, rgba(0,0,0,.125));
+    background-blend-mode: color-burn;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+}
+
 .logo {
     font-size: 2.1rem;
 }
