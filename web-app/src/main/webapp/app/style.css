@@ -42,3 +42,12 @@ body {
 .waves-effect.waves-blue .waves-ripple {
     background-color: rgba(33, 150, 243, 0.65);
 }
+
+.preloader-wrapper,
+.spinner-layer {
+    border-color: transparent !important;
+    background: url(/img/loader.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}

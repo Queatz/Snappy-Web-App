@@ -1,50 +1,20 @@
 <div>
     <center *ngIf="!people" class="waiting">
         <br />
-        <div>
-            <div class="preloader-wrapper active">
-                <div class="spinner-layer spinner-blue">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div><div class="gap-patch">
-                    <div class="circle"></div>
-                </div><div class="circle-clipper right">
+        <div class="preloader-wrapper active">
+            <div class="spinner-layer">
+                <div class="circle-clipper left">
                     <div class="circle"></div>
                 </div>
-                </div>
-
-                <div class="spinner-layer spinner-red">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div><div class="gap-patch">
-                    <div class="circle"></div>
-                </div><div class="circle-clipper right">
+                <div class="gap-patch">
                     <div class="circle"></div>
                 </div>
-                </div>
-
-                <div class="spinner-layer spinner-yellow">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div><div class="gap-patch">
+                <div class="circle-clipper right">
                     <div class="circle"></div>
-                </div><div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
-                </div>
-
-                <div class="spinner-layer spinner-green">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div><div class="gap-patch">
-                    <div class="circle"></div>
-                </div><div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
                 </div>
             </div>
         </div>
-        <span *ngIf="list !== null"><br />Finding people near you...</span>
+        <span *ngIf="list !== null"><br /><br />Finding people near you...</span>
     </center>
 
     <div class="grid center-align">

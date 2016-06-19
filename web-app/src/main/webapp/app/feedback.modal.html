@@ -1,12 +1,28 @@
 <div id="feedbackModal" class="modal">
     <div class="modal-content">
-        <h4>Feedback</h4>
+        <blockquote class="card-panel">
+            <p class="hey">Hey, Villager!</p>
+
+            <p class="lrg">
+                Your feedback is extremely important to making Village the best it can be.
+            </p>
+
+            <p class="lrg">
+                We're working really really hard to create the best social platform out there, and with your help, we will get there.
+            </p>
+
+            <p class="lrg">
+                Thank you!
+            </p>
+
+            <p class="hey">&mdash; The Village Dev Team</p>
+        </blockquote>
 
         <form>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">edit</i>
-                    <input id="strdetail" type="text" required [(ngModel)]="feedback">
+                    <textarea class="materialize-textarea" id="strdetail" type="text" required [(ngModel)]="feedback"></textarea>
                     <label for="strdetail">Enter feedback here...</label>
                 </div>
             </div>
