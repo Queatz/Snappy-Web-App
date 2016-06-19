@@ -43,6 +43,13 @@
 
 .chat, .signin {
     padding-right: 10px;
+    height: 100%;
+}
+
+.right-actions {
+    align-items: center;
+    display: flex;
+    height: 100%;
 }
 
 .iconic {
