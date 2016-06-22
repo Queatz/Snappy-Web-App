@@ -1,6 +1,7 @@
 .person-link {
     display: inline-block;
     text-align: center;
+    width: 100px;
 }
 
 img {

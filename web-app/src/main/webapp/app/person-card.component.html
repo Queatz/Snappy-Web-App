@@ -8,14 +8,8 @@
         <p>{{person.about}}</p>
     </div>
     <div class="card-action">
-        {{person.infoFollowers}}
-        <span class="grey-text" [ngPlural]="person.infoFollowers">
-            <template ngPluralCase="=1">follower</template>
-            <template ngPluralCase="other">followers</template>
-        </span>
-        <span class="grey-text">&bull;</span>
-        {{person.offers.length}}
-        <span class="grey-text" [ngPlural]="person.offers.length">
+        {{ person.infoOffers }}
+        <span class="grey-text" [ngPlural]="person.infoOffers">
             <template ngPluralCase="=1">offer</template>
             <template ngPluralCase="other">offers</template>
         </span>
