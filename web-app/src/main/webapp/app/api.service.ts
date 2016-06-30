@@ -40,7 +40,22 @@ export public class ApiService {
         var data = 'auth=' + this.token();
 
         for (var key in params) {
+            if (key === 'photo') {
+                continue;
+            }
+
             data += '&' + key + '=' + encodeURIComponent(params[key]);
+        }
+
+        if (params.photo) {
+            var formData = new FormData();
+
+            formData.append('photo', params.photo, params.photo.name);
+
+            var headers = new Headers();
+            headers.append('Content-Type', undefined);
+
+            return this.makeFilePostRequest(this._apiBaseUrl + 'earth?' + data, formData);
         }
 
         return this._http.post(this._apiBaseUrl + 'earth', data, this.formHeaders())

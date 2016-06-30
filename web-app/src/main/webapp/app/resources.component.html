@@ -19,7 +19,7 @@
     <center *ngIf="resources && !resources.length" class="waiting">No resources near you.</center>
 
     <div class="grid center-align">
-        <div class="item" *ngFor="#resource of resources">
+        <div class="item" *ngFor="let resource of resources">
             <project-card class="left-align" [typeClass]="'brown'" [thing]="resource"></project-card>
         </div>
     </div>

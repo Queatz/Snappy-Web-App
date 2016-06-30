@@ -18,7 +18,7 @@
     </center>
 
     <div class="grid center-align">
-        <div class="item" *ngFor="#thing of things">
+        <div class="item" *ngFor="let thing of things">
             <project-card class="left-align" [thing]="thing"></project-card>
         </div>
     </div>

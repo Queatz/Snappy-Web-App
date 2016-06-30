@@ -19,7 +19,7 @@
     <center *ngIf="hubs && !hubs.length" class="waiting">No hubs near you.</center>
 
     <div class="grid center-align">
-        <div class="item" *ngFor="#hub of hubs">
+        <div class="item" *ngFor="let hub of hubs">
             <project-card class="left-align" [typeClass]="'blue'" [thing]="hub"></project-card>
         </div>
     </div>

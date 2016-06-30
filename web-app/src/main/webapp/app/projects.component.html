@@ -19,7 +19,7 @@
     <center *ngIf="projects && !projects.length" class="waiting">No projects near you.</center>
 
     <div class="grid center-align">
-        <div class="item" *ngFor="#project of projects">
+        <div class="item" *ngFor="let project of projects">
             <project-card class="left-align" [typeClass]="'deep-orange'" [thing]="project"></project-card>
         </div>
     </div>

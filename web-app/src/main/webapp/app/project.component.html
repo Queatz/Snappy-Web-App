@@ -31,7 +31,7 @@
             </h3>
             <div *ngIf="thing.contacts.length">
                 <h6 class="metadata grey-text">CONTACTS</h6>
-                <person-link *ngFor="#contact of thing.contacts" [person]="contact.target"></person-link>
+                <person-link *ngFor="let contact of thing.contacts" [person]="contact.target"></person-link>
             </div>
             <div *ngIf="thing.address">
                 <h6 class="metadata grey-text">LOCATION</h6>

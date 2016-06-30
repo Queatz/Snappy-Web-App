@@ -1,6 +1,6 @@
 <div>
     <div class="grid center-align">
-        <div class="item" *ngFor="#project of projects">
+        <div class="item" *ngFor="let project of projects">
             <project-card class="left-align" [typeClass]="'yellow darken-4'" [project]="project"></project-card>
         </div>
     </div>

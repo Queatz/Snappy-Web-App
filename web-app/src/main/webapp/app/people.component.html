@@ -18,7 +18,7 @@
     </center>
 
     <div class="grid center-align">
-        <div class="item" *ngFor="#person of people">
+        <div class="item" *ngFor="let person of people">
             <person-card class="left-align" [person]="person"></person-card>
         </div>
     </div>
