@@ -6,8 +6,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">edit</i>
-                    <textarea id="text" class="materialize-textarea" type="text" [(ngModel)]="message"></textarea>
-                    <label for="text">Write things...</label>
+                    <textarea autofocus id="text" class="materialize-textarea" type="text" [(ngModel)]="message"></textarea>
+                    <label class="active" for="text">Write things...</label>
                 </div>
             </div>
             <div class="row">
@@ -24,7 +24,8 @@
         </form>
     </div>
     <div class="modal-footer">
-        <a class="right modal-action modal-close waves-effect waves-blue btn-flat blue-text" (click)="post()">Post</a>
+        <a class="modal-action modal-close waves-effect btn-flat grey-text left" (click)="remove()" [ngClass]="{hide: !update}">Remove Update</a>
+        <a class="right modal-action modal-close waves-effect waves-blue btn-flat blue-text" (click)="post()">{{ update ? 'Save' : 'Post'}}</a>
         <a class="right modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
     </div>
 </div>

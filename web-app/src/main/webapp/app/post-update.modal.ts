@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input } from '@angular/core';
+import { Component, ElementRef, OnInit, Input } from '@angular/core';
 import { ApiService } from './api.service';
 import { InforService } from './infor.service';
 
@@ -7,7 +7,7 @@ import { InforService } from './infor.service';
     templateUrl: 'app/post-update.modal.html',
     styleUrls: ['app/post-update.modal.css']
 })
-export class PostUpdateModal implements OnInit, AfterViewInit {
+export class PostUpdateModal implements OnInit {
     @Input() thing;
     @Input() update;
     private filesToUpload: Array<File>;
@@ -21,8 +21,56 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
         this.element = element.nativeElement;
     }
 
+    ngOnInit() {
+        if (this.update) {
+            this.message = this.update.about;
+        }
+    }
+
+    public remove() {
+        this.api.earthDelete(this.update.id)
+            .subscribe(res => {
+                if (res.status == 200) {
+                    Materialize.toast('Update removed', 4000);
+                    this.update.about = '';
+                    this.update.photo = false;
+                } else {
+                    Materialize.toast('Update remove failed', 4000);
+                }
+            },
+            error => {
+                Materialize.toast('Update remove failed', 4000);
+            });
+    }
+
     public post() {
         var isFile = this.filesToUpload && this.filesToUpload.length > 0 && this.filesToUpload[0].type.match(/image/);
+
+        if (this.update) {
+            if (this.message || isFile) {
+                var previousPhoto = this.update.photo;
+
+                if (isFile) {
+                    this.update.photo = false;
+                }
+
+                this.api.earthSaveUpdate(this.update.id, this.message, isFile ? this.filesToUpload[0] : null)
+                    .then(result => {
+                        var updated = JSON.parse(result);
+
+                        this.update.about = updated.about;
+                        this.update.photo = updated.photo;
+
+                        Materialize.toast('Update saved', 4000);
+                    },
+                    error => {
+                        this.update.photo = previousPhoto;
+                        Materialize.toast('Post update failed', 4000);
+                    });
+            }
+
+            return;
+        }
 
         var updates = this.thing.updates;
 

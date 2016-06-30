@@ -38,7 +38,7 @@ export class AppComponent implements OnActivate, AfterViewInit, OnDestroy {
     }
 
     isActive(route) {
-        //return this.router.isRouteActive(this.router.generate(route));
+        return this.router.url.startsWith(route);
     }
 
     pageTitle() {
