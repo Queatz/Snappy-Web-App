@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from 'angular2/core';
-import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { ApiService } from './api.service';
 
 @Component({
@@ -45,6 +45,6 @@ export class ProjectCardComponent implements OnInit {
             return;
         }
 
-        this.router.navigate([_.capitalize(this.thing.kind), {id: this.thing.id}]);
+        this.router.navigate(['/' + this.thing.kind + 's/' + this.thing.id]);
     }
 }

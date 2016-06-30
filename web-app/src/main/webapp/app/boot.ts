@@ -1,11 +1,11 @@
-import { bootstrap }    from 'angular2/platform/browser';
-import { enableProdMode, provide } from 'angular2/core';
-import { NgLocalization } from 'angular2/common';
-import { ROUTER_PROVIDERS } from 'angular2/router';
-import { Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
+import { bootstrap } from '@angular/platform-browser-dynamic';
+import { enableProdMode, provide } from '@angular/core';
+import { NgLocalization } from '@angular/common';
+import { Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from '@angular/http';
 import { AppComponent } from './app.component';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
+import { APP_ROUTER_PROVIDERS } from './app.routes';
 
 enableProdMode();
 
@@ -20,7 +20,7 @@ class MyLocalization extends NgLocalization {
 }
 
 bootstrap(AppComponent, [
-    ROUTER_PROVIDERS,
+    APP_ROUTER_PROVIDERS,
     InforService,
     ApiService,
     HTTP_PROVIDERS,

@@ -1,0 +1,38 @@
+.pad {
+    padding: 1em;
+}
+
+.lrg {
+    font-size: 120%;
+}
+
+.pick {
+    animation:pick 2s ease-in infinite;
+    transform-origin: 22.5%;
+
+    position: fixed;
+    opacity: .5;
+    top: 50%;
+    width: 150%;
+    left: 50%;
+}
+
+.movie {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+@keyframes pick {
+   0% { transform: translate(-50%, -50%) rotate(-22.5deg); }
+   10% { transform: translate(-50%, -50%) rotate(22.5deg); }
+   100% { transform: translate(-50%, -50%) rotate(-22.5deg); }
+}
+
+.center {
+    width: 120px;
+    margin: auto;
+}

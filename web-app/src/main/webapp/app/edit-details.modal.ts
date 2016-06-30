@@ -1,7 +1,7 @@
-import { Component, ElementRef, Input, AfterViewInit, ViewChild } from 'angular2/core';
+import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
-import { Router } from 'angular2/router';
+import { Router } from '@angular/router';
 import { MapComponent } from './map.component';
 
 @Component({
@@ -29,7 +29,7 @@ export class EditDetailsModal implements AfterViewInit {
                 this.name = this.thing.name;
                 this.about = this.thing.about;
                 this.address = this.thing.address;
-                this.visibility = '';
+                this.visibility = ['1'];
                 break;
             case 'resource':
             case 'project':
@@ -70,7 +70,7 @@ export class EditDetailsModal implements AfterViewInit {
     confirmRemove() {
         this.api.earthDelete(this.thing.id).subscribe(() => {
             $(this.element.querySelector('#modal-remove')).closeModal();
-           this.router.navigate(['Main']);
+           this.router.navigate(['/']);
         })
     }
 

@@ -1,5 +1,5 @@
-import { Component, Input } from 'angular2/core';
-import { ROUTER_DIRECTIVES, RouteParams } from 'angular2/router';
+import { Component, Input } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import { InforService } from './infor.service';
 
 @Component({

@@ -1,5 +1,5 @@
-import { Component, View, Input, AfterViewInit, ElementRef, OnDestroy } from 'angular2/core';
-import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
+import { Component, View, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
+import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 
@@ -89,7 +89,11 @@ export class OfferCardComponent implements AfterViewInit, OnDestroy {
             return;
         }
 
-       this._router.navigate( ['Messages', {id: this.offer.person.id, q: this.getPrefillText()}] );
+        this._router.navigate(['/messages/' + this.offer.person.id], {
+            queryParams: {
+                q: encodeURIComponent(this.getPrefillText())
+            }
+        });
     }
 
     private getPrefillText() {

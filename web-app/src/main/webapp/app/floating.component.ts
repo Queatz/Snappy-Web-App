@@ -1,6 +1,6 @@
-import { Component, DynamicComponentLoader, Injector, ElementRef, Input, provide, OnChanges, OnInit, AfterViewInit, OnDestroy } from 'angular2/core';
-import { RouteParams, Router } from 'angular2/router';
-import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from 'angular2/http';
+import { Component, ComponentResolver, ViewContainerRef, Injector, ElementRef, Input, provide, OnChanges, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from '@angular/http';
 import { InforService } from './infor.service';
 
 var checkFirst = true;
@@ -23,13 +23,23 @@ export class FloatingComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() public params;
     @Input() public tooltip;
 
-    constructor(private dcl: DynamicComponentLoader, injector: Injector, inforService: InforService, private router: Router, private routeParams: RouteParams, http: Http, private elementRef: ElementRef) {
+    constructor(injector: Injector,
+            private resolver: ComponentResolver,
+            private view: ViewContainerRef,
+            inforService: InforService,
+            private router: Router,
+            private route: ActivatedRoute, http: Http,
+            private elementRef: ElementRef) {
         this.inforService = inforService;
         this.http = http;
         this.router = router;
         this.element = elementRef.nativeElement;
         this.edetails = '';
         this.emessage = '';
+
+        route.params.subscribe(params => {
+            this.currentUrl = params.id;
+        });
     }
 
     ngOnInit() {
@@ -42,7 +52,9 @@ export class FloatingComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
         if (this.modal) {
-            this.dcl.loadNextToLocation(this.modal, this.elementRef);
+            this.resolver.resolveComponent(this.modal).then(component => {
+                this.view.createComponent(component);
+            });
         }
     }
 
@@ -61,6 +73,6 @@ export class FloatingComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     getCurrentUrl() {
-        return this.routeParams.get('id');
+        return this.currentUrl;
     }
 }

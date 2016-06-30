@@ -1,5 +1,5 @@
-import { Component, AfterViewInit, ElementRef, NgZone, OnDestroy } from 'angular2/core';
-import { ROUTER_DIRECTIVES, RouteParams } from 'angular2/router';
+import { Component, AfterViewInit, ElementRef, NgZone, OnDestroy } from '@angular/core';
+import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import { SetPhotoModal } from './set-photo.modal';
@@ -17,8 +17,10 @@ export class ProjectComponent implements AfterViewInit, OnDestroy {
     public thing;
     public notFound = false;
 
-    constructor(private ngZone: NgZone, private api: ApiService, private inforService: InforService, private routeParams: RouteParams, elementRef: ElementRef) {
-        this.id = this.routeParams.get('id');
+    constructor(private ngZone: NgZone, private api: ApiService, private inforService: InforService, private route: ActivatedRoute, elementRef: ElementRef) {
+        route.params.subscribe(params => {
+            this.id = params.id;
+        });
         this.element = elementRef.nativeElement;
 
         api.earthThing(this.id).subscribe(thing => {

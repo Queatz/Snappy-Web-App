@@ -1,6 +1,6 @@
-import { Component, ElementRef } from 'angular2/core';
+import { Component, ElementRef } from '@angular/core';
 import { FloatingComponent } from './floating.component';
-import { ROUTER_DIRECTIVES, OnActivate } from 'angular2/router';
+import { ROUTER_DIRECTIVES, OnActivate } from '@angular/router';
 import { ProjectCardComponent } from './project-card.component';
 import { InforService } from './infor.service';
 

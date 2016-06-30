@@ -1,6 +1,6 @@
-import { Component, ElementRef, AfterViewInit, Input } from 'angular2/core';
+import { Component, ElementRef, AfterViewInit, Input } from '@angular/core';
 import { FloatingComponent } from './floating.component';
-import { ROUTER_DIRECTIVES } from 'angular2/router';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import { ProjectCardComponent } from './project-card.component';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';

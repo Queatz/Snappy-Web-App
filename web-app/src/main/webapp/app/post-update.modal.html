@@ -1,6 +1,6 @@
-<div id="postUpdateModal" class="modal">
+<div id="postUpdateModal{{update ? update.id : ''}}" class="modal">
     <div class="modal-content">
-        <h4>Post update</h4>
+        <h4>{{update ? 'Edit' : 'Post'}} update</h4>
 
         <form>
             <div class="row">

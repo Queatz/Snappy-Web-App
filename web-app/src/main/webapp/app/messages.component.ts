@@ -1,5 +1,5 @@
-import { Component, ElementRef, provide, AfterViewInit, OnDestroy } from 'angular2/core';
-import { ROUTER_DIRECTIVES, RouteParams, Router, OnActivate, OnDeactivate } from 'angular2/router';
+import { Component, ElementRef, provide, AfterViewInit, OnDestroy } from '@angular/core';
+import { ROUTER_DIRECTIVES, ActivatedRoute, Router, OnActivate, OnDeactivate } from '@angular/router';
 
 import {InforService} from './infor.service';
 import {ApiService} from './api.service';
@@ -25,22 +25,28 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
     public messagesWith = {};
     public msToggleOn = true;
 
-    constructor(private inforService: InforService, private api: ApiService, private router: Router, private routeParams: RouteParams, element: ElementRef) {
+    constructor(private inforService: InforService, private api: ApiService, private router: Router, private route: ActivatedRoute, element: ElementRef) {
         this.element = element.nativeElement;
         this.time = 5000;
         this.sendId = '';
+        this.strMessage = '';
 
         if (this.inforService.getInforUser()) {
             this.myId = this.inforService.getInforUser().id;
             this.token = this.inforService.getInforUser().auth;
 
-            this.idCurrentContact = this.routeParams.get('id');
+            router
+                .routerState
+                .queryParams
+                .subscribe(params => {
+                    if (params.q) {
+                        this.strMessage = decodeURIComponent(params.q);
+                    }
+                });
 
-            var prefill = routeParams.get('q');
-
-            if (prefill) {
-                this.strMessage = decodeURI(prefill);
-            }
+            route.params.subscribe(params => {
+                this.idCurrentContact = params.id;
+            })
 
             this.getUserInfoChatWith(this.idCurrentContact);
             this.loadMessages();
@@ -73,7 +79,7 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
 
     showMessages(messagesAndContacts) {
         this.currentMessages = this.sortedMessages(messagesAndContacts.messages);
-        this.contacts = _.sortBy(messagesAndContacts.contacts, contact => -moment(contact.updated));
+        this.contacts = _.sortBy(messagesAndContacts.contacts, contact => -moment(contact.update));
 
         if (this.contacts.length > 0) {
             if (this.idCurrentContact) {

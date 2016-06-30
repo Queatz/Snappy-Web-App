@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, ElementRef, AfterViewInit, OnChanges, provide, OnDestroy } from 'angular2/core';
-import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
+import { Component, Input, OnInit, ElementRef, AfterViewInit, OnChanges, provide, OnDestroy } from '@angular/core';
+import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { OfferCardComponent } from './offer-card.component'
 import { InforService } from './infor.service';

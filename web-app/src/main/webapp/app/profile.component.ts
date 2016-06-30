@@ -1,5 +1,5 @@
-import { Component, OnInit, ElementRef, AfterViewInit, OnDestroy } from 'angular2/core';
-import { ROUTER_DIRECTIVES, RouteParams, Router, OnActivate } from 'angular2/router';
+import { Component, OnInit, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { ROUTER_DIRECTIVES, ActivatedRoute, Router, OnActivate } from '@angular/router';
 import { OffersComponent } from './offers.component';
 import { ThingUpdatesComponent } from './thing-updates.component';
 import { ParseLinksComponent } from './parseLinks.component';
@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
         inforService: InforService,
         private api: ApiService,
         private router: Router,
-        private routeParams: RouteParams,
+        private route: ActivatedRoute,
         element: ElementRef
     ) {
         this.inforService = inforService;
@@ -49,16 +49,13 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngOnInit() {
-        let id = this.routeParams.get('id');
-        let tab = this.routeParams.get('tab');
+        this.route.params.subscribe(params => {
+            let id = params.id;
+            let tab = params.tab;
 
-        // XXX wat
-        if (id !== 'messages') {
             this.loadPerson(id);
             this.myProfile = id;
-        } else {
-            this.router.navigate(['Messages', { id: '' }]);
-        }
+        });
     }
 
     loaded(offers) {

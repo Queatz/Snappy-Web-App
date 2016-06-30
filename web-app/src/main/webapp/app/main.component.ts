@@ -1,5 +1,5 @@
-import { Component, AfterViewInit, OnDestroy } from 'angular2/core';
-import { OnActivate } from 'angular2/router';
+import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { OnActivate } from '@angular/router';
 import { OffersComponent } from './offers.component';
 import { BannerComponent } from './banner.component';
 import { InfoPanelComponent } from './info-panel.component';

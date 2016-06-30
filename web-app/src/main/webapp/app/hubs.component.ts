@@ -1,10 +1,11 @@
-import { Component, ElementRef } from 'angular2/core';
+import { Component, ElementRef } from '@angular/core';
 import { FloatingComponent } from './floating.component';
-import { ROUTER_DIRECTIVES, OnActivate } from 'angular2/router';
+import { ROUTER_DIRECTIVES, OnActivate } from '@angular/router';
 import { ProjectCardComponent } from './project-card.component';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import { NewHubModal } from './new-hub.modal';
+import { SigninRequiredModal } from './signin-required.modal';
 
 @Component({
     templateUrl: 'app/hubs.component.html',
@@ -16,7 +17,7 @@ export class HubsComponent implements OnActivate {
 
     constructor(private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;
-        this.newHubModal = NewHubModal;
+        this.newHubModal = this.inforService.getInforUser() ? NewHubModal : SigninRequiredModal;
 
         navigator.geolocation.getCurrentPosition(this.loadNearby.bind(this));
     }

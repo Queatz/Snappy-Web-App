@@ -1,5 +1,5 @@
-import {Component, AfterViewInit, ElementRef, Inject, OnInit, provide, NgZone} from 'angular2/core';
-import {ROUTER_DIRECTIVES, RouteParams, Router } from 'angular2/router';
+import {Component, AfterViewInit, ElementRef, Inject, OnInit, provide, NgZone} from '@angular/core';
+import {ROUTER_DIRECTIVES, Router } from '@angular/router';
 
 import {InforService} from './infor.service';
 import {ApiService} from './api.service';

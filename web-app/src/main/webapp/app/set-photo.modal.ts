@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, AfterViewInit } from 'angular2/core';
+import { Component, ElementRef, Input, AfterViewInit } from '@angular/core';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 

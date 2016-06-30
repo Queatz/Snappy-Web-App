@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, AfterViewInit } from 'angular2/core';
+import { Component, ElementRef, Input, AfterViewInit } from '@angular/core';
 
 @Component({
     selector: 'map',

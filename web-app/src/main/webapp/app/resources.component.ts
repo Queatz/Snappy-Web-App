@@ -1,8 +1,9 @@
-import { Component, ElementRef } from 'angular2/core';
+import { Component, ElementRef } from '@angular/core';
 import { FloatingComponent } from './floating.component';
-import { ROUTER_DIRECTIVES, OnActivate } from 'angular2/router';
+import { ROUTER_DIRECTIVES, OnActivate } from '@angular/router';
 import { ProjectCardComponent } from './project-card.component';
 import { NewResourceModal } from './new-resource.modal';
+import { SigninRequiredModal } from './signin-required.modal';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 
@@ -17,7 +18,7 @@ export class ResourcesComponent implements OnActivate {
     constructor(private inforService: InforService, private api: ApiService, element: ElementRef) {
         this.element = element.nativeElement;
 
-        this.newResourceModal = NewResourceModal;
+        this.newResourceModal = this.inforService.getInforUser() ? NewResourceModal : SigninRequiredModal;
 
         navigator.geolocation.getCurrentPosition(this.loadNearby.bind(this));
     }

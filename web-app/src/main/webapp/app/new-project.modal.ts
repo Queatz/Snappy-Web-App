@@ -1,5 +1,5 @@
-import { Component, ElementRef, Input, AfterViewInit, ViewChild } from 'angular2/core';
-import { Router } from 'angular2/router';
+import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 
@@ -31,7 +31,7 @@ export class NewProjectModal implements AfterViewInit {
            name: this.name
        }).subscribe(project => {
            $(this.element.querySelector('#modal')).closeModal();
-           this.router.navigate(['Project', {id: project.id}]);
+           this.router.navigate(['/projects/' + project.id]);
        });
    }
 }

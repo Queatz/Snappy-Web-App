@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, OnInit, OnChanges, DoCheck } from 'angular2/core';
+import { Component, Input, ElementRef, OnInit, OnChanges, DoCheck } from '@angular/core';
 import { ThingUpdateComponent } from './thing-update.component'
 
 @Component({

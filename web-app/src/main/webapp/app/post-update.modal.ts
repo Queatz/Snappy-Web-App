@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input } from 'angular2/core';
+import { Component, ElementRef, Input } from '@angular/core';
 import { ApiService } from './api.service';
 import { InforService } from './infor.service';
 
@@ -9,6 +9,7 @@ import { InforService } from './infor.service';
 })
 export class PostUpdateModal implements OnInit, AfterViewInit {
     @Input() thing;
+    @Input() update;
     private filesToUpload: Array<File>;
     public message;
 
