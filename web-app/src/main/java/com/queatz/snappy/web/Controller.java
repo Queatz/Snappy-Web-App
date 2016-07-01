@@ -28,23 +28,20 @@ public class Controller extends HttpServlet {
                 "        <link rel=\"stylesheet\" href=\"app/style.css\" />\n" +
                 "        <link rel=\"stylesheet\" href=\"node_modules/materialize-css/dist/css/materialize.min.css\" />\n" +
                 "        <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\" />\n" +
-                "        <link rel=\"shortcut icon\" href=\"/img/favicon.png\" />\n" +
-                "        <meta name=\"mobile-web-app-capable\" content=\"yes\" />" +
-                "        <link rel=\"apple-touch-icon\" sizes=\"1448x1448\" href=\"/img/pickaxe.png\" />" +
+                "        <link rel=\"shortcut icon\" sizes=\"64x64\" href=\"/img/favicon.png\" />\n" +
+                "        <link rel=\"apple-touch-icon\" sizes=\"1448x1448\" href=\"/img/pickaxe.png\" />\n" +
+                "        <meta name=\"mobile-web-app-capable\" content=\"yes\" />\n" +
                 "        <link rel=\"icon\" href=\"/img/favicon.png\" />\n" +
                 "\n" +
-                "        <script src=\"node_modules/es6-shim/es6-shim.min.js\"></script>\n" +
-                "        <script src=\"node_modules/systemjs/dist/system-polyfills.js\"></script>\n" +
-                "        <script src=\"node_modules/angular2/bundles/angular2-polyfills.js\"></script>\n" +
+                "        <script src=\"node_modules/core-js/client/shim.min.js\"></script>\n" +
+                "        <script src=\"node_modules/zone.js/dist/zone.js\"></script>\n" +
+                "        <script src=\"node_modules/reflect-metadata/Reflect.js\"></script>\n" +
                 "        <script src=\"node_modules/systemjs/dist/system.src.js\"></script>\n" +
-                "        <script src=\"node_modules/rxjs/bundles/Rx.js\"></script>\n" +
-                "        <script src=\"node_modules/angular2/bundles/angular2.dev.js\"></script>\n" +
-                "        <script src=\"node_modules/angular2/bundles/http.js\"></script>\n" +
-                "        <script src=\"node_modules/angular2/bundles/router.dev.js\"></script>\n" +
-                "        <script src=\"node_modules/moment/moment.js\"></script>\n" +
+                "        <script src=\"node_modules/rxjs/bundles/Rx.min.js\"></script>\n" +
                 "        <script src=\"config.js\"></script>\n" +
                 "        <script>System.import('app/boot').then(null, console.error.bind(console));</script>\n" +
                 "\n" +
+                "        <script src=\"node_modules/moment/moment.js\"></script>\n" +
                 "        <script src=\"https://code.jquery.com/jquery-2.1.4.min.js\"></script>\n" +
                 "        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js\"></script>\n" +
                 "\n" +

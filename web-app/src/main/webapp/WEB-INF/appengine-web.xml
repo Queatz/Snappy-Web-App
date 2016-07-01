@@ -14,16 +14,18 @@
         <include path="config.js" />
         <include path="img/*" />
 
-        <include path="node_modules/angular2/bundles/angular2-polyfills.js" />
+        <include path="node_modules/@angular/*/bundles/*.js" />
+        <include path="node_modules/@angular/router/**.js" />
         <include path="node_modules/systemjs/dist/system-polyfills.js" />
         <include path="node_modules/systemjs/dist/system-polyfills.js.map" />
         <include path="node_modules/systemjs/dist/system.src.js" />
-        <include path="node_modules/rxjs/bundles/Rx.js" />
-        <include path="node_modules/angular2/bundles/angular2.dev.js" />
-        <include path="node_modules/es6-shim/es6-shim.min.js" />
-        <include path="node_modules/es6-shim/es6-shim.map" />
-        <include path="node_modules/angular2/bundles/http.js" />
-        <include path="node_modules/angular2/bundles/router.dev.js" />
+        <include path="node_modules/core-js/client/shim.min.js" />
+        <include path="node_modules/zone.js/dist/zone.js" />
+        <include path="node_modules/reflect-metadata/Reflect.js" />
+        <include path="node_modules/rxjs/bundles/Rx.min.js" />
+        <include path="node_modules/core-js/client/shim.min.js.map" />
+        <include path="node_modules/reflect-metadata/Reflect.js.map" />
+        <include path="node_modules/rxjs/bundles/Rx.min.js.map" />
 
         <include path="node_modules/masonry-layout/dist/masonry.pkgd.min.js" />
         <include path="node_modules/moment/moment.js" />
@@ -44,16 +46,18 @@
         <include path="config.js" />
         <include path="img/*" />
 
-        <include path="node_modules/angular2/bundles/angular2-polyfills.js" />
+        <include path="node_modules/@angular/*/bundles/*.js" />
+        <include path="node_modules/@angular/router/**.js" />
         <include path="node_modules/systemjs/dist/system-polyfills.js" />
         <include path="node_modules/systemjs/dist/system-polyfills.js.map" />
         <include path="node_modules/systemjs/dist/system.src.js" />
-        <include path="node_modules/rxjs/bundles/Rx.js" />
-        <include path="node_modules/angular2/bundles/angular2.dev.js" />
-        <include path="node_modules/es6-shim/es6-shim.min.js" />
-        <include path="node_modules/es6-shim/es6-shim.map" />
-        <include path="node_modules/angular2/bundles/http.js" />
-        <include path="node_modules/angular2/bundles/router.dev.js" />
+        <include path="node_modules/zone.js/dist/zone.js" />
+        <include path="node_modules/core-js/client/shim.min.js" />
+        <include path="node_modules/reflect-metadata/Reflect.js" />
+        <include path="node_modules/rxjs/bundles/Rx.min.js" />
+        <include path="node_modules/core-js/client/shim.min.js.map" />
+        <include path="node_modules/reflect-metadata/Reflect.js.map" />
+        <include path="node_modules/rxjs/bundles/Rx.min.js.map" />
 
         <include path="node_modules/masonry-layout/dist/masonry.pkgd.min.js" />
         <include path="node_modules/moment/moment.js" />
