@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { FloatingComponent } from './floating.component';
 import { ROUTER_DIRECTIVES, OnActivate } from '@angular/router';
 import { PersonCardComponent } from './person-card.component';
@@ -11,7 +11,7 @@ import { ApiService } from './api.service';
     styleUrls: ['app/people.component.css'],
     directives: [ROUTER_DIRECTIVES, FloatingComponent, PersonCardComponent]
 })
-export class PeopleComponent implements OnActivate {
+export class PeopleComponent implements AfterViewInit {
     public people;
 
     constructor(private inforService: InforService, element: ElementRef, private api: ApiService) {
@@ -20,6 +20,10 @@ export class PeopleComponent implements OnActivate {
         this.inviteModal = InviteModal;
 
         navigator.geolocation.getCurrentPosition(this.loadNearby.bind(this));
+    }
+
+    ngAfterViewInit() {
+        this.inforService.setPageTitle('People');
     }
 
     private loadNearby(position) {
@@ -43,9 +47,5 @@ export class PeopleComponent implements OnActivate {
                 fitWidth: true
             });
         });
-    }
-
-    routerOnActivate() {
-        this.inforService.setPageTitle('People');
     }
 }

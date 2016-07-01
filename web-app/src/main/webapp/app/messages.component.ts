@@ -1,5 +1,5 @@
 import { Component, ElementRef, provide, AfterViewInit, OnDestroy } from '@angular/core';
-import { ROUTER_DIRECTIVES, ActivatedRoute, Router, OnActivate, OnDeactivate } from '@angular/router';
+import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
 
 import {InforService} from './infor.service';
 import {ApiService} from './api.service';
@@ -16,7 +16,7 @@ var current_count = 0;
     styleUrls: ['app/messages.component.css'],
     directives: [ROUTER_DIRECTIVES]
 })
-export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivate, OnDestroy {
+export class MessagesComponent implements AfterViewInit, OnDestroy {
     public currentMessages = [];
     public messageWithSomeone = null;
     public contacts = null;
@@ -174,23 +174,22 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
         return !!this.inforService.getInforUser();
     }
 
-    routerOnDeactivate() {
-        if (this.messagesTimeout) {
-            clearTimeout(this.messagesTimeout);
-        }
-    }
-
     private resetTimeInterval() {
         this.time = 5000;
     }
 
     ngAfterViewInit() {
+        this.inforService.setPageTitle('Messages');
         $('.tooltipped').tooltip({delay: 50});
     }
 
     ngOnDestroy() {
         $('.tooltipped').tooltip('remove');
         $('.material-tooltip').remove();
+
+        if (this.messagesTimeout) {
+            clearTimeout(this.messagesTimeout);
+        }
     }
 
     sendMessages(message) {
@@ -253,9 +252,5 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
 
     showRecent() {
         this.msToggleOn = false;
-    }
-
-    routerOnActivate() {
-        this.inforService.setPageTitle('Messages');
     }
 }

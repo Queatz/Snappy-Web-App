@@ -1,6 +1,6 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { FloatingComponent } from './floating.component';
-import { ROUTER_DIRECTIVES, OnActivate } from '@angular/router';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import { ProjectCardComponent } from './project-card.component';
 import { NewResourceModal } from './new-resource.modal';
 import { SigninRequiredModal } from './signin-required.modal';
@@ -12,7 +12,7 @@ import { ApiService } from './api.service';
     styleUrls: ['app/resources.component.css'],
     directives: [ROUTER_DIRECTIVES, FloatingComponent, ProjectCardComponent]
 })
-export class ResourcesComponent implements OnActivate {
+export class ResourcesComponent implements AfterViewInit {
     public resources;
 
     constructor(private inforService: InforService, private api: ApiService, element: ElementRef) {
@@ -47,7 +47,7 @@ export class ResourcesComponent implements OnActivate {
         });
     }
 
-    routerOnActivate() {
+    ngAfterViewInit() {
         this.inforService.setPageTitle('Resources');
     }
 }

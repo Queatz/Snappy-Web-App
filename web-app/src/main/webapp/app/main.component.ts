@@ -1,5 +1,4 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
-import { OnActivate } from '@angular/router';
 import { OffersComponent } from './offers.component';
 import { BannerComponent } from './banner.component';
 import { InfoPanelComponent } from './info-panel.component';
@@ -12,7 +11,7 @@ import { NewOfferModal } from './new-offer.modal';
     styleUrls: ['app/main.component.css'],
     directives: [OffersComponent, BannerComponent, InfoPanelComponent, FloatingComponent]
 })
-export class MainComponent implements OnActivate, AfterViewInit, OnDestroy {
+export class MainComponent implements AfterViewInit, OnDestroy {
     constructor(inforService: InforService) {
         this.inforService = inforService;
         this.newOfferModal = NewOfferModal;
@@ -22,11 +21,8 @@ export class MainComponent implements OnActivate, AfterViewInit, OnDestroy {
         return !this.inforService.getInforUser();
     }
 
-    routerOnActivate() {
-        this.inforService.setPageTitle('Village');
-    }
-
     ngAfterViewInit() {
+        this.inforService.setPageTitle('Village');
         $('.tooltipped').tooltip({delay: 50});
     }
 

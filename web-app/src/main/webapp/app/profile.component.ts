@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
-import { ROUTER_DIRECTIVES, ActivatedRoute, Router, OnActivate } from '@angular/router';
+import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
 import { OffersComponent } from './offers.component';
 import { ThingUpdatesComponent } from './thing-updates.component';
 import { ParseLinksComponent } from './parseLinks.component';
@@ -49,7 +49,9 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.route.params.subscribe(params => {
+         this.inforService.setPageTitle('Village');
+
+         this.route.params.subscribe(params => {
             let id = params.id;
             let tab = params.tab;
 
@@ -117,9 +119,5 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     isMyProfile() {
         return this.inforService.getInforUser() !== undefined
                 && this.myProfile == this.inforService.getInforUser().googleUrl;
-    }
-
-    routerOnActivate() {
-        this.inforService.setPageTitle('Village');
     }
 }

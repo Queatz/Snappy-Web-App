@@ -1,5 +1,5 @@
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
-import { RouterConfig, Router, ROUTER_DIRECTIVES, OnActivate, OnDestroy } from '@angular/router';
+import { RouterConfig, Router, ROUTER_DIRECTIVES, OnDestroy } from '@angular/router';
 import { FeedbackModal } from "./feedback.modal";
 import { SigninComponent} from "./signin.component";
 import { InforService } from './infor.service';
@@ -10,7 +10,7 @@ import { InforService } from './infor.service';
 	styleUrls: ['app/app.component.css'],
 	directives: [ROUTER_DIRECTIVES, SigninComponent, FeedbackModal]
 })
-export class AppComponent implements OnActivate, AfterViewInit, OnDestroy {
+export class AppComponent implements, AfterViewInit, OnDestroy {
 	constructor(private inforService: InforService, element: ElementRef, private router: Router) {
     	this.element = element.nativeElement;
     }

@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { FloatingComponent } from './floating.component';
 import { ROUTER_DIRECTIVES, OnActivate } from '@angular/router';
 import { ProjectCardComponent } from './project-card.component';
@@ -12,7 +12,7 @@ import { SigninRequiredModal } from './signin-required.modal';
     styleUrls: ['app/hubs.component.css'],
     directives: [ROUTER_DIRECTIVES, FloatingComponent, ProjectCardComponent]
 })
-export class HubsComponent implements OnActivate {
+export class HubsComponent implements AfterViewInit {
     public hubs;
 
     constructor(private api: ApiService, private inforService: InforService, element: ElementRef) {
@@ -45,7 +45,7 @@ export class HubsComponent implements OnActivate {
         });
     }
 
-    routerOnActivate() {
+    ngAfterViewInit() {
         this.inforService.setPageTitle('Hubs');
     }
 }

@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, NgZone, OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, NgZone, OnDestroy } from '@angular/core';
 import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
@@ -13,7 +13,7 @@ import { ThingUpdatesComponent } from './thing-updates.component';
     styleUrls: ['app/project.component.css'],
     directives: [ROUTER_DIRECTIVES, SetPhotoModal, EditDetailsModal, PersonLinkComponent, PostUpdateModal, ThingUpdatesComponent]
 })
-export class ProjectComponent implements AfterViewInit, OnDestroy {
+export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
     public thing;
     public notFound = false;
 
@@ -30,6 +30,10 @@ export class ProjectComponent implements AfterViewInit, OnDestroy {
                     setTimeout(this.ngAfterViewInit.bind(this), 500);
                 },
                 error => this.notFound = true);
+    }
+
+    ngOnInit() {
+        this.inforService.setPageTitle('Village');
     }
 
     ngAfterViewInit() {
@@ -70,9 +74,5 @@ export class ProjectComponent implements AfterViewInit, OnDestroy {
             // Follow -> this.isFollowing => true
             this.isFollowing = true;
         }
-    }
-
-    routerOnActivate() {
-        this.inforService.setPageTitle('Village');
     }
 }

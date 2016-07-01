@@ -1,6 +1,6 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { FloatingComponent } from './floating.component';
-import { ROUTER_DIRECTIVES, OnActivate } from '@angular/router';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import { ProjectCardComponent } from './project-card.component';
 import { InforService } from './infor.service';
 
@@ -9,7 +9,7 @@ import { InforService } from './infor.service';
     styleUrls: ['app/clubs.component.css'],
     directives: [ROUTER_DIRECTIVES, FloatingComponent, ProjectCardComponent]
 })
-export class ClubsComponent implements OnActivate {
+export class ClubsComponent implements AfterViewInit {
     public projects;
 
     constructor(inforService: InforService, element: ElementRef) {
@@ -31,7 +31,7 @@ export class ClubsComponent implements OnActivate {
         });
     }
 
-    routerOnActivate() {
+    ngAfterViewInit() {
         this.inforService.setPageTitle('Clubs');
     }
 }
