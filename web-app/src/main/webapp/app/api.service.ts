@@ -175,6 +175,11 @@ export public class ApiService {
         return this._http.post(this._apiBaseUrl + 'earth/me/offers', creds, this.formHeaders()).map((res: Response) => res.json());
     }
 
+    public editOffer(offerId, details, price, unit) {
+        var creds = "auth=" + this.token() + "&details=" + encodeURIComponent(details) + "&price=" + encodeURIComponent(price) + "&unit=" + encodeURIComponent(unit);
+        return this._http.post(this._apiBaseUrl + 'earth/' + offerId + '/edit', creds, this.formHeaders()).map((res: Response) => res.json());
+    }
+
     public earthDelete(id: string) {
         return this._http.post(this._apiBaseUrl + 'earth/' + id + '/delete?auth=' + this.token());
     }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, Input, AfterViewInit, OnInit, OnDestroy } from '@angular/core';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 
@@ -6,14 +6,31 @@ import { ApiService } from './api.service';
     templateUrl: 'app/new-offer.modal.html',
     styleUrls: ['app/new-offer.modal.css']
 })
-export class NewOfferModal implements AfterViewInit, OnDestroy{
+export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
     @Input() modalId;
+    @Input() offer;
+    @Input() resizeCallback;
 
     constructor(private api: ApiService, inforService: InforService, element: ElementRef) {
         this.inforService = inforService;
         this.element = element.nativeElement;
+        this.enumber = 0;
         this.edetails = '';
         this.emessage = '';
+    }
+
+    ngOnInit() {
+        if (this.offer) {
+            this.edetails = this.offer.about;
+            this.emessage = this.offer.unit;
+
+            if (this.offer.price === undefined) {
+                this.justAsk = true;
+            } else {
+                this.justAsk = false;
+                this.enumber = this.offer.price;
+            }
+        }
     }
 
     ngAfterViewInit() {
@@ -25,7 +42,11 @@ export class NewOfferModal implements AfterViewInit, OnDestroy{
         $('.material-tooltip').remove();
     }
 
-    newOffer(edetails, emessage, enumber) {
+    newOffer() {
+        var edetails = this.edetails;
+        var emessage = this.emessage;
+        var enumber = this.enumber;
+
         if (!edetails) {
             Materialize.toast('Describe your ' + (this.enumber < 0 ? 'request' : 'offer'), 4000);
             return;
@@ -38,6 +59,25 @@ export class NewOfferModal implements AfterViewInit, OnDestroy{
         }
 
         $(this.element.querySelector('#modal')).closeModal();
+
+        if (this.offer) {
+            var self = this;
+            this.api.editOffer(this.offer.id, edetails, enumber, emessage)
+                .subscribe(offer => {
+                    if (offer.id) {
+                        self.offer.price = offer.price;
+                        self.offer.unit = offer.unit;
+                        self.offer.about = offer.about;
+                        Materialize.toast('Offer updated', 4000);
+
+                        if (self.resizeCallback) {
+                            self.resizeCallback();
+                        }
+                    }
+                });
+
+            return;
+        }
 
         this.api.newOffer(edetails, enumber, emessage)
             .subscribe(dataInput => {

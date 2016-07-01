@@ -1,4 +1,4 @@
-import { Component, ComponentResolver, ViewContainerRef, View, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
+import { Component, ComponentResolver, ViewContainerRef, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { ApiService } from './api.service';
 import { InforService } from './infor.service';

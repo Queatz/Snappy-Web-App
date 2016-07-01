@@ -1,7 +1,8 @@
-import { Component, View, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
+import { Component, ComponentResolver, ViewContainerRef, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
+import { NewOfferModal } from './new-offer.modal';
 
 var checkFirst = true;
 
@@ -23,7 +24,9 @@ export class OfferCardComponent implements AfterViewInit, OnDestroy {
     constructor(private inforService: InforService,
         private api: ApiService,
         private _router: Router,
-        element: ElementRef) {
+        element: ElementRef,
+        private cr: ComponentResolver,
+        private view: ViewContainerRef) {
         this.element = element.nativeElement;
         this.filesToUpload = [];
     }
@@ -157,6 +160,7 @@ export class OfferCardComponent implements AfterViewInit, OnDestroy {
     fileChangeEvent(fileInput: any) {
         this.filesToUpload = <Array<File>>fileInput.target.files;
     }
+
     deleteImage() {
         if (this.offer) {
             this.api.earthDeletePhoto(this.offer.id)
@@ -174,6 +178,23 @@ export class OfferCardComponent implements AfterViewInit, OnDestroy {
                 })
                 .subscribe();
         }
+    }
+
+    edit() {
+        if (this.modal) {
+            this.modal.openModal();
+            return;
+        }
+
+        var self = this;
+
+        this.cr.resolveComponent(NewOfferModal).then(component => {
+            let ref = self.view.createComponent(component);
+            ref.instance.offer = self.offer;
+            ref.instance.resizeCallback = self.resizeCallback;
+            self.modal = $(ref.location.nativeElement).find('.modal');
+            self.modal.openModal();
+        });
     }
 
     showModal() {

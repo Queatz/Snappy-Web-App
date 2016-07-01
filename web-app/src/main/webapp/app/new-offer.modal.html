@@ -1,13 +1,13 @@
 <div id="modal" class="modal">
     <div class="modal-content">
-        <h4>New {{ enumber < 0 ? 'request' : 'offer' }}</h4>
+        <h4>{{ offer ? 'Edit' : 'New' }} {{ enumber < 0 ? 'request' : 'offer' }}</h4>
 
         <form>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">edit</i>
-                    <input id="strdetail" type="text" required="" [(ngModel)]="edetails" />
-                    <label for="strdetail">Describe your {{ enumber < 0 ? 'request' : 'offer' }}</label>
+                    <input autofocus id="strdetail" type="text" required [(ngModel)]="edetails" />
+                    <label class="active" for="strdetail">Describe your {{ enumber < 0 ? 'request' : 'offer' }}</label>
                 </div>
 
                 <div class="input-field range-field col s10">
@@ -30,8 +30,8 @@
 
     <div class="modal-footer">
         <a class="btn-flat waves-effect waves-blue modal-action blue-text" type="submit"
-                name="action" (click)="newOffer(edetails, emessage, enumber)">
-            Offer
+                name="action" (click)="newOffer()">
+            {{offer ? 'Save' : 'Offer'}}
         </a>
         <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
     </div>

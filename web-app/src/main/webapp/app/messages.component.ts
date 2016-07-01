@@ -79,7 +79,7 @@ export class MessagesComponent implements AfterViewInit, OnActivate, OnDeactivat
 
     showMessages(messagesAndContacts) {
         this.currentMessages = this.sortedMessages(messagesAndContacts.messages);
-        this.contacts = _.sortBy(messagesAndContacts.contacts, contact => -moment(contact.update));
+        this.contacts = _.sortBy(messagesAndContacts.contacts, contact => -moment(contact.updated));
 
         if (this.contacts.length > 0) {
             if (this.idCurrentContact) {
