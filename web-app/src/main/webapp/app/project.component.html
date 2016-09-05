@@ -27,11 +27,12 @@
                 <span *ngIf="canEdit()">
                     <a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit details'" href="#editDetailsModal"><i class="material-icons small">edit</i></a>
                     <a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Change photo'" href="#setPhotoModal"><i class="material-icons small">aspect_ratio</i></a>
+                    <a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Add someone as a contact'" href="#addContactModal"><i class="material-icons small">person_add</i></a>
                 </span>
             </h3>
             <div *ngIf="thing.contacts.length">
                 <h6 class="metadata grey-text">CONTACTS</h6>
-                <person-link *ngFor="let contact of thing.contacts" [person]="contact.target"></person-link>
+                <person-link *ngFor="let contact of thing.contacts" [remove]="canEdit() ? removeCallbackFor(contact) : undefined" [person]="contact.target"></person-link>
             </div>
             <div *ngIf="thing.address">
                 <h6 class="metadata grey-text">LOCATION</h6>
@@ -54,6 +55,8 @@
     </center>
     <thing-updates *ngIf="thing && thing.updates" [updates]="thing.updates"></thing-updates>
     <edit-details-modal *ngIf="canEdit()" [thing]="thing"></edit-details-modal>
+    <add-contact-modal *ngIf="canEdit()" [thing]="thing"></add-contact-modal>
+    <remove-contact-modal *ngIf="canEdit() && removingContact" [thing]="thing" [contact]="removingContact"></remove-contact-modal>
     <set-photo-modal *ngIf="canEdit()" [thing]="thing"></set-photo-modal>
     <post-update-modal *ngIf="thing" [thing]="thing"></post-update-modal>
 </div>

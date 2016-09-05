@@ -137,6 +137,15 @@ export public class ApiService {
                             .map((res: Response) => res.json());
     }
 
+    public earthSearch(coords, q: String, kind: String) {
+        return this._http.get(this._apiBaseUrl + 'earth/search/' + kind
+                                + '?latitude=' + coords.latitude
+                                + '&longitude=' + coords.longitude
+                                + '&q=' + encodeURIComponent(q)
+                                + '&auth='+ this.token())
+                            .map((res: Response) => res.json());
+    }
+
     public setSeen(personId) {
         return this._http.get(this._apiBaseUrl + 'earth/' + personId + '?seen=true'
                               + '&auth='+ this.token())

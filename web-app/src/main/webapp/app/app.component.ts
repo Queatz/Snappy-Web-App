@@ -1,14 +1,15 @@
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { RouterConfig, Router, ROUTER_DIRECTIVES, OnDestroy } from '@angular/router';
 import { FeedbackModal } from "./feedback.modal";
-import { SigninComponent} from "./signin.component";
+import { WelcomeModal } from "./welcome.modal";
+import { SigninComponent } from "./signin.component";
 import { InforService } from './infor.service';
 
 @Component({
 	selector: 'app',
 	templateUrl: 'app/app.component.html',
 	styleUrls: ['app/app.component.css'],
-	directives: [ROUTER_DIRECTIVES, SigninComponent, FeedbackModal]
+	directives: [ROUTER_DIRECTIVES, SigninComponent, FeedbackModal, WelcomeModal]
 })
 export class AppComponent implements, AfterViewInit, OnDestroy {
 	constructor(private inforService: InforService, element: ElementRef, private router: Router) {
@@ -16,17 +17,23 @@ export class AppComponent implements, AfterViewInit, OnDestroy {
     }
 
     ngAfterViewInit() {
-    	$(this.element).find('.button-collapse').sideNav({
+    	let element = $(this.element);
+
+    	element.find('.button-collapse').sideNav({
     	    closeOnClick: true
     	});
 
-    	$('.modal-trigger').leanModal();
-    	$('.tooltipped').tooltip({delay: 50});
+    	element.find('.modal-trigger').leanModal();
+    	element.find('.tooltipped').tooltip({delay: 50});
+
+    	if (!this.userSignined()) {
+    	    element.find('#welcomeModal').openModal();
+    	}
     }
 
     ngOnDestroy() {
-        $('.tooltipped').tooltip('remove');
-        $('.material-tooltip').remove();
+        element.find('.tooltipped').tooltip('remove');
+        element.find('.material-tooltip').remove();
     }
 
     userSignined() {

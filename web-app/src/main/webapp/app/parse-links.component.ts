@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'parse-links',
@@ -13,6 +13,10 @@ export class ParseLinksComponent implements AfterViewInit {
 
     ngAfterViewInit() {
         this.element.nativeElement.innerHTML = this.parse(this.element.nativeElement.innerHTML);
+    }
+
+    ngOnChanges() {
+        this.ngAfterViewInit();
     }
 
     parse(value: string) {

@@ -5,13 +5,26 @@ import { ApiService } from './api.service';
 import { SetPhotoModal } from './set-photo.modal';
 import { EditDetailsModal } from './edit-details.modal';
 import { PostUpdateModal } from './post-update.modal';
+import { AddContactModal } from './add-contact.modal';
+import { RemoveContactModal } from './remove-contact.modal';
 import { PersonLinkComponent } from './person-link.component';
 import { ThingUpdatesComponent } from './thing-updates.component';
+import { ParseLinksComponent } from './parse-links.component';
 
 @Component({
     templateUrl: 'app/project.component.html',
     styleUrls: ['app/project.component.css'],
-    directives: [ROUTER_DIRECTIVES, SetPhotoModal, EditDetailsModal, PersonLinkComponent, PostUpdateModal, ThingUpdatesComponent]
+    directives: [
+        ROUTER_DIRECTIVES,
+        SetPhotoModal,
+        EditDetailsModal,
+        AddContactModal,
+        RemoveContactModal,
+        PersonLinkComponent,
+        PostUpdateModal,
+        ThingUpdatesComponent,
+        ParseLinksComponent
+    ]
 })
 export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
     public thing;
@@ -50,6 +63,17 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.thing && this.thing.photo) {
             return this.api.earthPhotoUrl(this.thing.id);
         }
+    }
+
+    public removeCallbackFor(contact) {
+        return event => {
+            event.stopPropagation();
+            event.preventDefault();
+            this.removingContact = contact;
+            setTimeout(() => {
+                $(this.element).find('#removeContactModal').openModal();
+            });
+        };
     }
 
     public canEdit() {

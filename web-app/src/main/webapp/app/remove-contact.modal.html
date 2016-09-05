@@ -1,0 +1,12 @@
+<div id="removeContactModal" class="modal">
+    <div class="modal-content">
+        <h5>
+            Remove <b>{{ contact.target.firstName }} {{ contact.target.lastName }}</b> as a contact?
+        </h5>
+        <span>They will go bye bye.</span>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-red btn-flat red-text" (click)="remove()">Remove {{ contact.target.firstName }}</a>
+        <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
+    </div>
+</div>

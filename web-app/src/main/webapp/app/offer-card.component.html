@@ -17,7 +17,7 @@
     </div>
     <div class="card-action">
         <a (click)="clickPrice()">
-            <div class="price waves-effect secondary-content waves-light btn white-text tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="isRequest() ? 'Offer this' : 'Get this offer by messaging ' + offer.person.firstName" [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}">
+            <div class="price waves-effect secondary-content waves-light btn white-text tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="isRequest() ? 'Offer this to ' + offer.person.firstName : 'Get this offer by messaging ' + offer.person.firstName" [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}">
                 <b>{{ getPrice() }}</b>
             </div>
         </a>

@@ -1,0 +1,17 @@
+.choice {
+    cursor: pointer;
+    font-size: 1.25rem;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.choice img {
+    border-radius: 100%;
+    vertical-align: middle;
+    padding: .5rem;
+}
+
+.null {
+    font-style: italic;
+    padding: 1rem;
+}

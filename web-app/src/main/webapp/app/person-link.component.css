@@ -2,9 +2,27 @@
     display: inline-block;
     text-align: center;
     width: 100px;
+    position: relative;
 }
 
 img {
     vertical-align: middle;
     margin-bottom: .5rem;
+}
+
+.person-name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.remove-person {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
+.person-link:hover .remove-person {
+    display: block;
 }

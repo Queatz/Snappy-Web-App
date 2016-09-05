@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, AfterViewInit, OnDestroy } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { InforService } from './infor.service';
 
@@ -8,6 +8,17 @@ import { InforService } from './infor.service';
     styleUrls: ['app/person-link.component.css'],
     directives: [ROUTER_DIRECTIVES]
 })
-export class PersonLinkComponent implements AfterViewInit {
+export class PersonLinkComponent implements AfterViewInit, OnDestroy {
     @Input() person;
+    @Input() remove;
+
+    ngAfterViewInit() {
+        $('.tooltipped').tooltip({delay: 50});
+    }
+
+    ngOnDestroy() {
+        $('.tooltipped').tooltip('remove');
+        $('.material-tooltip').remove();
+    }
+
 }

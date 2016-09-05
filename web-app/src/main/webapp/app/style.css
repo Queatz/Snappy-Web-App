@@ -1,5 +1,8 @@
+@import 'https://fonts.googleapis.com/css?family=Varela+Round';
+
 body {
     background: #f2f2f2;
+    font-family: 'Varela Round';
 }
 
 .bkg-green {
@@ -13,7 +16,6 @@ body {
 .bkg-red {
     background-color: #c54859 !important;
 }
-
 
 .txt-green {
     color: #629252 !important;
@@ -54,4 +56,13 @@ body {
 
 .btn-flat {
     font-weight: 500;
+}
+
+/* Don't allow materialize labels to wrap */
+.input-field label {
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 75%;
 }

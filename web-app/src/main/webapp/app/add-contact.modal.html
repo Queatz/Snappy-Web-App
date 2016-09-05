@@ -1,0 +1,37 @@
+<div id="addContactModal" class="modal">
+    <div class="modal-content">
+        <h4>Add a contact</h4>
+
+        <form>
+            <div class="row">
+                <div class="col s12">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">search</i>
+                        <input id="name" type="text" required [(ngModel)]="text" autofocus autocomplete="off" (keyup)="search()">
+                        <label class="active" for="name">Search</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div>
+            <div class="waves-effect choice" *ngFor="let person of results; let i = index" (click)="select(i)">
+                <img src="{{ person.imageUrl }}" />
+                {{ person.firstName }} {{ person.lastName }}
+            </div>
+            <div *ngIf="!results.length" class="null grey-text">
+                <span *ngIf="text && searching">Searching...</span>
+                <span *ngIf="text && !searching">No one was found.</span>
+                <span *ngIf="!text">Search for people near you.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <a class="btn-flat waves-effect waves-blue modal-action blue-text" type="submit" name="action" (click)="add()">
+            Add {{ newContactName || '' }}
+        </a>
+        <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
+    </div>
+
+</div>
