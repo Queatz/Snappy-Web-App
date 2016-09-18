@@ -3,7 +3,7 @@ declare var Waves;
 declare var Materialize;
 
 import { Component, ComponentResolver, ViewContainerRef, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
-import { ROUTER_DIRECTIVES, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import { NewOfferModal } from './new-offer.modal';
@@ -13,8 +13,7 @@ var checkFirst = true;
 @Component({
     selector: 'offer-card',
     templateUrl: 'app/offer-card.component.html',
-    styleUrls: ['app/offer-card.component.css'],
-    directives: [ROUTER_DIRECTIVES]
+    styleUrls: ['app/offer-card.component.css']
 })
 export class OfferCardComponent implements AfterViewInit, OnDestroy {
     @Input() public position;

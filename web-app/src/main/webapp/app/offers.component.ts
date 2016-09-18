@@ -4,7 +4,7 @@ declare var require;
 var Masonry = require('masonry-layout');
 
 import { Component, Input, OnInit, ElementRef, AfterViewInit, OnChanges, provide, OnDestroy } from '@angular/core';
-import { ROUTER_DIRECTIVES, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { OfferCardComponent } from './offer-card.component'
 import { InforService } from './infor.service';
@@ -14,12 +14,12 @@ import { ApiService } from './api.service';
     selector: 'offers',
     templateUrl: 'app/offers.component.html',
     styleUrls: ['app/offers.component.css'],
-    directives: [ROUTER_DIRECTIVES, OfferCardComponent]
+    directives: [OfferCardComponent]
 })
 export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
     public offers = [];
     public offersLoaded = false;
-    private masonry: Masonry;
+    private masonry;
     private person;
 
     @Input() public profile;

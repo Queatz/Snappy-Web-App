@@ -18,6 +18,8 @@ export class SetPhotoModal implements AfterViewInit {
     @Input() public thing;
     private filesToUpload: Array<File>;
 
+    private element;
+
     constructor(private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;
     }

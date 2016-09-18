@@ -5,7 +5,7 @@ var moment = require('moment');
 var Masonry = require('masonry-layout');
 
 import { Component, ViewContainerRef, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
-import { ROUTER_DIRECTIVES, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ApiService } from './api.service';
 import { InforService } from './infor.service';
 import { PostUpdateModal } from './post-update.modal';

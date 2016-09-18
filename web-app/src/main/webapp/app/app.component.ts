@@ -1,7 +1,7 @@
 declare var $;
 
-import { Component, ElementRef, AfterViewInit } from '@angular/core';
-import { RouterConfig, Router, RouterModules, OnDestroy } from '@angular/router';
+import { Component, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { RouterConfig, Router, RouterModule } from '@angular/router';
 import { FeedbackModal } from './feedback.modal';
 import { WelcomeModal } from './welcome.modal';
 import { GdayModal } from './gday.modal';

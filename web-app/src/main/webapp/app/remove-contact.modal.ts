@@ -1,4 +1,5 @@
 declare var $;
+declare var _;
 declare var Materialize;
 declare var Waves;
 

@@ -1,12 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ROUTER_DIRECTIVES, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ApiService } from './api.service';
 
 @Component({
     selector: 'project-card',
     templateUrl: 'app/project-card.component.html',
-    styleUrls: ['app/project-card.component.css'],
-    directives: [ROUTER_DIRECTIVES]
+    styleUrls: ['app/project-card.component.css']
 })
 export class ProjectCardComponent implements OnInit {
     @Input() public typeClass;

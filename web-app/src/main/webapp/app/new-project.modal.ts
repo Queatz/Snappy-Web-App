@@ -15,7 +15,7 @@ export class NewProjectModal implements AfterViewInit {
 
    private element: HTMLElement;
    private name: string;
-   private thing: object;
+   private thing: Object;
 
    constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
        this.element = element.nativeElement;

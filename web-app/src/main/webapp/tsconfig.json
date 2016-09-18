@@ -12,6 +12,7 @@
   },
   "exclude": [
     "node_modules",
-    "systemjs.config.js"
+    "systemjs.config.js",
+    "typings"
   ]
 }

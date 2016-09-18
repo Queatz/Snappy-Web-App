@@ -3,7 +3,6 @@ var Masonry = require('masonry-layout');
 
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { FloatingComponent } from './floating.component';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 import { ProjectCardComponent } from './project-card.component';
 import { NewResourceModal } from './new-resource.modal';
 import { SigninRequiredModal } from './signin-required.modal';
@@ -13,7 +12,7 @@ import { ApiService } from './api.service';
 @Component({
     templateUrl: 'app/resources.component.html',
     styleUrls: ['app/resources.component.css'],
-    directives: [ROUTER_DIRECTIVES, FloatingComponent, ProjectCardComponent]
+    directives: [FloatingComponent, ProjectCardComponent]
 })
 export class ResourcesComponent implements AfterViewInit {
     public resources;

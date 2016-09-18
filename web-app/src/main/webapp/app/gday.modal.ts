@@ -1,15 +1,13 @@
 declare var Waves;
 
 import { Component, AfterViewInit } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 import { InforService } from './infor.service';
 import { TutorialService } from './tutorial.service';
 
 @Component({
     selector: 'gday-modal',
     templateUrl: 'app/gday.modal.html',
-    styleUrls: ['app/gday.modal.css'],
-    directives: [ROUTER_DIRECTIVES]
+    styleUrls: ['app/gday.modal.css']
 })
 export class GdayModal implements AfterViewInit {
     constructor(private inforService: InforService, private tutorialService: TutorialService) {

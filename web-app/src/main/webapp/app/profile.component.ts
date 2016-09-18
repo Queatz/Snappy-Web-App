@@ -3,7 +3,7 @@ declare var _;
 declare var moment;
 
 import { Component, OnInit, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
-import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OffersComponent } from './offers.component';
 import { ThingUpdatesComponent } from './thing-updates.component';
 import { ParseLinksComponent } from './parse-links.component';
@@ -20,7 +20,7 @@ import { ThingsComponent } from './things.component';
 @Component({
     templateUrl: 'app/profile.component.html',
     styleUrls: ['app/profile.component.css'],
-    directives: [ROUTER_DIRECTIVES, OffersComponent, ParseLinksComponent, FloatingComponent, PostUpdateModal, ThingUpdatesComponent, ThingsComponent],
+    directives: [OffersComponent, ParseLinksComponent, FloatingComponent, PostUpdateModal, ThingUpdatesComponent, ThingsComponent],
 })
 //@RouteConfig([
 //  { path: '/',       component: OffersTabComponent, useAsDefault: true },

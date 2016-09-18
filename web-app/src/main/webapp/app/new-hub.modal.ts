@@ -21,6 +21,7 @@ export class NewHubModal implements AfterViewInit {
     private element;
     private name
     private address;
+    private thing;
 
     constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;

@@ -2,7 +2,7 @@ declare var gapi;
 declare var $;
 
 import {Component, AfterViewInit, ElementRef, Inject, OnInit, provide, NgZone} from '@angular/core';
-import {ROUTER_DIRECTIVES, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 import {InforService} from './infor.service';
 import {ApiService} from './api.service';
@@ -10,8 +10,7 @@ import {ApiService} from './api.service';
 @Component({
     selector: 'signin',
     templateUrl: 'app/signin.component.html',
-    styleUrls: ['app/signin.component.css'],
-    directives: [ROUTER_DIRECTIVES]
+    styleUrls: ['app/signin.component.css']
 })
 export class SigninComponent implements AfterViewInit, OnInit {
     public signedIn: boolean;

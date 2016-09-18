@@ -15,7 +15,7 @@ export class ClubsComponent implements AfterViewInit {
     public projects: Array<Object>;
     private inforService: InforService;
     private element: HTMLElement;
-    private masonry: Masonry;
+    private masonry;
 
     constructor(inforService: InforService, element: ElementRef) {
         this.inforService = inforService;

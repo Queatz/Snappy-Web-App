@@ -3,7 +3,7 @@ declare var moment;
 declare var $;
 
 import { Component, ElementRef, provide, AfterViewInit, OnDestroy } from '@angular/core';
-import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import {InforService} from './infor.service';
 import {ApiService} from './api.service';
@@ -17,8 +17,7 @@ var current_count = 0;
 
 @Component({
     templateUrl: 'app/messages.component.html',
-    styleUrls: ['app/messages.component.css'],
-    directives: [ROUTER_DIRECTIVES]
+    styleUrls: ['app/messages.component.css']
 })
 export class MessagesComponent implements AfterViewInit, OnDestroy {
     public currentMessages = [];
@@ -30,7 +29,6 @@ export class MessagesComponent implements AfterViewInit, OnDestroy {
     public msToggleOn = true;
 
     private element;
-    private time;
     private sendId;
     private strMessage;
     private myId;
@@ -51,7 +49,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy {
             router
                 .routerState
                 .queryParams
-                .subscribe((params: object) => {
+                .subscribe((params: Object) => {
                     if (params.q) {
                         this.strMessage = decodeURIComponent(params.q);
                     }

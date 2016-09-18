@@ -17,7 +17,6 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
 
     private element;
     private inforService;
-    private element;
     private enumber;
     private edetails;
     private emessage;

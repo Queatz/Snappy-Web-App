@@ -3,7 +3,7 @@ declare var moment;
 declare var _;
 
 import { Component, OnInit, AfterViewInit, ElementRef, NgZone, OnDestroy } from '@angular/core';
-import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import { SetPhotoModal } from './set-photo.modal';
@@ -19,7 +19,6 @@ import { ParseLinksComponent } from './parse-links.pipe';
     templateUrl: 'app/project.component.html',
     styleUrls: ['app/project.component.css'],
     directives: [
-        ROUTER_DIRECTIVES,
         SetPhotoModal,
         EditDetailsModal,
         AddContactModal,

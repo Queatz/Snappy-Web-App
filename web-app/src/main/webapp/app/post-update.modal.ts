@@ -1,4 +1,5 @@
 declare var Materialize;
+declare var _;
 
 import { Component, ElementRef, OnInit, Input } from '@angular/core';
 import { ApiService } from './api.service';
@@ -11,7 +12,7 @@ import { InforService } from './infor.service';
 })
 export class PostUpdateModal implements OnInit {
     @Input() thing;
-    @Input() update: object;
+    @Input() update;
     private filesToUpload: Array<File>;
     public message;
 
@@ -33,7 +34,7 @@ export class PostUpdateModal implements OnInit {
 
     public remove() {
         this.api.earthDelete(this.update.id)
-            .subscribe((res: object) => {
+            .subscribe((res: Object) => {
                 if (res.status == 200) {
                     Materialize.toast('Update removed', 4000);
                     this.update.about = '';
@@ -60,7 +61,7 @@ export class PostUpdateModal implements OnInit {
 
                 this.api.earthSaveUpdate(this.update.id, this.message, isFile ? this.filesToUpload[0] : null)
                     .then(result => {
-                        var updated: object = JSON.parse(result);
+                        var updated: Object = JSON.parse(result);
 
                         this.update.about = updated.about;
                         this.update.photo = updated.photo;

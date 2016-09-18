@@ -1,6 +1,4 @@
-    import { NgModule } from '@angular/core';
-import { BrowserModule }  from '@angular/platform-browser';
-import { enableProdMode, provide } from '@angular/core';
+import { NgModule, enableProdMode, provide } from '@angular/core';
 import { NgLocalization } from '@angular/common';
 import { Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from '@angular/http';
 import { AppComponent } from './app.component';
@@ -17,12 +15,12 @@ class MyOptions extends BaseRequestOptions {
     headers: Headers = firstHeaders
 }
 class MyLocalization extends NgLocalization {
-    getPluralCategory(value: any) { }
+    getPluralCategory(value: any): string {
+    }
 }
 
 @NgModule({
     imports: [
-        BrowserModule,
         routing
     ],
     declarations: [

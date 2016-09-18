@@ -3,14 +3,13 @@ var Masonry = require('masonry-layout');
 
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { FloatingComponent } from './floating.component';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 import { ProjectCardComponent } from './project-card.component';
 import { InforService } from './infor.service';
 
 @Component({
     templateUrl: 'app/search.component.html',
     styleUrls: ['app/search.component.css'],
-    directives: [ROUTER_DIRECTIVES, FloatingComponent, ProjectCardComponent]
+    directives: [FloatingComponent, ProjectCardComponent]
 })
 export class SearchComponent implements AfterViewInit {
     public projects;
