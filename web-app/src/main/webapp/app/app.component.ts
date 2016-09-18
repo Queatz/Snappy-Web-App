@@ -32,8 +32,8 @@ export class AppComponent implements, AfterViewInit, OnDestroy {
     }
 
     ngOnDestroy() {
+        let element = $(this.element);
         element.find('.tooltipped').tooltip('remove');
-        element.find('.material-tooltip').remove();
     }
 
     userSignined() {

@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, Input, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { InforService } from './infor.service';
 
@@ -12,13 +12,16 @@ export class PersonLinkComponent implements AfterViewInit, OnDestroy {
     @Input() person;
     @Input() remove;
 
+    constructor(private elementRef: ElementRef) {
+
+    }
+
     ngAfterViewInit() {
-        $('.tooltipped').tooltip({delay: 50});
+        $(this.elementRef.nativeElement).find('.tooltipped').tooltip({delay: 50});
     }
 
     ngOnDestroy() {
-        $('.tooltipped').tooltip('remove');
-        $('.material-tooltip').remove();
+        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
     }
 
 }

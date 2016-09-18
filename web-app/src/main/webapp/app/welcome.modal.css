@@ -49,3 +49,8 @@
     float: initial !important;
     margin-bottom: .5rem !important;
 }
+
+.learn-more {
+    padding: .5rem;
+    text-align: center;
+}

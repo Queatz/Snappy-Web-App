@@ -180,12 +180,11 @@ export class MessagesComponent implements AfterViewInit, OnDestroy {
 
     ngAfterViewInit() {
         this.inforService.setPageTitle('Messages');
-        $('.tooltipped').tooltip({delay: 50});
+        $(this.element).find('.tooltipped').tooltip({delay: 50});
     }
 
     ngOnDestroy() {
-        $('.tooltipped').tooltip('remove');
-        $('.material-tooltip').remove();
+        $(this.element).find('.tooltipped').tooltip('remove');
 
         if (this.messagesTimeout) {
             clearTimeout(this.messagesTimeout);

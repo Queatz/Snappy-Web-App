@@ -33,14 +33,13 @@ export class OfferCardComponent implements AfterViewInit, OnDestroy {
 
     ngAfterViewInit() {
         Waves.displayEffect();
-        $('.tooltipped').tooltip({delay: 50});
+        $(this.element).find('.tooltipped').tooltip({delay: 50});
         this.offerImage = this.api.earthImageUrl(this.offer.id);
         this.showModal();
     }
 
     ngOnDestroy() {
-        $('.tooltipped').tooltip('remove');
-        $('.material-tooltip').remove();
+        $(this.element).find('.tooltipped').tooltip('remove');
     }
 
     public getPrice() {

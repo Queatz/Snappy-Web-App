@@ -1,32 +1,69 @@
 <div id="welcomeModal" class="modal">
-    <div class="modal-content">
+    <div *ngIf="learnMoreAbout" [ngSwitch]="learnMoreAbout" class="modal-content">
+        <div *ngSwitchCase="'feedback'" class="row">
+            We all know it's tough to get that so helpful feedback on your project. There are many
+            ways to get feedback from the Village, such as publically listing your project, offering
+            rewards for people interested, or throwing a party to engage the Villagers.
+        </div>
+        <div *ngSwitchCase="'learn'" class="row">
+            At some point you've gotta scratch that itch. Go and learn it.  Thankfully, Villagers
+            have many unique talents to draw from, and it all starts with a simple "Hey!"
+            <br /><br />
+            Many Villagers even offer lessons for free simply to exercise their own skills.
+        </div>
+        <div *ngSwitchCase="'discover'" class="row">
+
+        </div>
+        <div *ngSwitchCase="'solve'" class="row">
+
+        </div>
+        <div *ngSwitchCase="'earn'" class="row">
+            Earn some extra cash by completing requests from other Villagers, or list your own offers
+            and share your profile to gain publicity.
+        </div>
+        <div *ngSwitchCase="'invite'" class="row">
+
+        </div>
+        <div class="center-align">
+            <div (click)="show()" class="btn-flat waves-effect blue-text">
+                <b>Cool!</b>
+            </div>
+        </div>
+    </div>
+    <div [hidden]="learnMoreAbout" class="modal-content">
         <h4 class="center-align red-text header">
             Work with the smartest people on the planet
         </h4>
         <div class="row">
-            <div class="col s12 m6 l4 info-cell waves-effect">
+            <div (click)="show('feedback')" class="col s12 m6 l4 info-cell waves-effect">
                 <div class="info-pic pic-1"></div>
                 <div class="info-desc"><b>Get feedback</b> on your project</div>
+                <div class="learn-more blue-text">Learn more</div>
             </div>
-            <div class="col s12 m6 l4 info-cell waves-effect">
+            <div (click)="show('learn')" class="col s12 m6 l4 info-cell waves-effect">
                 <div class="info-pic pic-2"></div>
                 <div class="info-desc"><b>Learn</b> from smart people</div>
+                <div class="learn-more blue-text">Learn more</div>
             </div>
-            <div class="col s12 m6 l4 info-cell waves-effect">
+            <div (click)="show('discover')" class="col s12 m6 l4 info-cell waves-effect">
                 <div class="info-pic pic-3"></div>
                 <div class="info-desc"><b>Discover</b> projects to work on</div>
+                <div class="learn-more blue-text">Learn more</div>
             </div>
-            <div class="col s12 m6 l4 info-cell waves-effect">
+            <div (click)="show('solve')" class="col s12 m6 l4 info-cell waves-effect">
                 <div class="info-pic pic-4"></div>
                 <div class="info-desc"><b>Solve</b> world problems with people</div>
+                <div class="learn-more blue-text">Learn more</div>
             </div>
-            <div class="col s12 m6 l4 info-cell waves-effect">
+            <div (click)="show('earn')" class="col s12 m6 l4 info-cell waves-effect">
                 <div class="info-pic pic-5"></div>
                 <div class="info-desc"><b>Earn</b> money from your skills</div>
+                <div class="learn-more blue-text">Learn more</div>
             </div>
-            <div class="col s12 m6 l4 info-cell waves-effect">
+            <div (click)="show('invite')" class="col s12 m6 l4 info-cell waves-effect">
                 <div class="info-pic pic-6"></div>
                 <div class="info-desc"><b>Invite</b> people to work with you</div>
+                <div class="learn-more blue-text">Learn more</div>
             </div>
         </div>
         <div class="center-align">

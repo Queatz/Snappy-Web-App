@@ -85,15 +85,14 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngAfterViewInit() {
-        $('.tooltipped').tooltip({delay: 50});
+        $(this.element).find('.tooltipped').tooltip({delay: 50});
 
         this.inforService.setProfileUpdateOffer(this.boundDeleteCallback, this.profile);
         this.signed = !!this.inforService.getInforUser();
     }
 
     ngOnDestroy() {
-        $('.tooltipped').tooltip('remove');
-        $('.material-tooltip').remove();
+        $(this.element).find('.tooltipped').tooltip('remove');
     }
 
     resizeCallback() {

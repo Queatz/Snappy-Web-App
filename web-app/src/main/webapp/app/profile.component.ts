@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, AfterViewInit, OnDestroy } from '@angula
 import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
 import { OffersComponent } from './offers.component';
 import { ThingUpdatesComponent } from './thing-updates.component';
-import { ParseLinksComponent } from './parseLinks.component';
+import { ParseLinksComponent } from './parse-links.component';
 import { FloatingComponent } from './floating.component';
 import { NewOfferModal } from './new-offer.modal';
 import { NewProjectModal } from './new-project.modal';
@@ -85,7 +85,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngAfterViewInit() {
         $(this.element).find('.modal-trigger').leanModal();
-        $('.tooltipped').tooltip({delay: 50});
+        $(this.element).find('.tooltipped').tooltip({delay: 50});
 
         if (this.inforService.triggerProfile && this.isMyProfile()) {
             this.inforService.triggerProfile = false;
@@ -96,8 +96,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        $('.tooltipped').tooltip('remove');
-        $('.material-tooltip').remove();
+        $(this.element).find('.tooltipped').tooltip('remove');
     }
 
     saveEdit() {

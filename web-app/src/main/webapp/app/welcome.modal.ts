@@ -12,6 +12,7 @@ import { ApiService } from './api.service';
     styleUrls: ['app/welcome.modal.css']
 })
 export class WelcomeModal implements AfterViewInit {
+    public learnMoreAbout: string;
 
     constructor(private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;
@@ -19,5 +20,9 @@ export class WelcomeModal implements AfterViewInit {
 
     ngAfterViewInit() {
         Waves.displayEffect();
+    }
+
+    show(learnMoreAbout: string) {
+        this.learnMoreAbout = learnMoreAbout;
     }
 }

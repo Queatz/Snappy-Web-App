@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
 import { OffersComponent } from './offers.component';
 import { BannerComponent } from './banner.component';
 import { InfoPanelComponent } from './info-panel.component';
@@ -12,7 +12,7 @@ import { NewOfferModal } from './new-offer.modal';
     directives: [OffersComponent, BannerComponent, InfoPanelComponent, FloatingComponent]
 })
 export class MainComponent implements AfterViewInit, OnDestroy {
-    constructor(inforService: InforService) {
+    constructor(inforService: InforService, private elementRef: ElementRef) {
         this.inforService = inforService;
         this.newOfferModal = NewOfferModal;
     }
@@ -23,11 +23,10 @@ export class MainComponent implements AfterViewInit, OnDestroy {
 
     ngAfterViewInit() {
         this.inforService.setPageTitle('Village');
-        $('.tooltipped').tooltip({delay: 50});
+        $(this.elementRef.nativeElement).find('.tooltipped').tooltip({delay: 50});
     }
 
     ngOnDestroy() {
-        $('.tooltipped').tooltip('remove');
-        $('.material-tooltip').remove();
+        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
     }
 }
