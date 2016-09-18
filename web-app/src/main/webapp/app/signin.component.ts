@@ -1,3 +1,6 @@
+declare var gapi;
+declare var $;
+
 import {Component, AfterViewInit, ElementRef, Inject, OnInit, provide, NgZone} from '@angular/core';
 import {ROUTER_DIRECTIVES, Router } from '@angular/router';
 
@@ -13,6 +16,10 @@ import {ApiService} from './api.service';
 export class SigninComponent implements AfterViewInit, OnInit {
     public signedIn: boolean;
     private element;
+
+    private localData;
+    private glink;
+    private gimage;
 
     constructor(
         private inforService: InforService,

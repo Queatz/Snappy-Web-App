@@ -1,3 +1,6 @@
+declare var $;
+declare var google;
+
 import { Component, ElementRef, Input, AfterViewInit } from '@angular/core';
 
 @Component({
@@ -7,6 +10,10 @@ import { Component, ElementRef, Input, AfterViewInit } from '@angular/core';
 })
 export class MapComponent implements AfterViewInit {
     @Input() thing;
+
+    private element;
+    private map;
+    private marker;
 
     constructor(element: ElementRef) {
         this.element = element.nativeElement;

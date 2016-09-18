@@ -1,3 +1,7 @@
+declare var $;
+declare var Materialize;
+declare var Waves;
+
 import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
@@ -13,6 +17,8 @@ import { MapComponent } from './map.component';
 export class RemoveContactModal implements AfterViewInit {
     @Input() thing;
     @Input() contact;
+
+    private element;
 
     constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;

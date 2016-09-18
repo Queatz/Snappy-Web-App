@@ -1,3 +1,6 @@
+declare var $;
+declare var Waves;
+
 import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { InforService } from './infor.service';
@@ -9,6 +12,10 @@ import { ApiService } from './api.service';
 })
 export class NewProjectModal implements AfterViewInit {
    @Input() modalId;
+
+   private element: HTMLElement;
+   private name: string;
+   private thing: object;
 
    constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
        this.element = element.nativeElement;

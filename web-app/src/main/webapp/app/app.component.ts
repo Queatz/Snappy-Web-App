@@ -1,3 +1,5 @@
+declare var $;
+
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { RouterConfig, Router, RouterModules, OnDestroy } from '@angular/router';
 import { FeedbackModal } from './feedback.modal';
@@ -12,12 +14,14 @@ import { TutorialService } from './tutorial.service';
 	selector: 'app',
 	templateUrl: 'app/app.component.html',
 	styleUrls: ['app/app.component.css'],
-	directives: [ROUTER_DIRECTIVES, SigninComponent, FeedbackModal, WelcomeModal, GdayModal, CueComponent]
+	providers: [SigninComponent, FeedbackModal, WelcomeModal, GdayModal, CueComponent]
 })
 export class AppComponent implements AfterViewInit, OnDestroy {
 	constructor(private inforService: InforService, element: ElementRef, private router: Router, public tutorial: TutorialService) {
     	this.element = element.nativeElement;
     }
+
+    private element;
 
     ngAfterViewInit() {
     	let element = $(this.element);

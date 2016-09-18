@@ -23,7 +23,8 @@ export class ThingUpdateComponent implements AfterViewInit, OnDestroy {
 
     private element: HTMLElement;
     private modal;
-    private update;
+    private cr;
+    private updateImage;
 
     constructor(private inforService: InforService,
             private api: ApiService,

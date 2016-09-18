@@ -1,12 +1,12 @@
+declare var $;
+
 import { Component, Input, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 import { InforService } from './infor.service';
 
 @Component({
     selector: 'person-link',
     templateUrl: 'app/person-link.component.html',
-    styleUrls: ['app/person-link.component.css'],
-    directives: [ROUTER_DIRECTIVES]
+    styleUrls: ['app/person-link.component.css']
 })
 export class PersonLinkComponent implements AfterViewInit, OnDestroy {
     @Input() person;

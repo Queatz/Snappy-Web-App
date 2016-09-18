@@ -1,3 +1,7 @@
+declare var $;
+declare var Materialize;
+declare var Waves;
+
 import { Component, ElementRef, Input, AfterViewInit, OnInit, OnDestroy } from '@angular/core';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
@@ -10,6 +14,15 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
     @Input() modalId;
     @Input() offer;
     @Input() resizeCallback;
+
+    private element;
+    private inforService;
+    private element;
+    private enumber;
+    private edetails;
+    private emessage;
+    private justAsk;
+    private name;
 
     constructor(private api: ApiService, inforService: InforService, element: ElementRef) {
         this.inforService = inforService;

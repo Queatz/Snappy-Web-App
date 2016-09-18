@@ -1,3 +1,7 @@
+declare var $;
+declare var Waves;
+declare var Materialize;
+
 import { Component, ComponentResolver, ViewContainerRef, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { InforService } from './infor.service';
@@ -20,6 +24,10 @@ export class OfferCardComponent implements AfterViewInit, OnDestroy {
     @Input() public deleteCallback;
     @Input() public profile;
     filesToUpload: Array<File>;
+
+    private element;
+    private offerImage;
+    private modal;
 
     constructor(private inforService: InforService,
         private api: ApiService,

@@ -1,3 +1,6 @@
+declare var require;
+var Masonry = require('masonry-layout');
+
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { FloatingComponent } from './floating.component';
 import { ROUTER_DIRECTIVES } from '@angular/router';
@@ -14,6 +17,10 @@ import { ApiService } from './api.service';
 })
 export class ResourcesComponent implements AfterViewInit {
     public resources;
+
+    private masonry;
+    private element;
+    private newResourceModal;
 
     constructor(private inforService: InforService, private api: ApiService, element: ElementRef) {
         this.element = element.nativeElement;

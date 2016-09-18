@@ -1,3 +1,6 @@
+declare var $;
+declare var Waves;
+
 import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { InforService } from './infor.service';
@@ -10,6 +13,10 @@ import { ApiService } from './api.service';
 export class NewResourceModal implements AfterViewInit {
     @Input() modalId;
     private filesToUpload: Array<File>;
+
+    private element;
+    private name;
+    private thing;
 
    constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
        this.element = element.nativeElement;

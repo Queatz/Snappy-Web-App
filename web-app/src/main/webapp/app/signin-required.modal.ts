@@ -1,3 +1,5 @@
+declare var Waves;
+
 import { Component, ElementRef, Input, AfterViewInit } from '@angular/core';
 import { InforService } from './infor.service';
 import { SigninComponent } from './signin.component';
@@ -9,6 +11,8 @@ import { SigninComponent } from './signin.component';
     directives: [SigninComponent]
 })
 export class SigninRequiredModal implements AfterViewInit {
+    private element;
+
     constructor(private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;
     }

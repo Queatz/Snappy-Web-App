@@ -1,3 +1,7 @@
+declare var $;
+declare var _;
+declare var moment;
+
 import { Component, OnInit, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
 import { OffersComponent } from './offers.component';
@@ -28,6 +32,18 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     private myProfile;
     public editAbout;
     public selectedTab = 'offers';
+
+    private inforService;
+    private element;
+    private offers;
+    private person;
+    private newOfferModal;
+    private newResourceModal;
+    private newProjectModal;
+    private newHubModal;
+    private postUpdateModal;
+    private tab;
+    private isFollowing;
 
     constructor(
         inforService: InforService,
@@ -65,7 +81,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
         setTimeout(this.ngAfterViewInit.bind(this), 500);
     }
 
-    selectTab(tab: String) {
+    selectTab(tab: string) {
         this.selectedTab = tab;
         // Masonry
         window.dispatchEvent(new Event('resize'));

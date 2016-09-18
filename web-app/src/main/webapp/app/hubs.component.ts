@@ -1,3 +1,6 @@
+declare var require;
+var Masonry = require('masonry-layout');
+
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { FloatingComponent } from './floating.component';
 import { ROUTER_DIRECTIVES, OnActivate } from '@angular/router';
@@ -14,6 +17,10 @@ import { SigninRequiredModal } from './signin-required.modal';
 })
 export class HubsComponent implements AfterViewInit {
     public hubs;
+
+    private element;
+    private newHubModal;
+    private masonry;
 
     constructor(private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;

@@ -1,3 +1,6 @@
+declare var $;
+declare var Waves;
+
 import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { InforService } from './infor.service';
@@ -14,6 +17,10 @@ export class NewHubModal implements AfterViewInit {
 
     @ViewChild(MapComponent)
     private map: MapComponent;
+
+    private element;
+    private name
+    private address;
 
     constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;

@@ -1,3 +1,8 @@
+declare var $;
+declare var _;
+declare var require;
+var Masonry = require('masonry-layout');
+
 import { Component, Input, OnInit, ElementRef, AfterViewInit, OnChanges, provide, OnDestroy } from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 import 'rxjs/add/operator/map';
@@ -19,6 +24,12 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
 
     @Input() public profile;
     @Input() public list;
+
+    private element;
+    private boundResizeCallback;
+    private boundDeleteCallback;
+    private token;
+    private signed;
 
     constructor(private router: Router, private inforService: InforService, private api: ApiService, element: ElementRef) {
         this.element = element.nativeElement;

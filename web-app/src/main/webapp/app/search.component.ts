@@ -1,3 +1,6 @@
+declare var require;
+var Masonry = require('masonry-layout');
+
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { FloatingComponent } from './floating.component';
 import { ROUTER_DIRECTIVES } from '@angular/router';
@@ -11,6 +14,10 @@ import { InforService } from './infor.service';
 })
 export class SearchComponent implements AfterViewInit {
     public projects;
+
+    private masonry;
+    private inforService;
+    private element;
 
     constructor(inforService: InforService, element: ElementRef) {
         this.inforService = inforService;

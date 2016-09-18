@@ -1,3 +1,6 @@
+declare var $;
+declare var Waves;
+
 import { Component, ComponentResolver, ViewContainerRef, Injector, ElementRef, Input, provide, OnChanges, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from '@angular/http';
@@ -22,6 +25,13 @@ export class FloatingComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() public icon;
     @Input() public params;
     @Input() public tooltip;
+
+    private inforService;
+    private http;
+    private element;
+    private edetails;
+    private emessage;
+    private currentUrl;
 
     constructor(injector: Injector,
             private resolver: ComponentResolver,

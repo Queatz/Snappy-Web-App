@@ -1,3 +1,7 @@
+declare var $;
+declare var moment;
+declare var _;
+
 import { Component, OnInit, AfterViewInit, ElementRef, NgZone, OnDestroy } from '@angular/core';
 import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
 import { InforService } from './infor.service';
@@ -29,6 +33,12 @@ import { ParseLinksComponent } from './parse-links.pipe';
 export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
     public thing;
     public notFound = false;
+
+    private id;
+    private removingContact;
+    private inforService;
+    private element;
+    private isFollowing;
 
     constructor(private ngZone: NgZone, private api: ApiService, private inforService: InforService, private route: ActivatedRoute, elementRef: ElementRef) {
         route.params.subscribe(params => {

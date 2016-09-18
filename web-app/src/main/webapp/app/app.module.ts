@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+    import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { enableProdMode, provide } from '@angular/core';
 import { NgLocalization } from '@angular/common';

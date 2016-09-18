@@ -1,3 +1,7 @@
+declare var _;
+declare var moment;
+declare var $;
+
 import { Component, ElementRef, provide, AfterViewInit, OnDestroy } from '@angular/core';
 import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
 
@@ -25,6 +29,15 @@ export class MessagesComponent implements AfterViewInit, OnDestroy {
     public messagesWith = {};
     public msToggleOn = true;
 
+    private element;
+    private time;
+    private sendId;
+    private strMessage;
+    private myId;
+    private messagesTimeout;
+    private time;
+    private endMessage;
+
     constructor(private inforService: InforService, private api: ApiService, private router: Router, private route: ActivatedRoute, element: ElementRef) {
         this.element = element.nativeElement;
         this.time = 5000;
@@ -38,7 +51,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy {
             router
                 .routerState
                 .queryParams
-                .subscribe(params => {
+                .subscribe((params: object) => {
                     if (params.q) {
                         this.strMessage = decodeURIComponent(params.q);
                     }

@@ -1,3 +1,5 @@
+declare var Waves;
+
 import { Component, AfterViewInit } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { InforService } from './infor.service';

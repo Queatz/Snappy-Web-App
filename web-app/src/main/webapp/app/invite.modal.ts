@@ -1,5 +1,6 @@
-import { Component, ElementRef, Input, AfterViewInit } from '@angular/core';
-import { InforService } from './infor.service';
+declare var Waves;
+
+import { Component, AfterViewInit } from '@angular/core';
 
 @Component({
     selector: 'invite-modal',
@@ -7,10 +8,6 @@ import { InforService } from './infor.service';
     styleUrls: ['app/invite.modal.css']
 })
 export class InviteModal implements AfterViewInit {
-    constructor(private inforService: InforService, element: ElementRef) {
-        this.element = element.nativeElement;
-    }
-
     ngAfterViewInit() {
         Waves.displayEffect();
     }

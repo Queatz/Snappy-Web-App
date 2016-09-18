@@ -1,3 +1,8 @@
+declare var $;
+declare var _;
+declare var Waves;
+declare var Materialize;
+
 import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
@@ -12,12 +17,14 @@ import { MapComponent } from './map.component';
 })
 export class AddContactModal implements AfterViewInit {
     @Input() thing;
-    public text: String;
+    public text: string;
     public results;
     private newContact;
     public newContactName;
     public searching;
     private position;
+
+    private element;
 
     constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;

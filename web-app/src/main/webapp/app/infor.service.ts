@@ -12,7 +12,11 @@ export class InforService {
     public deletedSomeItem = false;
     public triggerProfile = true;
     private title = 'Village';
-    
+
+    private inforUser;
+    private localData;
+    private updateOffers;
+
     getInforUser() {
         if (this.inforUser === undefined) {
             this.localData = JSON.parse(localStorage.getItem('myInfo'));

@@ -1,3 +1,5 @@
+declare var $;
+
 import { Component, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
 import { OffersComponent } from './offers.component';
 import { BannerComponent } from './banner.component';
@@ -14,6 +16,9 @@ import { NewOfferModal } from './new-offer.modal';
     directives: [OffersComponent, BannerComponent, InfoPanelComponent, FloatingComponent, CueComponent]
 })
 export class MainComponent implements AfterViewInit, OnDestroy {
+    private inforService;
+    private newOfferModal;
+
     constructor(inforService: InforService, private elementRef: ElementRef, public tutorial: TutorialService) {
         this.inforService = inforService;
         this.newOfferModal = NewOfferModal;

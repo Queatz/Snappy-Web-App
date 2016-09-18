@@ -1,3 +1,7 @@
+declare var $;
+declare var Waves;
+declare var _;
+
 import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
@@ -15,6 +19,11 @@ export class EditDetailsModal implements AfterViewInit {
 
     @ViewChild(MapComponent)
     private map: MapComponent;
+    private element;
+    private name;
+    private about;
+    private visibility;
+    private address;
 
     constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;
