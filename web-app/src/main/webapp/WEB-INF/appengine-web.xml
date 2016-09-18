@@ -12,7 +12,7 @@
         <include path="index.css" />
         <include path="index.html" />
         <include path="config.js" />
-        <include path="img/*" />
+        <include path="img/**" />
 
         <include path="node_modules/@angular/*/bundles/*.js" />
         <include path="node_modules/@angular/router/**.js" />
@@ -44,7 +44,7 @@
         <include path="index.css" />
         <include path="index.html" />
         <include path="config.js" />
-        <include path="img/*" />
+        <include path="img/**" />
 
         <include path="node_modules/@angular/*/bundles/*.js" />
         <include path="node_modules/@angular/router/**.js" />
