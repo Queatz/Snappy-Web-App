@@ -47,7 +47,7 @@ public class Controller extends HttpServlet {
                 "\n" +
                 "        <script src=\"node_modules/materialize-css/dist/js/materialize.min.js\" async defer></script>\n" +
                 "        <script src=\"node_modules/masonry-layout/dist/masonry.pkgd.min.js\" async defer></script>\n" +
-                "        <script src=\"https://apis.google.com/js/platform.js\" async defer></script>\n" +
+                "        <script src=\"https://apis.google.com/js/platform.js\"></script>\n" +
                 "        <script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyBuqXrG4rHZ52S8Z71vdLuc2hTb2Oigbj4\" async defer></script>\n" +
                 "    </head>\n" +
                 "    <body>\n" +
