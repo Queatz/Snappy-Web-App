@@ -17,6 +17,8 @@ export class GdayModal implements AfterViewInit {
     }
 
     getMe() {
-        return this.inforService.getInforUser().googleUrl;
+        if (this.inforService.getInforUser()) {
+            return this.inforService.getInforUser().googleUrl;
+        }
     }
 }
