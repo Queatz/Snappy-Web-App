@@ -4,6 +4,8 @@ import { ApiService } from './api.service';
 import { TutorialService } from './tutorial.service';
 import { Router } from '@angular/router';
 
+declare var Waves;
+
 /**
  * Earth
  */
@@ -14,6 +16,7 @@ import { Router } from '@angular/router';
     styleUrls: ['app/welcome.modal.css'],
 })
 export class WelcomeModal implements AfterViewInit {
+    private element: HTMLElement;
     public learnMoreAbout: string;
 
     constructor(private api: ApiService, private inforService: InforService, element: ElementRef, private router: Router, public tutorial: TutorialService) {

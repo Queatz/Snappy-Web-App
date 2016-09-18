@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
 import { InforService } from './infor.service';
 
 @Injectable()
-export public class ApiService {
+export class ApiService {
     private _token = 'ya29.CjLqAqF_yxNzGvQ8hfhWMWl_E09U3WUpxp09C_saGaNaYuQNupXL628L1MW3MhhX-tEIDQ';
     private _apiBaseUrl = 'https://queatz-snappy.appspot.com/api/';
 
@@ -31,12 +31,12 @@ export public class ApiService {
                 .map((res: Response) => res.json());
     }
 
-    public earthThing(id: String) {
+    public earthThing(id: string) {
         return this._http.get(this._apiBaseUrl + 'earth/' + id + '?auth='+ this.token())
                            .map((res: Response) => res.json());
     }
 
-    public earthCreate(params) {
+    public earthCreate(params): any {
         var data = 'auth=' + this.token();
 
         for (var key in params) {
@@ -62,7 +62,7 @@ export public class ApiService {
             .map((res: Response) => res.json());
     }
 
-    public earthEdit(id: String, params) {
+    public earthEdit(id: string, params) {
         var data = 'auth=' + this.token();
 
         for (var key in params) {
@@ -72,12 +72,12 @@ export public class ApiService {
         return this._http.post(this._apiBaseUrl + 'earth/' + id, data, this.formHeaders());
     }
 
-    public earthPhotoUrl(id: String) {
+    public earthPhotoUrl(id: string): string {
         return this._apiBaseUrl + 'earth/' + id + '/photo?s=800&auth=' + this.token();
     }
 
     // XXX currently returns a promise, so must use .then()
-    public earthPutPhoto(id: String, photoFile: File) {
+    public earthPutPhoto(id: string, photoFile: File) {
         var formData = new FormData();
         formData.append('photo', photoFile, photoFile.name);
 
@@ -87,12 +87,8 @@ export public class ApiService {
         return this.makeFilePostRequest(this.earthPhotoUrl(id), formData);
     }
 
-    public earthDeletePhoto(id: String) {
-        return this._http.post(this.earthPhotoUrl(id));
-    }
-
     // XXX currently returns a promise, so must use .then()
-    public earthPostUpdate(thingId: String, message: String, photoFile: File) {
+    public earthPostUpdate(thingId: string, message: string, photoFile: File) {
         var formData = new FormData();
 
         if (photoFile) {
@@ -112,7 +108,7 @@ export public class ApiService {
     }
 
     // XXX currently returns a promise, so must use .then()
-    public earthSaveUpdate(updateId: String, message: String, photoFile: File) {
+    public earthSaveUpdate(updateId: string, message: string, photoFile: File) {
         var formData = new FormData();
 
         if (photoFile) {
@@ -129,7 +125,7 @@ export public class ApiService {
         return this.makeFilePostRequest(this._apiBaseUrl + 'earth/' + updateId + '?edit=true&auth=' + this.token(), formData);
     }
 
-    public earthHere(coords, kind: String) {
+    public earthHere(coords, kind: string) {
         return this._http.get(this._apiBaseUrl + 'earth/here/' + kind
                                 + '?latitude=' + coords.latitude
                                 + '&longitude=' + coords.longitude
@@ -137,7 +133,7 @@ export public class ApiService {
                             .map((res: Response) => res.json());
     }
 
-    public earthSearch(coords, q: String, kind: String) {
+    public earthSearch(coords, q: string, kind: string) {
         return this._http.get(this._apiBaseUrl + 'earth/search/' + kind
                                 + '?latitude=' + coords.latitude
                                 + '&longitude=' + coords.longitude
@@ -168,8 +164,8 @@ export public class ApiService {
                            .map((res: Response) => res.json());
     }
 
-    public saveAbout(about: String) {
-        return this._http.post(this._apiBaseUrl + 'earth/me/?about=' + encodeURIComponent(about) + '&auth=' + this.token())
+    public saveAbout(about: string) {
+        return this._http.post(this._apiBaseUrl + 'earth/me/?about=' + encodeURIComponent(about) + '&auth=' + this.token(), '')
                            .map((res: Response) => res.json());
     }
 
@@ -190,11 +186,11 @@ export public class ApiService {
     }
 
     public earthDelete(id: string) {
-        return this._http.post(this._apiBaseUrl + 'earth/' + id + '/delete?auth=' + this.token());
+        return this._http.post(this._apiBaseUrl + 'earth/' + id + '/delete?auth=' + this.token(), '');
     }
 
     public earthDeletePhoto(id: string) {
-        return this._http.post(this._apiBaseUrl + 'earth/' + id + '/photo/delete?auth=' + this.token());
+        return this._http.post(this._apiBaseUrl + 'earth/' + id + '/photo/delete?auth=' + this.token(), '');
     }
 
     public earthImageUrl(id: string) {
@@ -215,7 +211,7 @@ export public class ApiService {
             .map(res => res.json());
     }
 
-    private makeFilePostRequest(url: String, formData: FormData) {
+    private makeFilePostRequest(url: string, formData: FormData) {
         return new Promise((resolve, reject) => {
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function() {

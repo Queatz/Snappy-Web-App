@@ -1,4 +1,10 @@
-import { Component, ComponentResolver, ViewContainerRef, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
+declare var require: any;
+declare var $: any;
+declare var Waves: any;
+var moment = require('moment');
+var Masonry = require('masonry-layout');
+
+import { Component, ViewContainerRef, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { ApiService } from './api.service';
 import { InforService } from './infor.service';
@@ -9,17 +15,20 @@ var checkFirst = true;
 @Component({
     selector: 'thing-update',
     templateUrl: 'app/thing-update.component.html',
-    styleUrls: ['app/thing-update.component.css'],
-    directives: [ROUTER_DIRECTIVES]
+    styleUrls: ['app/thing-update.component.css']
 })
 export class ThingUpdateComponent implements AfterViewInit, OnDestroy {
     @Input() public update;
     @Input() public resizeCallback;
 
+    private element: HTMLElement;
+    private modal;
+    private update;
+
     constructor(private inforService: InforService,
             private api: ApiService,
             private elementRef: ElementRef,
-            private cr: ComponentResolver,
+            private componentFactory: ComponentFactory,
             private view: ViewContainerRef) {
         this.element = elementRef.nativeElement;
     }

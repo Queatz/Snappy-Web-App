@@ -1,4 +1,4 @@
-import { provideRouter, RouterConfig } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './main.component';
 import { ProfileComponent } from './profile.component';
 import { MessagesComponent } from "./messages.component";
@@ -10,7 +10,7 @@ import { PeopleComponent } from "./people.component";
 import { SearchComponent } from "./search.component";
 import { ProjectComponent } from "./project.component";
 
-export const routes: RouterConfig = [
+export const routes: Routes = [
     { path: '',              name: 'Main',       component: MainComponent, useAsDefault: true },
     { path: 'messages',      name: 'Messages',   component: MessagesComponent },
     { path: 'messages/:id',  name: 'Messages',   component: MessagesComponent },
@@ -27,6 +27,8 @@ export const routes: RouterConfig = [
     { path: ':id',           name: 'Profile',    component: ProfileComponent }
 ];
 
-export const APP_ROUTER_PROVIDERS = [
-  provideRouter(routes)
+export const appRoutingProviders: any[] = [
+
 ];
+
+export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

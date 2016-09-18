@@ -7,36 +7,36 @@
     "lite": "lite-server",
     "postinstall": "typings install",
     "typings": "typings",
-    "start": "concurrently \"npm run tsc:w\" \"npm run lite\" "
+    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\""
   },
   "license": "ISC",
   "dependencies": {
-    "@angular/common": "2.0.0-rc.3",
-    "@angular/compiler": "2.0.0-rc.3",
-    "@angular/core": "2.0.0-rc.3",
-    "@angular/http": "2.0.0-rc.3",
-    "@angular/platform-browser": "2.0.0-rc.3",
-    "@angular/platform-browser-dynamic": "2.0.0-rc.3",
-    "@angular/router": "3.0.0-alpha.7",
-    "core-js": "2.4.0",
+    "@angular/common": "2.0.0",
+    "@angular/compiler": "2.0.0",
+    "@angular/core": "2.0.0",
+    "@angular/http": "2.0.0",
+    "@angular/platform-browser": "2.0.0",
+    "@angular/platform-browser-dynamic": "2.0.0",
+    "@angular/upgrade": "2.0.0",
+    "@angular/router": "3.0.0",
+    "core-js": "^2.4.1",
     "systemjs": "0.19.27",
     "es6-promise": "3.2.1",
     "es6-shim": "^0.35.1",
-    "reflect-metadata": "0.1.3",
-    "rxjs": "5.0.0-beta.9",
-    "zone.js": "^0.6.12",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "5.0.0-beta.12",
+    "zone.js": "^0.6.23",
     "moment": "^2.10.6",
+    "jquery": "^3.1.0",
     "lodash": "^3.0.0",
     "normalize.css": "3.0.2",
     "materialize-css": "^0.97.6",
-    "masonry-layout": "4.0"
+    "masonry-layout": "4.1"
   },
   "devDependencies": {
-    "concurrently": "^2.0.0",
-    "grunt": "~0.4.5",
-    "grunt-systemjs-builder": "^0.2.5",
-    "lite-server": "^2.2.0",
-    "typescript": "1.8.10",
-    "typings":"^0.8.1"
+    "concurrently": "^2.2.0",
+    "lite-server": "^2.2.2",
+    "typescript": "^2.0.2",
+    "typings":"^1.3.2"
   }
 }

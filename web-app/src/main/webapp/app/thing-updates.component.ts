@@ -1,3 +1,6 @@
+declare var require: any;
+var Masonry = require('masonry-layout');
+
 import { Component, Input, ElementRef, OnInit, OnChanges, DoCheck } from '@angular/core';
 import { ThingUpdateComponent } from './thing-update.component'
 
@@ -5,11 +8,15 @@ import { ThingUpdateComponent } from './thing-update.component'
     selector: 'thing-updates',
     templateUrl: 'app/thing-updates.component.html',
     styleUrls: ['app/thing-updates.component.css'],
-    directives: [ThingUpdateComponent]
+    providers: [ThingUpdateComponent]
 })
 export class ThingUpdatesComponent implements OnInit, OnChanges {
-    private masonry: Masonry;
+    private masonry;
     @Input() public updates;
+
+    private element: HTMLElement;
+    private boundResizeCallback;
+    private previousArraySize;
 
     constructor(element: ElementRef) {
         this.element = element.nativeElement;

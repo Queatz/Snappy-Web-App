@@ -1,5 +1,5 @@
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
-import { RouterConfig, Router, ROUTER_DIRECTIVES, OnDestroy } from '@angular/router';
+import { RouterConfig, Router, RouterModules, OnDestroy } from '@angular/router';
 import { FeedbackModal } from './feedback.modal';
 import { WelcomeModal } from './welcome.modal';
 import { GdayModal } from './gday.modal';
@@ -14,7 +14,7 @@ import { TutorialService } from './tutorial.service';
 	styleUrls: ['app/app.component.css'],
 	directives: [ROUTER_DIRECTIVES, SigninComponent, FeedbackModal, WelcomeModal, GdayModal, CueComponent]
 })
-export class AppComponent implements, AfterViewInit, OnDestroy {
+export class AppComponent implements AfterViewInit, OnDestroy {
 	constructor(private inforService: InforService, element: ElementRef, private router: Router, public tutorial: TutorialService) {
     	this.element = element.nativeElement;
     }

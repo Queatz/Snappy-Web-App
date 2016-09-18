@@ -6,7 +6,7 @@
     <div class="card-content">
         <a *ngIf="isProfile()" (click)="edit()" href="javascript:" class="right grey-text text-lighten-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit'"><i class="material-icons small">edit</i></a>
         <div class="blox">
-            <a [routerLink]="['/' + offer.person.googleUrl]" class="tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="offer.person.firstName + ' ' + offer.person.lastName"> <img src="{{ offer.person.imageUrl }}" alt="Profile picture" class="circle" /></a>
+            <a routerLink="['/' + offer.person.googleUrl]" class="tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="offer.person.firstName + ' ' + offer.person.lastName"> <img src="{{ offer.person.imageUrl }}" alt="Profile picture" class="circle" /></a>
         </div>
         <div class="blox">
             <span class="title offer-type" [ngClass]="{'purple-text': isRequest()}">{{ getOfferTypeText() }}</span>

@@ -33,7 +33,7 @@
                 <parse-links class="about flow-text">{{ person.about }}</parse-links>
                 <br />
                 <div>
-                    <a [routerLink]="['/messages/' + person.id]">
+                    <a routerLink="['/messages/' + person.id]">
                         <div class="price waves-effect waves-light btn white-text bkg-red tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Open your messages with ' + person.firstName" *ngIf="!isMyProfile()">
                             <b>Message {{ person.firstName }}</b>
                         </div>

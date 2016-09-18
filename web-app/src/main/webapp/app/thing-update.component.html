@@ -6,7 +6,7 @@
     <div class="card-content">
         <a *ngIf="isMine()" (click)="edit()" href="javascript:" class="right grey-text text-lighten-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit'"><i class="material-icons small">edit</i></a>
         <div class="blox">
-            <a [routerLink]="['/' + update.person.googleUrl]" class="tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="update.person.firstName + ' ' + update.person.lastName"> <img src="{{ update.person.imageUrl }}" alt="Profile picture" class="circle" /> </a>
+            <a routerLink="['/' + update.person.googleUrl]" class="tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="update.person.firstName + ' ' + update.person.lastName"> <img src="{{ update.person.imageUrl }}" alt="Profile picture" class="circle" /> </a>
         </div>
         <div class="blox">
             <span class="title update-type blue-text">{{ update.person.firstName }} posted</span>

@@ -8,6 +8,9 @@ import {SigninComponent} from './signin.component';
 	directives: [SigninComponent]
 })
 export class BannerComponent implements AfterViewInit {
+    private element: HTMLElement;
+    private beginTime: number;
+
     constructor(elementRef: ElementRef) {
         this.element = elementRef.nativeElement.children[0];
     }
