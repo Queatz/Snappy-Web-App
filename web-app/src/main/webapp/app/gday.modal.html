@@ -1,0 +1,32 @@
+<div id="gdayModal" class="modal">
+    <div class="modal-content">
+        <h4 class="center-align red-text header">
+            Welcome to Village
+        </h4>
+        <h5 class="row grey-text center-align">
+            What would you like to do first?
+        </h5>
+        <div class="row">
+            <a [routerLink]="['/']" class="modal-close col s12 m6 l4 info-cell waves-effect">
+                <div class="info-pic pic-2"></div>
+                <div class="info-desc"><b>Learn something new</b></div>
+                <div class="learn-more blue-text">Try this</div>
+            </a>
+            <a [routerLink]="['/' + getMe()]" class="modal-close col s12 m6 l4 info-cell waves-effect">
+                <div class="info-pic pic-3"></div>
+                <div class="info-desc"><b>Set up my profile</b></div>
+                <div class="learn-more blue-text">Try this</div>
+            </a>
+            <a [routerLink]="['/messages/-697803823443327660']" [queryParams]="{q: 'Hey! Could you give me some feedback on a project of mine?'}" class="modal-close col s12 m6 l4 info-cell waves-effect">
+                <div class="info-pic pic-1"></div>
+                <div class="info-desc"><b>Get feedback on my project</b></div>
+                <div class="learn-more blue-text">Try this</div>
+            </a>
+        </div>
+        <div class="center-align">
+            <div class="btn-flat modal-action modal-close waves-effect grey-text">
+                <b>Close</b>
+            </div>
+        </div>
+    </div>
+</div>

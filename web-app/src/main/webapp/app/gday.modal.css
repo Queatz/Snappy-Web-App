@@ -33,42 +33,21 @@
 }
 
 .info-cell {
+    display: block;
     padding: 1rem;
 }
 
 .info-desc {
     margin-top: .5rem;
     text-align: center;
+    color: black;
 }
 
 .header {
     padding: .5rem 0;
 }
 
-.lets-go {
-    float: initial !important;
-    margin-bottom: .5rem !important;
-}
-
 .learn-more {
     padding: .5rem;
     text-align: center;
-}
-
-.modal-content {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: white;
-    overflow: auto;
-}
-
-.leaning {
-    z-index: 2;
-}
-
-.modal {
-    bottom: 10%;
 }

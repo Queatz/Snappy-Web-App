@@ -1,36 +1,5 @@
 <div id="welcomeModal" class="modal">
-    <div *ngIf="learnMoreAbout" [ngSwitch]="learnMoreAbout" class="modal-content">
-        <div *ngSwitchCase="'feedback'" class="row">
-            We all know it's tough to get that so helpful feedback on your project. There are many
-            ways to get feedback from the Village, such as publically listing your project, offering
-            rewards for people interested, or throwing a party to engage the Villagers.
-        </div>
-        <div *ngSwitchCase="'learn'" class="row">
-            At some point you've gotta scratch that itch. Go and learn it.  Thankfully, Villagers
-            have many unique talents to draw from, and it all starts with a simple "Hey!"
-            <br /><br />
-            Many Villagers even offer lessons for free simply to exercise their own skills.
-        </div>
-        <div *ngSwitchCase="'discover'" class="row">
-
-        </div>
-        <div *ngSwitchCase="'solve'" class="row">
-
-        </div>
-        <div *ngSwitchCase="'earn'" class="row">
-            Earn some extra cash by completing requests from other Villagers, or list your own offers
-            and share your profile to gain publicity.
-        </div>
-        <div *ngSwitchCase="'invite'" class="row">
-
-        </div>
-        <div class="center-align">
-            <div (click)="show()" class="btn-flat waves-effect blue-text">
-                <b>Cool!</b>
-            </div>
-        </div>
-    </div>
-    <div [hidden]="learnMoreAbout" class="modal-content">
+    <div class="modal-content">
         <h4 class="center-align red-text header">
             Work with the smartest people on the planet
         </h4>
@@ -69,6 +38,61 @@
         <div class="center-align">
             <div class="btn red modal-action modal-close waves-effect white-text lets-go">
                 <b>Let's go!</b>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="learnMoreAbout" [ngSwitch]="learnMoreAbout" class="leaning modal-content">
+        <div *ngSwitchCase="'feedback'" class="row">
+            <div class="info-pic pic-1"></div>
+            <div class="info-desc"><b>Get feedback</b> on your project</div>
+            <p>We all know it's tough to get that so helpful feedback on your project.</p>
+            <p>There are many ways to get feedback from the Village, such as publically listing your
+            project, offering rewards for people interested, or throwing a party to engage the Villagers.</p>
+        </div>
+        <div *ngSwitchCase="'learn'" class="row">
+            <div class="info-pic pic-2"></div>
+            <div class="info-desc"><b>Learn</b> <span class="grey-text">from smart people</span></div>
+            <p>At some point you've gotta scratch that itch. Go and learn it.  Thankfully, Villagers
+            have many unique talents to draw from, and it all starts with a simple "Hey!"
+            </p><p>
+            Many Villagers even offer lessons for free simply to exercise their own skills.</p>
+        </div>
+        <div *ngSwitchCase="'discover'" class="row">
+            <div class="info-pic pic-3"></div>
+            <div class="info-desc"><b>Discover</b> <span class="grey-text">projects to work on</span></div>
+            <p>
+                Say goodbye to boredom. With tons of fun stuff to do and people to met, the Village
+                is a thirst quencher of high degrees.
+            </p>
+        </div>
+        <div *ngSwitchCase="'solve'" class="row">
+            <div class="info-pic pic-4"></div>
+            <div class="info-desc"><b>Solve</b> <span class="grey-text">world problems with people</span></div>
+            <p>
+                Connect with people passing through your city or town. Collaborate on ideas and put
+                your knowledge to the ultimate test.
+            </p>
+        </div>
+        <div *ngSwitchCase="'earn'" class="row">
+            <div class="info-pic pic-5"></div>
+            <div class="info-desc"><b>Earn</b> <span class="grey-text">money from your skills</span></div>
+            <p>Earn extra cash by completing requests from other Villagers, or list your own offers
+            and share your profile to gain publicity.</p>
+        </div>
+        <div *ngSwitchCase="'invite'" class="row">
+            <div class="info-pic pic-6"></div>
+            <div class="info-desc"><b>Invite</b> <span class="grey-text">people to work with you</span></div>
+            <p>
+                Turn your home into a village hub. Host parties, exchange ideas, and meet people all
+                without leaving your house.
+            </p>
+            <p>
+                Whether it's cards night or a creative weekend, you home can be whatever you make it.
+            </p>
+        </div>
+        <div class="center-align">
+            <div (click)="show()" class="btn-flat waves-effect waves-blue blue-text">
+                <b>Cool!</b>
             </div>
         </div>
     </div>

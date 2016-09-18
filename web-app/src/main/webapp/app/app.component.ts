@@ -1,15 +1,16 @@
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { RouterConfig, Router, ROUTER_DIRECTIVES, OnDestroy } from '@angular/router';
-import { FeedbackModal } from "./feedback.modal";
-import { WelcomeModal } from "./welcome.modal";
-import { SigninComponent } from "./signin.component";
+import { FeedbackModal } from './feedback.modal';
+import { WelcomeModal } from './welcome.modal';
+import { GdayModal } from './gday.modal';
+import { SigninComponent } from './signin.component';
 import { InforService } from './infor.service';
 
 @Component({
 	selector: 'app',
 	templateUrl: 'app/app.component.html',
 	styleUrls: ['app/app.component.css'],
-	directives: [ROUTER_DIRECTIVES, SigninComponent, FeedbackModal, WelcomeModal]
+	directives: [ROUTER_DIRECTIVES, SigninComponent, FeedbackModal, WelcomeModal, GdayModal]
 })
 export class AppComponent implements, AfterViewInit, OnDestroy {
 	constructor(private inforService: InforService, element: ElementRef, private router: Router) {
