@@ -66,19 +66,21 @@ export class SigninComponent implements AfterViewInit, OnInit {
      * save user info if get googleuser success
      */
     public onSuccess(googleUser) {
-        if (!this.inforService.getInforUser()) {
-            // Modal is in app.component
-            $('#gdayModal').openModal();
-        }
-
         var gemail = googleUser.getBasicProfile().getEmail();
         var gtoken = googleUser.getAuthResponse().access_token;
+
+        var gday = !this.inforService.getInforUser();
 
         this.api.getMe(gemail, gtoken)
             .subscribe(dataInput => {
                 this.inforService.setInforUser(dataInput);
                 this.glink = dataInput.googleUrl;
                 this.gimage = dataInput.imageUrl;
+
+                if (gday) {
+                    // Modal is in app.component
+                    $('#gdayModal').openModal();
+                }
             });
     }
 }

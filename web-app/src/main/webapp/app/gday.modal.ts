@@ -16,6 +16,12 @@ export class GdayModal implements AfterViewInit {
         Waves.displayEffect();
     }
 
+    getName() {
+        if (this.inforService.getInforUser()) {
+            return this.inforService.getInforUser().firstName;
+        }
+    }
+
     getMe() {
         if (this.inforService.getInforUser()) {
             return this.inforService.getInforUser().googleUrl;

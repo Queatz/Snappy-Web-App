@@ -1,7 +1,7 @@
 <div id="gdayModal" class="modal">
     <div class="modal-content">
         <h4 class="center-align red-text header">
-            Welcome to Village
+            Welcome to Village{{ getName() ? ', ' + getName() + '!' : '' }}
         </h4>
         <h5 class="row grey-text center-align">
             What would you like to do first?
