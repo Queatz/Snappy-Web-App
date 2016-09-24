@@ -31,7 +31,7 @@
             </div>
             <div (click)="show('invite')" class="col s12 m6 l4 info-cell waves-effect">
                 <div class="info-pic pic-6"></div>
-                <div class="info-desc"><b>Invite</b> people to work with you</div>
+                <div class="info-desc"><b>Invite</b> people over to have fun</div>
                 <div class="learn-more blue-text">Learn more</div>
             </div>
         </div>
@@ -70,7 +70,7 @@
             <div class="info-desc"><b>Solve</b> <span class="grey-text">world problems with people</span></div>
             <p>
                 Connect with people passing through your city or town. Collaborate on ideas and put
-                your knowledge to the ultimate test.
+                your resources to the ultimate test.
             </p>
         </div>
         <div *ngSwitchCase="'earn'" class="row">
@@ -81,7 +81,7 @@
         </div>
         <div *ngSwitchCase="'invite'" class="row">
             <div class="info-pic pic-6"></div>
-            <div class="info-desc"><b>Invite</b> <span class="grey-text">people to work with you</span></div>
+            <div class="info-desc"><b>Invite</b> <span class="grey-text">people over to have fun</span></div>
             <p>
                 Turn your home into a village hub. Host parties, exchange ideas, and meet people all
                 without leaving your house.
@@ -92,7 +92,10 @@
         </div>
         <div class="center-align">
             <div (click)="show()" class="btn-flat waves-effect waves-blue blue-text">
-                <b>Cool!</b>
+                <b>Go back</b>
+            </div>
+            <div (click)="tryThis()" class="btn red waves-effect white-text">
+                <b>Try this</b>
             </div>
         </div>
     </div>

@@ -17,7 +17,7 @@
                 <div class="info-desc"><b>Set up my profile</b></div>
                 <div class="learn-more blue-text">Try this</div>
             </a>
-            <a [routerLink]="['/messages/-697803823443327660']" [queryParams]="{q: 'Hey! Could you give me some feedback on a project of mine?'}" class="modal-close col s12 m6 l4 info-cell waves-effect">
+            <a (click)="setTutorial('profile is here')" [routerLink]="['/messages/-697803823443327660']" [queryParams]="{q: 'Hey! Could you give me some feedback on a project of mine?'}" class="modal-close col s12 m6 l4 info-cell waves-effect">
                 <div class="info-pic pic-1"></div>
                 <div class="info-desc"><b>Get feedback on my project</b></div>
                 <div class="learn-more blue-text">Try this</div>

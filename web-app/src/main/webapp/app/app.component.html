@@ -15,7 +15,7 @@
                     <!--<li [ngClass]="{'active': isActive(['/search'])}"><a [routerLink]="['/search']"><i class="material-icons left">search</i>Search</a></li>-->
                 </ul>
 
-                <ul id="slide-out" class="side-nav">
+                <ul id="slide-out" class="side-nav" (click)="menuTapped()">
                     <li class="menu-header"><a [routerLink]="['/']"><img src="img/favicon.png" class="logo-icon left" />Village</a></li>
                     <li><a [routerLink]="['/projects']"><i class="material-icons left">settings</i>Projects</a></li>
                     <li><a [routerLink]="['/resources']"><i class="material-icons left">language</i>Resources</a></li>
@@ -26,7 +26,7 @@
                     <li><a class="modal-trigger" *ngIf="userSignined()" href="#feedbackModal"><i class="material-icons left">edit</i>Feedback</a></li>
                 </ul>
 
-                <a data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+                <a data-activates="slide-out" class="button-collapse"><i class="material-icons" (click)="menuTapped()">menu</i></a>
 
                 <div class="right right-actions">
                     <a class="feedback hide-on-med-and-down modal-trigger right tooltipped" *ngIf="userSignined()" href="#feedbackModal" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Send feedback about Village to the development team'">Feedback</a>
@@ -36,6 +36,164 @@
                     </div>
                 </div>
             </div>
+            <cue [show]="tutorial.is('profile is here')" [align]="'right'" style="right: 10px; top: 120%;">
+                <cue-header>
+                    Great to see you!
+                </cue-header>
+                <cue-content>
+                    Your profile is over here.
+                </cue-content>
+                <cue-actions>
+                    <div (click)="tutorial.set('')" class="btn-flat waves-effect waves-light white-text cue-action" style="padding: 0 .75rem;"><b>Got it</b></div>
+                </cue-actions>
+            </cue>
+            <cue [show]="tutorial.is('')" [align]="'right'" style="right: 10px; top: 120%;">
+                <cue-header>
+                    Congrats, Villager!
+                </cue-header>
+                <cue-content>
+                    You've reached the end of the tutorial.<br /><br />
+                    Always remember that Villagers are friendly people and you can ask any of them questions to help you get started!
+                </cue-content>
+                <cue-actions>
+                    <div (click)="startOver()" class="btn-flat waves-effect waves-light white-text cue-action" style="float: left; padding: 0 .75rem;"><b>Start over</b></div>
+                    <div (click)="tutorial.set()" class="btn-flat waves-effect waves-light white-text cue-action" style="padding: 0 .75rem;"><b>Yay!</b></div>
+                </cue-actions>
+            </cue>
+            <cue [show]="tutorial.is('earn some')" [align]="'left'" style="left: 10px; top: 120%;">
+                <cue-header>
+                    Offers near you
+                </cue-header>
+                <cue-content>
+                    You can find offers and request from other people over here.<br /><br />
+                    Once you've signed in, you'll be able to create your own offers and requests!
+                </cue-content>
+                <cue-actions>
+                    <div (click)="tutorial.set('')" class="btn-flat waves-effect waves-light white-text cue-action" style="float: left; padding: 0 .75rem;"><b>Got it</b></div>
+                    <div (click)="signIn()" class="btn-flat waves-effect waves-light white-text cue-action" style="padding: 0 .75rem;"><b>Sign in</b></div>
+                </cue-actions>
+            </cue>
+
+            <cue class="hide-on-med-and-down" [show]="tutorial.is('learn some')" [align]="'right'" style="left: 20.5rem; top: 120%;">
+                <cue-header>
+                    People near you
+                </cue-header>
+                <cue-content>
+                    You can find cool people near you over here.
+                </cue-content>
+                <cue-actions>
+                    <div (click)="tutorial.set('')" class="btn-flat waves-effect waves-light white-text cue-action" style="padding: 0 .75rem;"><b>Got it</b></div>
+                </cue-actions>
+            </cue>
+            <cue class="hide-on-large-only" [show]="tutorial.is('learn some')" [align]="'left'" style="left: 10px; top: 120%;">
+                <cue-header>
+                    People near you
+                </cue-header>
+                <cue-content>
+                    You can find cool people near you from the menu.
+                </cue-content>
+                <cue-actions>
+                    <div (click)="tutorial.set('')" class="btn-flat waves-effect waves-light white-text cue-action" style="padding: 0 .75rem;"><b>Got it</b></div>
+                </cue-actions>
+            </cue>
+
+            <cue [show]="tutorial.is('feedback some')" [align]="'right'" style="right: 10px; top: 120%;">
+                <cue-header>
+                    Sign in to Village
+                </cue-header>
+                <cue-content>
+                    Use this button to sign in. You will then be able to message other Villagers.
+                </cue-content>
+                <cue-actions>
+                    <div (click)="tutorial.set('')" class="btn-flat waves-effect waves-light white-text cue-action" style="padding: 0 .75rem;"><b>Got it</b></div>
+                </cue-actions>
+            </cue>
+
+            <cue class="hide-on-med-and-down" [show]="tutorial.is('discover some')" [align]="'left'" style="left: 11rem; top: 120%;">
+                <cue-header>
+                    Projects near you
+                </cue-header>
+                <cue-content>
+                    You can find cool projects near you over here.
+                </cue-content>
+                <cue-actions>
+                    <div (click)="tutorial.set('')" class="btn-flat waves-effect waves-light white-text cue-action" style="padding: 0 .75rem;"><b>Got it</b></div>
+                </cue-actions>
+            </cue>
+            <cue class="hide-on-large-only" [show]="tutorial.is('discover some')" [align]="'left'" style="left: 10px; top: 120%;">
+                <cue-header>
+                    Projects near you
+                </cue-header>
+                <cue-content>
+                    You can find cool projects near you from the menu.
+                </cue-content>
+                <cue-actions>
+                    <div (click)="tutorial.set('')" class="btn-flat waves-effect waves-light white-text cue-action" style="padding: 0 .75rem;"><b>Got it</b></div>
+                </cue-actions>
+            </cue>
+
+            <cue class="hide-on-med-and-down" [show]="tutorial.is('invite some')" [align]="'right'" style="left: 15.5rem; top: 120%;">
+                <cue-header>
+                    Create a hub
+                </cue-header>
+                <cue-content>
+                    You can create hubs from in here.
+                </cue-content>
+                <cue-actions>
+                    <div (click)="tutorial.set('')" class="btn-flat waves-effect waves-light white-text cue-action" style="padding: 0 .75rem;"><b>Got it</b></div>
+                </cue-actions>
+            </cue>
+            <cue class="hide-on-large-only" [show]="tutorial.is('invite some')" [align]="'left'" style="left: 10px; top: 120%;">
+                <cue-header>
+                    Create a hub
+                </cue-header>
+                <cue-content>
+                    You can create a hub from the menu.
+                </cue-content>
+                <cue-actions>
+                    <div (click)="tutorial.set('')" class="btn-flat waves-effect waves-light white-text cue-action" style="padding: 0 .75rem;"><b>Got it</b></div>
+                </cue-actions>
+            </cue>
+
+            <cue class="hide-on-med-and-down" [show]="tutorial.is('solve some')" [align]="'left'" style="left: 21.5rem; top: 120%;">
+                <cue-header>
+                    List your resources
+                </cue-header>
+                <cue-content>
+                    You can find resources near you here.
+                    <br /><br />
+                    Sign in and let others know which resources you have available for use.
+                </cue-content>
+                <cue-actions>
+                    <div (click)="tutorial.set('')" class="btn-flat waves-effect waves-light white-text cue-action" style="float: left; padding: 0 .75rem;"><b>Okay</b></div>
+                    <div (click)="signIn()" class="btn-flat waves-effect waves-light white-text cue-action" style="padding: 0 .75rem;"><b>Sign in</b></div>
+                </cue-actions>
+            </cue>
+            <cue class="hide-on-large-only" [show]="tutorial.is('solve some')" [align]="'left'" style="left: 10px; top: 120%;">
+                <cue-header>
+                    List your resources
+                </cue-header>
+                <cue-content>
+                    You can find resources near you from the menu.
+                    <br /><br />
+                    Sign in and let others know which resources you have available for use.
+                </cue-content>
+                <cue-actions>
+                    <div (click)="tutorial.set('')" class="btn-flat waves-effect waves-light white-text cue-action" style="float: left; padding: 0 .75rem;"><b>Okay</b></div>
+                    <div (click)="signIn()" class="btn-flat waves-effect waves-light white-text cue-action" style="padding: 0 .75rem;"><b>Try this</b></div>
+                </cue-actions>
+            </cue>
+            <cue class="hide-on-large-only" [show]="tutorial.is('solve some more')" [align]="'left'" style="left: 20px; top: 330%;">
+                <cue-header>
+                    Here they are!
+                </cue-header>
+                <cue-content>
+                    Tap to close the menu
+                </cue-content>
+                <cue-actions>
+                    <div (click)="tutorial.set('')" class="btn-flat waves-effect waves-light white-text cue-action" style="padding: 0 .75rem;"><b>Okay</b></div>
+                </cue-actions>
+            </cue>
         </nav>
     </div>
     <gday-modal></gday-modal>

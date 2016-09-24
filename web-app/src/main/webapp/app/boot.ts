@@ -5,6 +5,7 @@ import { Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from '@an
 import { AppComponent } from './app.component';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
+import { TutorialService } from './tutorial.service';
 import { APP_ROUTER_PROVIDERS } from './app.routes';
 
 enableProdMode();
@@ -22,6 +23,7 @@ class MyLocalization extends NgLocalization {
 bootstrap(AppComponent, [
     APP_ROUTER_PROVIDERS,
     InforService,
+    TutorialService,
     ApiService,
     HTTP_PROVIDERS,
     provide(RequestOptions, { useClass: MyOptions }),
