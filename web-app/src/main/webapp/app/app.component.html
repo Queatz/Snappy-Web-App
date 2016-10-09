@@ -6,24 +6,24 @@
                 <a class="brand-logo center hide-on-large-only nav-title">{{ pageTitle() }}</a>
 
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li class="nav-header"><a [routerLink]="['/']"><img src="img/favicon.png" class="logo-icon left" />Village</a></li>
-                    <li [ngClass]="{'active': isActive(['/projects'])}"><a [routerLink]="['/projects']"><i class="material-icons left">settings</i>Projects</a></li>
-                    <li [ngClass]="{'active': isActive(['/resources'])}"><a [routerLink]="['/resources']"><i class="material-icons left">language</i>Resources</a></li>
-                    <li [ngClass]="{'active': isActive(['/hubs'])}"><a [routerLink]="['/hubs']"><i class="material-icons left">room</i>Hubs</a></li>
+                    <li class="nav-header"><a [routerLink]="['/']"><img src="img/favicon.png" class="logo-icon left" />Things to do</a></li>
+                    <li [ngClass]="{'active': isActive(['/projects'])}"><a [routerLink]="['/projects']"><i class="material-icons left">settings</i>Projects to join</a></li>
+                    <li [ngClass]="{'active': isActive(['/resources'])}"><a [routerLink]="['/resources']"><i class="material-icons left">language</i>Resources to use</a></li>
+                    <li [ngClass]="{'active': isActive(['/hubs'])}"><a [routerLink]="['/hubs']"><i class="material-icons left">room</i>Places to go</a></li>
                     <!--<li [ngClass]="{'active': isActive(['/clubs'])}"><a [routerLink]="['/clubs']"><i class="material-icons left">supervisor_account</i>Clubs</a></li>-->
-                    <li [ngClass]="{'active': isActive(['/people'])}"><a [routerLink]="['/people']"><i class="material-icons left">perm_identity</i>People</a></li>
+                    <li [ngClass]="{'active': isActive(['/people'])}"><a [routerLink]="['/people']"><i class="material-icons left">perm_identity</i>People to meet</a></li>
                     <!--<li [ngClass]="{'active': isActive(['/search'])}"><a [routerLink]="['/search']"><i class="material-icons left">search</i>Search</a></li>-->
                 </ul>
 
                 <ul id="slide-out" class="side-nav" (click)="menuTapped()">
-                    <li class="menu-header"><a [routerLink]="['/']"><img src="img/favicon.png" class="logo-icon left" />Village</a></li>
-                    <li><a [routerLink]="['/projects']"><i class="material-icons left">settings</i>Projects</a></li>
-                    <li><a [routerLink]="['/resources']"><i class="material-icons left">language</i>Resources</a></li>
-                    <li><a [routerLink]="['/hubs']"><i class="material-icons left">room</i>Hubs</a></li>
+                    <li><a [routerLink]="['/']"><img src="img/favicon.png" class="logo-icon left" />Things to do</a></li>
+                    <li><a [routerLink]="['/projects']"><i class="material-icons left deep-orange-text">settings</i>Projects to join</a></li>
+                    <li><a [routerLink]="['/resources']"><i class="material-icons left brown-text">language</i>Resources to use</a></li>
+                    <li><a [routerLink]="['/hubs']"><i class="material-icons left blue-text">room</i>Places to go</a></li>
                     <!--<li><a [routerLink]="['/clubs']"><i class="material-icons left">supervisor_account</i>Clubs</a></li>-->
-                    <li><a [routerLink]="['/people']"><i class="material-icons left">perm_identity</i>People</a></li>
+                    <li><a [routerLink]="['/people']"><i class="material-icons left red-text">perm_identity</i>People to meet</a></li>
                     <!--<li><a [routerLink]="['/search']"><i class="material-icons left">search</i>Search</a></li>-->
-                    <li><a class="modal-trigger" *ngIf="userSignined()" href="#feedbackModal"><i class="material-icons left">edit</i>Feedback</a></li>
+                    <li><a class="modal-trigger" *ngIf="userSignined()" href="#feedbackModal"><i class="material-icons left">edit</i>Send Feedback</a></li>
                 </ul>
 
                 <a data-activates="slide-out" class="button-collapse"><i class="material-icons" (click)="menuTapped()">menu</i></a>

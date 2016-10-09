@@ -46,11 +46,11 @@ export class OfferCardComponent implements AfterViewInit, OnDestroy {
         var offer = this.offer;
         var str;
         if (offer.price < 0) {
-            str = 'Make $' + Math.abs(offer.price);
+            str = 'Get $' + Math.abs(offer.price);
         } else if (offer.price === 0) {
-            return 'Free';
+            return 'Do this';
         } else if (offer.price > 0) {
-            str = '$' + offer.price;
+            str = 'Spend $' + offer.price;
         } else {
             return 'Ask';
         }
