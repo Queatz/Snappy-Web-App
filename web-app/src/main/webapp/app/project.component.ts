@@ -9,7 +9,7 @@ import { AddContactModal } from './add-contact.modal';
 import { RemoveContactModal } from './remove-contact.modal';
 import { PersonLinkComponent } from './person-link.component';
 import { ThingUpdatesComponent } from './thing-updates.component';
-import { ParseLinksComponent } from './parse-links.component';
+import { ParseLinksComponent } from './parse-links.pipe';
 
 @Component({
     templateUrl: 'app/project.component.html',
@@ -73,6 +73,10 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
                 $(this.element).find('#removeContactModal').openModal();
             });
         };
+    }
+
+    public c {
+        return this.inforService.getInforUser();
     }
 
     public canEdit() {

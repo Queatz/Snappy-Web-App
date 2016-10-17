@@ -39,7 +39,7 @@
                 <a href="{{ addressLink() }}" target="_blank">{{ thing.address }}</a>
             </div>
             <h6 class="metadata grey-text">ABOUT</h6>
-            <parse-links class="about flow-text">{{ thing.about }}</parse-links>
+            <div class="about flow-text">{{ thing.about | parseLinks }}</div>
             <br />
             <div class="waves-effect waves-light btn white-text teal tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'You\'ll get updates about ' + thing.name" (click)="toggleFollow()">
                 <b *ngIf="!isFollowing">Follow</b>
@@ -48,7 +48,7 @@
         </div>
     </div>
     <br />
-    <center *ngIf="thing">
+    <center *ngIf="thing && isSignedIn()">
         <a href="#postUpdateModal" class="modal-trigger price waves-effect waves-light btn white-text bkg-red tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Post a new update on ' + thing.name">
             <b><i class="material-icons left">edit</i>New Post</b>
         </a>
