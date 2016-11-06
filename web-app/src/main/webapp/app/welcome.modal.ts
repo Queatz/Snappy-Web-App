@@ -60,7 +60,7 @@ export class WelcomeModal implements AfterViewInit {
                 break;
             case 'invite':
                 this.tutorial.set('invite some');
-                this.router.navigate(['/people']);
+                this.router.navigate(['/hubs']);
                 // Click the invite box
                 break;
         }
