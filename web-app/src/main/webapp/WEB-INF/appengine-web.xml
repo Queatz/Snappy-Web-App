@@ -9,9 +9,8 @@
     </system-properties>
 
     <static-files>
-        <include path="index.css" />
         <include path="index.html" />
-        <include path="config.js" />
+        <include path="systemjs.config.js" />
         <include path="img/**" />
 
         <include path="node_modules/@angular/*/bundles/*.js" />
@@ -22,13 +21,12 @@
         <include path="node_modules/core-js/client/shim.min.js" />
         <include path="node_modules/zone.js/dist/zone.js" />
         <include path="node_modules/reflect-metadata/Reflect.js" />
-        <include path="node_modules/rxjs/bundles/Rx.min.js" />
+        <include path="node_modules/rxjs/**.js*" />
         <include path="node_modules/core-js/client/shim.min.js.map" />
         <include path="node_modules/reflect-metadata/Reflect.js.map" />
-        <include path="node_modules/rxjs/bundles/Rx.min.js.map" />
 
         <include path="node_modules/masonry-layout/dist/masonry.pkgd.min.js" />
-        <include path="node_modules/moment/moment.js" />
+        <include path="node_modules/moment/min/moment.min.js" />
         <include path="node_modules/normalize.css/normalize.css" />
         <include path="node_modules/materialize-css/dist/fonts/roboto/*.woff2" />
         <include path="node_modules/materialize-css/dist/css/materialize.min.css" />
@@ -41,9 +39,8 @@
     </static-files>
 
     <resource-files>
-        <include path="index.css" />
         <include path="index.html" />
-        <include path="config.js" />
+        <include path="systemjs.config.js" />
         <include path="img/**" />
 
         <include path="node_modules/@angular/*/bundles/*.js" />
@@ -54,13 +51,12 @@
         <include path="node_modules/zone.js/dist/zone.js" />
         <include path="node_modules/core-js/client/shim.min.js" />
         <include path="node_modules/reflect-metadata/Reflect.js" />
-        <include path="node_modules/rxjs/bundles/Rx.min.js" />
+        <include path="node_modules/rxjs/**.js*" />
         <include path="node_modules/core-js/client/shim.min.js.map" />
         <include path="node_modules/reflect-metadata/Reflect.js.map" />
-        <include path="node_modules/rxjs/bundles/Rx.min.js.map" />
 
         <include path="node_modules/masonry-layout/dist/masonry.pkgd.min.js" />
-        <include path="node_modules/moment/moment.js" />
+        <include path="node_modules/moment/min/moment.min.js" />
         <include path="node_modules/normalize.css/normalize.css" />
         <include path="node_modules/materialize-css/dist/fonts/roboto/*.woff2" />
         <include path="node_modules/materialize-css/dist/css/materialize.min.css" />
