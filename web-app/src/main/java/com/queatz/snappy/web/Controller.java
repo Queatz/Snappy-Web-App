@@ -46,7 +46,7 @@ public class Controller extends HttpServlet {
                 "        <script src=\"systemjs.config.js\"></script>\n" +
                 "        <script>System.import('app').then(null, console.error.bind(console));</script>\n" +
                 "\n" +
-                "        <script src=\"node_modules/moment/moment.js\"></script>\n" +
+                "        <script src=\"node_modules/moment/min/moment.min.js\"></script>\n" +
                 "        <script src=\"https://code.jquery.com/jquery-2.1.4.min.js\"></script>\n" +
                 "        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js\"></script>\n" +
                 "\n" +

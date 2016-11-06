@@ -72,3 +72,19 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.navbar-fixed {
+    animation-name: slide-down;
+    animation-duration: 450ms;
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
