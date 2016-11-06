@@ -1,5 +1,5 @@
 <div>
-    <center *ngIf="!projects" class="waiting">
+    <div *ngIf="!projects" class="waiting">
         <br />
         <div class="preloader-wrapper active">
             <div class="spinner-layer">
@@ -15,8 +15,8 @@
             </div>
         </div>
         <span><br /><br />Finding projects near you...</span>
-    </center>
-    <center *ngIf="projects && !projects.length" class="waiting">No projects near you.</center>
+    </div>
+    <div *ngIf="projects && !projects.length" class="waiting">No projects near you.</div>
 
     <div class="grid center-align">
         <div class="item" *ngFor="let project of projects">

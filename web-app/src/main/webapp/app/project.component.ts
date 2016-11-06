@@ -65,6 +65,10 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
         };
     }
 
+    public isSignedIn() {
+        return this.inforService.getInforUser();
+    }
+
     public canEdit() {
         if (!this.inforService.getInforUser()) {
             return false;

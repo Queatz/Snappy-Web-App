@@ -1,5 +1,5 @@
 <div>
-    <center *ngIf="!people" class="waiting">
+    <div *ngIf="!people" class="waiting">
         <br />
         <div class="preloader-wrapper active">
             <div class="spinner-layer">
@@ -15,7 +15,7 @@
             </div>
         </div>
         <span *ngIf="list !== null"><br /><br />Finding people near you...</span>
-    </center>
+    </div>
 
     <div class="grid center-align">
         <div class="item" *ngFor="let person of people">

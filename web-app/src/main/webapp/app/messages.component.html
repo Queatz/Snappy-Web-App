@@ -34,7 +34,7 @@
                 </div>
                 <div class="item" [ngClass]="{'grey lighten-2': contact.target.id === idCurrentContact}" *ngFor="let contact of contacts">
                     <a class="message clear" [ngClass]="{'not-seen': !contact.seen}" (click)="getMessagesById(contact)">
-                        <a routerLink="['/' + contact.target.googleUrl]" >
+                        <a [routerLink]="['/' + contact.target.googleUrl]" >
                             <img class="circle resize imageprofile" src="{{showContactImage(contact, 0)}}"/>
                         </a>
                         <div class="name">
@@ -75,7 +75,7 @@
                             <div class="message-name">
                                 <div class="clear" [ngClass]="{rightto: !checkIsLeft(message), leftto: checkIsLeft(message)}">
                                     <span class="emessage"> {{showContentMessage(message, 0)}} </span>
-                                    <a routerLink="['/' + showContentMessage(message, 2)]" >
+                                    <a [routerLink]="['/' + showContentMessage(message, 2)]" >
                                         <img class="circle resize avatar" src="{{showContentMessage(message, 1)}}" />
                                     </a>
                                 </div>
@@ -88,7 +88,7 @@
             <div class="row s9 sendmessage">
                 <div class="input-field col s12">
                     <div class="divider"></div>
-                    <textarea id="icon_prefix2" class="validate materialize-textarea" [(ngModel)]="strMessage" (keydown.enter)="enterPressed($event)"></textarea>
+                    <textarea id="icon_prefix2" class="validate materialize-textarea" [(ngModel)]="strMessage" name="strMessage" (keydown.enter)="enterPressed($event)"></textarea>
                     <label class="active" for="icon_prefix2">Message {{ messagesWith.firstName }}...</label>
                     <a class="waves-effect waves-light btn" (click)="sendMessages(strMessage)"><b><i class="material-icons right">done</i>Send</b></a>
                 </div>

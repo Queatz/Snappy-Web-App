@@ -1,5 +1,5 @@
 <div>
-    <center *ngIf="!hubs" class="waiting">
+    <div *ngIf="!hubs" class="waiting">
         <br />
         <div class="preloader-wrapper active">
             <div class="spinner-layer">
@@ -15,8 +15,8 @@
             </div>
         </div>
         <span><br /><br />Finding hubs near you...</span>
-    </center>
-    <center *ngIf="hubs && !hubs.length" class="waiting">No hubs near you.</center>
+    </div>
+    <div *ngIf="hubs && !hubs.length" class="waiting">No hubs near you.</div>
 
     <div class="grid center-align">
         <div class="item" *ngFor="let hub of hubs">

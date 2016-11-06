@@ -33,20 +33,24 @@ public class Controller extends HttpServlet {
                 "        <meta name=\"mobile-web-app-capable\" content=\"yes\" />\n" +
                 "        <link rel=\"icon\" href=\"/img/favicon.png\" />\n" +
                 "\n" +
+                "\n" +
+                "        <!-- Polyfill(s) for older browsers -->\n" +
                 "        <script src=\"node_modules/core-js/client/shim.min.js\"></script>\n" +
+                "\n" +
                 "        <script src=\"node_modules/zone.js/dist/zone.js\"></script>\n" +
                 "        <script src=\"node_modules/reflect-metadata/Reflect.js\"></script>\n" +
                 "        <script src=\"node_modules/systemjs/dist/system.src.js\"></script>\n" +
-                "        <script src=\"node_modules/rxjs/bundles/Rx.min.js\"></script>\n" +
-                "        <script src=\"config.js\"></script>\n" +
-                "        <script>System.import('app/boot').then(null, console.error.bind(console));</script>\n" +
+                "\n" +
+                "        <script src=\"https://apis.google.com/js/platform.js\"></script>\n" +
+                "\n" +
+                "        <script src=\"systemjs.config.js\"></script>\n" +
+                "        <script>System.import('app').then(null, console.error.bind(console));</script>\n" +
                 "\n" +
                 "        <script src=\"node_modules/moment/moment.js\"></script>\n" +
                 "        <script src=\"https://code.jquery.com/jquery-2.1.4.min.js\"></script>\n" +
                 "        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js\"></script>\n" +
                 "\n" +
                 "        <script src=\"node_modules/materialize-css/dist/js/materialize.min.js\" async defer></script>\n" +
-                "        <script src=\"node_modules/masonry-layout/dist/masonry.pkgd.min.js\" async defer></script>\n" +
                 "        <script src=\"https://apis.google.com/js/platform.js\"></script>\n" +
                 "        <script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyBuqXrG4rHZ52S8Z71vdLuc2hTb2Oigbj4\" async defer></script>\n" +
                 "    </head>\n" +

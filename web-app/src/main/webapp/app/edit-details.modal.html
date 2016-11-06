@@ -7,25 +7,25 @@
                 <div class="col s12 m6">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">label</i>
-                        <input id="name" type="text" required [(ngModel)]="name">
+                        <input id="name" type="text" required [(ngModel)]="name" name="name">
                         <label class="active" for="name">Enter name</label>
                     </div>
 
                     <div class="input-field col s12">
                         <i class="material-icons prefix">room</i>
-                        <input id="address" type="text" required [(ngModel)]="address" (input)="updateAddress()">
+                        <input id="address" type="text" required [(ngModel)]="address" name="address" (input)="updateAddress()">
                         <label class="active" for="address">Enter address</label>
                     </div>
 
                     <div class="input-field col s12">
                         <i class="material-icons prefix">edit</i>
-                        <textarea class="materialize-textarea" id="about" type="text" [(ngModel)]="about"></textarea>
+                        <textarea class="materialize-textarea" id="about" type="text" [(ngModel)]="about" name="about"></textarea>
                         <label class="active" for="about">Enter description</label>
                     </div>
 
                     <div class="input-field col s12 select-wrapper">
                         <i class="material-icons prefix">visibility</i>
-                        <select id="visibility" [(ngModel)]="visibility" multiple>
+                        <select id="visibility" [(ngModel)]="visibility" name="visibility" multiple>
                             <option value="0" disabled selected>Select one...</option>
                             <option value="1">Public</option>
                             <option value="3">People that follow me</option>
@@ -45,13 +45,13 @@
                 <div class="col s12">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">label</i>
-                        <input id="name" type="text" required [(ngModel)]="name">
+                        <input id="name" type="text" required [(ngModel)]="name" name="name">
                         <label class="active" for="name">Enter name</label>
                     </div>
 
                     <div class="input-field col s12">
                         <i class="material-icons prefix">edit</i>
-                        <textarea class="materialize-textarea" id="about" type="text" [(ngModel)]="about"></textarea>
+                        <textarea class="materialize-textarea" id="about" type="text" [(ngModel)]="about" name="about"></textarea>
                         <label class="active" for="about">Enter description</label>
                     </div>
                 </div>

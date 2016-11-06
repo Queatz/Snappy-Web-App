@@ -12,7 +12,7 @@ import { InforService } from './infor.service';
 })
 export class PostUpdateModal implements OnInit {
     @Input() thing;
-    @Input() update: any;
+    @Input() update;
 
     private filesToUpload: Array<File>;
     public message;
@@ -64,8 +64,8 @@ export class PostUpdateModal implements OnInit {
                     .then(result => {
                         var updated: Object = JSON.parse(result);
 
-                        this.update.about = updated.about;
-                        this.update.photo = updated.photo;
+                        this.update.about = updated['about'];
+                        this.update.photo = updated['photo'];
 
                         Materialize.toast('Update saved', 4000);
                     },

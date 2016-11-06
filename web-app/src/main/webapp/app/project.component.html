@@ -1,5 +1,5 @@
 <div class="profile-wrapper">
-    <center *ngIf="!thing && !notFound" class="waiting">
+    <div *ngIf="!thing && !notFound" class="waiting">
         <br />
         <div class="preloader-wrapper active">
             <div class="spinner-layer">
@@ -15,7 +15,7 @@
             </div>
         </div>
         <span><br /><br />Loading...</span>
-    </center>
+    </div>
 
     <h4 class="grey-text center-align" *ngIf="notFound">
         <br />You see nothing.
@@ -48,11 +48,11 @@
         </div>
     </div>
     <br />
-    <center *ngIf="thing && isSignedIn()">
+    <div class="center-align" *ngIf="thing && isSignedIn()">
         <a href="#postUpdateModal" class="modal-trigger price waves-effect waves-light btn white-text bkg-red tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Post a new update on ' + thing.name">
             <b><i class="material-icons left">edit</i>New Post</b>
         </a>
-    </center>
+    </div>
     <thing-updates *ngIf="thing && thing.updates" [updates]="thing.updates"></thing-updates>
     <edit-details-modal *ngIf="canEdit()" [thing]="thing"></edit-details-modal>
     <add-contact-modal *ngIf="canEdit()" [thing]="thing"></add-contact-modal>

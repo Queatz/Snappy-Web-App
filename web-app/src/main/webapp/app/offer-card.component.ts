@@ -2,7 +2,7 @@ declare var $;
 declare var Waves;
 declare var Materialize;
 
-import { Component, ComponentResolver, ViewContainerRef, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
+import { Component, ComponentFactoryResolver, ViewContainerRef, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
@@ -32,7 +32,7 @@ export class OfferCardComponent implements AfterViewInit, OnDestroy {
         private api: ApiService,
         private _router: Router,
         element: ElementRef,
-        private cr: ComponentResolver,
+        private resolver: ComponentFactoryResolver,
         private view: ViewContainerRef) {
         this.element = element.nativeElement;
         this.filesToUpload = [];
@@ -194,13 +194,11 @@ export class OfferCardComponent implements AfterViewInit, OnDestroy {
 
         var self = this;
 
-        this.cr.resolveComponent(NewOfferModal).then(component => {
-            let ref = self.view.createComponent(component);
-            ref.instance.offer = self.offer;
-            ref.instance.resizeCallback = self.resizeCallback;
-            self.modal = $(ref.location.nativeElement).find('.modal');
-            self.modal.openModal();
-        });
+        let ref = this.view.createComponent(this.resolver.resolveComponentFactory(NewOfferModal));
+        ref.instance.offer = self.offer;
+        ref.instance.resizeCallback = self.resizeCallback;
+        self.modal = $(ref.location.nativeElement).find('.modal');
+        self.modal.openModal();
     }
 
     showModal() {

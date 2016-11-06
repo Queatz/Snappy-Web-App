@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">edit</i>
-                    <textarea autofocus id="text" class="materialize-textarea" type="text" [(ngModel)]="message"></textarea>
+                    <textarea autofocus id="text" class="materialize-textarea" type="text" [(ngModel)]="message" name="message"></textarea>
                     <label class="active" for="text">Write things...</label>
                 </div>
             </div>
@@ -17,7 +17,7 @@
                         <input type="file" accept="image/*" (change)="fileChangeEvent($event)">
                     </div>
                     <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" [(ngModel)]="efile">
+                        <input class="file-path validate" type="text" [(ngModel)]="efile" name="efile">
                     </div>
                 </div>
             </div>

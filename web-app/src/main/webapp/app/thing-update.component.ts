@@ -4,7 +4,7 @@ declare var Waves: any;
 var moment = require('moment');
 var Masonry = require('masonry-layout');
 
-import { Component, ViewContainerRef, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
+import { Component, ComponentFactoryResolver, ViewContainerRef, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { RuntimeCompiler } from '@angular/compiler';
 import { ApiService } from './api.service';
@@ -30,7 +30,7 @@ export class ThingUpdateComponent implements AfterViewInit, OnDestroy {
     constructor(private inforService: InforService,
             private api: ApiService,
             private elementRef: ElementRef,
-            private componentFactory: ComponentFactory,
+            private resolver: ComponentFactoryResolver,
             private view: ViewContainerRef) {
         this.element = elementRef.nativeElement;
     }
@@ -43,12 +43,10 @@ export class ThingUpdateComponent implements AfterViewInit, OnDestroy {
 
         var self = this;
 
-        this.cr.resolveComponent(PostUpdateModal).then(component => {
-            let ref = self.view.createComponent(component);
-            ref.instance.update = self.update;
-            self.modal = $(ref.location.nativeElement).find('.modal');
-            self.modal.openModal();
-        });
+        let ref = this.view.createComponent(this.resolver.resolveComponentFactory(PostUpdateModal));
+        ref.instance.update = self.update;
+        self.modal = $(ref.location.nativeElement).find('.modal');
+        self.modal.openModal();
     }
 
     ngAfterViewInit() {

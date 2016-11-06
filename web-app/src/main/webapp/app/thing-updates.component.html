@@ -1,8 +1,8 @@
 <div>
     <div class="grid center-align">
-        <center *ngIf="!updates.length" class="waiting">
+        <div *ngIf="!updates.length" class="waiting">
             No posts yet.
-        </center>
+        </div>
         <div class="item" *ngFor="let update of updates">
             <thing-update class="left-align" [resizeCallback]="boundResizeCallback" [update]="update"></thing-update>
         </div>

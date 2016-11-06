@@ -1,5 +1,5 @@
 <div>
-    <center *ngIf="!resources" class="waiting">
+    <div *ngIf="!resources" class="waiting">
         <br />
         <div class="preloader-wrapper active">
             <div class="spinner-layer">
@@ -15,8 +15,8 @@
             </div>
         </div>
         <span><br /><br />Finding resources near you...</span>
-    </center>
-    <center *ngIf="resources && !resources.length" class="waiting">No resources near you.</center>
+    </div>
+    <div *ngIf="resources && !resources.length" class="waiting">No resources near you.</div>
 
     <div class="grid center-align">
         <div class="item" *ngFor="let resource of resources">

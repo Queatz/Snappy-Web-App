@@ -1,5 +1,5 @@
 <div>
-    <center *ngIf="!things" class="waiting">
+    <div *ngIf="!things" class="waiting">
         <br />
         <div class="preloader-wrapper active">
             <div class="spinner-layer">
@@ -15,7 +15,7 @@
             </div>
         </div>
         <span><br /><br />Loading...</span>
-    </center>
+    </div>
 
     <div class="grid center-align">
         <div class="item" *ngFor="let thing of things">
