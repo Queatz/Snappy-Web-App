@@ -6,13 +6,11 @@ import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import { Router } from '@angular/router';
-import { MapComponent } from './map.component';
 
 @Component({
     selector: 'edit-details-modal',
     templateUrl: 'app/edit-details.modal.html',
     styleUrls: ['app/edit-details.modal.css'],
-    directives: [MapComponent]
 })
 export class EditDetailsModal implements AfterViewInit {
     @Input() thing;

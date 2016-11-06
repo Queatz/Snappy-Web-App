@@ -1,6 +1,4 @@
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
-import { FloatingComponent } from './floating.component';
-import { ProjectCardComponent } from './project-card.component';
 import { InforService } from './infor.service';
 
 declare var require: any;
@@ -8,8 +6,7 @@ var Masonry = require('masonry-layout');
 
 @Component({
     templateUrl: 'app/clubs.component.html',
-    styleUrls: ['app/clubs.component.css'],
-    providers: [FloatingComponent, ProjectCardComponent]
+    styleUrls: ['app/clubs.component.css']
 })
 export class ClubsComponent implements AfterViewInit {
     public projects: Array<Object>;

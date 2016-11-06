@@ -6,28 +6,10 @@ import { Component, OnInit, AfterViewInit, ElementRef, NgZone, OnDestroy } from 
 import { ActivatedRoute } from '@angular/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
-import { SetPhotoModal } from './set-photo.modal';
-import { EditDetailsModal } from './edit-details.modal';
-import { PostUpdateModal } from './post-update.modal';
-import { AddContactModal } from './add-contact.modal';
-import { RemoveContactModal } from './remove-contact.modal';
-import { PersonLinkComponent } from './person-link.component';
-import { ThingUpdatesComponent } from './thing-updates.component';
-import { ParseLinksComponent } from './parse-links.pipe';
 
 @Component({
     templateUrl: 'app/project.component.html',
     styleUrls: ['app/project.component.css'],
-    directives: [
-        SetPhotoModal,
-        EditDetailsModal,
-        AddContactModal,
-        RemoveContactModal,
-        PersonLinkComponent,
-        PostUpdateModal,
-        ThingUpdatesComponent,
-        ParseLinksComponent
-    ]
 })
 export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
     public thing;

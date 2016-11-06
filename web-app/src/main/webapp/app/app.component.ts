@@ -2,11 +2,6 @@ declare var $;
 
 import { Component, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { RouterConfig, Router, RouterModule } from '@angular/router';
-import { FeedbackModal } from './feedback.modal';
-import { WelcomeModal } from './welcome.modal';
-import { GdayModal } from './gday.modal';
-import { SigninComponent } from './signin.component';
-import { CueComponent } from './cue.component';
 import { InforService } from './infor.service';
 import { TutorialService } from './tutorial.service';
 
@@ -14,7 +9,6 @@ import { TutorialService } from './tutorial.service';
 	selector: 'app',
 	templateUrl: 'app/app.component.html',
 	styleUrls: ['app/app.component.css'],
-	providers: [SigninComponent, FeedbackModal, WelcomeModal, GdayModal, CueComponent]
 })
 export class AppComponent implements AfterViewInit, OnDestroy {
 	constructor(private inforService: InforService, element: ElementRef, private router: Router, public tutorial: TutorialService) {

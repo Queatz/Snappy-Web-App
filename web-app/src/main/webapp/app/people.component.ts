@@ -2,8 +2,6 @@ declare var require;
 var Masonry = require('masonry-layout');
 
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
-import { FloatingComponent } from './floating.component';
-import { PersonCardComponent } from './person-card.component';
 import { InviteModal } from './invite.modal';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
@@ -11,7 +9,6 @@ import { ApiService } from './api.service';
 @Component({
     templateUrl: 'app/people.component.html',
     styleUrls: ['app/people.component.css'],
-    directives: [FloatingComponent, PersonCardComponent]
 })
 export class PeopleComponent implements AfterViewInit {
     public people;

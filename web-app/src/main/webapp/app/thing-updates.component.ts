@@ -2,13 +2,11 @@ declare var require: any;
 var Masonry = require('masonry-layout');
 
 import { Component, Input, ElementRef, OnInit, OnChanges, DoCheck } from '@angular/core';
-import { ThingUpdateComponent } from './thing-update.component'
 
 @Component({
     selector: 'thing-updates',
     templateUrl: 'app/thing-updates.component.html',
     styleUrls: ['app/thing-updates.component.css'],
-    providers: [ThingUpdateComponent]
 })
 export class ThingUpdatesComponent implements OnInit, OnChanges {
     private masonry;

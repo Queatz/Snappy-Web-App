@@ -4,10 +4,6 @@ declare var moment;
 
 import { Component, OnInit, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { OffersComponent } from './offers.component';
-import { ThingUpdatesComponent } from './thing-updates.component';
-import { ParseLinksComponent } from './parse-links.component';
-import { FloatingComponent } from './floating.component';
 import { NewOfferModal } from './new-offer.modal';
 import { NewProjectModal } from './new-project.modal';
 import { NewResourceModal } from './new-resource.modal';
@@ -15,12 +11,10 @@ import { NewHubModal } from './new-hub.modal';
 import { PostUpdateModal } from './post-update.modal';
 import { ApiService } from './api.service';
 import { InforService } from './infor.service';
-import { ThingsComponent } from './things.component';
 
 @Component({
     templateUrl: 'app/profile.component.html',
     styleUrls: ['app/profile.component.css'],
-    directives: [OffersComponent, ParseLinksComponent, FloatingComponent, PostUpdateModal, ThingUpdatesComponent, ThingsComponent],
 })
 //@RouteConfig([
 //  { path: '/',       component: OffersTabComponent, useAsDefault: true },

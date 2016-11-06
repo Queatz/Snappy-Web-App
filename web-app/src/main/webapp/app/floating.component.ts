@@ -3,21 +3,15 @@ declare var Waves;
 
 import { Component, ComponentResolver, ViewContainerRef, Injector, ElementRef, Input, provide, OnChanges, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Http, Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { InforService } from './infor.service';
 
 var checkFirst = true;
-var firstHeaders = new Headers();
-firstHeaders.append('Content-Type', 'application/json;charset=UTF-8');
 
-class MyOptions extends BaseRequestOptions {
-    headers: Headers = firstHeaders
-}
 @Component({
     selector: 'floating',
     templateUrl: 'app/floating.component.html',
     styleUrls: ['app/floating.component.css'],
-    viewProviders: [HTTP_PROVIDERS, provide(RequestOptions, { useClass: MyOptions })]
 })
 export class FloatingComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() public color;

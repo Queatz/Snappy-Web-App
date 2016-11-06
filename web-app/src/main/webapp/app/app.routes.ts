@@ -1,5 +1,5 @@
-import { ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { MainComponent } from './main.component';
 import { ProfileComponent } from './profile.component';
 import { MessagesComponent } from "./messages.component";
@@ -11,25 +11,69 @@ import { PeopleComponent } from "./people.component";
 import { SearchComponent } from "./search.component";
 import { ProjectComponent } from "./project.component";
 
-export const routes: Routes = [
-    { path: '',              name: 'Main',       component: MainComponent, useAsDefault: true },
-    { path: 'messages',      name: 'Messages',   component: MessagesComponent },
-    { path: 'messages/:id',  name: 'Messages',   component: MessagesComponent },
-    { path: 'hubs',          name: 'Hubs',       component: HubsComponent },
-    { path: 'clubs',         name: 'Clubs',      component: ClubsComponent },
-    { path: 'projects',      name: 'Projects',   component: ProjectsComponent },
-    { path: 'resources',     name: 'Resources',  component: ResourcesComponent },
-    { path: 'people',        name: 'People',     component: PeopleComponent },
-    { path: 'hubs/:id',      name: 'Hub',        component: ProjectComponent },
-    { path: 'clubs/:id',     name: 'Club',       component: ProjectComponent },
-    { path: 'projects/:id',  name: 'Project',    component: ProjectComponent },
-    { path: 'resources/:id', name: 'Resource',   component: ProjectComponent },
-    { path: 'search/:query', name: 'Search',     component: SearchComponent },
-    { path: ':id',           name: 'Profile',    component: ProfileComponent }
-];
-
-export const appRoutingProviders: any[] = [
-
-];
-
-export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
+@NgModule({
+  imports: [
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: MainComponent
+      },
+      {
+        path: 'messages',
+        component: MessagesComponent
+      },
+      {
+        path: 'messages/:id',
+        component: MessagesComponent
+      },
+      {
+        path: 'hubs',
+        component: HubsComponent
+      },
+      {
+        path: 'clubs',
+        component: ClubsComponent
+      },
+      {
+        path: 'projects',
+        component: ProjectsComponent
+      },
+      {
+        path: 'resources',
+        component: ResourcesComponent
+      },
+      {
+        path: 'people',
+        component: PeopleComponent
+      },
+      {
+        path: 'hubs/:id',
+        component: ProjectComponent
+      },
+      {
+        path: 'clubs/:id',
+        component: ProjectComponent
+      },
+      {
+        path: 'projects/:id',
+        component: ProjectComponent
+      },
+      {
+        path: 'resources/:id',
+        component: ProjectComponent
+      },
+      {
+        path: 'search/:query',
+        component: SearchComponent
+      },
+      {
+        path: ':id',
+        component: ProfileComponent
+      }
+     ])
+  ],
+  exports: [
+    RouterModule
+  ]
+})
+export class AppRoutingModule {}

@@ -7,13 +7,11 @@ import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import { Router } from '@angular/router';
-import { MapComponent } from './map.component';
 
 @Component({
     selector: 'remove-contact-modal',
     templateUrl: 'app/remove-contact.modal.html',
     styleUrls: ['app/remove-contact.modal.css'],
-    directives: [MapComponent]
 })
 export class RemoveContactModal implements AfterViewInit {
     @Input() thing;

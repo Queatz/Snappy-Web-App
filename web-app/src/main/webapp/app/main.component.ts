@@ -1,11 +1,6 @@
 declare var $;
 
 import { Component, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
-import { OffersComponent } from './offers.component';
-import { BannerComponent } from './banner.component';
-import { InfoPanelComponent } from './info-panel.component';
-import { FloatingComponent } from './floating.component';
-import { CueComponent } from './cue.component';
 import { InforService } from './infor.service';
 import { TutorialService } from './tutorial.service';
 import { NewOfferModal } from './new-offer.modal';
@@ -13,7 +8,6 @@ import { NewOfferModal } from './new-offer.modal';
 @Component({
     templateUrl: 'app/main.component.html',
     styleUrls: ['app/main.component.css'],
-    directives: [OffersComponent, BannerComponent, InfoPanelComponent, FloatingComponent, CueComponent]
 })
 export class MainComponent implements AfterViewInit, OnDestroy {
     private inforService;

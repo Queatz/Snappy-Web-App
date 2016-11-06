@@ -1,11 +1,9 @@
 import {Component, AfterViewInit, ElementRef} from '@angular/core';
-import {SigninComponent} from './signin.component';
 
 @Component({
 	selector: 'banner',
 	templateUrl: 'app/banner.component.html',
 	styleUrls: ['app/banner.component.css'],
-	directives: [SigninComponent]
 })
 export class BannerComponent implements AfterViewInit {
     private element: HTMLElement;

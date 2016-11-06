@@ -1,12 +1,41 @@
-import { NgModule, enableProdMode, provide } from '@angular/core';
-import { NgLocalization } from '@angular/common';
-import { Headers, HTTP_PROVIDERS, BaseRequestOptions, RequestOptions } from '@angular/http';
+import { NgModule } from '@angular/core';
+import { Headers, HttpModule, BaseRequestOptions, RequestOptions } from '@angular/http';
+import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
-import { routes, appRoutingProviders } from './app.routes';
+import { TutorialService } from './tutorial.service';
+import { AppRoutingModule } from './app.routes';
 
-enableProdMode();
+import { FloatingComponent } from './floating.component';
+import { ProjectCardComponent } from './project-card.component';
+import { SigninComponent } from './signin.component';
+import { CueComponent } from './cue.component';
+import { BannerComponent } from './banner.component';
+import { InfoPanelComponent } from './info-panel.component';
+import { OfferCardComponent } from './offer-card.component'
+import { OffersComponent } from './offers.component';
+import { ThingsComponent } from './things.component';
+import { PersonCardComponent } from './person-card.component';
+import { MapComponent } from './map.component';
+import { PersonLinkComponent } from './person-link.component';
+import { ThingUpdatesComponent } from './thing-updates.component';
+import { ParseLinksComponent } from './parse-links.pipe';
+import { ThingUpdateComponent } from './thing-update.component';
+
+import { FeedbackModal } from './feedback.modal';
+import { WelcomeModal } from './welcome.modal';
+import { GdayModal } from './gday.modal';
+import { NewHubModal } from './new-hub.modal';
+import { SetPhotoModal } from './set-photo.modal';
+import { EditDetailsModal } from './edit-details.modal';
+import { PostUpdateModal } from './post-update.modal';
+import { AddContactModal } from './add-contact.modal';
+import { RemoveContactModal } from './remove-contact.modal';
+import { SigninRequiredModal } from './signin-required.modal';
+
+
 
 var firstHeaders = new Headers();
 firstHeaders.append('Content-Type', 'application/json;charset=UTF-8');
@@ -14,25 +43,52 @@ firstHeaders.append('Content-Type', 'application/json;charset=UTF-8');
 class MyOptions extends BaseRequestOptions {
     headers: Headers = firstHeaders
 }
-class MyLocalization extends NgLocalization {
-    getPluralCategory(value: any): string {
-    }
-}
 
 @NgModule({
     imports: [
-        routing
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        AppRoutingModule,
+
+        FloatingComponent,
+        ProjectCardComponent,
+        SigninComponent,
+        CueComponent,
+        BannerComponent,
+        InfoPanelComponent,
+        OfferCardComponent,
+        OffersComponent,
+        ThingsComponent,
+        PersonCardComponent,
+        MapComponent,
+        PersonLinkComponent,
+        ThingUpdatesComponent,
+        ParseLinksComponent,
+        ThingUpdateComponent,
+
+        FeedbackModal,
+        WelcomeModal,
+        GdayModal,
+        NewHubModal,
+        SetPhotoModal,
+        EditDetailsModal,
+        PostUpdateModal,
+        AddContactModal,
+        RemoveContactModal,
+        SigninRequiredModal,
     ],
     declarations: [
         AppComponent
     ],
     providers: [
-        appRoutingProviders,
         InforService,
         ApiService,
-        HTTP_PROVIDERS,
-        provide(RequestOptions, { useClass: MyOptions }),
-        provide(NgLocalization, { useClass: MyLocalization })
+        TutorialService,
+        {
+            provide: RequestOptions,
+            useClass: MyOptions
+        }
     ],
     bootstrap: [ AppComponent ]
 })

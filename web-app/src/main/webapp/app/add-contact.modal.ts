@@ -7,13 +7,11 @@ import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import { Router } from '@angular/router';
-import { MapComponent } from './map.component';
 
 @Component({
     selector: 'add-contact-modal',
     templateUrl: 'app/add-contact.modal.html',
     styleUrls: ['app/add-contact.modal.css'],
-    directives: [MapComponent]
 })
 export class AddContactModal implements AfterViewInit {
     @Input() thing;

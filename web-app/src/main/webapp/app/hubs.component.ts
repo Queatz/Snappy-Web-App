@@ -2,8 +2,6 @@ declare var require;
 var Masonry = require('masonry-layout');
 
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
-import { FloatingComponent } from './floating.component';
-import { ProjectCardComponent } from './project-card.component';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import { NewHubModal } from './new-hub.modal';
@@ -12,7 +10,6 @@ import { SigninRequiredModal } from './signin-required.modal';
 @Component({
     templateUrl: 'app/hubs.component.html',
     styleUrls: ['app/hubs.component.css'],
-    directives: [FloatingComponent, ProjectCardComponent]
 })
 export class HubsComponent implements AfterViewInit {
     public hubs;
