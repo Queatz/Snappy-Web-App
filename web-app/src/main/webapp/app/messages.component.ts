@@ -2,7 +2,7 @@ declare var _;
 declare var moment;
 declare var $;
 
-import { Component, ElementRef, provide, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import {InforService} from './infor.service';
@@ -35,6 +35,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy {
     private messagesTimeout;
     private time;
     private endMessage;
+    private token;
 
     constructor(private inforService: InforService, private api: ApiService, private router: Router, private route: ActivatedRoute, element: ElementRef) {
         this.element = element.nativeElement;
@@ -46,17 +47,15 @@ export class MessagesComponent implements AfterViewInit, OnDestroy {
             this.myId = this.inforService.getInforUser().id;
             this.token = this.inforService.getInforUser().auth;
 
-            router
-                .routerState
-                .queryParams
+            route.queryParams
                 .subscribe((params: Object) => {
-                    if (params.q) {
-                        this.strMessage = decodeURIComponent(params.q);
+                    if (params['q']) {
+                        this.strMessage = decodeURIComponent(params['q']);
                     }
                 });
 
             route.params.subscribe(params => {
-                this.idCurrentContact = params.id;
+                this.idCurrentContact = params['id'];
             })
 
             this.getUserInfoChatWith(this.idCurrentContact);

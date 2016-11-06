@@ -6,6 +6,7 @@ var Masonry = require('masonry-layout');
 
 import { Component, ViewContainerRef, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { RuntimeCompiler } from '@angular/compiler';
 import { ApiService } from './api.service';
 import { InforService } from './infor.service';
 import { PostUpdateModal } from './post-update.modal';

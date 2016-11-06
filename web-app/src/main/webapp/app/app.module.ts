@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { Headers, HttpModule, BaseRequestOptions, RequestOptions } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpModule, Headers, BaseRequestOptions, RequestOptions } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { InforService } from './infor.service';
@@ -21,7 +22,7 @@ import { PersonCardComponent } from './person-card.component';
 import { MapComponent } from './map.component';
 import { PersonLinkComponent } from './person-link.component';
 import { ThingUpdatesComponent } from './thing-updates.component';
-import { ParseLinksComponent } from './parse-links.pipe';
+import { ParseLinksPipe } from './parse-links.pipe';
 import { ThingUpdateComponent } from './thing-update.component';
 
 import { FeedbackModal } from './feedback.modal';
@@ -64,8 +65,9 @@ class MyOptions extends BaseRequestOptions {
         MapComponent,
         PersonLinkComponent,
         ThingUpdatesComponent,
-        ParseLinksComponent,
         ThingUpdateComponent,
+
+        ParseLinksPipe,
 
         FeedbackModal,
         WelcomeModal,

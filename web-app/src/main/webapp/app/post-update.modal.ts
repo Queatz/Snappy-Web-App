@@ -12,7 +12,8 @@ import { InforService } from './infor.service';
 })
 export class PostUpdateModal implements OnInit {
     @Input() thing;
-    @Input() update;
+    @Input() update: any;
+
     private filesToUpload: Array<File>;
     public message;
 
@@ -34,7 +35,7 @@ export class PostUpdateModal implements OnInit {
 
     public remove() {
         this.api.earthDelete(this.update.id)
-            .subscribe((res: Object) => {
+            .subscribe((res: any) => {
                 if (res.status == 200) {
                     Materialize.toast('Update removed', 4000);
                     this.update.about = '';

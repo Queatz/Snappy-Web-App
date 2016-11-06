@@ -1,3 +1,5 @@
+declare var $;
+
 import { Component, ElementRef, OnChanges, Input, AfterViewInit } from '@angular/core';
 
 @Component({

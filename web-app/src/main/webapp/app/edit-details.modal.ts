@@ -7,6 +7,8 @@ import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import { Router } from '@angular/router';
 
+import { MapComponent } from './map.component';
+
 @Component({
     selector: 'edit-details-modal',
     templateUrl: 'app/edit-details.modal.html',

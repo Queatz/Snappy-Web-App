@@ -5,12 +5,12 @@ import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular
 import { Router } from '@angular/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
+
 import { MapComponent } from './map.component';
 
 @Component({
     templateUrl: 'app/new-hub.modal.html',
     styleUrls: ['app/new-hub.modal.css'],
-    directives: [MapComponent]
 })
 export class NewHubModal implements AfterViewInit {
     @Input() modalId;

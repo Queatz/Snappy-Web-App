@@ -1,10 +1,11 @@
+declare var Waves;
+declare var $;
+
 import { Component, ElementRef, Input, AfterViewInit } from '@angular/core';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import { TutorialService } from './tutorial.service';
 import { Router } from '@angular/router';
-
-declare var Waves;
 
 /**
  * Earth

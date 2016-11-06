@@ -1,7 +1,7 @@
 declare var $;
 
 import { Component, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
-import { RouterConfig, Router, RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { InforService } from './infor.service';
 import { TutorialService } from './tutorial.service';
 
@@ -65,7 +65,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     }
 
     startOver() {
-        this.tutorial.set();
+        this.tutorial.set(null);
         $(this.element).find('#welcomeModal').openModal();
     }
 

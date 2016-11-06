@@ -1,7 +1,7 @@
 declare var $;
 declare var Waves;
 
-import { Component, ComponentResolver, ViewContainerRef, Injector, ElementRef, Input, provide, OnChanges, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, ComponentResolver, ViewContainerRef, Injector, ElementRef, Input, OnChanges, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Http, Headers } from '@angular/http';
 import { InforService } from './infor.service';
@@ -32,7 +32,8 @@ export class FloatingComponent implements OnInit, AfterViewInit, OnDestroy {
             private view: ViewContainerRef,
             inforService: InforService,
             private router: Router,
-            private route: ActivatedRoute, http: Http,
+            private route: ActivatedRoute,
+            http: Http,
             private elementRef: ElementRef) {
         this.inforService = inforService;
         this.http = http;
@@ -42,7 +43,7 @@ export class FloatingComponent implements OnInit, AfterViewInit, OnDestroy {
         this.emessage = '';
 
         route.params.subscribe(params => {
-            this.currentUrl = params.id;
+            this.currentUrl = params['id'];
         });
     }
 

@@ -1,7 +1,7 @@
 declare var gapi;
 declare var $;
 
-import {Component, AfterViewInit, ElementRef, Inject, OnInit, provide, NgZone} from '@angular/core';
+import {Component, AfterViewInit, ElementRef, Inject, OnInit, NgZone} from '@angular/core';
 import { Router } from '@angular/router';
 
 import {InforService} from './infor.service';

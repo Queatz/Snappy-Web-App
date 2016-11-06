@@ -17,13 +17,12 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private id;
     private removingContact;
-    private inforService;
     private element;
     private isFollowing;
 
     constructor(private ngZone: NgZone, private api: ApiService, private inforService: InforService, private route: ActivatedRoute, elementRef: ElementRef) {
         route.params.subscribe(params => {
-            this.id = params.id;
+            this.id = params['id'];
         });
         this.element = elementRef.nativeElement;
 
@@ -64,10 +63,6 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
                 $(this.element).find('#removeContactModal').openModal();
             });
         };
-    }
-
-    public c {
-        return this.inforService.getInforUser();
     }
 
     public canEdit() {

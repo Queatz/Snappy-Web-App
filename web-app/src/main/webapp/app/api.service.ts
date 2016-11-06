@@ -3,6 +3,7 @@ declare var Promise;
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { InforService } from './infor.service';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class ApiService {

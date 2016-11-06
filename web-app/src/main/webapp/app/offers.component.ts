@@ -3,7 +3,7 @@ declare var _;
 declare var require;
 var Masonry = require('masonry-layout');
 
-import { Component, Input, OnInit, ElementRef, AfterViewInit, OnChanges, provide, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, ElementRef, AfterViewInit, OnChanges, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { InforService } from './infor.service';

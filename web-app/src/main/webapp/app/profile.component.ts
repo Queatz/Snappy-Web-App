@@ -22,12 +22,11 @@ import { InforService } from './infor.service';
 //])
 export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     public notFound = false;
-    private offers;
     private myProfile;
     public editAbout;
     public selectedTab = 'offers';
 
-    private inforService;
+    private inforService: InforService;
     private element;
     private offers;
     private person;
@@ -62,8 +61,8 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
          this.inforService.setPageTitle('Village');
 
          this.route.params.subscribe(params => {
-            let id = params.id;
-            let tab = params.tab;
+            let id = params['id'];
+            let tab = params['tab'];
 
             this.loadPerson(id);
             this.myProfile = id;
