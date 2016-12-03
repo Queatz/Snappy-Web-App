@@ -30,7 +30,7 @@
                     {{ person.firstName }} {{ person.lastName }}
                     <a *ngIf="isMyProfile()" class="modal-trigger tooltipped" href="#edit-about" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit your about description'"><i class="material-icons small">edit</i></a>
                 </h3>
-                <parse-links class="about flow-text">{{ person.about }}</parse-links>
+                <parse-links class="about flow-text" [innerHtml]="person.about | parseLinks"></parse-links>
                 <br />
                 <div>
                     <a [routerLink]="['/messages/' + person.id]">

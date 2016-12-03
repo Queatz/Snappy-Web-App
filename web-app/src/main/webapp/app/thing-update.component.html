@@ -11,7 +11,7 @@
         <div class="blox">
             <span class="title update-type blue-text">{{ update.person.firstName }} posted</span>
             <span class="title grey-text">{{ time() }}</span>
-            <p class="flow-text">{{ update.about }}</p>
+            <p class="flow-text" [innerHtml]="update.about | parseLinks"></p>
         </div>
     </div>
 </div>
