@@ -12,7 +12,7 @@ export class ApiService {
 
     constructor(private _http: Http, private inforService: InforService) {
         // XXX TODO graduate it when the app is updated
-        this._apiBaseUrl = 'https://beta-dot-queatz-snappy.appspot.com/api/';
+//        this._apiBaseUrl = 'https://beta-dot-queatz-snappy.appspot.com/api/';
     }
 
     public http() {
