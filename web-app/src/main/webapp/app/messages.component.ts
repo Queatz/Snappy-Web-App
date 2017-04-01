@@ -5,8 +5,9 @@ declare var $;
 import { Component, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import {InforService} from './infor.service';
-import {ApiService} from './api.service';
+import { SigninRequiredModal } from './signin-required.modal';
+import { InforService } from './infor.service';
+import { ApiService } from './api.service';
 
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
@@ -190,6 +191,12 @@ export class MessagesComponent implements AfterViewInit, OnDestroy {
 
     ngAfterViewInit() {
         this.inforService.setPageTitle('Messages');
+        let signinModal = $(this.element).find('signin-required-modal .modal');
+
+        if (signinModal.length) {
+            signinModal.openModal();
+        }
+
         $(this.element).find('.tooltipped').tooltip({delay: 50});
     }
 

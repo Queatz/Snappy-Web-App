@@ -11,9 +11,8 @@ export class ApiService {
     private _apiBaseUrl = 'https://queatz-snappy.appspot.com/api/';
 
     constructor(private _http: Http, private inforService: InforService) {
-        // XXX TODO graduate it when the app is updated
-//        this._apiBaseUrl = 'https://beta-dot-queatz-snappy.appspot.com/api/';
-    }
+        this._apiBaseUrl = 'http://192.168.0.181:8080/api/';
+ }
 
     public http() {
         return this._http;
