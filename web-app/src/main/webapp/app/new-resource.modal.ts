@@ -43,7 +43,6 @@ export class NewResourceModal implements AfterViewInit {
 
        var isFile = this.filesToUpload && this.filesToUpload.length > 0 && this.filesToUpload[0].type.match(/image/);
 
-
        this.api.earthCreate({
            kind: 'resource',
            name: this.name,

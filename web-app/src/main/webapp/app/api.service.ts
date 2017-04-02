@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class ApiService {
-    private _token = 'ya29.CjLqAqF_yxNzGvQ8hfhWMWl_E09U3WUpxp09C_saGaNaYuQNupXL628L1MW3MhhX-tEIDQ';
+    private _token = '';
     private _apiBaseUrl = 'https://queatz-snappy.appspot.com/api/';
 
     constructor(private _http: Http, private inforService: InforService) {
