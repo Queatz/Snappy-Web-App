@@ -11,7 +11,7 @@ export class ApiService {
     private _apiBaseUrl = 'https://queatz-snappy.appspot.com/api/';
 
     constructor(private _http: Http, private inforService: InforService) {
-        this._apiBaseUrl = 'http://192.168.0.181:8080/api/';
+        this._apiBaseUrl = 'http://127.0.0.1:8080/api/';
  }
 
     public http() {

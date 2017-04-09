@@ -5,6 +5,11 @@
     color: initial;
 }
 
+.current-contact .name {
+    font-weight: bold;
+    color: #ee6e73;
+}
+
 .imageprofile {
     position: absolute;
     top: 18%;

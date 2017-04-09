@@ -8,7 +8,7 @@
             <signin-required-modal></signin-required-modal>
         </div>
     </div>
-    <div class="row mainmessage ms-toogle" [ngClass]="{'ms-toogle-on': msToggleOn}" *ngIf="haveUserInfor()">
+    <div class="row mainmessage white z-depth-1 ms-toogle" [ngClass]="{'ms-toogle-on': msToggleOn}" *ngIf="haveUserInfor()">
         <div class="col s12 m4 l3 scroll msrecent" style="position: relative;">
             <div *ngIf="!contacts" class="fill valign-wrapper">
                 <div style="margin: auto;" class="valign">
@@ -33,7 +33,7 @@
                 <div class="center-align grey-text" *ngIf="contacts && !contacts.length">
                     You haven't started any conversations yet.
                 </div>
-                <div class="item" [ngClass]="{'grey lighten-2': contact.target.id === idCurrentContact}" *ngFor="let contact of contacts">
+                <div class="item" [ngClass]="{'current-contact': contact.target.id === idCurrentContact}" *ngFor="let contact of contacts">
                     <a class="message clear" [ngClass]="{'not-seen': !contact.seen}" (click)="getMessagesById(contact)">
                         <a [routerLink]="['/' + contact.target.googleUrl]" >
                             <img class="circle resize imageprofile" src="{{showContactImage(contact, 0)}}"/>
