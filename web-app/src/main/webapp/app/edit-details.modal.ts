@@ -32,7 +32,7 @@ export class EditDetailsModal implements AfterViewInit {
     ngAfterViewInit() {
         Waves.displayEffect();
         $(this.element.querySelector('#visibility')).material_select();
-        $(this.element.querySelector('#editDetailsModal')).modal();
+        $(this.element.querySelectorAll('.modal')).modal();
 
         switch (this.thing.kind) {
             case 'hub':

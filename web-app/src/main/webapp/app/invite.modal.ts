@@ -13,6 +13,6 @@ export class InviteModal implements AfterViewInit {
 
     ngAfterViewInit() {
         Waves.displayEffect();
-       $(this.elementRef.nativeElement.querySelector('#modal')).modal();
+       $(this.elementRef.nativeElement.querySelector('.modal')).modal();
     }
 }

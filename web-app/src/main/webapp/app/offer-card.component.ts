@@ -41,8 +41,9 @@ export class OfferCardComponent implements AfterViewInit, OnDestroy {
     ngAfterViewInit() {
         Waves.displayEffect();
         $(this.element).find('.tooltipped').tooltip({delay: 50});
+        $(this.element.querySelectorAll('.modal')).modal();
         this.offerImage = this.api.earthImageUrl(this.offer.id);
-        this.showModal();
+
     }
 
     ngOnDestroy() {
@@ -198,13 +199,6 @@ export class OfferCardComponent implements AfterViewInit, OnDestroy {
         ref.instance.offer = self.offer;
         ref.instance.resizeCallback = self.resizeCallback;
         self.modal = $(ref.location.nativeElement).find('.modal');
-        self.modal.modal('open');
-    }
-
-    showModal() {
-        if (this.isProfile() && this.inforService.getListOfferCheck(this.getPosition() + '-1') === false) {
-            if (this.inforService.getDeleteOffer() < 0 || (this.inforService.getDeleteOffer() === 0 && !this.inforService.deletedSomeItem)) {
-            }
-        }
+        setTimeout(() => self.modal.modal('open'));
     }
 }

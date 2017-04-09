@@ -34,7 +34,7 @@ export class NewResourceModal implements AfterViewInit {
 
    ngAfterViewInit() {
        Waves.displayEffect();
-       $(this.element.querySelector('#modal')).modal();
+       $(this.element.querySelector('.modal')).modal();
    }
 
    newResource() {
