@@ -41,6 +41,7 @@ export class NewHubModal implements AfterViewInit {
     ngAfterViewInit() {
         Waves.displayEffect();
         $(this.element.querySelector('#hubVisibility')).material_select();
+        $(this.element.querySelector('.modal')).modal();
     }
 
     newHub() {
@@ -55,7 +56,7 @@ export class NewHubModal implements AfterViewInit {
             latitude: this.map.getMarkerPosition().lat(),
             longitude: this.map.getMarkerPosition().lng()
         }).subscribe(hub => {
-            $(this.element.querySelector('#modal')).closeModal();
+            $(this.element.querySelector('#modal')).modal('close');
             this.router.navigate(['/hubs/' + hub.id]);
         });
     }

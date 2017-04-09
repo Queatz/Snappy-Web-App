@@ -93,12 +93,11 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngAfterViewInit() {
-        $(this.element).find('.modal-trigger').leanModal();
         $(this.element).find('.tooltipped').tooltip({delay: 50});
+        $(this.element.querySelector('.modal')).modal();
 
         if (this.inforService.triggerProfile && this.isMyProfile()) {
             this.inforService.triggerProfile = false;
-            $(this.element).find('.modal-trigger-floating').leanModal();
        }
 
        $(this.element).find('ul.tabs').tabs();

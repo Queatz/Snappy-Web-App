@@ -34,6 +34,7 @@ export class NewResourceModal implements AfterViewInit {
 
    ngAfterViewInit() {
        Waves.displayEffect();
+       $(this.element.querySelector('#modal')).modal();
    }
 
    newResource() {
@@ -50,7 +51,7 @@ export class NewResourceModal implements AfterViewInit {
        }).then(resource => {
            resource = JSON.parse(resource);
 
-           $(this.element.querySelector('#modal')).closeModal();
+           $(this.element.querySelector('#modal')).modal('close');
            this.router.navigate(['/resources/' + resource.id]);
        });
    }

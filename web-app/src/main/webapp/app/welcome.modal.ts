@@ -26,14 +26,15 @@ export class WelcomeModal implements AfterViewInit {
 
     ngAfterViewInit() {
         Waves.displayEffect();
-    }
+        $(this.element.querySelector('.modal')).modal();
+  }
 
     show(learnMoreAbout: string) {
         this.learnMoreAbout = learnMoreAbout;
     }
 
     tryThis() {
-        $(this.element).find('#welcomeModal').closeModal();
+        $(this.element).find('#welcomeModal').modal('close');
 
         switch(this.learnMoreAbout) {
             case 'feedback':

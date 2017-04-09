@@ -36,7 +36,7 @@ export class ThingUpdateComponent implements AfterViewInit, OnDestroy {
 
     edit() {
         if (this.modal) {
-            this.modal.openModal();
+            this.modal.modal('open');
             return;
         }
 
@@ -45,7 +45,7 @@ export class ThingUpdateComponent implements AfterViewInit, OnDestroy {
         let ref = this.view.createComponent(this.resolver.resolveComponentFactory(PostUpdateModal));
         ref.instance.update = self.update;
         self.modal = $(ref.location.nativeElement).find('.modal');
-        self.modal.openModal();
+        self.modal.modal('open');
     }
 
     ngAfterViewInit() {

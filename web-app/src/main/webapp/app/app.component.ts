@@ -24,11 +24,10 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     	    closeOnClick: true
     	});
 
-    	element.find('.modal-trigger').leanModal();
     	element.find('.tooltipped').tooltip({delay: 50});
 
     	if (!this.userSignined()) {
-    	    element.find('#welcomeModal').openModal();
+    	    element.find('#welcomeModal').modal('open');
     	}
     }
 
@@ -66,7 +65,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
     startOver() {
         this.tutorial.set(null);
-        $(this.element).find('#welcomeModal').openModal();
+        $(this.element).find('#welcomeModal').modal('open');
     }
 
     isActive(route) {

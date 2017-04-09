@@ -188,7 +188,7 @@ export class OfferCardComponent implements AfterViewInit, OnDestroy {
 
     edit() {
         if (this.modal) {
-            this.modal.openModal();
+            this.modal.modal('open');
             return;
         }
 
@@ -198,13 +198,12 @@ export class OfferCardComponent implements AfterViewInit, OnDestroy {
         ref.instance.offer = self.offer;
         ref.instance.resizeCallback = self.resizeCallback;
         self.modal = $(ref.location.nativeElement).find('.modal');
-        self.modal.openModal();
+        self.modal.modal('open');
     }
 
     showModal() {
         if (this.isProfile() && this.inforService.getListOfferCheck(this.getPosition() + '-1') === false) {
             if (this.inforService.getDeleteOffer() < 0 || (this.inforService.getDeleteOffer() === 0 && !this.inforService.deletedSomeItem)) {
-                $(this.element).find('.modal-trigger').leanModal();
             }
         }
     }

@@ -1,6 +1,6 @@
 declare var Waves;
 
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import { InforService } from './infor.service';
 import { TutorialService } from './tutorial.service';
 
@@ -10,11 +10,16 @@ import { TutorialService } from './tutorial.service';
     styleUrls: ['app/gday.modal.css']
 })
 export class GdayModal implements AfterViewInit {
-    constructor(private inforService: InforService, private tutorialService: TutorialService) {
+    constructor(
+        private inforService: InforService,
+        private tutorialService: TutorialService,
+        private elementRef: ElementRef
+    ) {
     }
 
     ngAfterViewInit() {
         Waves.displayEffect();
+        $(this.elementRef.nativeElement.querySelector('.modal')).modal();
     }
 
     getName() {

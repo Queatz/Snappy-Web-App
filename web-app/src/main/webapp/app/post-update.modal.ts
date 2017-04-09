@@ -1,7 +1,7 @@
 declare var Materialize;
 declare var _;
 
-import { Component, ElementRef, OnInit, Input } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewInit, Input } from '@angular/core';
 import { ApiService } from './api.service';
 import { InforService } from './infor.service';
 
@@ -10,7 +10,7 @@ import { InforService } from './infor.service';
     templateUrl: 'app/post-update.modal.html',
     styleUrls: ['app/post-update.modal.css']
 })
-export class PostUpdateModal implements OnInit {
+export class PostUpdateModal implements OnInit, AfterViewInit {
     @Input() thing;
     @Input() update;
 
@@ -31,6 +31,10 @@ export class PostUpdateModal implements OnInit {
         if (this.update) {
             this.message = this.update.about;
         }
+    }
+
+    ngAfterViewInit() {
+        $(this.element.querySelector('.modal')).modal();
     }
 
     public remove() {

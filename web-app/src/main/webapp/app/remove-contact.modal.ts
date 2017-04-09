@@ -25,6 +25,7 @@ export class RemoveContactModal implements AfterViewInit {
 
     ngAfterViewInit() {
         Waves.displayEffect();
+        $(this.element.querySelector('.modal')).modal();
     }
 
     remove() {
@@ -33,7 +34,7 @@ export class RemoveContactModal implements AfterViewInit {
         }
 
         this.api.earthDelete(this.contact.id).subscribe(contact => {
-            $(this.element.querySelector('#removeContactModal')).closeModal();
+            $(this.element.querySelector('#removeContactModal')).modal('close');
             if (this.thing && this.thing.contacts) {
                 _.remove(this.thing.contacts, this.contact);
                 Materialize.toast(this.contact.target.firstName + ' removed', 4000);

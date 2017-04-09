@@ -22,6 +22,7 @@ export class FeedbackModal implements AfterViewInit {
 
     ngAfterViewInit() {
         Waves.displayEffect();
+        $(this.element.querySelector('.modal')).modal();
     }
 
     submit() {
@@ -30,7 +31,7 @@ export class FeedbackModal implements AfterViewInit {
         }
 
         this.api.sendFeedback(this.feedback).subscribe(() => {
-            $(this.element).find('#feedbackModal').closeModal();
+            $(this.element).find('#feedbackModal').modal('close');
             Materialize.toast('Thanks!', 4000);
             this.feedback = '';
         }, () => {

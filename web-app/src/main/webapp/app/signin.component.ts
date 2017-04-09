@@ -85,7 +85,7 @@ export class SigninComponent implements AfterViewInit, OnInit {
 
                 if (gday) {
                     // Modal is in app.component
-                    $('#gdayModal').openModal();
+                    $('#gdayModal').modal('open');
                 }
             });
     }

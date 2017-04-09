@@ -194,7 +194,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy {
         let signinModal = $(this.element).find('signin-required-modal .modal');
 
         if (signinModal.length) {
-            signinModal.openModal();
+            signinModal.modal('open');
         }
 
         $(this.element).find('.tooltipped').tooltip({delay: 50});

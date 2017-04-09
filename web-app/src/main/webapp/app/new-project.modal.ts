@@ -26,6 +26,7 @@ export class NewProjectModal implements AfterViewInit {
 
    ngAfterViewInit() {
        Waves.displayEffect();
+       $(this.element.querySelector('.modal')).modal();
    }
 
    newProject() {
@@ -37,7 +38,7 @@ export class NewProjectModal implements AfterViewInit {
            kind: 'project',
            name: this.name
        }).subscribe(project => {
-           $(this.element.querySelector('#modal')).closeModal();
+           $(this.element.querySelector('#modal')).modal('close');
            this.router.navigate(['/projects/' + project.id]);
        });
    }

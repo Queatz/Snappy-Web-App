@@ -31,6 +31,7 @@ export class AddContactModal implements AfterViewInit {
 
     ngAfterViewInit() {
         Waves.displayEffect();
+        $(this.element.querySelector('.modal')).modal();
     }
 
     add() {
@@ -48,7 +49,7 @@ export class AddContactModal implements AfterViewInit {
             if (this.thing.contacts) {
                 this.thing.contacts.push(contact);
             }
-            $(this.element.querySelector('#addContactModal')).closeModal();
+            $(this.element.querySelector('#addContactModal')).modal('close');
             Materialize.toast(contact.target.firstName + ' added', 4000);
         });
     }

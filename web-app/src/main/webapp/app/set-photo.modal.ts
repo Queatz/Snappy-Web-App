@@ -26,6 +26,7 @@ export class SetPhotoModal implements AfterViewInit {
 
     ngAfterViewInit() {
         Waves.displayEffect();
+        $(this.element.querySelector('.modal')).modal();
     }
 
     public uploadPhoto() {

@@ -40,7 +40,6 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngAfterViewInit() {
-        $(this.element).find('.modal-trigger').leanModal();
         $(this.element).find('.tooltipped').tooltip({delay: 50});
     }
 
@@ -60,7 +59,7 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
             event.preventDefault();
             this.removingContact = contact;
             setTimeout(() => {
-                $(this.element).find('#removeContactModal').openModal();
+                $(this.element).find('#removeContactModal').modal('open');
             });
         };
     }

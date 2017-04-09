@@ -32,6 +32,7 @@ export class EditDetailsModal implements AfterViewInit {
     ngAfterViewInit() {
         Waves.displayEffect();
         $(this.element.querySelector('#visibility')).material_select();
+        $(this.element.querySelector('#editDetailsModal')).modal();
 
         switch (this.thing.kind) {
             case 'hub':
@@ -73,12 +74,12 @@ export class EditDetailsModal implements AfterViewInit {
     }
 
     remove() {
-        $(this.element.querySelector('#modal-remove')).openModal();
+        $(this.element.querySelector('#modal-remove')).modal('open');
     }
 
     confirmRemove() {
         this.api.earthDelete(this.thing.id).subscribe(() => {
-            $(this.element.querySelector('#modal-remove')).closeModal();
+            $(this.element.querySelector('#modal-remove')).modal('close');
            this.router.navigate(['/']);
         })
     }
@@ -94,7 +95,7 @@ export class EditDetailsModal implements AfterViewInit {
         }).subscribe(success => {
             this.thing.name = this.name;
             this.thing.about = this.about;
-            $(this.element.querySelector('#editDetailsModal')).closeModal();
+            $(this.element.querySelector('#editDetailsModal')).modal('close');
         });
     }
 
@@ -113,7 +114,7 @@ export class EditDetailsModal implements AfterViewInit {
             this.thing.name = this.name;
             this.thing.address = this.address;
             this.thing.about = this.about;
-            $(this.element.querySelector('#editDetailsModal')).closeModal();
+            $(this.element.querySelector('#editDetailsModal')).modal('close');
         });
     }
 }

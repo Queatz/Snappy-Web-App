@@ -17,5 +17,6 @@ export class SigninRequiredModal implements AfterViewInit {
 
     ngAfterViewInit() {
         Waves.displayEffect();
+        $(this.element.querySelector('.modal')).modal();
     }
 }

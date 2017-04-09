@@ -62,7 +62,6 @@ export class FloatingComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngAfterViewInit() {
-        $(this.element).find('.modal-trigger').leanModal();
         $(this.element).find('.tooltipped').tooltip({delay: 50});
     }
 
