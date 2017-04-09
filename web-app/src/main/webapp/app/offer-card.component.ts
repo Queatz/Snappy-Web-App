@@ -1,6 +1,7 @@
 declare var $;
 declare var Waves;
 declare var Materialize;
+declare var Promise;
 
 import { Component, ComponentFactoryResolver, ViewContainerRef, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';

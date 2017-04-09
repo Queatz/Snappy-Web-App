@@ -47,43 +47,30 @@
             </div>
             <div class="tabs-anchor">
                 <ul class="tabs">
-                    <li class="tab"><a href="#updates" (click)="selectTab('updates')" class="txt-red"><i class="material-icons">perm_identity</i> Updates</a></li>
-                    <li class="tab"><a href="#offers" (click)="selectTab('offers')" class="active txt-green"><i class="material-icons">redeem</i> Offers</a></li>
-                    <li *ngIf="person.projects.length" class="tab"><a href="#projects" (click)="selectTab('projects')" class="deep-orange-text"> <i class="material-icons">settings</i> Projects</a></li>
-                    <li *ngIf="person.resources.length" class="tab"><a href="#resources" (click)="selectTab('resources')" class="brown-text"> <i class="material-icons">language</i> Resources</a></li>
-                    <li *ngIf="person.hubs.length" class="tab"><a href="#hubs" (click)="selectTab('hubs')" class="blue-text"><i class="material-icons">room</i> Hubs</a></li>
-                    <li *ngIf="person.clubs.length" class="tab"><a href="#clubs" (click)="selectTab('clubs')" class="orange-text"><i class="material-icons">supervisor_account</i> Clubs</a></li>
+                    <li class="tab"><a href="#tab-updates" (click)="selectTab('updates')" class="txt-red"><i class="material-icons">perm_identity</i> Updates</a></li>
+                    <li *ngIf="person.offers.length" class="tab"><a href="#tab-offers" (click)="selectTab('offers')" class="active txt-green"><i class="material-icons">redeem</i> Offers</a></li>
+                    <li *ngIf="person.projects.length" class="tab"><a href="#tab-projects" (click)="selectTab('projects')" class="deep-orange-text"> <i class="material-icons">settings</i> Projects</a></li>
+                    <li *ngIf="person.resources.length" class="tab"><a href="#tab-resources" (click)="selectTab('resources')" class="brown-text"> <i class="material-icons">language</i> Resources</a></li>
+                    <li *ngIf="person.hubs.length" class="tab"><a href="#tab-hubs" (click)="selectTab('hubs')" class="blue-text"><i class="material-icons">room</i> Hubs</a></li>
+                    <li *ngIf="person.clubs.length" class="tab"><a href="#tab-clubs" (click)="selectTab('clubs')" class="orange-text"><i class="material-icons">supervisor_account</i> Clubs</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <div *ngIf="isMyProfile()">
-        <floating *ngIf="selectedTab === 'offers'" [tooltip]="'Add an offer'" [modal]="newOfferModal"></floating>
-        <floating *ngIf="selectedTab === 'projects'" [tooltip]="'Add a project'" [color]="'deep-orange'" [modal]="newProjectModal"></floating>
-        <floating *ngIf="selectedTab === 'resources'" [tooltip]="'Add a resource'" [color]="'brown'" [modal]="newResourceModal"></floating>
-        <floating *ngIf="selectedTab === 'hubs'" [tooltip]="'Add a hub'" [color]="'blue'" [modal]="newHubModal"></floating>
-        <floating *ngIf="selectedTab === 'clubs'" [tooltip]="'Add a club'" [color]="'yellow darken-4'" [modal]="newClubModal"></floating>
-    </div>
     <br />
-    <div class="start-hidden" id="updates">
-        <div class="center-align" *ngIf="person && isMyProfile()">
-            <a href="#postUpdateModal" class="modal-trigger price waves-effect waves-light btn white-text bkg-red tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Post a new update'">
-                <b><i class="material-icons left">edit</i>New Post</b>
-            </a>
-            <post-update-modal [thing]="person"></post-update-modal>
-        </div>
+    <div class="start-hidden" id="tab-updates">
         <thing-updates *ngIf="person" [updates]="person.updates"></thing-updates>
     </div>
-    <div id="offers">
+    <div id="tab-offers">
         <offers *ngIf="person" [list]="offers" [profile]="isMyProfile()"></offers>
     </div>
-    <div class="start-hidden" id="projects">
+    <div class="start-hidden" id="tab-projects">
         <things *ngIf="person" [things]="person.projects"></things>
     </div>
-    <div class="start-hidden" id="resources">
+    <div class="start-hidden" id="tab-resources">
         <things *ngIf="person" [things]="person.resources"></things>
     </div>
-    <div class="start-hidden" id="hubs">
+    <div class="start-hidden" id="tab-hubs">
         <things *ngIf="person" [things]="person.hubs"></things>
     </div>
     <div id="edit-about" class="modal">
@@ -104,4 +91,19 @@
             <a class="right modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
         </div>
     </div>
+</div>
+
+<div class="fixed-action-btn" *ngIf="isMyProfile()">
+    <a href="#postUpdateModal" class="btn-floating btn-large bkg-red tooltipped" [attr.data-position]="'left'" [attr.data-tooltip]="'Post an update'">
+        <i class="large material-icons">add</i>
+    </a>
+    <ul>
+        <li><a class="btn-floating purple tooltipped" [attr.data-position]="'left'" [attr.data-tooltip]="'Add a form'"><i class="material-icons">receipt</i></a></li>
+        <li><a class="btn-floating orange tooltipped" [attr.data-position]="'left'" [attr.data-tooltip]="'Add a club'"><i class="material-icons">supervisor_account</i></a></li>
+        <li><a class="btn-floating blue tooltipped" [attr.data-position]="'left'" [attr.data-tooltip]="'Add a hub'"><i class="material-icons">room</i></a></li>
+        <li><a class="btn-floating brown tooltipped" [attr.data-position]="'left'" [attr.data-tooltip]="'Add a resource'"><i class="material-icons">language</i></a></li>
+        <li><a class="btn-floating deep-orange tooltipped" [attr.data-position]="'left'" [attr.data-tooltip]="'Add a project'"><i class="material-icons">settings</i></a></li>
+        <li><a class="btn-floating bkg-green tooltipped" [attr.data-position]="'left'" [attr.data-tooltip]="'Add an offer'"><i class="material-icons">redeem</i></a></li>
+        <li><a class="btn-floating bkg-red tooltipped" [attr.data-position]="'left'" [attr.data-tooltip]="'Add a member'"><i class="material-icons">perm_identity</i></a></li>
+    </ul>
 </div>

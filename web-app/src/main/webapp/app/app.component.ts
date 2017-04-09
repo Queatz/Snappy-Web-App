@@ -1,4 +1,5 @@
 declare var $;
+declare var _;
 
 import { Component, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
@@ -69,7 +70,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     }
 
     isActive(route) {
-        return this.router.url.startsWith(route);
+        return _.startsWith(this.router.url, route);
     }
 
     pageTitle() {

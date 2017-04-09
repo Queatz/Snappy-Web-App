@@ -46,6 +46,16 @@
                 <i *ngIf="isFollowing" class="material-icons">check</i>
             </div>
         </div>
+        <div class="tabs-anchor">
+            <ul class="tabs">
+                <li class="tab"><a href="#updates" (click)="selectTab('updates')" class="txt-red"><i class="material-icons">perm_identity</i> Updates</a></li>
+                <li *ngIf="thing.offers && thing.offers.length" class="tab"><a href="#offers" (click)="selectTab('offers')" class="active txt-green"><i class="material-icons">redeem</i> Offers</a></li>
+                <li *ngIf="thing.projects && thing.projects.length" class="tab"><a href="#projects" (click)="selectTab('projects')" class="deep-orange-text"> <i class="material-icons">settings</i> Projects</a></li>
+                <li *ngIf="thing.resources && thing.resources.length" class="tab"><a href="#resources" (click)="selectTab('resources')" class="brown-text"> <i class="material-icons">language</i> Resources</a></li>
+                <li *ngIf="thing.hubs && thing.hubs.length" class="tab"><a href="#hubs" (click)="selectTab('hubs')" class="blue-text"><i class="material-icons">room</i> Hubs</a></li>
+                <li *ngIf="thing.clubs && thing.clubs.length" class="tab"><a href="#clubs" (click)="selectTab('clubs')" class="orange-text"><i class="material-icons">supervisor_account</i> Clubs</a></li>
+            </ul>
+        </div>
     </div>
     <br />
     <div class="center-align" *ngIf="thing && isSignedIn()">

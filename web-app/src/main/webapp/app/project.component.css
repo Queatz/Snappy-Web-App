@@ -23,16 +23,31 @@
 
 @media only screen and (max-width: 900px) {
     .photo {
-        width: 100vw;
+        width: 100%;
     }
 }
 
+.tabs-anchor {
+    font-weight: bold;
+}
+
+ul.tabs {
+    display: flex;
+}
+
+.tabs .tab {
+    text-transform: initial;
+    flex-grow: 1;
+}
+
+.tabs .tab .material-icons {
+    vertical-align: text-bottom;
+}
 
 .info {
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
-    display: inline-block;
     vertical-align: top;
 }
 

@@ -1,4 +1,5 @@
 declare var Materialize;
+declare var $;
 declare var _;
 
 import { Component, ElementRef, OnInit, AfterViewInit, Input } from '@angular/core';

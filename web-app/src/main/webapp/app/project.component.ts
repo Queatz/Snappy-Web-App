@@ -41,6 +41,7 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngAfterViewInit() {
         $(this.element).find('.tooltipped').tooltip({delay: 50});
+        $(this.element).find('ul.tabs').tabs();
     }
 
     ngOnDestroy() {

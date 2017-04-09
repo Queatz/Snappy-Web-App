@@ -1,5 +1,6 @@
 declare var Materialize;
 declare var Waves;
+declare var $;
 
 import { Component, ElementRef, Input, AfterViewInit } from '@angular/core';
 import { InforService } from './infor.service';

@@ -75,9 +75,8 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     selectTab(tab: string) {
-        this.selectedTab = tab;
         // Masonry
-        window.dispatchEvent(new Event('resize'));
+//        window.dispatchEvent(new Event('resize'));
     }
 
     loadPerson(personName) {

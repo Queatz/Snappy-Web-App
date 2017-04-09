@@ -49,19 +49,19 @@ export class ApiService {
             data += '&' + key + '=' + encodeURIComponent(params[key]);
         }
 
+        var formData = null;
+
         if (params.photo) {
-            var formData = new FormData();
+            formData = new FormData();
 
             formData.append('photo', params.photo, params.photo.name);
 
             var headers = new Headers();
             headers.append('Content-Type', undefined);
 
-            return this.makeFilePostRequest(this._apiBaseUrl + 'earth?' + data, formData);
         }
 
-        return this._http.post(this._apiBaseUrl + 'earth', data, this.formHeaders())
-            .map((res: Response) => res.json());
+        return this.makeFilePostRequest(this._apiBaseUrl + 'earth?' + data, formData);
     }
 
     public earthEdit(id: string, params) {

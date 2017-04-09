@@ -1,3 +1,4 @@
+declare var $;
 declare var Waves;
 
 import { Component, AfterViewInit, ElementRef } from '@angular/core';
