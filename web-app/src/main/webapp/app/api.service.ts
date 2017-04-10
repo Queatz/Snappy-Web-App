@@ -38,7 +38,7 @@ export class ApiService {
                            .map((res: Response) => res.json());
     }
 
-    public earthCreate(params): any {
+    public earthCreate(params, asPromise = false): any {
         var data = 'auth=' + this.token();
 
         for (var key in params) {
@@ -61,7 +61,12 @@ export class ApiService {
 
         }
 
-        return this.makeFilePostRequest(this._apiBaseUrl + 'earth?' + data, formData);
+        if (!asPromise) {
+            return this._http.post(this._apiBaseUrl + 'earth', data, this.formHeaders())
+                .map((res: Response) => res.json());
+        } else {
+            return this.makeFilePostRequest(this._apiBaseUrl + 'earth?' + data, formData);
+        }
     }
 
     public earthEdit(id: string, params) {

@@ -15,6 +15,10 @@ export class ProjectCardComponent implements OnInit {
     }
 
     ngOnInit() {
+        if (this.thing.kind === 'member') {
+            this.thing = this.thing.source;
+        }
+
         if (!this.typeClass) {
             switch (this.thing.kind) {
                 case 'resource':
@@ -29,13 +33,32 @@ export class ProjectCardComponent implements OnInit {
                 case 'club':
                     this.typeClass = 'yellow darken-4';
                     break;
+                case 'person':
+                default:
+                    this.typeClass = 'bkg-red';
+                    break;
             }
+        }
+
+        switch (this.thing.kind) {
+            case 'person':
+                this.thing.name = this.thing.firstName + ' ' + this.thing.lastName;
         }
     }
 
     public getPhotoUrl() {
-        if (this.thing && this.thing.photo) {
-            return this.api.earthPhotoUrl(this.thing.id);
+        if (!this.thing) {
+            return null;
+        }
+
+        switch (this.thing.kind) {
+            case 'person':
+                return this.thing.imageUrl.split('=')[0] + '=480';
+            default:
+                if (this.thing.photo) {
+                    return this.api.earthPhotoUrl(this.thing.id);
+                }
+                break;
         }
     }
 
@@ -44,6 +67,13 @@ export class ProjectCardComponent implements OnInit {
             return;
         }
 
-        this.router.navigate(['/' + this.thing.kind + 's/' + this.thing.id]);
+        switch (this.thing.kind) {
+            case 'person':
+                this.router.navigate(['/' + this.thing.googleUrl]);
+                break;
+            default:
+                this.router.navigate(['/' + this.thing.kind + 's/' + this.thing.id]);
+                break;
+        }
     }
 }

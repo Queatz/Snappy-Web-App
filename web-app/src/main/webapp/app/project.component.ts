@@ -19,6 +19,7 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
     private removingContact;
     private element;
     private isFollowing;
+    private selectedTab;
 
     constructor(private ngZone: NgZone, private api: ApiService, private inforService: InforService, private route: ActivatedRoute, elementRef: ElementRef) {
         route.params.subscribe(params => {
@@ -29,6 +30,16 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
         api.earthThing(this.id).subscribe(thing => {
                     this.thing = thing;
                     this.thing.updates = _.sortBy(this.thing.updates, update => -moment(update.date));
+
+                    if (this.thing.members) {
+                        this.thing.people = _.filter(this.thing.members, m => m.source.kind === 'person');
+                        this.thing.offers = _.filter(this.thing.members, m => m.source.kind === 'offer');
+                        this.thing.resources = _.filter(this.thing.members, m => m.source.kind === 'resource');
+                        this.thing.hubs = _.filter(this.thing.members, m => m.source.kind === 'hub');
+                        this.thing.projects = _.filter(this.thing.members, m => m.source.kind === 'project');
+                        this.thing.clubs = _.filter(this.thing.members, m => m.source.kind === 'club');
+                    }
+
                     this.inforService.setPageTitle(this.thing.name);
                     setTimeout(this.ngAfterViewInit.bind(this), 500);
                 },
@@ -63,6 +74,12 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
                 $(this.element).find('#removeContactModal').modal('open');
             });
         };
+    }
+
+    selectTab(tab: string) {
+        this.selectedTab = tab;
+        // Masonry
+        window.dispatchEvent(new Event('resize'));
     }
 
     public isSignedIn() {

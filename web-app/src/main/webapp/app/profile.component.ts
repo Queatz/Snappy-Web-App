@@ -75,8 +75,9 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     selectTab(tab: string) {
+        this.selectedTab = tab;
         // Masonry
-//        window.dispatchEvent(new Event('resize'));
+        window.dispatchEvent(new Event('resize'));
     }
 
     loadPerson(personName) {
@@ -93,7 +94,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngAfterViewInit() {
         $(this.element).find('.tooltipped').tooltip({delay: 50});
-        $(this.element.querySelectorAll('.modal')).modal();
+        $(this.element.querySelector('.modal')).modal();
 
         if (this.inforService.triggerProfile && this.isMyProfile()) {
             this.inforService.triggerProfile = false;

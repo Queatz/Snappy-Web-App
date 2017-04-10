@@ -48,7 +48,7 @@ export class NewResourceModal implements AfterViewInit {
            kind: 'resource',
            name: this.name,
            photo: isFile ? this.filesToUpload[0] : undefined
-       }).then(resource => {
+       }, true).then(resource => {
            resource = JSON.parse(resource);
 
            $(this.element.querySelector('#modal')).modal('close');

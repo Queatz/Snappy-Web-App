@@ -70,3 +70,7 @@ body {
     overflow: hidden;
     max-width: 75%;
 }
+
+.card .card-action a.secondary-content {
+    margin-right: 0 !important;
+}

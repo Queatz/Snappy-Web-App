@@ -10,12 +10,20 @@
         <i *ngIf="!thing.about" class="grey-text">No description provided.</i>
     </div>
     <div class="card-action">
-        {{ thing.followers }}
-        <span class="grey-text" [ngPlural]="thing.followers">
-            <template ngPluralCase="=1">follower</template>
-            <template ngPluralCase="other">followers</template>
-        </span>
+        <div *ngIf="thing.backers">
+            {{ thing.backers }}
+            <span class="grey-text" [ngPlural]="thing.backers">
+                <template ngPluralCase="=1">backing</template>
+                <template ngPluralCase="other">backers</template>
+            </span>
+        </div>
 
-        <a (click)="go()" class="secondary-content {{typeClass.indexOf('yellow') != -1 ? 'yellow-text text-darken-4' : typeClass + '-text'}}">{{typeClass == 'deep-orange' ? 'View Project' : typeClass == 'brown' ? 'View Resource' : typeClass == 'blue' ? 'Go To Hub' : 'Go to Club'}}</a>
+        <a (click)="go()" class="secondary-content {{typeClass.indexOf('yellow') != -1 ? 'yellow-text text-darken-4' : typeClass.indexOf('red') != -1 ? 'txt-red' : typeClass + '-text'}}">{{
+            typeClass == 'deep-orange' ? 'View Project' :
+            typeClass == 'brown' ? 'View Resource' :
+            typeClass == 'blue' ? 'Go To Hub' :
+            typeClass == 'yellow darken-4' ? 'Go to Club' :
+            typeClass == 'bkg-red' ? 'View ' + thing.firstName : ''
+        }}</a>
     </div>
 </div>
