@@ -141,7 +141,7 @@ export class ApiService {
     }
 
     public earthSearch(coords, q: string, kind: string) {
-        return this._http.get(this._apiBaseUrl + 'earth/search/' + kind
+        return this._http.get(this._apiBaseUrl + 'earth/search' + (kind ? '/' + kind : '')
                                 + '?latitude=' + coords.latitude
                                 + '&longitude=' + coords.longitude
                                 + '&q=' + encodeURIComponent(q)
@@ -200,8 +200,8 @@ export class ApiService {
         return this._http.post(this._apiBaseUrl + 'earth/' + id + '/photo/delete?auth=' + this.token(), '');
     }
 
-    public earthImageUrl(id: string) {
-        return this._apiBaseUrl + 'earth/' + id + '/photo?s=800&auth=' + this.token();
+    public earthImageUrl(id: string, size: Number = 800) {
+        return this._apiBaseUrl + 'earth/' + id + '/photo?s=' + size + '&auth=' + this.token();
     }
 
     public sendMessage(personId, message) {

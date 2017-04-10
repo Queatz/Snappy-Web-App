@@ -1,6 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, enableProdMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { RouteReuseStrategy } from '@angular/router';
 import { HttpModule, Headers, BaseRequestOptions, RequestOptions } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -47,9 +48,12 @@ import { SetPhotoModal } from './set-photo.modal';
 import { EditDetailsModal } from './edit-details.modal';
 import { PostUpdateModal } from './post-update.modal';
 import { AddContactModal } from './add-contact.modal';
+import { AddThingModal } from './add-thing.modal';
 import { RemoveContactModal } from './remove-contact.modal';
 import { SigninRequiredModal } from './signin-required.modal';
 import { InviteModal } from './invite.modal';
+
+import { ExactRouteReuseStrategy } from './exact.reuse';
 
 enableProdMode();
 
@@ -114,6 +118,7 @@ class MyOptions extends BaseRequestOptions {
         NewProjectModal,
         NewResourceModal,
         InviteModal,
+        AddThingModal,
     ],
     entryComponents: [
         FeedbackModal,
@@ -138,7 +143,8 @@ class MyOptions extends BaseRequestOptions {
         {
             provide: RequestOptions,
             useClass: MyOptions
-        }
+        },
+        {provide: RouteReuseStrategy, useClass: ExactRouteReuseStrategy}
     ],
     bootstrap: [ AppComponent ]
 })

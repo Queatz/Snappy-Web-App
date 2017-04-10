@@ -3,7 +3,7 @@ declare var Waves;
 declare var Materialize;
 declare var Promise;
 
-import { Component, ComponentFactoryResolver, ViewContainerRef, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
+import { Component, ComponentFactoryResolver, ViewContainerRef, Input, OnInit, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
@@ -16,7 +16,7 @@ var checkFirst = true;
     templateUrl: 'app/offer-card.component.html',
     styleUrls: ['app/offer-card.component.css']
 })
-export class OfferCardComponent implements AfterViewInit, OnDestroy {
+export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() public position;
     @Input() public size;
     @Input() public offer;
@@ -37,6 +37,12 @@ export class OfferCardComponent implements AfterViewInit, OnDestroy {
         private view: ViewContainerRef) {
         this.element = element.nativeElement;
         this.filesToUpload = [];
+    }
+
+    ngOnInit() {
+        if (this.offer.kind == 'member') {
+            this.offer = this.offer.source;
+        }
     }
 
     ngAfterViewInit() {

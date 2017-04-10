@@ -1,15 +1,16 @@
 declare var require: any;
 var Masonry = require('masonry-layout');
 
-import { Component, Input, ElementRef, OnInit, OnChanges, DoCheck } from '@angular/core';
+import { Component, Input, ElementRef, OnInit, OnChanges, DoCheck, OnDestroy } from '@angular/core';
 
 @Component({
     selector: 'thing-updates',
     templateUrl: 'app/thing-updates.component.html',
     styleUrls: ['app/thing-updates.component.css'],
 })
-export class ThingUpdatesComponent implements OnInit, OnChanges {
+export class ThingUpdatesComponent implements OnInit, OnChanges, OnDestroy {
     private masonry;
+    private mutationObserver;
     @Input() public updates;
 
     private element: HTMLElement;
@@ -29,6 +30,21 @@ export class ThingUpdatesComponent implements OnInit, OnChanges {
 
     ngOnInit() {
         this.loaded(this.updates);
+        var self = this;
+
+        this.mutationObserver = new MutationObserver((mutations) => {
+          if (self.masonry) {
+            console.log(mutations);
+            setTimeout(() => {
+                self.masonry.reloadItems();
+                self.masonry.layout();
+            }, 100);
+          }
+        });
+
+        var config = { childList: true };
+        this.mutationObserver.observe(this.element.querySelector('.grid'), config);
+
     }
 
     ngOnChanges() {
@@ -54,5 +70,9 @@ export class ThingUpdatesComponent implements OnInit, OnChanges {
                 this.masonry.layout();
             }
         }, 100);
+    }
+
+    ngOnDestroy() {
+        this.mutationObserver.disconnect();
     }
 }

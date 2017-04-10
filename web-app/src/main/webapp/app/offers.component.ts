@@ -18,6 +18,7 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
     public offers = [];
     public offersLoaded = false;
     private masonry;
+    private mutationObserver;
     private person;
 
     @Input() public profile;
@@ -36,6 +37,21 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngOnInit() {
+        var self = this;
+
+        this.mutationObserver = new MutationObserver((mutations) => {
+          if (self.masonry) {
+            console.log(mutations);
+            setTimeout(() => {
+                self.masonry.reloadItems();
+                self.masonry.layout();
+            }, 100);
+          }
+        });
+
+        var config = { childList: true };
+        this.mutationObserver.observe(this.element.querySelector('.grid'), config);
+
         if (this.list === undefined) {
             // Load San Francisco first right away
             this.loadNearby({
@@ -102,6 +118,7 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngOnDestroy() {
         $(this.element).find('.tooltipped').tooltip('remove');
+        this.mutationObserver.disconnect();
     }
 
     resizeCallback() {
