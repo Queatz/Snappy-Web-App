@@ -42,14 +42,14 @@
             <div class="about flow-text" [innerHtml]="thing.about | parseLinks"></div>
             <br />
             <div class="waves-effect waves-light btn white-text teal tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'You\'ll get updates about ' + thing.name" (click)="toggleFollow()">
-                <b *ngIf="!isFollowing">Follow</b>
+                <b *ngIf="!isFollowing">Back this</b>
                 <i *ngIf="isFollowing" class="material-icons">check</i>
             </div>
         </div>
         <div class="tabs-anchor">
             <ul class="tabs">
-                <li class="tab"><a href="#tab-updates" (click)="selectTab('updates')" class="txt-red"><i class="material-icons">perm_identity</i> Updates</a></li>
-                <li *ngIf="thing.offers && thing.offers.length" class="tab"><a href="#tab-offers" (click)="selectTab('offers')" class="active txt-green"><i class="material-icons">redeem</i> Offers</a></li>
+                <li class="tab"><a href="#tab-updates" (click)="selectTab('updates')" class="active txt-red"><i class="material-icons">perm_identity</i> Updates</a></li>
+                <li *ngIf="thing.offers && thing.offers.length" class="tab"><a href="#tab-offers" (click)="selectTab('offers')" class="txt-green"><i class="material-icons">redeem</i> Offers</a></li>
                 <li *ngIf="thing.projects && thing.projects.length" class="tab"><a href="#tab-projects" (click)="selectTab('projects')" class="deep-orange-text"> <i class="material-icons">settings</i> Projects</a></li>
                 <li *ngIf="thing.resources && thing.resources.length" class="tab"><a href="#tab-resources" (click)="selectTab('resources')" class="brown-text"> <i class="material-icons">language</i> Resources</a></li>
                 <li *ngIf="thing.hubs && thing.hubs.length" class="tab"><a href="#tab-hubs" (click)="selectTab('hubs')" class="blue-text"><i class="material-icons">room</i> Hubs</a></li>

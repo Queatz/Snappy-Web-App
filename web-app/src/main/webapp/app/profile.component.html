@@ -47,8 +47,8 @@
             </div>
             <div class="tabs-anchor">
                 <ul class="tabs">
-                    <li class="tab"><a href="#tab-updates" (click)="selectTab('updates')" class="txt-red"><i class="material-icons">perm_identity</i> Updates</a></li>
-                    <li *ngIf="person.offers && person.offers.length" class="tab"><a href="#tab-offers" (click)="selectTab('offers')" class="active txt-green"><i class="material-icons">redeem</i> Offers</a></li>
+                    <li class="tab"><a href="#tab-updates" (click)="selectTab('updates')" class="active txt-red"><i class="material-icons">perm_identity</i> Updates</a></li>
+                    <li *ngIf="person.offers && person.offers.length" class="tab"><a href="#tab-offers" (click)="selectTab('offers')" class="txt-green"><i class="material-icons">redeem</i> Offers</a></li>
                     <li *ngIf="person.projects && person.projects.length" class="tab"><a href="#tab-projects" (click)="selectTab('projects')" class="deep-orange-text"> <i class="material-icons">settings</i> Projects</a></li>
                     <li *ngIf="person.resources && person.resources.length" class="tab"><a href="#tab-resources" (click)="selectTab('resources')" class="brown-text"> <i class="material-icons">language</i> Resources</a></li>
                     <li *ngIf="person.hubs && person.hubs.length" class="tab"><a href="#tab-hubs" (click)="selectTab('hubs')" class="blue-text"><i class="material-icons">room</i> Hubs</a></li>
@@ -59,10 +59,10 @@
         </div>
     </div>
     <br />
-    <div class="start-hidden" id="tab-updates">
+    <div id="tab-updates">
         <thing-updates *ngIf="person" [updates]="person.updates"></thing-updates>
     </div>
-    <div id="tab-offers">
+    <div class="start-hidden" id="tab-offers">
         <offers *ngIf="person" [list]="offers" [profile]="isMyProfile()"></offers>
     </div>
     <div class="start-hidden" id="tab-projects">
@@ -95,10 +95,11 @@
             <a class="right modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
         </div>
     </div>
+    <add-thing-modal *ngIf="isMyProfile()" [thing]="person"></add-thing-modal>
 </div>
 
 <div class="fixed-action-btn" *ngIf="isMyProfile()">
-    <a href="#postUpdateModal" class="btn-floating btn-large bkg-red tooltipped" [attr.data-position]="'left'" [attr.data-tooltip]="'Post an update'">
+    <a href="#addThingModal" class="btn-floating btn-large bkg-red tooltipped" [attr.data-position]="'left'" [attr.data-tooltip]="'Add something'">
         <i class="large material-icons">add</i>
     </a>
     <ul>
