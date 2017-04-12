@@ -19,7 +19,7 @@
 
     <div class="grid center-align">
         <div class="item" *ngFor="let thing of things">
-            <project-card class="left-align" [thing]="thing"></project-card>
+            <project-card class="left-align" [thing]="thing" [deleteCallback]="boundRemoveCallback"></project-card>
         </div>
     </div>
 </div>

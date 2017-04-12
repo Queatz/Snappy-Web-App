@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 
 @Component({
@@ -9,13 +10,18 @@ import { ApiService } from './api.service';
 })
 export class ProjectCardComponent implements OnInit {
     @Input() public typeClass;
+    @Input() public deleteCallback;
     @Input() public thing;
 
-    constructor(private api: ApiService, private router: Router) {
-    }
+    constructor(
+        private api: ApiService,
+        private router: Router,
+        private inforService: InforService
+    ) {}
 
     ngOnInit() {
         if (this.thing.kind === 'member') {
+            this.thing.source.member = this.thing;
             this.thing = this.thing.source;
         }
 
@@ -43,6 +49,30 @@ export class ProjectCardComponent implements OnInit {
         switch (this.thing.kind) {
             case 'person':
                 this.thing.name = this.thing.firstName + ' ' + this.thing.lastName;
+        }
+    }
+
+    public removable() {
+        return this.thing.member && this.thing.member.target.owner;
+    }
+
+    public remove() {
+        if (this.thing.member) {
+            this.api.earthDelete(this.thing.member.id)
+                .map(res => {
+                    if (res.status == 200) {
+                        Materialize.toast('Removed ' + this.thing.name, 4000);
+
+                        if (this.deleteCallback) {
+                            this.deleteCallback(this.thing);
+                        }
+                    } else {
+                        Materialize.toast('Remove failed', 4000);
+                    }
+                })
+                .subscribe();
+
+            return;
         }
     }
 

@@ -27,6 +27,7 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
     private element;
     private boundResizeCallback;
     private boundDeleteCallback;
+    private boundRemoveCallback;
     private token;
     private signed;
 
@@ -34,6 +35,7 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
         this.element = element.nativeElement;
         this.boundResizeCallback = this.resizeCallback.bind(this);
         this.boundDeleteCallback = this.deleteCallback.bind(this);
+        this.boundRemoveCallback = this.removeCallback.bind(this);
     }
 
     ngOnInit() {
@@ -151,6 +153,10 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.loaded(this.offers);
                 break;
         }
+    }
+
+    removeCallback(offer) {
+        _.remove(this.offers, o => o.source.id === offer.id);
     }
     
     getOfferPosition(position) {

@@ -7,11 +7,13 @@ import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 
 @Component({
+    selector: 'new-project-modal',
     templateUrl: 'app/new-project.modal.html',
     styleUrls: ['app/new-project.modal.css'],
 })
 export class NewProjectModal implements AfterViewInit {
    @Input() modalId;
+   @Input() asMemberOf;
 
    private element: HTMLElement;
    private name: string;
@@ -36,7 +38,8 @@ export class NewProjectModal implements AfterViewInit {
 
        this.api.earthCreate({
            kind: 'project',
-           name: this.name
+           name: this.name,
+           'in': this.asMemberOf ? this.asMemberOf.id : undefined
        }).subscribe(project => {
            $(this.element.querySelector('#modal')).modal('close');
            this.router.navigate(['/projects/' + project.id]);

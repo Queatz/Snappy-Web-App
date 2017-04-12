@@ -1,4 +1,4 @@
-<div id="modal" class="modal">
+<div id="{{ modalId || 'modal' }}" class="modal">
     <div class="modal-content">
         <h4>{{ offer ? 'Edit' : 'New' }} {{ enumber < 0 ? 'request' : 'offer' }}</h4>
 

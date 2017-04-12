@@ -7,11 +7,13 @@ import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 
 @Component({
+    selector: 'new-resource-modal',
     templateUrl: 'app/new-resource.modal.html',
     styleUrls: ['app/new-resource.modal.css'],
 })
 export class NewResourceModal implements AfterViewInit {
     @Input() modalId;
+    @Input() asMemberOf;
     private filesToUpload: Array<File>;
 
     private element;
@@ -47,7 +49,8 @@ export class NewResourceModal implements AfterViewInit {
        this.api.earthCreate({
            kind: 'resource',
            name: this.name,
-           photo: isFile ? this.filesToUpload[0] : undefined
+           photo: isFile ? this.filesToUpload[0] : undefined,
+           'in': this.asMemberOf ? this.asMemberOf.id : undefined
        }, true).then(resource => {
            resource = JSON.parse(resource);
 

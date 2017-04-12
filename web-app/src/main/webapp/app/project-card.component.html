@@ -4,6 +4,7 @@
         <img *ngIf="getPhotoUrl()" src="{{ getPhotoUrl() }}">
         <img *ngIf="!getPhotoUrl()" src="img/night.png">
         <span class="card-title">{{ thing.name }}</span>
+        <i class="remove-thing waves-effect material-icons white-text small waves-light tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Remove'" *ngIf="removable()" (click)="remove($event)">clear</i>
     </div>
     <div class="card-content">
         <p>{{ thing.about }}</p>

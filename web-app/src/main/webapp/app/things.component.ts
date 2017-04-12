@@ -1,4 +1,5 @@
 declare var require: any;
+declare var _: any;
 var Masonry = require('masonry-layout');
 
 import { Component, ElementRef, AfterViewInit, Input, OnDestroy } from '@angular/core';
@@ -15,9 +16,11 @@ export class ThingsComponent implements AfterViewInit, OnDestroy {
     private element: HTMLElement;
     private masonry;
     private mutationObserver;
+    private boundRemoveCallback;
 
     constructor(private inforService: InforService, private api: ApiService, element: ElementRef) {
         this.element = element.nativeElement;
+        this.boundRemoveCallback = this.removed.bind(this);
     }
 
     ngAfterViewInit() {
@@ -44,6 +47,10 @@ export class ThingsComponent implements AfterViewInit, OnDestroy {
                 fitWidth: true
             });
         });
+    }
+
+    removed(thing) {
+        _.remove(this.things, t => t.source.id === thing.id);
     }
 
     ngOnDestroy() {

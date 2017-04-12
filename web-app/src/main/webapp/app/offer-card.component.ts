@@ -22,25 +22,29 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() public offer;
     @Input() public resizeCallback;
     @Input() public deleteCallback;
-    @Input() public profile;
+    @Input() public removeCallback;
+    @Input() public profile: boolean;
     filesToUpload: Array<File>;
 
     private element;
     private offerImage;
     private modal;
 
-    constructor(private inforService: InforService,
+    constructor(
+        private inforService: InforService,
         private api: ApiService,
         private _router: Router,
         element: ElementRef,
         private resolver: ComponentFactoryResolver,
-        private view: ViewContainerRef) {
+        private view: ViewContainerRef
+    ) {
         this.element = element.nativeElement;
         this.filesToUpload = [];
     }
 
     ngOnInit() {
         if (this.offer.kind == 'member') {
+            this.offer.source.member = this.offer;
             this.offer = this.offer.source;
         }
     }
@@ -101,6 +105,10 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
         return this.profile;
     }
 
+    public isProfileOr() {
+        return this.profile || this.offer.member && this.offer.member.target.id === this.inforService.getInforUser().id;
+    }
+
     public clickPrice() {
         if (this.profile) {
             return;
@@ -118,6 +126,24 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     public deleteOffer() {
+        if (this.offer.member) {
+            this.api.earthDelete(this.offer.member.id)
+                .map(res => {
+                    if (res.status == 200) {
+                        Materialize.toast('Offer removed', 4000);
+
+                        if (this.removeCallback) {
+                            this.removeCallback(this.offer);
+                        }
+                    } else {
+                        Materialize.toast('Offer remove failed', 4000);
+                    }
+                })
+                .subscribe();
+
+            return;
+        }
+
         if (this.offer) {
             this.api.earthDelete(this.offer.id)
                 .map(res => {

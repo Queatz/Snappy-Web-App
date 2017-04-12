@@ -7,12 +7,14 @@ import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 
 @Component({
+    selector: 'new-offer-modal',
     templateUrl: 'app/new-offer.modal.html',
     styleUrls: ['app/new-offer.modal.css']
 })
 export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
     @Input() modalId;
     @Input() offer;
+    @Input() asMemberOf;
     @Input() resizeCallback;
 
     private element;
@@ -91,7 +93,7 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
             return;
         }
 
-        this.api.newOffer(edetails, enumber, emessage)
+        this.api.newOffer(edetails, enumber, emessage, this.asMemberOf)
             .subscribe(dataInput => {
                 if (dataInput.id) {
                     Materialize.toast('Offer added', 4000);

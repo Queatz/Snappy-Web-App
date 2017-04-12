@@ -16,7 +16,7 @@
 
         <div>
             <div class="waves-effect choice" *ngFor="let thing of results; let i = index" (click)="select(i)">
-                <div class="image" *ngIf="url(thing)" [style.background-image]="'url(' + url(thing) + ')'"></div>
+                <div class="image" [style.background-image]="url(thing) ? 'url(' + url(thing) + ')' : 'url(/img/night.png)'"></div>
                 {{ thing.name ? thing.name : thing.firstName ? thing.firstName + ' ' + thing.lastName : thing.about }}
             </div>
             <div *ngIf="!results.length" class="null grey-text">

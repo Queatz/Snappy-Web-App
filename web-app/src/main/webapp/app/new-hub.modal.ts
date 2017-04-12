@@ -9,11 +9,13 @@ import { ApiService } from './api.service';
 import { MapComponent } from './map.component';
 
 @Component({
+    selector: 'new-hub-modal',
     templateUrl: 'app/new-hub.modal.html',
     styleUrls: ['app/new-hub.modal.css'],
 })
 export class NewHubModal implements AfterViewInit {
     @Input() modalId;
+    @Input() asMemberOf;
 
     @ViewChild(MapComponent)
     private map: MapComponent;
@@ -54,7 +56,8 @@ export class NewHubModal implements AfterViewInit {
             name: this.name,
             address: this.address,
             latitude: this.map.getMarkerPosition().lat(),
-            longitude: this.map.getMarkerPosition().lng()
+            longitude: this.map.getMarkerPosition().lng(),
+            'in': this.asMemberOf ? this.asMemberOf.id : undefined
         }).subscribe(hub => {
             $(this.element.querySelector('#modal')).modal('close');
             this.router.navigate(['/hubs/' + hub.id]);

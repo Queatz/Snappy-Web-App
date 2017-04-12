@@ -182,8 +182,12 @@ export class ApiService {
                            .map((res: Response) => res.json());
     }
 
-    public newOffer(details, price, unit) {
-        var creds = "auth=" + this.token() + "&details=" + encodeURIComponent(details) + "&price=" + encodeURIComponent(price) + "&unit=" + encodeURIComponent(unit);
+    public newOffer(details, price, unit, asMemberOf = null) {
+        var creds = "auth=" + this.token() +
+        "&details=" + encodeURIComponent(details) +
+        "&price=" + encodeURIComponent(price) +
+        "&unit=" + encodeURIComponent(unit) +
+        (asMemberOf ? "&in=" + encodeURIComponent(asMemberOf) : "");
         return this._http.post(this._apiBaseUrl + 'earth/me/offers', creds, this.formHeaders()).map((res: Response) => res.json());
     }
 

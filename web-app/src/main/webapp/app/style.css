@@ -9,6 +9,11 @@ body {
     background-image: url(/img/anastasia-village.jpg);
 }
 
+html body h3 {
+    padding-top: 1.168rem;
+    margin-top: 0;
+}
+
 .bkg-green {
     background-color: #629252 !important;
 }

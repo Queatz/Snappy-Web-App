@@ -33,6 +33,7 @@ export class AddThingModal implements AfterViewInit {
     ngAfterViewInit() {
         Waves.displayEffect();
         $(this.element.querySelector('.modal')).modal();
+        this.search();
     }
 
     add() {
@@ -61,7 +62,7 @@ export class AddThingModal implements AfterViewInit {
                 this.thing[k] = [];
             }
 
-            this.thing[k].push(member.source);
+            this.thing[k].push(member);
 
             if (this.resizeCallback) {
                 this.resizeCallback();
@@ -93,7 +94,7 @@ export class AddThingModal implements AfterViewInit {
 
     private doSearch(position) {
         this.position = position;
-        this.api.earthSearch(position.coords, this.text, 'person|resource|project|offer|club|hub').subscribe(results => {
+        this.api.earthSearch(position.coords, this.text || '', 'person|resource|project|offer|club|hub').subscribe(results => {
             this.results = results;
             this.searching = false;
 
