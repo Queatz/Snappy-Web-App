@@ -98,6 +98,8 @@ export class MessagesComponent implements AfterViewInit, OnDestroy {
             } else {
                 this.getMessagesById(this.contacts[0]);
             }
+        } else {
+            this.messageWithSomeone = [];
         }
     }
 

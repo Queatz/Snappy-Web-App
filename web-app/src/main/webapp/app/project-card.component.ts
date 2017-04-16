@@ -1,4 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+declare var Materialize: any;
+declare var $: any;
+
+import { Component, Input, OnInit, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
@@ -8,7 +11,7 @@ import { ApiService } from './api.service';
     templateUrl: 'app/project-card.component.html',
     styleUrls: ['app/project-card.component.css']
 })
-export class ProjectCardComponent implements OnInit {
+export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() public typeClass;
     @Input() public deleteCallback;
     @Input() public thing;
@@ -16,7 +19,8 @@ export class ProjectCardComponent implements OnInit {
     constructor(
         private api: ApiService,
         private router: Router,
-        private inforService: InforService
+        private inforService: InforService,
+        private elementRef: ElementRef
     ) {}
 
     ngOnInit() {
@@ -50,6 +54,14 @@ export class ProjectCardComponent implements OnInit {
             case 'person':
                 this.thing.name = this.thing.firstName + ' ' + this.thing.lastName;
         }
+    }
+
+    ngAfterViewInit() {
+        $(this.elementRef.nativeElement).find('.tooltipped').tooltip({delay: 50});
+    }
+
+    ngOnDestroy() {
+        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
     }
 
     public removable() {
