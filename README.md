@@ -13,3 +13,10 @@ sudo less /etc/letsencrypt/live/village.city/fullchain.pem
 sudo openssl rsa -inform pem -in /etc/letsencrypt/live/village.city/privkey.pem -outform pem | less
 
 Upload to Google Console (App Engine)
+
+
+
+
+
+sudo certbot certonly --webroot -w web-app/src/main/webapp -d village.city
+

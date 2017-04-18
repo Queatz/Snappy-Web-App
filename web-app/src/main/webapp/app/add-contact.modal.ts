@@ -49,7 +49,7 @@ export class AddContactModal implements AfterViewInit {
             if (this.thing.contacts) {
                 this.thing.contacts.push(contact);
             }
-            $(this.element.querySelector('#addContactModal')).modal('close');
+            $(this.element.querySelector('.modal')).modal('close');
             Materialize.toast(contact.target.firstName + ' added', 4000);
         });
     }

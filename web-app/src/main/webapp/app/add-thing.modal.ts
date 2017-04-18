@@ -68,7 +68,7 @@ export class AddThingModal implements AfterViewInit {
                 this.resizeCallback();
             }
 
-            $(this.element.querySelector('#addThingModal')).modal('close');
+            $(this.element.querySelector('.modal')).modal('close');
             Materialize.toast((member.source.name || member.source.firstName || member.source.about) + ' added', 4000);
         });
     }

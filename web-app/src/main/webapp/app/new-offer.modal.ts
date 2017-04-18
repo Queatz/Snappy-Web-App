@@ -72,7 +72,7 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
             enumber = '0';
         }
 
-        $(this.element.querySelector('#modal')).modal('close');
+        $(this.element.querySelector('.modal')).modal('close');
 
         if (this.offer) {
             var self = this;

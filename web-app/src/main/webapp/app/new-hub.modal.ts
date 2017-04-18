@@ -59,7 +59,7 @@ export class NewHubModal implements AfterViewInit {
             longitude: this.map.getMarkerPosition().lng(),
             'in': this.asMemberOf ? this.asMemberOf.id : undefined
         }).subscribe(hub => {
-            $(this.element.querySelector('#modal')).modal('close');
+            $(this.element.querySelector('.modal')).modal('close');
             this.router.navigate(['/hubs/' + hub.id]);
         });
     }

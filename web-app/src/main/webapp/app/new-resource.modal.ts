@@ -54,7 +54,7 @@ export class NewResourceModal implements AfterViewInit {
        }, true).then(resource => {
            resource = JSON.parse(resource);
 
-           $(this.element.querySelector('#modal')).modal('close');
+           $(this.element.querySelector('.modal')).modal('close');
            this.router.navigate(['/resources/' + resource.id]);
        });
    }

@@ -41,7 +41,7 @@ export class NewProjectModal implements AfterViewInit {
            name: this.name,
            'in': this.asMemberOf ? this.asMemberOf.id : undefined
        }).subscribe(project => {
-           $(this.element.querySelector('#modal')).modal('close');
+           $(this.element.querySelector('.modal')).modal('close');
            this.router.navigate(['/projects/' + project.id]);
        });
    }
