@@ -27,6 +27,7 @@ import { ParseLinksPipe } from './parse-links.pipe';
 import { ThingUpdateComponent } from './thing-update.component';
 import { MainComponent } from './main.component';
 import { MessagesComponent } from './messages.component';
+import { AddMemberComponent } from './add-member.component';
 
 import { ProfileComponent } from './profile.component';
 import { ProjectsComponent } from "./projects.component";
@@ -92,6 +93,7 @@ class MyOptions extends BaseRequestOptions {
         ThingUpdateComponent,
         MainComponent,
         MessagesComponent,
+        AddMemberComponent,
 
         ProfileComponent,
         ProjectsComponent,
