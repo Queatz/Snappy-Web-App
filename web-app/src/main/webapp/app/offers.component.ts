@@ -43,7 +43,6 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
 
         this.mutationObserver = new MutationObserver((mutations) => {
           if (self.masonry) {
-            console.log(mutations);
             setTimeout(() => {
                 self.masonry.reloadItems();
                 self.masonry.layout();

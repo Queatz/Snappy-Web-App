@@ -129,7 +129,7 @@ export class ApiService {
         var headers = new Headers();
         headers.append('Content-Type', undefined);
 
-        return this.makeFilePostRequest(this._apiBaseUrl + 'earth/' + updateId + '?edit=true&auth=' + this.token(), formData);
+        return this.makeFilePostRequest(this._apiBaseUrl + 'earth/' + updateId + '?auth=' + this.token(), formData);
     }
 
     public earthHere(coords, kind: string) {
@@ -187,13 +187,14 @@ export class ApiService {
         "&details=" + encodeURIComponent(details) +
         "&price=" + encodeURIComponent(price) +
         "&unit=" + encodeURIComponent(unit) +
+        "&kind=offer" +
         (asMemberOf ? "&in=" + encodeURIComponent(asMemberOf) : "");
-        return this._http.post(this._apiBaseUrl + 'earth/me/offers', creds, this.formHeaders()).map((res: Response) => res.json());
+        return this._http.post(this._apiBaseUrl + 'earth', creds, this.formHeaders()).map((res: Response) => res.json());
     }
 
     public editOffer(offerId, details, price, unit) {
         var creds = "auth=" + this.token() + "&details=" + encodeURIComponent(details) + "&price=" + encodeURIComponent(price) + "&unit=" + encodeURIComponent(unit);
-        return this._http.post(this._apiBaseUrl + 'earth/' + offerId + '/edit', creds, this.formHeaders()).map((res: Response) => res.json());
+        return this._http.post(this._apiBaseUrl + 'earth/' + offerId, creds, this.formHeaders()).map((res: Response) => res.json());
     }
 
     public earthDelete(id: string) {

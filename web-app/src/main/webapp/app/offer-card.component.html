@@ -6,7 +6,7 @@
     <div class="card-content">
         <a *ngIf="isProfile()" (click)="edit()" href="javascript:" class="right grey-text text-lighten-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit'"><i class="material-icons small">edit</i></a>
         <div class="blox">
-            <a [routerLink]="['/' + offer.person.googleUrl]" class="tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="offer.person.firstName + ' ' + offer.person.lastName"> <img src="{{ offer.person.imageUrl }}" alt="Profile picture" class="circle" /></a>
+            <a [routerLink]="['/' + offer.source.googleUrl]" class="tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="offer.source.firstName + ' ' + offer.source.lastName"> <img src="{{ offer.source.imageUrl }}" alt="Profile picture" class="circle" /></a>
         </div>
         <div class="blox">
             <span class="title offer-type" [ngClass]="{'purple-text': isRequest()}">{{ getOfferTypeText() }}</span>
@@ -17,7 +17,7 @@
     </div>
     <div class="card-action">
         <a (click)="clickPrice()">
-            <div class="price waves-effect secondary-content waves-light btn white-text tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="isRequest() ? 'Offer this to ' + offer.person.firstName : 'Get this offer by messaging ' + offer.person.firstName" [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}">
+            <div class="price waves-effect secondary-content waves-light btn white-text tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="isRequest() ? 'Offer this to ' + offer.source.firstName : 'Get this offer by messaging ' + offer.source.firstName" [ngClass]="{'bkg-green': !isRequest(), 'bkg-purple': isRequest()}">
                 <b>{{ getPrice() }}</b>
             </div>
         </a>

@@ -38,6 +38,8 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
                         this.thing.hubs = _.filter(this.thing.members, m => m.source.kind === 'hub');
                         this.thing.projects = _.filter(this.thing.members, m => m.source.kind === 'project');
                         this.thing.clubs = _.filter(this.thing.members, m => m.source.kind === 'club');
+                        this.thing.contacts = _.filter(this.thing.members, m => m.source.kind === 'contact');
+                        this.thing.updates = _.filter(this.thing.members, m => m.source.kind === 'update');
                     }
 
                     this.inforService.setPageTitle(this.thing.name);

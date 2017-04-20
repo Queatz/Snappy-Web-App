@@ -60,6 +60,11 @@
     </div>
     <br />
     <div id="tab-updates">
+        <div class="center-align" *ngIf="person && isMyProfile()">
+            <a href="#postUpdateModal" class="modal-trigger price waves-effect waves-light btn white-text bkg-red tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Post a new update'">
+                <b><i class="material-icons left">edit</i>New Post</b>
+            </a>
+        </div>
         <thing-updates *ngIf="person" [updates]="person.updates"></thing-updates>
     </div>
     <div class="start-hidden" id="tab-offers">
@@ -98,4 +103,5 @@
     <add-thing-modal *ngIf="isMyProfile()" [thing]="person"></add-thing-modal>
 </div>
 
+<post-update-modal *ngIf="isMyProfile()" [thing]="person"></post-update-modal>
 <add-member *ngIf="isMyProfile()" [thing]="person"></add-member>

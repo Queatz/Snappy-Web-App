@@ -87,9 +87,9 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
 
     public getOfferTypeText() {
         if (this.isRequest()) {
-            return this.offer.person.firstName + ' wants';
+            return this.offer.source.firstName + ' wants';
         } else {
-            return this.offer.person.firstName + ' offers';
+            return this.offer.source.firstName + ' offers';
         }
     }
 
@@ -114,7 +114,7 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
             return;
         }
 
-        this._router.navigate(['/messages/' + this.offer.person.id], {
+        this._router.navigate(['/messages/' + this.offer.source.id], {
             queryParams: {
                 q: encodeURIComponent(this.getPrefillText())
             }

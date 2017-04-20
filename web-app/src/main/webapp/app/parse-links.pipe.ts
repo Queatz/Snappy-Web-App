@@ -7,6 +7,10 @@ export class ParseLinksPipe implements PipeTransform {
     transform(value: string, args: any[]) {
         let regex = new RegExp(/(\()?([a-z]*\:\/\/)?([-@\.\w]+\.[a-z|0-9]{1,4}[-~;:,@$%+!*'=#\/\?&\(\)\.\w]*)/gi);
 
+        if (!value) {
+            return value;
+        }
+
         return value.replace(regex, (str, $1, $2, $3) => {
             if ($1 === undefined) {
                 $1 = '';

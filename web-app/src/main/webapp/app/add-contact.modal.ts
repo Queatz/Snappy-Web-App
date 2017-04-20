@@ -43,8 +43,9 @@ export class AddContactModal implements AfterViewInit {
 
         this.api.earthCreate({
             kind: 'contact',
-            person: person.id,
-            thing: this.thing.id
+            source: person.id,
+            target: this.thing.id,
+            'in': this.thing.id
         }).subscribe(contact => {
             if (this.thing.contacts) {
                 this.thing.contacts.push(contact);

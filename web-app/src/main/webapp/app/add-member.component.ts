@@ -1,3 +1,5 @@
+declare var $;
+
 import { Component, ElementRef, Input, AfterViewInit } from '@angular/core';
 
 @Component({

@@ -4,7 +4,7 @@ declare var Waves: any;
 var moment = require('moment');
 var Masonry = require('masonry-layout');
 
-import { Component, ComponentFactoryResolver, ViewContainerRef, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
+import { Component, ComponentFactoryResolver, ViewContainerRef, OnInit, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from './api.service';
 import { InforService } from './infor.service';
@@ -17,7 +17,7 @@ var checkFirst = true;
     templateUrl: 'app/thing-update.component.html',
     styleUrls: ['app/thing-update.component.css']
 })
-export class ThingUpdateComponent implements AfterViewInit, OnDestroy {
+export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() public update;
     @Input() public resizeCallback;
 
@@ -32,6 +32,13 @@ export class ThingUpdateComponent implements AfterViewInit, OnDestroy {
             private resolver: ComponentFactoryResolver,
             private view: ViewContainerRef) {
         this.element = elementRef.nativeElement;
+    }
+
+    ngOnInit() {
+        if (this.update.kind === 'member') {
+            this.member = this.update;
+            this.update = this.update.source;
+        }
     }
 
     edit() {
@@ -50,13 +57,13 @@ export class ThingUpdateComponent implements AfterViewInit, OnDestroy {
 
     ngAfterViewInit() {
         Waves.displayEffect();
-      	$(this.element).find('.tooltipped').tooltip({delay: 50});
+        $(this.element).find('.tooltipped').tooltip({delay: 50});
         this.updateImage = this.api.earthImageUrl(this.update.id);
     }
 
     isMine() {
         return this.inforService.getInforUser() &&
-            this.update.person.id === this.inforService.getInforUser().id;
+            this.update.source.id === this.inforService.getInforUser().id;
     }
 
     ngOnDestroy() {
