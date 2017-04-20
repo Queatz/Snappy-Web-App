@@ -35,10 +35,6 @@
     }
 }
 
-.start-hidden {
-    display: none;
-}
-
 .infobox {
     display: flex;
     flex: 1;
@@ -60,23 +56,6 @@
 .followers {
     display: inline-block;
     margin-left: 1em;
-}
-
-.tabs-anchor {
-    font-weight: bold;
-}
-
-ul.tabs {
-    display: flex;
-}
-
-.tabs .tab {
-    text-transform: initial;
-    flex: 1;
-}
-
-.tabs .tab .material-icons {
-    vertical-align: text-bottom;
 }
 
 .waiting {

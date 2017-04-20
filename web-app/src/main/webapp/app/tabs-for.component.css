@@ -1,0 +1,16 @@
+.tabs-anchor {
+    font-weight: bold;
+}
+
+ul.tabs {
+    display: flex;
+}
+
+.tabs .tab {
+    text-transform: initial;
+    flex: 1;
+}
+
+.tabs .tab .material-icons {
+    vertical-align: text-bottom;
+}

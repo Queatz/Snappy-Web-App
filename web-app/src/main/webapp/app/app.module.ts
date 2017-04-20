@@ -28,6 +28,8 @@ import { ThingUpdateComponent } from './thing-update.component';
 import { MainComponent } from './main.component';
 import { MessagesComponent } from './messages.component';
 import { AddMemberComponent } from './add-member.component';
+import { ThingTabsComponent } from './thing-tabs.component';
+import { TabsForComponent } from './tabs-for.component';
 
 import { ProfileComponent } from './profile.component';
 import { ProjectsComponent } from "./projects.component";
@@ -94,6 +96,8 @@ class MyOptions extends BaseRequestOptions {
         MainComponent,
         MessagesComponent,
         AddMemberComponent,
+        ThingTabsComponent,
+        TabsForComponent,
 
         ProfileComponent,
         ProjectsComponent,

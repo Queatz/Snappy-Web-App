@@ -27,27 +27,6 @@
     }
 }
 
-.start-hidden {
-    display: none;
-}
-
-.tabs-anchor {
-    font-weight: bold;
-}
-
-ul.tabs {
-    display: flex;
-}
-
-.tabs .tab {
-    text-transform: initial;
-    flex-grow: 1;
-}
-
-.tabs .tab .material-icons {
-    vertical-align: text-bottom;
-}
-
 .info {
     margin-left: 20px;
     margin-right: 20px;

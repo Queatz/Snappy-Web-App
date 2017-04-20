@@ -1,6 +1,6 @@
 declare var $;
 
-import { Component, Input, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
 import { InforService } from './infor.service';
 
 @Component({
@@ -8,12 +8,18 @@ import { InforService } from './infor.service';
     templateUrl: 'app/person-link.component.html',
     styleUrls: ['app/person-link.component.css']
 })
-export class PersonLinkComponent implements AfterViewInit, OnDestroy {
+export class PersonLinkComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() person;
     @Input() remove;
 
     constructor(private elementRef: ElementRef) {
 
+    }
+
+    ngOnInit() {
+        if (this.person.kind === 'member') {
+            this.person = this.person.source;
+        }
     }
 
     ngAfterViewInit() {

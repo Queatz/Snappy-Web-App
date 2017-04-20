@@ -45,43 +45,11 @@
                     <div *ngIf="person.infoFollowers" class="followers grey-text text-darken-2">{{ person.infoFollowers }} {{ person.infoFollowers === 1 ? 'follower' : 'followers' }}</div>
                 </div>
             </div>
-            <div class="tabs-anchor">
-                <ul class="tabs">
-                    <li class="tab"><a href="#tab-updates" (click)="selectTab('updates')" class="active txt-red"><i class="material-icons">perm_identity</i> Updates</a></li>
-                    <li *ngIf="person.offers && person.offers.length" class="tab"><a href="#tab-offers" (click)="selectTab('offers')" class="txt-green"><i class="material-icons">redeem</i> Offers</a></li>
-                    <li *ngIf="person.projects && person.projects.length" class="tab"><a href="#tab-projects" (click)="selectTab('projects')" class="deep-orange-text"> <i class="material-icons">settings</i> Projects</a></li>
-                    <li *ngIf="person.resources && person.resources.length" class="tab"><a href="#tab-resources" (click)="selectTab('resources')" class="brown-text"> <i class="material-icons">language</i> Resources</a></li>
-                    <li *ngIf="person.hubs && person.hubs.length" class="tab"><a href="#tab-hubs" (click)="selectTab('hubs')" class="blue-text"><i class="material-icons">room</i> Hubs</a></li>
-                    <li *ngIf="person.clubs && person.clubs.length" class="tab"><a href="#tab-clubs" (click)="selectTab('clubs')" class="orange-text"><i class="material-icons">supervisor_account</i> Clubs</a></li>
-                    <li *ngIf="person.people && person.people.length" class="tab"><a href="#tab-people" (click)="selectTab('people')" class="txt-red"><i class="material-icons">perm_identity</i> People</a></li>
-                </ul>
-            </div>
+            <tabs-for [thing]="person"></tabs-for>
         </div>
     </div>
     <br />
-    <div id="tab-updates">
-        <div class="center-align" *ngIf="person && isMyProfile()">
-            <a href="#postUpdateModal" class="modal-trigger price waves-effect waves-light btn white-text bkg-red tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Post a new update'">
-                <b><i class="material-icons left">edit</i>New Post</b>
-            </a>
-        </div>
-        <thing-updates *ngIf="person" [updates]="person.updates"></thing-updates>
-    </div>
-    <div class="start-hidden" id="tab-offers">
-        <offers *ngIf="person" [list]="offers" [profile]="isMyProfile()"></offers>
-    </div>
-    <div class="start-hidden" id="tab-projects">
-        <things *ngIf="person" [things]="person.projects"></things>
-    </div>
-    <div class="start-hidden" id="tab-resources">
-        <things *ngIf="person" [things]="person.resources"></things>
-    </div>
-    <div class="start-hidden" id="tab-hubs">
-        <things *ngIf="person" [things]="person.hubs"></things>
-    </div>
-    <div class="start-hidden" id="tab-people">
-        <things *ngIf="person" [things]="person.people"></things>
-    </div>
+    <thing-tabs [thing]="person"></thing-tabs>
     <div id="edit-about" class="modal">
         <div class="modal-content">
             <h4>Edit me</h4>

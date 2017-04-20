@@ -32,7 +32,7 @@
             </h3>
             <div *ngIf="thing.contacts.length">
                 <h6 class="metadata grey-text">CONTACTS</h6>
-                <person-link *ngFor="let contact of thing.contacts" [remove]="canEdit() ? removeCallbackFor(contact) : undefined" [person]="contact.target"></person-link>
+                <person-link *ngFor="let contact of thing.contacts" [remove]="canEdit() ? removeCallbackFor(contact.source) : undefined" [person]="contact.source.target"></person-link>
             </div>
             <div *ngIf="thing.address">
                 <h6 class="metadata grey-text">LOCATION</h6>
@@ -46,42 +46,10 @@
                 <i *ngIf="isFollowing" class="material-icons">check</i>
             </div>
         </div>
-        <div class="tabs-anchor">
-            <ul class="tabs">
-                <li class="tab"><a href="#tab-updates" (click)="selectTab('updates')" class="active txt-red"><i class="material-icons">perm_identity</i> Updates</a></li>
-                <li *ngIf="thing.offers && thing.offers.length" class="tab"><a href="#tab-offers" (click)="selectTab('offers')" class="txt-green"><i class="material-icons">redeem</i> Offers</a></li>
-                <li *ngIf="thing.projects && thing.projects.length" class="tab"><a href="#tab-projects" (click)="selectTab('projects')" class="deep-orange-text"> <i class="material-icons">settings</i> Projects</a></li>
-                <li *ngIf="thing.resources && thing.resources.length" class="tab"><a href="#tab-resources" (click)="selectTab('resources')" class="brown-text"> <i class="material-icons">language</i> Resources</a></li>
-                <li *ngIf="thing.hubs && thing.hubs.length" class="tab"><a href="#tab-hubs" (click)="selectTab('hubs')" class="blue-text"><i class="material-icons">room</i> Hubs</a></li>
-                <li *ngIf="thing.clubs && thing.clubs.length" class="tab"><a href="#tab-clubs" (click)="selectTab('clubs')" class="orange-text"><i class="material-icons">supervisor_account</i> Clubs</a></li>
-                <li *ngIf="thing.people && thing.people.length" class="tab"><a href="#tab-people" (click)="selectTab('people')" class="txt-red"><i class="material-icons">perm_identity</i> People</a></li>
-            </ul>
-        </div>
+        <tabs-for [thing]="thing"></tabs-for>
     </div>
     <br />
-    <div id="tab-updates">
-        <div class="center-align" *ngIf="thing && isSignedIn()">
-            <a href="#postUpdateModal" class="modal-trigger price waves-effect waves-light btn white-text bkg-red tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Post a new update on ' + thing.name">
-                <b><i class="material-icons left">edit</i>New Post</b>
-            </a>
-        </div>
-        <thing-updates *ngIf="thing" [updates]="thing.updates"></thing-updates>
-    </div>
-    <div class="start-hidden" id="tab-offers">
-        <offers *ngIf="thing" [list]="thing.offers" [profile]="thing"></offers>
-    </div>
-    <div class="start-hidden" id="tab-projects">
-        <things *ngIf="thing" [things]="thing.projects"></things>
-    </div>
-    <div class="start-hidden" id="tab-resources">
-        <things *ngIf="thing" [things]="thing.resources"></things>
-    </div>
-    <div class="start-hidden" id="tab-hubs">
-        <things *ngIf="thing" [things]="thing.hubs"></things>
-    </div>
-    <div class="start-hidden" id="tab-people">
-        <things *ngIf="thing" [things]="thing.people"></things>
-    </div>
+    <thing-tabs [thing]="thing"></thing-tabs>
     <edit-details-modal *ngIf="canEdit()" [thing]="thing"></edit-details-modal>
     <add-contact-modal *ngIf="canEdit()" [thing]="thing"></add-contact-modal>
     <remove-contact-modal *ngIf="canEdit() && removingContact" [thing]="thing" [contact]="removingContact"></remove-contact-modal>

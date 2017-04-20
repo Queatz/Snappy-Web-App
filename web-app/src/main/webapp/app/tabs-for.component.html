@@ -1,0 +1,11 @@
+<div class="tabs-anchor">
+    <ul class="tabs">
+        <li class="tab"><a href="#tab-updates" (click)="selectTab('updates')" class="active txt-red"><i class="material-icons">perm_identity</i> Updates</a></li>
+        <li *ngIf="thing.offers && thing.offers.length" class="tab"><a href="#tab-offers" (click)="selectTab('offers')" class="txt-green"><i class="material-icons">redeem</i> Offers</a></li>
+        <li *ngIf="thing.projects && thing.projects.length" class="tab"><a href="#tab-projects" (click)="selectTab('projects')" class="deep-orange-text"> <i class="material-icons">settings</i> Projects</a></li>
+        <li *ngIf="thing.resources && thing.resources.length" class="tab"><a href="#tab-resources" (click)="selectTab('resources')" class="brown-text"> <i class="material-icons">language</i> Resources</a></li>
+        <li *ngIf="thing.hubs && thing.hubs.length" class="tab"><a href="#tab-hubs" (click)="selectTab('hubs')" class="blue-text"><i class="material-icons">room</i> Hubs</a></li>
+        <li *ngIf="thing.clubs && thing.clubs.length" class="tab"><a href="#tab-clubs" (click)="selectTab('clubs')" class="orange-text"><i class="material-icons">supervisor_account</i> Clubs</a></li>
+        <li *ngIf="thing.people && thing.people.length" class="tab"><a href="#tab-people" (click)="selectTab('people')" class="txt-red"><i class="material-icons">perm_identity</i> People</a></li>
+    </ul>
+</div>

@@ -29,7 +29,6 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
 
         api.earthThing(this.id).subscribe(thing => {
                     this.thing = thing;
-                    this.thing.updates = _.sortBy(this.thing.updates, update => -moment(update.date));
 
                     if (this.thing.members) {
                         this.thing.people = _.filter(this.thing.members, m => m.source.kind === 'person');
@@ -40,6 +39,7 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
                         this.thing.clubs = _.filter(this.thing.members, m => m.source.kind === 'club');
                         this.thing.contacts = _.filter(this.thing.members, m => m.source.kind === 'contact');
                         this.thing.updates = _.filter(this.thing.members, m => m.source.kind === 'update');
+                        this.thing.updates = _.sortBy(this.thing.updates, member => -moment(member.source.date));
                     }
 
                     this.inforService.setPageTitle(this.thing.name);
