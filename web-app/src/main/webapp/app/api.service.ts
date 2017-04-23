@@ -182,18 +182,23 @@ export class ApiService {
                            .map((res: Response) => res.json());
     }
 
-    public newOffer(details, price, unit, asMemberOf = null) {
+    public newOffer(details, price, unit, asMemberOf = null, isWant = false) {
         var creds = "auth=" + this.token() +
         "&details=" + encodeURIComponent(details) +
         "&price=" + encodeURIComponent(price) +
         "&unit=" + encodeURIComponent(unit) +
+        "&want=" + encodeURIComponent(want) +
         "&kind=offer" +
         (asMemberOf ? "&in=" + encodeURIComponent(asMemberOf) : "");
         return this._http.post(this._apiBaseUrl + 'earth', creds, this.formHeaders()).map((res: Response) => res.json());
     }
 
-    public editOffer(offerId, details, price, unit) {
-        var creds = "auth=" + this.token() + "&details=" + encodeURIComponent(details) + "&price=" + encodeURIComponent(price) + "&unit=" + encodeURIComponent(unit);
+    public editOffer(offerId, details, price, unit, isWant) {
+        var creds = "auth=" + this.token() +
+            "&details=" + encodeURIComponent(details) +
+            "&price=" + encodeURIComponent(price) +
+            "&unit=" + encodeURIComponent(unit) +
+            "&want=" + encodeURIComponent(isWant);
         return this._http.post(this._apiBaseUrl + 'earth/' + offerId, creds, this.formHeaders()).map((res: Response) => res.json());
     }
 

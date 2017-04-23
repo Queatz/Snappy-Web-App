@@ -1,22 +1,30 @@
 <div id="{{ modalId || 'modal' }}" class="modal">
     <div class="modal-content">
-        <h4>{{ offer ? 'Edit' : 'New' }} {{ enumber < 0 ? 'request' : 'offer' }}</h4>
+        <h4>{{ offer ? 'Edit' : 'New' }} {{ isRequest() ? 'request' : 'offer' }}</h4>
 
         <form>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">edit</i>
                     <input autofocus id="strdetail" type="text" required [(ngModel)]="edetails" name="edetails" />
-                    <label class="active" for="strdetail">Describe your {{ enumber < 0 ? 'request' : 'offer' }}</label>
+                    <label class="active" for="strdetail">Describe your {{ isRequest() ? 'request' : 'offer' }}</label>
                 </div>
 
-                <div class="input-field range-field col s9 l10">
+                <div class="col s12">
+                    <div class="input-field range-field col s6">
+                        <input type="checkbox" id="isWant" [(ngModel)]="isWant" name="isWant" class="tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Want'" />
+                        <label for="isWant">Want</label>
+                    </div>
+
+                    <div class="input-field range-field col s6">
+                        <input type="checkbox" id="justAsk" [(ngModel)]="justAsk" name="justAsk" class="tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Ask for price'" />
+                        <label for="justAsk">Ask for price</label>
+                    </div>
+                </div>
+
+                <div class="input-field range-field col s12">
                     <i class="material-icons prefix tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Price of offer'">swap_horiz</i>
                     <input [disabled]="justAsk" [(ngModel)]="enumber" name="enumber" type="range" id="rangeInput" min="-200" step="10" max="200" value="0">
-                </div>
-                <div class="input-field range-field col s3 l2">
-                    <input type="checkbox" id="justAsk" [(ngModel)]="justAsk" name="justAsk" class="tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Ask for price'" />
-                    <label for="justAsk">Ask</label>
                 </div>
 
                 <div class="input-field col s12">
@@ -31,7 +39,7 @@
     <div class="modal-footer">
         <a class="btn-flat waves-effect waves-blue modal-action blue-text" type="submit"
                 name="action" (click)="newOffer()">
-            {{offer ? 'Save' : enumber < 0 ? 'Request' : 'Offer'}}
+            {{offer ? 'Save' : isRequest() ? 'Request' : 'Offer'}}
         </a>
         <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
     </div>

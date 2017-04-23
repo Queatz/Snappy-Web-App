@@ -23,6 +23,7 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
     private edetails;
     private emessage;
     private justAsk;
+    private isWant;
     private name;
 
     constructor(private api: ApiService, inforService: InforService, element: ElementRef) {
@@ -56,13 +57,17 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
         $(this.element).find('.tooltipped').tooltip('remove');
     }
 
+    isRequest() {
+        return this.enumber < 0 || this.isWant;
+    }
+
     newOffer() {
         var edetails = this.edetails;
         var emessage = this.emessage;
         var enumber = this.enumber;
 
         if (!edetails) {
-            Materialize.toast('Describe your ' + (this.enumber < 0 ? 'request' : 'offer'), 4000);
+            Materialize.toast('Describe your ' + (isRequest() ? 'request' : 'offer'), 4000);
             return;
         }
 
@@ -76,12 +81,13 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
 
         if (this.offer) {
             var self = this;
-            this.api.editOffer(this.offer.id, edetails, enumber, emessage)
+            this.api.editOffer(this.offer.id, edetails, enumber, emessage, isWant)
                 .subscribe(offer => {
                     if (offer.id) {
                         self.offer.price = offer.price;
                         self.offer.unit = offer.unit;
                         self.offer.about = offer.about;
+                        self.offer.want = offer.want;
                         Materialize.toast('Offer updated', 4000);
 
                         if (self.resizeCallback) {
@@ -93,7 +99,7 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
             return;
         }
 
-        this.api.newOffer(edetails, enumber, emessage, this.asMemberOf)
+        this.api.newOffer(edetails, enumber, emessage, this.asMemberOf, isWant)
             .subscribe(dataInput => {
                 if (dataInput.id) {
                     Materialize.toast('Offer added', 4000);
