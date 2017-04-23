@@ -1,13 +1,12 @@
 declare var $;
 declare var _;
-declare var require;
-var Masonry = require('masonry-layout');
 
 import { Component, Input, OnInit, ElementRef, AfterViewInit, OnChanges, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
+import util from './util';
 
 @Component({
     selector: 'offers',
@@ -95,12 +94,7 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
         this.offers = _.sortBy(offers, 'price');
 
         setTimeout(() => {
-            var elem = this.element.querySelector('.grid');
-            this.masonry = new Masonry(elem, {
-                itemSelector: '.item',
-                gutter: 24,
-                fitWidth: true
-            });
+            this.masonry = util.masonry(this.element.querySelector('.grid'));
         });
     }
 

@@ -111,7 +111,7 @@ export class ApiService {
         var headers = new Headers();
         headers.append('Content-Type', undefined);
 
-        return this.makeFilePostRequest(this._apiBaseUrl + 'earth?kind=update&auth=' + this.token(), formData);
+        return this.makeFilePostRequest(this._apiBaseUrl + 'earth?kind=update&in=' + thingId + '&auth=' + this.token(), formData);
     }
 
     // XXX currently returns a promise, so must use .then()

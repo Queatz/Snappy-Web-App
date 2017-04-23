@@ -1,10 +1,8 @@
-declare var require;
-var Masonry = require('masonry-layout');
-
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { InviteModal } from './invite.modal';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
+import util from './util';
 
 @Component({
     templateUrl: 'app/people.component.html',
@@ -42,12 +40,7 @@ export class PeopleComponent implements AfterViewInit {
         this.people = people;
 
         setTimeout(() => {
-            var elem = this.element.querySelector('.grid');
-            this.masonry = new Masonry(elem, {
-                itemSelector: '.item',
-                gutter: 24,
-                fitWidth: true
-            });
+            this.masonry = util.masonry(this.element.querySelector('.grid'));
         });
     }
 }

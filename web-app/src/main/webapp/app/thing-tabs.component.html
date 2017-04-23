@@ -4,7 +4,7 @@
             <b><i class="material-icons left">edit</i>New Post</b>
         </a>
     </div>
-    <thing-updates *ngIf="thing" [updates]="thing.updates"></thing-updates>
+    <thing-updates *ngIf="thing && thing.updates" [updates]="thing.updates"></thing-updates>
 </div>
 <div class="start-hidden" id="tab-offers">
     <offers *ngIf="thing" [list]="thing.offers" [profile]="thing"></offers>
@@ -21,3 +21,4 @@
 <div class="start-hidden" id="tab-people">
     <things *ngIf="thing" [things]="thing.people"></things>
 </div>
+<post-update-modal *ngIf="thing" [thing]="thing"></post-update-modal>

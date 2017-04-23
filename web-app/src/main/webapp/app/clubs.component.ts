@@ -1,8 +1,6 @@
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { InforService } from './infor.service';
-
-declare var require: any;
-var Masonry = require('masonry-layout');
+import util from './util';
 
 @Component({
     templateUrl: 'app/clubs.component.html',
@@ -24,12 +22,7 @@ export class ClubsComponent implements AfterViewInit {
         this.projects = projects;
 
         setTimeout(() => {
-            var elem = this.element.querySelector('.grid');
-            this.masonry = new Masonry(elem, {
-                itemSelector: '.item',
-                gutter: 24,
-                fitWidth: true
-            });
+            this.masonry = util.masonry(this.element.querySelector('.grid'));
         });
     }
 

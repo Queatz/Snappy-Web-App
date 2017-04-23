@@ -16,10 +16,10 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
     public notFound = false;
 
     private id;
-    private removingContact;
     private element;
     private isFollowing;
     private selectedTab;
+    private removingContact;
 
     constructor(private ngZone: NgZone, private api: ApiService, private inforService: InforService, private route: ActivatedRoute, elementRef: ElementRef) {
         route.params.subscribe(params => {
@@ -31,15 +31,15 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
                     this.thing = thing;
 
                     if (this.thing.members) {
-                        this.thing.people = _.filter(this.thing.members, m => m.source.kind === 'person');
-                        this.thing.offers = _.filter(this.thing.members, m => m.source.kind === 'offer');
-                        this.thing.resources = _.filter(this.thing.members, m => m.source.kind === 'resource');
-                        this.thing.hubs = _.filter(this.thing.members, m => m.source.kind === 'hub');
-                        this.thing.projects = _.filter(this.thing.members, m => m.source.kind === 'project');
-                        this.thing.clubs = _.filter(this.thing.members, m => m.source.kind === 'club');
-                        this.thing.contacts = _.filter(this.thing.members, m => m.source.kind === 'contact');
-                        this.thing.updates = _.filter(this.thing.members, m => m.source.kind === 'update');
-                        this.thing.updates = _.sortBy(this.thing.updates, member => -moment(member.source.date));
+                        this.thing.people = _.filter(this.thing.members, m => m.source && m.source.kind === 'person');
+                        this.thing.offers = _.filter(this.thing.members, m => m.source && m.source.kind === 'offer');
+                        this.thing.resources = _.filter(this.thing.members, m => m.source && m.source.kind === 'resource');
+                        this.thing.hubs = _.filter(this.thing.members, m => m.source && m.source.kind === 'hub');
+                        this.thing.projects = _.filter(this.thing.members, m => m.source && m.source.kind === 'project');
+                        this.thing.clubs = _.filter(this.thing.members, m => m.source && m.source.kind === 'club');
+                        this.thing.contacts = _.filter(this.thing.members, m => m.source && m.source.kind === 'contact');
+                        this.thing.updates = _.filter(this.thing.members, m => m.source && m.source.kind === 'update');
+                        this.thing.updates = _.sortBy(this.thing.updates, m => -moment(m.source && m.source.date));
                     }
 
                     this.inforService.setPageTitle(this.thing.name);
@@ -95,7 +95,7 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
 
         var me = this.inforService.getInforUser().id;
 
-        return this.thing && _.any(this.thing.contacts, t => t.target.id === me);
+        return this.thing && _.any(this.thing.contacts, t => t.source.target.id === me);
     }
 
     public addressLink() {

@@ -70,7 +70,7 @@ export class EditDetailsModal implements AfterViewInit {
 
         var me = this.inforService.getInforUser().id;
 
-        return this.thing && _.any(this.thing.contacts, t => t.target.id === me);
+        return this.thing && _.any(this.thing.contacts, t => t.source.target.id === me);
     }
 
     remove() {

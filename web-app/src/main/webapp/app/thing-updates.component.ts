@@ -1,7 +1,5 @@
-declare var require: any;
-var Masonry = require('masonry-layout');
-
 import { Component, Input, ElementRef, OnInit, OnChanges, DoCheck, OnDestroy } from '@angular/core';
+import util from './util';
 
 @Component({
     selector: 'thing-updates',
@@ -55,12 +53,7 @@ export class ThingUpdatesComponent implements OnInit, OnChanges, OnDestroy {
         this.previousArraySize = updates.length;
 
         setTimeout(() => {
-            var elem = this.element.querySelector('.grid');
-            this.masonry = new Masonry(elem, {
-                itemSelector: '.item',
-                gutter: 24,
-                fitWidth: true
-            });
+            this.masonry = util.masonry(this.element.querySelector('.grid'));
         });
     }
 

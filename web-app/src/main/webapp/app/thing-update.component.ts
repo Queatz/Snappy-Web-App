@@ -25,6 +25,7 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
     private modal;
     private cr;
     private updateImage;
+    private member;
 
     constructor(private inforService: InforService,
             private api: ApiService,

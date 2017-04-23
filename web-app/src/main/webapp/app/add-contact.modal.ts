@@ -48,7 +48,7 @@ export class AddContactModal implements AfterViewInit {
             'in': this.thing.id
         }).subscribe(contact => {
             if (this.thing.contacts) {
-                this.thing.contacts.push(contact);
+                this.thing.contacts.push({source: contact});
             }
             $(this.element.querySelector('.modal')).modal('close');
             Materialize.toast(contact.target.firstName + ' added', 4000);

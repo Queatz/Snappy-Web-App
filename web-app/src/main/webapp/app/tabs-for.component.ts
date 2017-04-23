@@ -10,6 +10,7 @@ import { Component, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular
 })
 export class TabsForComponent implements AfterViewInit, OnDestroy {
     @Input() public thing;
+    private element;
 
     constructor(
         element: ElementRef

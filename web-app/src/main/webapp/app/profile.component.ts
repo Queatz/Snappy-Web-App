@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private inforService: InforService;
     private element;
-    private person;
+    private thing;
     private newOfferModal;
     private newResourceModal;
     private newProjectModal;
@@ -45,8 +45,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     ) {
         this.inforService = inforService;
         this.element = element.nativeElement;
-        this.offers = null;
-        this.person = null;
+        this.thing = null;
 
         this.newOfferModal = NewOfferModal;
         this.newResourceModal = NewResourceModal;
@@ -74,20 +73,18 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     loadPerson(personName) {
             this.api.getPersonByName(personName)
             .subscribe(person => {
-                this.person = person;
-
                 this.thing = person;
 
                 if (this.thing.members) {
-                    this.thing.people = _.filter(this.thing.members, m => m.source.kind === 'person');
-                    this.thing.offers = _.filter(this.thing.members, m => m.source.kind === 'offer');
-                    this.thing.resources = _.filter(this.thing.members, m => m.source.kind === 'resource');
-                    this.thing.hubs = _.filter(this.thing.members, m => m.source.kind === 'hub');
-                    this.thing.projects = _.filter(this.thing.members, m => m.source.kind === 'project');
-                    this.thing.clubs = _.filter(this.thing.members, m => m.source.kind === 'club');
-                    this.thing.contacts = _.filter(this.thing.members, m => m.source.kind === 'contact');
-                    this.thing.updates = _.filter(this.thing.members, m => m.source.kind === 'update');
-                    this.thing.updates = _.sortBy(this.thing.updates, member => -moment(member.source.date));
+                    this.thing.people = _.filter(this.thing.members, m => m.source && m.source.kind === 'person');
+                    this.thing.offers = _.filter(this.thing.members, m => m.source && m.source.kind === 'offer');
+                    this.thing.resources = _.filter(this.thing.members, m => m.source && m.source.kind === 'resource');
+                    this.thing.hubs = _.filter(this.thing.members, m => m.source && m.source.kind === 'hub');
+                    this.thing.projects = _.filter(this.thing.members, m => m.source && m.source.kind === 'project');
+                    this.thing.clubs = _.filter(this.thing.members, m => m.source && m.source.kind === 'club');
+                    this.thing.contacts = _.filter(this.thing.members, m => m.source && m.source.kind === 'contact');
+                    this.thing.updates = _.filter(this.thing.members, m => m.source && m.source.kind === 'update');
+                    this.thing.updates = _.sortBy(this.thing.updates, m => -moment(m.source && m.source.date));
                 }
 
                 this.editAbout = person.about;
@@ -112,7 +109,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
 
     saveEdit() {
         this.api.saveAbout(this.editAbout).subscribe(() => {
-            this.person.about = this.editAbout;
+            this.thing.about = this.editAbout;
         });
     }
 

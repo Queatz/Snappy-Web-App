@@ -1,8 +1,6 @@
-declare var require;
-var Masonry = require('masonry-layout');
-
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { InforService } from './infor.service';
+import util from './util';
 
 @Component({
     templateUrl: 'app/search.component.html',
@@ -25,12 +23,7 @@ export class SearchComponent implements AfterViewInit {
         this.projects = projects;
 
         setTimeout(() => {
-            var elem = this.element.querySelector('.grid');
-            this.masonry = new Masonry(elem, {
-                itemSelector: '.item',
-                gutter: 24,
-                fitWidth: true
-            });
+            this.masonry = util.masonry(this.element.querySelector('.grid'));
         });
     }
 

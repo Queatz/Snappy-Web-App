@@ -1,11 +1,9 @@
-declare var require;
-var Masonry = require('masonry-layout');
-
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import { NewHubModal } from './new-hub.modal';
 import { SigninRequiredModal } from './signin-required.modal';
+import util from './util';
 
 @Component({
     templateUrl: 'app/hubs.component.html',
@@ -39,12 +37,7 @@ export class HubsComponent implements AfterViewInit {
         this.hubs = hubs;
 
         setTimeout(() => {
-            var elem = this.element.querySelector('.grid');
-            this.masonry = new Masonry(elem, {
-                itemSelector: '.item',
-                gutter: 24,
-                fitWidth: true
-            });
+            this.masonry = util.masonry(this.element.querySelector('.grid'));
         });
     }
 

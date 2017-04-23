@@ -12,6 +12,8 @@ import { InforService } from './infor.service';
 export class ThingTabsComponent implements AfterViewInit, OnDestroy {
     @Input() public thing;
 
+    private element;
+
     constructor(
         private inforService: InforService,
         element: ElementRef
