@@ -7,7 +7,7 @@
     <thing-updates *ngIf="thing && thing.updates" [updates]="thing.updates"></thing-updates>
 </div>
 <div class="start-hidden" id="tab-offers">
-    <offers *ngIf="thing" [list]="thing.offers" [profile]="thing"></offers>
+    <offers *ngIf="thing" [list]="thing.offers" [profile]="isMyProfile()"></offers>
 </div>
 <div class="start-hidden" id="tab-projects">
     <things *ngIf="thing" [things]="thing.projects"></things>

@@ -82,7 +82,7 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     public isRequest() {
-        return this.offer.price !== null && this.offer.price < 0;
+        return this.offer.want || (this.offer.price !== null && this.offer.price < 0);
     }
 
     public getOfferTypeText() {
@@ -106,7 +106,8 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     public isProfileOr() {
-        return this.profile || this.offer.member && this.offer.member.target.id === this.inforService.getInforUser().id;
+        var user = this.inforService.getInforUser();
+        return this.profile || (user && this.offer.member && this.offer.member.target && this.offer.member.target.id === user.id);
     }
 
     public clickPrice() {

@@ -67,7 +67,7 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
         var enumber = this.enumber;
 
         if (!edetails) {
-            Materialize.toast('Describe your ' + (isRequest() ? 'request' : 'offer'), 4000);
+            Materialize.toast('Describe your ' + (this.isRequest() ? 'request' : 'offer'), 4000);
             return;
         }
 
@@ -81,7 +81,7 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
 
         if (this.offer) {
             var self = this;
-            this.api.editOffer(this.offer.id, edetails, enumber, emessage, isWant)
+            this.api.editOffer(this.offer.id, edetails, enumber, emessage, this.isWant)
                 .subscribe(offer => {
                     if (offer.id) {
                         self.offer.price = offer.price;
@@ -99,13 +99,34 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
             return;
         }
 
-        this.api.newOffer(edetails, enumber, emessage, this.asMemberOf, isWant)
-            .subscribe(dataInput => {
-                if (dataInput.id) {
+        var asMemberOf = this.asMemberOf;
+
+        this.api.newOffer(edetails, enumber, emessage, this.asMemberOf, this.isWant)
+            .subscribe(member => {
+                if (member.id) {
                     Materialize.toast('Offer added', 4000);
-                    this.inforService.setNewOffer(dataInput);
+                    this.inforService.setNewOffer(member);
                     this.edetails = '';
                     this.emessage = '';
+
+                    var k: string;
+
+                    switch (member.kind) {
+                        case 'person':
+                            k = 'people';
+                            break;
+                        default:
+                            k = member.kind + 's';
+                    }
+
+                    if (asMemberOf) {
+                        if (!asMemberOf[k]) {
+                            asMemberOf[k] = [];
+                        }
+
+                        asMemberOf[k].push(member);
+
+                    }
                 }
             });
     }

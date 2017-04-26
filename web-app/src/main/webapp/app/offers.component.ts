@@ -83,7 +83,7 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
                 if (offers.length < 1) {
                     return;
                 }
-                this.loaded(offers);
+                this.loaded(_.sortBy(offers, 'price'));
             }, error => {
                 this.loaded([]);
             });
@@ -91,7 +91,7 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
 
     public loaded(offers) {
         this.offersLoaded = true;
-        this.offers = _.sortBy(offers, 'price');
+        this.offers = offers;
 
         setTimeout(() => {
             this.masonry = util.masonry(this.element.querySelector('.grid'));
