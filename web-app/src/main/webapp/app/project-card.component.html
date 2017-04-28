@@ -3,12 +3,14 @@
         <div class="card-tabbing {{typeClass}}"></div>
         <img *ngIf="getPhotoUrl()" src="{{ getPhotoUrl() }}">
         <img *ngIf="!getPhotoUrl()" src="img/night.png">
-        <span class="card-title">{{ thing.name }}</span>
-        <i class="remove-thing waves-effect material-icons white-text small waves-light tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Remove'" *ngIf="removable()" (click)="remove($event)">clear</i>
+        <div class="cover-shadow"></div>
+        <span class="card-title">{{ thing.name }}{{ thing.member && thing.member.role ? ', ' + thing.member.role : ''}}</span>
+        <i class="remove-thing card-hover waves-effect material-icons white-text small waves-light tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Remove'" *ngIf="removable()" (click)="remove($event)">clear</i>
     </div>
-    <div class="card-content">
+    <div class="card-content position-relative">
         <p>{{ thing.about }}</p>
         <i *ngIf="!thing.about" class="grey-text">No description provided.</i>
+        <i class="remove-thing card-content-hover waves-effect material-icons grey-text tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit role'" *ngIf="removable() && thing.member" (click)="editRole($event)">assignment_ind</i>
     </div>
     <div class="card-action">
         <div *ngIf="thing.backers">
@@ -28,3 +30,4 @@
         }}</a>
     </div>
 </div>
+<edit-role-modal *ngIf="thing.member" [thing]="thing.member"></edit-role-modal>

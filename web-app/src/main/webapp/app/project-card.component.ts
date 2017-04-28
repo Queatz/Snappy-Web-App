@@ -5,6 +5,7 @@ import { Component, Input, OnInit, ElementRef, AfterViewInit, OnDestroy } from '
 import { Router } from '@angular/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
+import util from './util';
 
 @Component({
     selector: 'project-card',
@@ -29,26 +30,7 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
             this.thing = this.thing.source;
         }
 
-        if (!this.typeClass) {
-            switch (this.thing.kind) {
-                case 'resource':
-                    this.typeClass = 'brown';
-                    break;
-                case 'project':
-                    this.typeClass = 'deep-orange';
-                    break;
-                case 'hub':
-                    this.typeClass = 'blue';
-                    break;
-                case 'club':
-                    this.typeClass = 'yellow darken-4';
-                    break;
-                case 'person':
-                default:
-                    this.typeClass = 'bkg-red';
-                    break;
-            }
-        }
+        this.typeClass = util.typeClassOf(this.thing.kind);
 
         switch (this.thing.kind) {
             case 'person':
@@ -86,6 +68,10 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
 
             return;
         }
+    }
+
+    public editRole() {
+        $(this.elementRef.nativeElement.querySelector('#editRoleModal')).modal('open');
     }
 
     public getPhotoUrl() {

@@ -1,9 +1,5 @@
-@import 'https://fonts.googleapis.com/css?family=Varela+Round';
-
 body {
     background: #f2f2f2;
-    font-family: 'Varela Round', sans-serif;
-
     background-attachment: fixed;
     background-size: 100%;
     background-image: url(/img/anastasia-village.jpg);
@@ -78,4 +74,8 @@ html body h3 {
 
 .card .card-action a.secondary-content {
     margin-right: 0 !important;
+}
+
+.modal {
+    text-align: initial;
 }

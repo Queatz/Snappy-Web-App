@@ -1,0 +1,24 @@
+<div id="editRoleModal" class="modal">
+    <div class="modal-content">
+        <h4>Edit {{ thing.source ? (thing.source.firstName || thing.source.name) + '\'s' : '' }} role</h4>
+
+        <form>
+            <div class="row">
+                <div class="col s12">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">assignment_ind</i>
+                        <input id="name" type="text" [(ngModel)]="newRole" name="newRole">
+                        <label class="active" for="name">Enter role</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <a class="btn-flat waves-effect waves-blue modal-action blue-text" type="submit" name="action" (click)="confirmRole()">
+            Confirm role
+        </a>
+        <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
+    </div>
+</div>

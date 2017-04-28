@@ -6,6 +6,7 @@ import { Component, OnInit, AfterViewInit, ElementRef, NgZone, OnDestroy } from 
 import { ActivatedRoute } from '@angular/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
+import util from './util';
 
 @Component({
     templateUrl: 'app/project.component.html',
@@ -110,5 +111,46 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
             // Follow -> this.isFollowing => true
             this.isFollowing = true;
         }
+    }
+
+    typeClassOf() {
+        return util.typeClassOf(this.thing.kind);
+    }
+
+    actionButton() {
+        switch (this.thing.kind) {
+            case 'resource':
+                return 'Use it';
+            case 'project':
+                return 'Join the project';
+            case 'hub':
+                return 'Get directions';
+            case 'club':
+                return 'Beg for membership';
+            case 'person':
+            default:
+                return '???';
+        }
+    }
+
+    clickActionButton() {
+        switch (this.thing.kind) {
+            case 'resource':
+                return 'Use it';
+            case 'project':
+                return 'Join the project';
+            case 'hub':
+                window.open(this.addressLink(), '_blank');
+                break;
+            case 'club':
+                return 'Beg for membership';
+            case 'person':
+            default:
+                return '???';
+        }
+    }
+
+    actionButtonEnabled() {
+        return true;
     }
 }

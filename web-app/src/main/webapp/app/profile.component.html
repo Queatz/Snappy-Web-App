@@ -34,15 +34,15 @@
                 <br />
                 <div>
                     <a [routerLink]="['/messages/' + thing.id]">
-                        <div class="price waves-effect waves-light btn white-text bkg-red tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Open your messages with ' + thing.firstName" *ngIf="!isMyProfile()">
-                            <b>Message {{ thing.firstName }}</b>
+                        <div class="price waves-effect waves-light btn white-text bkg-red tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Open your conversation with ' + thing.firstName" *ngIf="!isMyProfile()">
+                            <b>Talk with {{ thing.firstName }}</b>
                         </div>
                     </a>
                     <div class="waves-effect waves-light btn white-text teal tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'You\'ll get updates from ' + thing.firstName + ' ' + thing.lastName" *ngIf="!isMyProfile()" (click)="toggleFollow()">
-                        <b *ngIf="!isFollowing">Follow</b>
+                        <b *ngIf="!isFollowing">Back them</b>
                         <i *ngIf="isFollowing" class="material-icons">check</i>
                     </div>
-                    <div *ngIf="thing.infoFollowers" class="followers grey-text text-darken-2">{{ thing.infoFollowers }} {{ thing.infoFollowers === 1 ? 'follower' : 'followers' }}</div>
+                    <div *ngIf="thing.infoFollowers" class="followers grey-text text-darken-2">{{ thing.infoFollowers }} {{ thing.infoFollowers === 1 ? 'backer' : 'backers' }}</div>
                 </div>
             </div>
             <tabs-for [thing]="thing"></tabs-for>

@@ -55,6 +55,7 @@ import { AddThingModal } from './add-thing.modal';
 import { RemoveContactModal } from './remove-contact.modal';
 import { SigninRequiredModal } from './signin-required.modal';
 import { InviteModal } from './invite.modal';
+import { EditRoleModal } from './edit-role.modal';
 
 import { ExactRouteReuseStrategy } from './exact.reuse';
 
@@ -125,6 +126,7 @@ class MyOptions extends BaseRequestOptions {
         NewResourceModal,
         InviteModal,
         AddThingModal,
+        EditRoleModal,
     ],
     entryComponents: [
         FeedbackModal,

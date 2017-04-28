@@ -123,7 +123,7 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     private getPrefillText() {
-        return (this.isRequest() ? 'I\'ve got ' : 'I\'d like ') + this.offer.about;
+        return (this.isRequest() ? 'I\'ve got ' : 'Count me in for ') + this.offer.about;
     }
 
     public deleteOffer() {
@@ -137,7 +137,7 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
                             this.removeCallback(this.offer);
                         }
                     } else {
-                        Materialize.toast('Offer remove failed', 4000);
+                        Materialize.toast('Failed to remove offer', 4000);
                     }
                 })
                 .subscribe();
