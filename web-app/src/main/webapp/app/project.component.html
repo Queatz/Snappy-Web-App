@@ -59,6 +59,7 @@
     <add-contact-modal *ngIf="canEdit()" [thing]="thing"></add-contact-modal>
     <remove-contact-modal *ngIf="canEdit() && removingContact" [thing]="thing" [contact]="removingContact"></remove-contact-modal>
     <set-photo-modal *ngIf="canEdit()" [thing]="thing"></set-photo-modal>
+    <info-modal [text]="actionButtonInfoText"></info-modal>
 </div>
 
 <add-member *ngIf="canEdit()" [thing]="thing"></add-member>

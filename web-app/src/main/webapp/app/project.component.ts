@@ -21,6 +21,7 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
     private isFollowing;
     private selectedTab;
     private removingContact;
+    private actionButtonInfoText ;
 
     constructor(private ngZone: NgZone, private api: ApiService, private inforService: InforService, private route: ActivatedRoute, elementRef: ElementRef) {
         route.params.subscribe(params => {
@@ -114,7 +115,7 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     typeClassOf() {
-        return util.typeClassOf(this.thing.kind);
+         return util.typeClassOf(this.thing.kind);
     }
 
     actionButton() {
@@ -136,9 +137,13 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
     clickActionButton() {
         switch (this.thing.kind) {
             case 'resource':
-                return 'Use it';
+                this.actionButtonInfoText = 'Talk with one of the contacts in order to use this resource.';
+                $(this.element).find('info-modal').find('.modal').modal('open');
+                break;
             case 'project':
-                return 'Join the project';
+                this.actionButtonInfoText = 'Talk with one of the contacts in order to join this project.';
+                $(this.element).find('info-modal').find('.modal').modal('open');
+                break;
             case 'hub':
                 window.open(this.addressLink(), '_blank');
                 break;
