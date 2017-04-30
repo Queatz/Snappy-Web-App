@@ -69,6 +69,10 @@ import { ProjectComponent } from "./project.component";
       {
         path: ':id',
         component: ProfileComponent
+      },
+      {
+        path: '**',
+        redirectTo: '/'
       }
      ])
   ],
