@@ -2,6 +2,10 @@
 Web interface for Snappy
 
 
+#### Build
+
+    ng build -prod -op dist/ --aot
+
 # Let's Encrypt
 
 sudo certbot certonly
