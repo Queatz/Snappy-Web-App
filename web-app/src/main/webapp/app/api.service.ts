@@ -8,10 +8,9 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class ApiService {
     private _token = '';
-    private _apiBaseUrl = 'https://queatz-snappy.appspot.com/api/';
+    private _apiBaseUrl = 'http://127.0.0.1:8080/api/';
 
     constructor(private _http: Http, private inforService: InforService) {
-        this._apiBaseUrl = 'http://127.0.0.1:8080/api/';
  }
 
     public http() {

@@ -79,10 +79,6 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
 
         this.api.earthHere(position.coords, 'offer')
             .subscribe(offers => {
-                // If there aren't any offers near them, then bail.
-                if (offers.length < 1) {
-                    return;
-                }
                 this.loaded(_.sortBy(offers, 'price'));
             }, error => {
                 this.loaded([]);
