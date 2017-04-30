@@ -1,5 +1,4 @@
 declare var $;
-declare var Waves;
 
 import { Component, ComponentFactoryResolver, ViewContainerRef, Injector, ElementRef, Input, OnChanges, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';

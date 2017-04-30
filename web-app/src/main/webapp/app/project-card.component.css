@@ -47,7 +47,6 @@ a {
     width: 100%;
     position: absolute;
     bottom: 0;
-    background: linear-gradient(90deg, black, transparent);
-    background: -webkit-linear-gradient(90deg, black, transparent);
-    background: -moz-linear-gradient(90deg, black, transparent);
+    background: linear-gradient(0deg, black, transparent);
+    background: -moz-linear-gradient(0deg, black, transparent);
 }
