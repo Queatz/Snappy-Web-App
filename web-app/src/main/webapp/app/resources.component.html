@@ -16,7 +16,7 @@
         </div>
         <span><br /><br />Finding resources near you...</span>
     </div>
-    <div *ngIf="resources && !resources.length" class="waiting">No resources near you.</div>
+    <div *ngIf="resources && !resources.length" class="waiting">Nothing to use around here.</div>
 
     <div class="grid center-align">
         <div class="item" *ngFor="let resource of resources">
