@@ -6,9 +6,9 @@ var path = require('path');
 
 var app = express();
 
-var privateKey = fs.readFileSync('/etc/letsencrypt/archive/vlllage.com/privkey2.pem').toString();
-var certificate = fs.readFileSync('/etc/letsencrypt/archive/vlllage.com/fullchain2.pem').toString();
-var credentials = crypto.createCredentials({key: privateKey, cert: certificate});
+var privateKey = fs.readFileSync('/etc/letsencrypt/live/vlllage.com/privkey.pem').toString();
+var certificate = fs.readFileSync('/etc/letsencrypt/live/vlllage.com/fullchain.pem').toString();
+var credentials = {key: privateKey, cert: certificate};
 
 app.get('**', function(req, res, next) {
     var file = path.join(__dirname, req.url);
