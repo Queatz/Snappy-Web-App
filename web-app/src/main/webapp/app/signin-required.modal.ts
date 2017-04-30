@@ -6,8 +6,8 @@ import { InforService } from './infor.service';
 
 @Component({
     selector: 'signin-required-modal',
-    templateUrl: 'app/signin-required.modal.html',
-    styleUrls: ['app/signin-required.modal.css'],
+    templateUrl: './signin-required.modal.html',
+    styleUrls: ['./signin-required.modal.css'],
 })
 export class SigninRequiredModal implements AfterViewInit {
     private element;

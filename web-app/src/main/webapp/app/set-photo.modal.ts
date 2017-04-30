@@ -12,14 +12,15 @@ import { ApiService } from './api.service';
 
 @Component({
     selector: 'set-photo-modal',
-    templateUrl: 'app/set-photo.modal.html',
-    styleUrls: ['app/set-photo.modal.css']
+    templateUrl: './set-photo.modal.html',
+    styleUrls: ['./set-photo.modal.css']
 })
 export class SetPhotoModal implements AfterViewInit {
     @Input() public thing;
     private filesToUpload: Array<File>;
 
     private element;
+    public efile;
 
     constructor(private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;

@@ -4,8 +4,8 @@ import { Component, ElementRef, Input, AfterViewInit } from '@angular/core';
 
 @Component({
     selector: 'add-member',
-    templateUrl: 'app/add-member.component.html',
-    styleUrls: ['app/add-member.component.css'],
+    templateUrl: './add-member.component.html',
+    styleUrls: ['./add-member.component.css'],
 })
 export class AddMemberComponent implements AfterViewInit {
     @Input() thing;

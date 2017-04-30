@@ -11,8 +11,8 @@ import { MapComponent } from './map.component';
 
 @Component({
     selector: 'edit-details-modal',
-    templateUrl: 'app/edit-details.modal.html',
-    styleUrls: ['app/edit-details.modal.css'],
+    templateUrl: './edit-details.modal.html',
+    styleUrls: ['./edit-details.modal.css'],
 })
 export class EditDetailsModal implements AfterViewInit {
     @Input() thing;

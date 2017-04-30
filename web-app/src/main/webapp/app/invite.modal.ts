@@ -5,8 +5,8 @@ import { Component, AfterViewInit, ElementRef } from '@angular/core';
 
 @Component({
     selector: 'invite-modal',
-    templateUrl: 'app/invite.modal.html',
-    styleUrls: ['app/invite.modal.css']
+    templateUrl: './invite.modal.html',
+    styleUrls: ['./invite.modal.css']
 })
 export class InviteModal implements AfterViewInit {
 

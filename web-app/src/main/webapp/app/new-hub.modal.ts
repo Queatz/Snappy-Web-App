@@ -10,8 +10,8 @@ import { MapComponent } from './map.component';
 
 @Component({
     selector: 'new-hub-modal',
-    templateUrl: 'app/new-hub.modal.html',
-    styleUrls: ['app/new-hub.modal.css'],
+    templateUrl: './new-hub.modal.html',
+    styleUrls: ['./new-hub.modal.css'],
 })
 export class NewHubModal implements AfterViewInit {
     @Input() modalId;
@@ -21,9 +21,9 @@ export class NewHubModal implements AfterViewInit {
     private map: MapComponent;
 
     private element;
-    private name
-    private address;
-    private thing;
+    public name
+    public address;
+    public thing;
 
     constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;

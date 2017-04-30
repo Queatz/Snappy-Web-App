@@ -30,6 +30,7 @@ import { MessagesComponent } from './messages.component';
 import { AddMemberComponent } from './add-member.component';
 import { ThingTabsComponent } from './thing-tabs.component';
 import { TabsForComponent } from './tabs-for.component';
+import { ParseLinksComponent } from './parse-links.component';
 
 import { ProfileComponent } from './profile.component';
 import { ProjectsComponent } from "./projects.component";
@@ -65,7 +66,7 @@ enableProdMode();
 var firstHeaders = new Headers();
 firstHeaders.append('Content-Type', 'application/json;charset=UTF-8');
 
-class MyOptions extends BaseRequestOptions {
+export class MyOptions extends BaseRequestOptions {
     headers: Headers = firstHeaders
 }
 
@@ -109,6 +110,7 @@ class MyOptions extends BaseRequestOptions {
         PeopleComponent,
         SearchComponent,
         ProjectComponent,
+        ParseLinksComponent,
 
         ParseLinksPipe,
 

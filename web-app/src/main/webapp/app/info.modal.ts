@@ -5,8 +5,8 @@ import { Input, Component, AfterViewInit, ElementRef } from '@angular/core';
 
 @Component({
     selector: 'info-modal',
-    templateUrl: 'app/info.modal.html',
-    styleUrls: ['app/info.modal.css']
+    templateUrl: './info.modal.html',
+    styleUrls: ['./info.modal.css']
 })
 export class InfoModal implements AfterViewInit {
     @Input() text: string;

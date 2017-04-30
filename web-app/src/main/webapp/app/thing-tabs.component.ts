@@ -6,8 +6,8 @@ import { InforService } from './infor.service';
 
 @Component({
     selector: 'thing-tabs',
-    templateUrl: 'app/thing-tabs.component.html',
-    styleUrls: ['app/thing-tabs.component.css']
+    templateUrl: './thing-tabs.component.html',
+    styleUrls: ['./thing-tabs.component.css']
 })
 export class ThingTabsComponent implements AfterViewInit, OnDestroy {
     @Input() public thing;

@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'add-thing-modal',
-    templateUrl: 'app/add-thing.modal.html',
-    styleUrls: ['app/add-thing.modal.css'],
+    templateUrl: './add-thing.modal.html',
+    styleUrls: ['./add-thing.modal.css'],
 })
 export class AddThingModal implements AfterViewInit {
     @Input() thing;

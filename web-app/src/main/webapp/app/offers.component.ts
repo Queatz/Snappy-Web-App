@@ -10,8 +10,8 @@ import util from './util';
 
 @Component({
     selector: 'offers',
-    templateUrl: 'app/offers.component.html',
-    styleUrls: ['app/offers.component.css'],
+    templateUrl: './offers.component.html',
+    styleUrls: ['./offers.component.css'],
 })
 export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
     public offers = [];

@@ -12,7 +12,7 @@ export class TutorialService {
         return this.step;
     }
 
-    set(step: string) {
+    set(step: string = '') {
         this.step = step;
     }
 }

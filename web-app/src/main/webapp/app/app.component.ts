@@ -8,8 +8,8 @@ import { TutorialService } from './tutorial.service';
 
 @Component({
 	selector: 'app',
-	templateUrl: 'app/app.component.html',
-	styleUrls: ['app/app.component.css'],
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements AfterViewInit, OnDestroy {
 	constructor(private inforService: InforService, element: ElementRef, private router: Router, public tutorial: TutorialService) {

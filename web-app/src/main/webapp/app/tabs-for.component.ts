@@ -5,8 +5,8 @@ import { Component, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular
 
 @Component({
     selector: 'tabs-for',
-    templateUrl: 'app/tabs-for.component.html',
-    styleUrls: ['app/tabs-for.component.css']
+    templateUrl: './tabs-for.component.html',
+    styleUrls: ['./tabs-for.component.css']
 })
 export class TabsForComponent implements AfterViewInit, OnDestroy {
     @Input() public thing;

@@ -10,8 +10,8 @@ var checkFirst = true;
 
 @Component({
     selector: 'floating',
-    templateUrl: 'app/floating.component.html',
-    styleUrls: ['app/floating.component.css'],
+    templateUrl: './floating.component.html',
+    styleUrls: ['./floating.component.css'],
 })
 export class FloatingComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() public color;

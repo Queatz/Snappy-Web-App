@@ -9,8 +9,8 @@ import {ApiService} from './api.service';
 
 @Component({
     selector: 'signin',
-    templateUrl: 'app/signin.component.html',
-    styleUrls: ['app/signin.component.css']
+    templateUrl: './signin.component.html',
+    styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements AfterViewInit, OnInit {
     public signedIn: boolean;

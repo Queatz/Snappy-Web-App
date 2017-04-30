@@ -3,8 +3,8 @@ import { InforService } from './infor.service';
 import util from './util';
 
 @Component({
-    templateUrl: 'app/search.component.html',
-    styleUrls: ['app/search.component.css'],
+    templateUrl: './search.component.html',
+    styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements AfterViewInit {
     public projects;

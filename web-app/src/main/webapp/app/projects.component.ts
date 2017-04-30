@@ -6,12 +6,12 @@ import { ApiService } from './api.service';
 import util from './util';
 
 @Component({
-    templateUrl: 'app/projects.component.html',
-    styleUrls: ['app/projects.component.css'],
+    templateUrl: './projects.component.html',
+    styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements AfterViewInit {
     public projects;
-    private newProjectModal;
+    public newProjectModal;
     private element;
     private masonry;
 

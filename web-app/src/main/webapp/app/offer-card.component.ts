@@ -13,8 +13,8 @@ var checkFirst = true;
 
 @Component({
     selector: 'offer-card',
-    templateUrl: 'app/offer-card.component.html',
-    styleUrls: ['app/offer-card.component.css']
+    templateUrl: './offer-card.component.html',
+    styleUrls: ['./offer-card.component.css']
 })
 export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() public position;
@@ -29,6 +29,7 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
     private element;
     private offerImage;
     private modal;
+    public efile;
 
     constructor(
         private inforService: InforService,

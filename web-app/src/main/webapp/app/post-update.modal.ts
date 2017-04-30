@@ -8,8 +8,8 @@ import { InforService } from './infor.service';
 
 @Component({
     selector: 'post-update-modal',
-    templateUrl: 'app/post-update.modal.html',
-    styleUrls: ['app/post-update.modal.css']
+    templateUrl: './post-update.modal.html',
+    styleUrls: ['./post-update.modal.css']
 })
 export class PostUpdateModal implements OnInit, AfterViewInit {
     @Input() thing;
@@ -19,6 +19,7 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
     public message;
 
     private element;
+    public efile;
 
     constructor(
         private inforService: InforService,

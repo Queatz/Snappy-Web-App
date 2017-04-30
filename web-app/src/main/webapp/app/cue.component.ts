@@ -4,8 +4,8 @@ import { Component, ElementRef, OnChanges, Input, AfterViewInit } from '@angular
 
 @Component({
     selector: 'cue',
-    templateUrl: 'app/cue.component.html',
-    styleUrls: ['app/cue.component.css']
+    templateUrl: './cue.component.html',
+    styleUrls: ['./cue.component.css']
 })
 export class CueComponent implements OnChanges, AfterViewInit {
     @Input() show: boolean;

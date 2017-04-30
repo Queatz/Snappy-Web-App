@@ -3,8 +3,8 @@ import { InforService } from './infor.service';
 import util from './util';
 
 @Component({
-    templateUrl: 'app/clubs.component.html',
-    styleUrls: ['app/clubs.component.css']
+    templateUrl: './clubs.component.html',
+    styleUrls: ['./clubs.component.css']
 })
 export class ClubsComponent implements AfterViewInit {
     public projects: Array<Object>;

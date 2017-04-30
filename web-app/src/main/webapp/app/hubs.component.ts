@@ -6,14 +6,14 @@ import { SigninRequiredModal } from './signin-required.modal';
 import util from './util';
 
 @Component({
-    templateUrl: 'app/hubs.component.html',
-    styleUrls: ['app/hubs.component.css'],
+    templateUrl: './hubs.component.html',
+    styleUrls: ['./hubs.component.css'],
 })
 export class HubsComponent implements AfterViewInit {
     public hubs;
 
     private element;
-    private newHubModal;
+    public newHubModal;
     private masonry;
 
     constructor(private api: ApiService, private inforService: InforService, element: ElementRef) {

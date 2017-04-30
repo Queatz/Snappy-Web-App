@@ -9,8 +9,8 @@ import util from './util';
 
 @Component({
     selector: 'project-card',
-    templateUrl: 'app/project-card.component.html',
-    styleUrls: ['app/project-card.component.css']
+    templateUrl: './project-card.component.html',
+    styleUrls: ['./project-card.component.css']
 })
 export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() public typeClass;

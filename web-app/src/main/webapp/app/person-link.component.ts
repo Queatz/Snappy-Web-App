@@ -5,8 +5,8 @@ import { InforService } from './infor.service';
 
 @Component({
     selector: 'person-link',
-    templateUrl: 'app/person-link.component.html',
-    styleUrls: ['app/person-link.component.css']
+    templateUrl: './person-link.component.html',
+    styleUrls: ['./person-link.component.css']
 })
 export class PersonLinkComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() person;

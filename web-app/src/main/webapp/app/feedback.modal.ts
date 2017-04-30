@@ -9,8 +9,8 @@ import { ApiService } from './api.service';
 
 @Component({
     selector: 'feedback-modal',
-    templateUrl: 'app/feedback.modal.html',
-    styleUrls: ['app/feedback.modal.css']
+    templateUrl: './feedback.modal.html',
+    styleUrls: ['./feedback.modal.css']
 })
 export class FeedbackModal implements AfterViewInit {
     public feedback: string;

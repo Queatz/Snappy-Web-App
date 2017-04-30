@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'welcome-modal',
-    templateUrl: 'app/welcome.modal.html',
-    styleUrls: ['app/welcome.modal.css'],
+    templateUrl: './welcome.modal.html',
+    styleUrls: ['./welcome.modal.css'],
 })
 export class WelcomeModal implements AfterViewInit {
     private element: HTMLElement;

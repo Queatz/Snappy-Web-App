@@ -17,8 +17,8 @@ var max_count = 10;
 var current_count = 0;
 
 @Component({
-    templateUrl: 'app/messages.component.html',
-    styleUrls: ['app/messages.component.css']
+    templateUrl: './messages.component.html',
+    styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements AfterViewInit, OnDestroy {
     public currentMessages = [];

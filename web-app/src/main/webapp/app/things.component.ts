@@ -7,8 +7,8 @@ import util from './util';
 
 @Component({
     selector: 'things',
-    templateUrl: 'app/things.component.html',
-    styleUrls: ['app/things.component.css'],
+    templateUrl: './things.component.html',
+    styleUrls: ['./things.component.css'],
 })
 export class ThingsComponent implements AfterViewInit, OnDestroy {
     @Input() public things;

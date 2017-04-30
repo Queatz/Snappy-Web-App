@@ -9,8 +9,8 @@ import { ApiService } from './api.service';
 import util from './util';
 
 @Component({
-    templateUrl: 'app/project.component.html',
-    styleUrls: ['app/project.component.css'],
+    templateUrl: './project.component.html',
+    styleUrls: ['./project.component.css'],
 })
 export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
     public thing;
@@ -20,8 +20,8 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
     private element;
     private isFollowing;
     private selectedTab;
-    private removingContact;
-    private actionButtonInfoText ;
+    public removingContact;
+    public actionButtonInfoText;
 
     constructor(private ngZone: NgZone, private api: ApiService, private inforService: InforService, private route: ActivatedRoute, elementRef: ElementRef) {
         route.params.subscribe(params => {

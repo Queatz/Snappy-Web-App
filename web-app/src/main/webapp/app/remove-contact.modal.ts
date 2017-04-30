@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'remove-contact-modal',
-    templateUrl: 'app/remove-contact.modal.html',
-    styleUrls: ['app/remove-contact.modal.css'],
+    templateUrl: './remove-contact.modal.html',
+    styleUrls: ['./remove-contact.modal.css'],
 })
 export class RemoveContactModal implements AfterViewInit {
     @Input() thing;

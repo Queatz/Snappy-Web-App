@@ -8,8 +8,8 @@ import { ApiService } from './api.service';
 
 @Component({
     selector: 'new-resource-modal',
-    templateUrl: 'app/new-resource.modal.html',
-    styleUrls: ['app/new-resource.modal.css'],
+    templateUrl: './new-resource.modal.html',
+    styleUrls: ['./new-resource.modal.css'],
 })
 export class NewResourceModal implements AfterViewInit {
     @Input() modalId;
@@ -17,7 +17,8 @@ export class NewResourceModal implements AfterViewInit {
     private filesToUpload: Array<File>;
 
     private element;
-    private name;
+    public name;
+    public efile;
     private thing;
 
    constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {

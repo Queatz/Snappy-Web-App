@@ -13,8 +13,8 @@ import { ApiService } from './api.service';
 import { InforService } from './infor.service';
 
 @Component({
-    templateUrl: 'app/profile.component.html',
-    styleUrls: ['app/profile.component.css'],
+    templateUrl: './profile.component.html',
+    styleUrls: ['./profile.component.css'],
 })
 //@RouteConfig([
 //  { path: '/',       component: OffersTabComponent, useAsDefault: true },
@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private inforService: InforService;
     private element;
-    private thing;
+    public thing;
     private newOfferModal;
     private newResourceModal;
     private newProjectModal;

@@ -5,8 +5,8 @@ import { Component, ElementRef, Input, AfterViewInit } from '@angular/core';
 
 @Component({
     selector: 'map',
-    templateUrl: 'app/map.component.html',
-    styleUrls: ['app/map.component.css']
+    templateUrl: './map.component.html',
+    styleUrls: ['./map.component.css']
 })
 export class MapComponent implements AfterViewInit {
     @Input() thing;

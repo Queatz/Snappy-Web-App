@@ -8,15 +8,15 @@ import { ApiService } from './api.service';
 
 @Component({
     selector: 'new-project-modal',
-    templateUrl: 'app/new-project.modal.html',
-    styleUrls: ['app/new-project.modal.css'],
+    templateUrl: './new-project.modal.html',
+    styleUrls: ['./new-project.modal.css'],
 })
 export class NewProjectModal implements AfterViewInit {
    @Input() modalId;
    @Input() asMemberOf;
 
    private element: HTMLElement;
-   private name: string;
+   public name: string;
    private thing: Object;
 
    constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {

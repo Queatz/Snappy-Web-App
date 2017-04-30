@@ -14,8 +14,8 @@ var checkFirst = true;
 
 @Component({
     selector: 'thing-update',
-    templateUrl: 'app/thing-update.component.html',
-    styleUrls: ['app/thing-update.component.css']
+    templateUrl: './thing-update.component.html',
+    styleUrls: ['./thing-update.component.css']
 })
 export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() public update;

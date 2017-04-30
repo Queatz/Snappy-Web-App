@@ -2,8 +2,8 @@ import {Component, AfterViewInit, ElementRef} from '@angular/core';
 
 @Component({
 	selector: 'banner',
-	templateUrl: 'app/banner.component.html',
-	styleUrls: ['app/banner.component.css'],
+	templateUrl: './banner.component.html',
+	styleUrls: ['./banner.component.css'],
 })
 export class BannerComponent implements AfterViewInit {
     private element: HTMLElement;

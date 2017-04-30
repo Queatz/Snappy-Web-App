@@ -7,8 +7,8 @@ import { TutorialService } from './tutorial.service';
 
 @Component({
     selector: 'gday-modal',
-    templateUrl: 'app/gday.modal.html',
-    styleUrls: ['app/gday.modal.css']
+    templateUrl: './gday.modal.html',
+    styleUrls: ['./gday.modal.css']
 })
 export class GdayModal implements AfterViewInit {
     constructor(

@@ -10,12 +10,12 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'edit-role-modal',
-    templateUrl: 'app/edit-role.modal.html',
-    styleUrls: ['app/edit-role.modal.css'],
+    templateUrl: './edit-role.modal.html',
+    styleUrls: ['./edit-role.modal.css'],
 })
 export class EditRoleModal implements OnInit, AfterViewInit {
     @Input() thing;
-    private newRole;
+    public newRole;
     private element;
 
     constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {

@@ -6,8 +6,8 @@ import { TutorialService } from './tutorial.service';
 import { NewOfferModal } from './new-offer.modal';
 
 @Component({
-    templateUrl: 'app/main.component.html',
-    styleUrls: ['app/main.component.css'],
+    templateUrl: './main.component.html',
+    styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements AfterViewInit, OnDestroy {
     private inforService;

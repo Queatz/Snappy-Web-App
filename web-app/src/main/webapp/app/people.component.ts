@@ -5,13 +5,13 @@ import { ApiService } from './api.service';
 import util from './util';
 
 @Component({
-    templateUrl: 'app/people.component.html',
-    styleUrls: ['app/people.component.css'],
+    templateUrl: './people.component.html',
+    styleUrls: ['./people.component.css'],
 })
 export class PeopleComponent implements AfterViewInit {
     public people;
     private element;
-    private inviteModal;
+    public inviteModal;
     private masonry;
 
     constructor(private inforService: InforService, element: ElementRef, private api: ApiService) {

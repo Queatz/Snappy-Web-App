@@ -3,8 +3,8 @@ import util from './util';
 
 @Component({
     selector: 'thing-updates',
-    templateUrl: 'app/thing-updates.component.html',
-    styleUrls: ['app/thing-updates.component.css'],
+    templateUrl: './thing-updates.component.html',
+    styleUrls: ['./thing-updates.component.css'],
 })
 export class ThingUpdatesComponent implements OnInit, OnChanges, OnDestroy {
     private masonry;

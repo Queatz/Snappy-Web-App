@@ -8,8 +8,8 @@ import { ApiService } from './api.service';
 
 @Component({
     selector: 'new-offer-modal',
-    templateUrl: 'app/new-offer.modal.html',
-    styleUrls: ['app/new-offer.modal.css']
+    templateUrl: './new-offer.modal.html',
+    styleUrls: ['./new-offer.modal.css']
 })
 export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
     @Input() modalId;
@@ -17,14 +17,14 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
     @Input() asMemberOf;
     @Input() resizeCallback;
 
-    private element;
-    private inforService;
-    private enumber;
-    private edetails;
-    private emessage;
-    private justAsk;
-    private isWant;
-    private name;
+    public element;
+    public inforService;
+    public enumber;
+    public edetails;
+    public emessage;
+    public justAsk;
+    public isWant;
+    public name;
 
     constructor(private api: ApiService, inforService: InforService, element: ElementRef) {
         this.inforService = inforService;

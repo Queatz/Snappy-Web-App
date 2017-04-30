@@ -6,15 +6,15 @@ import { ApiService } from './api.service';
 import util from './util';
 
 @Component({
-    templateUrl: 'app/resources.component.html',
-    styleUrls: ['app/resources.component.css'],
+    templateUrl: './resources.component.html',
+    styleUrls: ['./resources.component.css'],
 })
 export class ResourcesComponent implements AfterViewInit {
     public resources;
 
     private masonry;
     private element;
-    private newResourceModal;
+    public newResourceModal;
 
     constructor(private inforService: InforService, private api: ApiService, element: ElementRef) {
         this.element = element.nativeElement;

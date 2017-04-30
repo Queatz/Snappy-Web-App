@@ -9,27 +9,27 @@
 }
 
 .pic-1 {
-    background-image: url('img/welcome/1.png');
+    background-image: url('/img/welcome/1.png');
 }
 
 .pic-2 {
-    background-image: url('img/welcome/2.png');
+    background-image: url('/img/welcome/2.png');
 }
 
 .pic-3 {
-    background-image: url('img/welcome/3.png');
+    background-image: url('/img/welcome/3.png');
 }
 
 .pic-4 {
-    background-image: url('img/welcome/4.png');
+    background-image: url('/img/welcome/4.png');
 }
 
 .pic-5 {
-    background-image: url('img/welcome/5.png');
+    background-image: url('/img/welcome/5.png');
 }
 
 .pic-6 {
-    background-image: url('img/welcome/6.png');
+    background-image: url('/img/welcome/6.png');
 }
 
 .info-cell {

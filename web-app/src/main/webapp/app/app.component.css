@@ -53,7 +53,7 @@
 }
 
 .iconic {
-    background-image: url(img/pickaxe.png);
+    background-image: url(/img/pickaxe.png);
     background-position: 50% 45%;
     background-repeat: no-repeat;
 }
