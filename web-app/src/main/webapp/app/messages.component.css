@@ -74,7 +74,6 @@
 .listmessages .content {
     height: 100%;
     overflow-y: auto;
-    padding-right: 5px;
 
     background-size: cover;
     background-position: center;
@@ -194,6 +193,25 @@ h3.mstitle {
     .row.mainmessage {
         width: 70%;
         margin: 0 auto;
+    }
+}
+
+.infobar {
+    background: rgba(115, 255, 139, 0.5);
+    padding: 1rem;
+
+    animation-name: slide-down;
+    animation-duration: 550ms;
+    animation-timing-function: ease;
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
     }
 }
 
