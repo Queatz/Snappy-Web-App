@@ -32,6 +32,10 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
         api.earthThing(this.id).subscribe(thing => {
                     this.thing = thing;
 
+                    if (this.thing.photo) {
+                        util.setBodyBackground(this.getUrl());
+                    }
+
                     if (this.thing.members) {
                         this.thing.people = _.filter(this.thing.members, m => m.source && m.source.kind === 'person');
                         this.thing.offers = _.filter(this.thing.members, m => m.source && m.source.kind === 'offer');

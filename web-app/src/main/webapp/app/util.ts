@@ -1,4 +1,5 @@
 declare var require: any;
+declare var $: any;
 var Masonry = require('masonry-layout');
 
 export default class Util {
@@ -29,5 +30,11 @@ export default class Util {
 
     public static imageUrl(url: string, sz: number) {
         return url.split('=')[0] + '=' + sz;
+    }
+
+    public static setBodyBackground(url: string) {
+        $('body').css({
+            'background-image': 'url(\'' + url + '\')'
+        });
     }
 }

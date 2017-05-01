@@ -11,6 +11,7 @@ import { NewHubModal } from './new-hub.modal';
 import { PostUpdateModal } from './post-update.modal';
 import { ApiService } from './api.service';
 import { InforService } from './infor.service';
+import util from './util';
 
 @Component({
     templateUrl: './profile.component.html',
@@ -74,6 +75,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
             this.api.getPersonByName(personName)
             .subscribe(person => {
                 this.thing = person;
+                util.setBodyBackground(util.imageUrl(this.thing.imageUrl, 640));
 
                 if (this.thing.members) {
                     this.thing.people = _.filter(this.thing.members, m => m.source && m.source.kind === 'person');
