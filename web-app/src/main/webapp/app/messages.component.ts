@@ -74,6 +74,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy {
             .subscribe(person => {
                 if (person) {
                     this.messagesWith = person;
+                    this.setBkg(this.messagesWith);
                 }
             });
     }
@@ -126,10 +127,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy {
         }
 
         if (this.messagesWith) {
-            $(this.element).find('.content').css({
-                'background-image': 'url(\'' + util.imageUrl(this.messagesWith.imageUrl, 640) + '\')',
-                'background-color': '#bbbbbb'
-            });
+            this.setBkg(this.messagesWith);
         }
 
         if (this.messagesTimeout) {
@@ -174,6 +172,13 @@ export class MessagesComponent implements AfterViewInit, OnDestroy {
 
                 this.time = Math.min(30000, this.time + 500);
             });
+    }
+
+    private setBkg(person: any) {
+        $(this.element).find('.content').css({
+            'background-image': 'url(\'' + util.imageUrl(this.messagesWith.imageUrl, 640) + '\')',
+            'background-color': '#bbbbbb'
+        });
     }
 
     public enterPressed(event) {

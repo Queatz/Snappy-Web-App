@@ -150,7 +150,7 @@ h3.mstitle {
 .recent-actors, .chat-bubble {
     position: absolute;
     right: 0.75rem;
-    top: 3px;
+    top: 1.168rem;
 }
     
 @media screen and (min-width: 600px) {
