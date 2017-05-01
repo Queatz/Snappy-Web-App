@@ -175,10 +175,13 @@ export class MessagesComponent implements AfterViewInit, OnDestroy {
     }
 
     private setBkg(person: any) {
+        let img = util.imageUrl(this.messagesWith.imageUrl, 640);
         $(this.element).find('.content').css({
-            'background-image': 'url(\'' + util.imageUrl(this.messagesWith.imageUrl, 640) + '\')',
+            'background-image': 'url(\'' + img + '\')',
             'background-color': '#bbbbbb'
         });
+        util.setBodyBackground(img);
+
     }
 
     public enterPressed(event) {

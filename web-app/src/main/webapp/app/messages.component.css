@@ -103,6 +103,7 @@
     bottom: 0;
     top: 64px;
     overflow: hidden;
+    padding: 2rem;
 }
 
 .mainmessage .listmessages {
