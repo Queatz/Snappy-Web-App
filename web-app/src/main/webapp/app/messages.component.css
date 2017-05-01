@@ -75,6 +75,12 @@
     height: 100%;
     overflow-y: auto;
     padding-right: 5px;
+
+    background-size: cover;
+    background-position: center;
+    background-color: #f2f2f2;
+    background-blend-mode: screen;
+    box-shadow: 0 0 24px rgba(0, 0, 0, .25) inset;
 }
 
 .sendmessage textarea {
@@ -85,6 +91,10 @@
 .scroll {
     overflow-y: auto;
     height: 100%;
+}
+
+.scrollpanel {
+    padding-top: 1rem;
 }
 
 .messagescontainer {
@@ -101,7 +111,7 @@
     left: 20px;
     right: 20px;
     top: 75px;
-    bottom: 121px;
+    bottom: 10rem;
     margin: 0;
 }
 

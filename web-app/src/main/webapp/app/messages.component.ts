@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SigninRequiredModal } from './signin-required.modal';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
+import util from './util';
 
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
@@ -26,7 +27,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy {
     public contacts = null;
     public info = [];
     public idCurrentContact;
-    public messagesWith = {};
+    public messagesWith: any = {};
     public msToggleOn = true;
 
     private element;
@@ -122,6 +123,13 @@ export class MessagesComponent implements AfterViewInit, OnDestroy {
     goToGetMessages() {
         if (!this.idCurrentContact) {
             return;
+        }
+
+        if (this.messagesWith) {
+            $(this.element).find('.content').css({
+                'background-image': 'url(\'' + util.imageUrl(this.messagesWith.imageUrl, 640) + '\')',
+                'background-color': '#bbbbbb'
+            });
         }
 
         if (this.messagesTimeout) {
