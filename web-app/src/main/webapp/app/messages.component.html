@@ -68,10 +68,10 @@
             <h3 class="mstitle">{{ messagesWith.firstName }} {{ messagesWith.lastName }}<i class="clickable small material-icons recent-actors tooltipped" (click)="showRecent()" [attr.data-position]="'left'" [attr.data-tooltip]="'Show recent conversations'">recent_actors</i></h3>
             <div class="row s3 listmessages">
                 <div class="content scroll">
+                    <div class="center-align grey-text text-darken-2 infobar" *ngIf="messageWithSomeone && !messageWithSomeone.length">
+                        Start your conversation with {{ messagesWith.firstName }} below.
+                    </div>
                     <div class="scrollpanel">
-                        <div class="center-align grey-text" *ngIf="messageWithSomeone && !messageWithSomeone.length">
-                            Start your conversation with {{ messagesWith.firstName }} below.
-                        </div>
                         <div class="message-item clear scrollspy" *ngFor="let message of messageWithSomeone">
                             <div class="message-name">
                                 <div class="clear" [ngClass]="{rightto: !checkIsLeft(message), leftto: checkIsLeft(message)}">
