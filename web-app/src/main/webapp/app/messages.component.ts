@@ -138,7 +138,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy {
         }
 
         this.api.personMessages(this.idCurrentContact)
-            .subscribe(messages => {
+            .subscribe(messages => {messages = [];
                 if (messages.error) {
                     this.messageWithSomeone = null;
                     this.endMessage = false;
