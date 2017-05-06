@@ -7,12 +7,14 @@ import { ActivatedRoute } from '@angular/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import util from './util';
+import { WebTitleProvider } from './extra';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
     templateUrl: './project.component.html',
     styleUrls: ['./project.component.css'],
 })
-export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTitleProvider {
     public thing;
     public notFound = false;
 
@@ -22,6 +24,8 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
     private selectedTab;
     public removingContact;
     public actionButtonInfoText;
+
+    private pageTitle: Subject<string>;
 
     constructor(private ngZone: NgZone, private api: ApiService, private inforService: InforService, private route: ActivatedRoute, elementRef: ElementRef) {
         route.params.subscribe(params => {
@@ -49,6 +53,7 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
                     }
 
                     this.inforService.setPageTitle(this.thing.name);
+                    this.pageTitle.next(this.thing.name);
                     setTimeout(this.ngAfterViewInit.bind(this), 500);
                 },
                 error => this.notFound = true);
@@ -161,5 +166,10 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy {
 
     actionButtonEnabled() {
         return true;
+    }
+
+    public getWebTitle() {
+        this.pageTitle = new Subject<string>();
+        return this.pageTitle;
     }
 }

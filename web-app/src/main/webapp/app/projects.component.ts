@@ -4,12 +4,14 @@ import { SigninRequiredModal } from './signin-required.modal';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import util from './util';
+import { WebTitleProvider } from './extra';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
     templateUrl: './projects.component.html',
     styleUrls: ['./projects.component.css'],
 })
-export class ProjectsComponent implements AfterViewInit {
+export class ProjectsComponent implements AfterViewInit, WebTitleProvider {
     public projects;
     public newProjectModal;
     private element;
@@ -43,5 +45,9 @@ export class ProjectsComponent implements AfterViewInit {
 
     ngAfterViewInit() {
         this.inforService.setPageTitle('Projects');
+    }
+
+    public getWebTitle() {
+        return Observable.of('Projects');
     }
 }

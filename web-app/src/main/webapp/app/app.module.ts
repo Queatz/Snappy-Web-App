@@ -1,9 +1,10 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, enableProdMode } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { RouteReuseStrategy } from '@angular/router';
+import { RouteReuseStrategy, Router, NavigationEnd } from '@angular/router';
 import { HttpModule, Headers, BaseRequestOptions, RequestOptions } from '@angular/http';
 
+import { WebTitleService } from './extra';
 import { AppComponent } from './app.component';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
@@ -152,6 +153,7 @@ export class MyOptions extends BaseRequestOptions {
         InforService,
         ApiService,
         TutorialService,
+        WebTitleService,
         {
             provide: RequestOptions,
             useClass: MyOptions
@@ -161,4 +163,6 @@ export class MyOptions extends BaseRequestOptions {
     bootstrap: [ AppComponent ]
 })
 
-export class AppModule { }
+export class AppModule {
+    constructor(private webTitleService: WebTitleService) {}
+}

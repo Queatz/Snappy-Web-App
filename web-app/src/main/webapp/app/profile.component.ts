@@ -12,6 +12,9 @@ import { PostUpdateModal } from './post-update.modal';
 import { ApiService } from './api.service';
 import { InforService } from './infor.service';
 import util from './util';
+import { WebTitleProvider } from './extra';
+import { Observable, Subject } from 'rxjs';
+
 
 @Component({
     templateUrl: './profile.component.html',
@@ -21,7 +24,7 @@ import util from './util';
 //  { path: '/',       component: OffersTabComponent, useAsDefault: true },
 //  { path: '/updates', component: UpdatesTabComponent },
 //])
-export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTitleProvider {
     public notFound = false;
     private myProfile;
     public editAbout;
@@ -36,6 +39,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     private postUpdateModal;
     private tab;
     private isFollowing;
+    private pageTitle: Subject<string>;
 
     constructor(
         inforService: InforService,
@@ -75,7 +79,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
             this.api.getPersonByName(personName)
             .subscribe(person => {
                 this.thing = person;
-                util.setBodyBackground(util.imageUrl(this.thing.imageUrl, 640));
+                    util.setBodyBackground(util.imageUrl(this.thing.imageUrl, 640));
 
                 if (this.thing.members) {
                     this.thing.people = _.filter(this.thing.members, m => m.source && m.source.kind === 'person');
@@ -93,6 +97,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
 
                 this.editAbout = person.about;
                 this.inforService.setPageTitle(person.firstName);
+                this.pageTitle.next(person.firstName);
                 this.loaded(person.offers);
             },
             error => this.notFound = true);
@@ -130,5 +135,10 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     isMyProfile() {
         return this.inforService.getInforUser() !== undefined
                 && this.myProfile == this.inforService.getInforUser().googleUrl;
+    }
+
+    public getWebTitle() {
+        this.pageTitle = new Subject<string>();
+        return this.pageTitle;
     }
 }

@@ -9,8 +9,9 @@ import { SigninRequiredModal } from './signin-required.modal';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import util from './util';
+import { WebTitleProvider } from './extra';
 
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import 'rxjs/add/operator/share';
 
 var endMessage = false;
@@ -21,7 +22,7 @@ var current_count = 0;
     templateUrl: './messages.component.html',
     styleUrls: ['./messages.component.css']
 })
-export class MessagesComponent implements AfterViewInit, OnDestroy {
+export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProvider {
     public currentMessages = [];
     public messageWithSomeone = null;
     public contacts = null;
@@ -286,5 +287,9 @@ export class MessagesComponent implements AfterViewInit, OnDestroy {
 
     showRecent() {
         this.msToggleOn = false;
+    }
+
+    public getWebTitle() {
+        return Observable.of('Messages');
     }
 }

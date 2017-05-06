@@ -39,12 +39,12 @@ export class WelcomeModal implements AfterViewInit {
         switch(this.learnMoreAbout) {
             case 'feedback':
                 this.tutorial.set('feedback some');
-                this.router.navigate(['/messages/-697803823443327660']);
+                this.router.navigate(['/messages']);
                 break;
             case 'learn':
                 this.tutorial.set('learn some');
                 this.router.navigate(['/people']);
-                // These are people near by, click on one tolearn more about them
+                // These are people near by, click on one to learn more about them
                 break;
             case 'discover':
                 this.tutorial.set('discover some');
@@ -54,7 +54,7 @@ export class WelcomeModal implements AfterViewInit {
                 break;
             case 'solve':
                 this.tutorial.set('solve some');
-                this.router.navigate(['/people']);
+                this.router.navigate(['/resources']);
                 // Where to send
                 break;
             case 'earn':

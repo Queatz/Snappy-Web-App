@@ -3,12 +3,14 @@ import { InviteModal } from './invite.modal';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import util from './util';
+import { WebTitleProvider } from './extra';
+import { Observable } from 'rxjs';
 
 @Component({
     templateUrl: './people.component.html',
     styleUrls: ['./people.component.css'],
 })
-export class PeopleComponent implements AfterViewInit {
+export class PeopleComponent implements AfterViewInit, WebTitleProvider {
     public people;
     private element;
     public inviteModal;
@@ -42,5 +44,9 @@ export class PeopleComponent implements AfterViewInit {
         setTimeout(() => {
             this.masonry = util.masonry(this.element.querySelector('.grid'));
         });
+    }
+
+    public getWebTitle() {
+        return Observable.of('People');
     }
 }

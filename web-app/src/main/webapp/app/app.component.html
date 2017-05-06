@@ -46,7 +46,7 @@
                 </cue-content>
                 <cue-actions>
                     <div (click)="startOver()" class="btn-flat waves-effect waves-light white-text cue-action" style="float: left; padding: 0 .75rem;"><b>Start over</b></div>
-                    <div (click)="tutorial.set()" class="btn-flat waves-effect waves-light white-text cue-action" style="padding: 0 .75rem;"><b>Yay!</b></div>
+                    <div (click)="tutorial.set('')" class="btn-flat waves-effect waves-light white-text cue-action" style="padding: 0 .75rem;"><b>Yay!</b></div>
                 </cue-actions>
             </cue>
             <cue [show]="tutorial.is('earn some')" [align]="'left'" style="left: 4.5rem; top: 120%;">

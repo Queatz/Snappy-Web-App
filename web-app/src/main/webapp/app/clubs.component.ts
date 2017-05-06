@@ -1,12 +1,14 @@
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { InforService } from './infor.service';
 import util from './util';
+import { WebTitleProvider } from './extra';
+import { Observable } from 'rxjs';
 
 @Component({
     templateUrl: './clubs.component.html',
     styleUrls: ['./clubs.component.css']
 })
-export class ClubsComponent implements AfterViewInit {
+export class ClubsComponent implements AfterViewInit, WebTitleProvider {
     public projects: Array<Object>;
     private inforService: InforService;
     private element: HTMLElement;
@@ -28,5 +30,9 @@ export class ClubsComponent implements AfterViewInit {
 
     ngAfterViewInit() {
         this.inforService.setPageTitle('Clubs');
+    }
+
+    public getWebTitle() {
+        return Observable.of('Clubs');
     }
 }

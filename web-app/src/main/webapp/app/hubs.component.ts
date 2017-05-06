@@ -4,12 +4,14 @@ import { ApiService } from './api.service';
 import { NewHubModal } from './new-hub.modal';
 import { SigninRequiredModal } from './signin-required.modal';
 import util from './util';
+import { WebTitleProvider } from './extra';
+import { Observable } from 'rxjs';
 
 @Component({
     templateUrl: './hubs.component.html',
     styleUrls: ['./hubs.component.css'],
 })
-export class HubsComponent implements AfterViewInit {
+export class HubsComponent implements AfterViewInit, WebTitleProvider {
     public hubs;
 
     private element;
@@ -43,5 +45,9 @@ export class HubsComponent implements AfterViewInit {
 
     ngAfterViewInit() {
         this.inforService.setPageTitle('Hubs');
+    }
+
+    public getWebTitle() {
+        return Observable.of('Hubs');
     }
 }

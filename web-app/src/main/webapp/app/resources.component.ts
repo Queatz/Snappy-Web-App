@@ -4,12 +4,14 @@ import { SigninRequiredModal } from './signin-required.modal';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import util from './util';
+import { WebTitleProvider } from './extra';
+import { Observable } from 'rxjs';
 
 @Component({
     templateUrl: './resources.component.html',
     styleUrls: ['./resources.component.css'],
 })
-export class ResourcesComponent implements AfterViewInit {
+export class ResourcesComponent implements AfterViewInit, WebTitleProvider {
     public resources;
 
     private masonry;
@@ -45,5 +47,9 @@ export class ResourcesComponent implements AfterViewInit {
 
     ngAfterViewInit() {
         this.inforService.setPageTitle('Resources');
+    }
+
+    public getWebTitle() {
+        return Observable.of('Resources');
     }
 }
