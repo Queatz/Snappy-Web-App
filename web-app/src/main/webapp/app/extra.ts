@@ -24,7 +24,6 @@ export class WebTitleService {
                 if (component.prototype.getWebTitle) {
                     this.titleSubscriber = component.prototype.getWebTitle().subscribe((title: string) => {Component
                         this.title.setTitle(title);
-                        console.log(title);
                     });
                 } else {
                     this.titleSubscriber = null;

@@ -1,5 +1,6 @@
 declare var $;
 declare var _;
+declare var moment;
 
 import { Component, Input, OnInit, ElementRef, AfterViewInit, OnChanges, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
@@ -77,9 +78,9 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
             this.token = this.inforService.getInforUser().auth;
         }
 
-        this.api.earthHere(position.coords, 'offer')
+        this.api.earthHere(position.coords, 'offer|update')
             .subscribe(offers => {
-                this.loaded(_.sortBy(offers, 'price'));
+                this.loaded(_.sortBy(offers, thing => -moment(thing.date)));
             }, error => {
                 this.loaded([]);
             });

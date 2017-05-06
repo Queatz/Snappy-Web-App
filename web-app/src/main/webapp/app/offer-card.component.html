@@ -10,6 +10,7 @@
         </div>
         <div class="blox">
             <span class="title offer-type" [ngClass]="{'purple-text': isRequest()}">{{ getOfferTypeText() }}</span>
+            <span class="title grey-text">{{ time() }}</span>
             <p class="flow-text">
                 {{ offer.about }}
             </p>
