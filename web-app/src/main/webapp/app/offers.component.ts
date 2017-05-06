@@ -152,4 +152,12 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
     getOfferPosition(position) {
         return position + this.inforService.getOfferSize();
     }
+
+    isKind(thing: any, kind: string) {
+        if (thing.kind === 'member') {
+            return thing.source.kind === kind;
+        }
+
+        return thing.kind === kind;
+    }
 }

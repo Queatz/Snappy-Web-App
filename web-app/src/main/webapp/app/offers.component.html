@@ -23,8 +23,8 @@
             <a routerLink="/">Goooooo exploring!</a>
         </div>
         <div class="item" *ngFor="let offer of offers">
-            <offer-card *ngIf="offer.kind === 'offer'" class="left-align" [resizeCallback]="boundResizeCallback" [deleteCallback]="boundDeleteCallback" [removeCallback]="boundRemoveCallback" [offer]="offer" [position]="offers.indexOf(offer)" [size]="offers.length" [profile]="getProfile()"></offer-card>
-            <thing-update *ngIf="offer.kind === 'update'"class="left-align" [resizeCallback]="boundResizeCallback" [update]="offer"></thing-update>
+            <offer-card *ngIf="isKind(offer, 'offer')" class="left-align" [resizeCallback]="boundResizeCallback" [deleteCallback]="boundDeleteCallback" [removeCallback]="boundRemoveCallback" [offer]="offer" [position]="offers.indexOf(offer)" [size]="offers.length" [profile]="getProfile()"></offer-card>
+            <thing-update *ngIf="isKind(offer, 'update')"class="left-align" [resizeCallback]="boundResizeCallback" [update]="offer"></thing-update>
         </div>
     </div>
 </div>
