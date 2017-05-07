@@ -60,6 +60,15 @@ export class ApiService {
 
         }
 
+        // If nothing was specified to add this to, add it to the current user so that it doesn't
+        // get disassociated and lost.
+        if (!params['in']) {
+            let userId = this.inforService.getId();
+            if (userId) {
+                params['in'] = userId;
+            }
+        }
+
         if (!asPromise) {
             return this._http.post(this._apiBaseUrl + 'earth', data, this.formHeaders())
                 .map((res: Response) => res.json());

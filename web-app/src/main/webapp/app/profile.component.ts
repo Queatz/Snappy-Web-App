@@ -106,10 +106,6 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     ngAfterViewInit() {
         $(this.element).find('.tooltipped').tooltip({delay: 50});
         $(this.element.querySelector('.modal')).modal();
-
-        if (this.inforService.triggerProfile && this.isMyProfile()) {
-            this.inforService.triggerProfile = false;
-       }
     }
 
     ngOnDestroy() {
@@ -140,5 +136,9 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     public getWebTitle() {
         this.pageTitle = new Subject<string>();
         return this.pageTitle;
+    }
+
+    public presence() {
+        return util.presence(this.thing);
     }
 }

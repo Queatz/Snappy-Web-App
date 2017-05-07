@@ -27,9 +27,10 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
     	element.find('.tooltipped').tooltip({delay: 50});
 
-    	if (!this.userSignined()) {
-    	    element.find('#welcomeModal').modal('open');
-    	}
+// Uncomment to re-enable welcome modal
+//    	if (!this.userSignined()) {
+//    	    element.find('#welcomeModal').modal('open');
+//    	}
     }
 
     ngOnDestroy() {

@@ -5,6 +5,9 @@
         <span class="card-title">{{person.firstName}} {{person.lastName}}</span>
     </div>
     <div class="card-content">
+        <p class="grey-text sec">
+            {{ presence() }}
+        </p>
         <p>{{person.about}}</p>
     </div>
     <div class="card-action">
@@ -14,6 +17,6 @@
             <template ngPluralCase="other">offers</template>
         </span>
 
-        <a [routerLink]="['/' + person.googleUrl]" class="red-text secondary-content">View Profile</a>
+        <a [routerLink]="['/' + person.googleUrl]" class="red-text secondary-content">View {{ person.firstName }}</a>
     </div>
 </div>

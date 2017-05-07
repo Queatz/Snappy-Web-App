@@ -30,6 +30,7 @@
                     {{ thing.firstName }} {{ thing.lastName }}
                     <a *ngIf="isMyProfile()" class="modal-trigger tooltipped" href="#edit-about" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit your about description'"><i class="material-icons small">edit</i></a>
                 </h3>
+                <div class="grey-text">{{ presence() }}</div>
                 <parse-links class="about flow-text" [innerHtml]="thing.about | parseLinks"></parse-links>
                 <br />
                 <div>

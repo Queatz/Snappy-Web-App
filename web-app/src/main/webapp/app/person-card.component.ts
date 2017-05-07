@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import util from './util';
 
 @Component({
     selector: 'person-card',
@@ -7,4 +8,8 @@ import { Component, Input } from '@angular/core';
 })
 export class PersonCardComponent {
     @Input() public person;
+
+    public presence() {
+        return util.presence(this.person);
+    }
 }

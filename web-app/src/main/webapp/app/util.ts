@@ -1,4 +1,5 @@
 declare var require: any;
+declare var moment: any;
 declare var $: any;
 var Masonry = require('masonry-layout');
 
@@ -36,5 +37,28 @@ export default class Util {
         $('body').css({
             'background-image': 'url(\'' + url + '\')'
         });
+    }
+
+    public static getDistanceText(distance: number) {
+        if (distance < 1) {
+            var ft = distance * 5280;
+
+            if (ft < 250) {
+                return 'Right here';
+            } else if (ft <= 1000) {
+                ft = Math.floor(ft / 250) * 250;
+            } else {
+                ft = Math.floor(ft / 500) * 500;
+            }
+
+            return ft + ' feet';
+        } else {
+            var mi = Math.floor(distance);
+            return mi + ' mile' + (mi !== 1 ? 's' : '');
+        }
+    }
+
+    public static presence(person) {
+        return Util.getDistanceText(person.infoDistance) + ' ' + moment(person.infoUpdated).fromNow();
     }
 }

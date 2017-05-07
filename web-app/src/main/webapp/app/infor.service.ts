@@ -20,6 +20,14 @@ export class InforService {
             return this.inforUser;
     }
 
+    getId() {
+        if (this.getInforUser()) {
+            return this.getInforUser().id;
+        }
+
+        return '';
+    }
+
     setInforUser(inforUser) {
         if (inforUser !== null) {
             this.inforUser = inforUser;
