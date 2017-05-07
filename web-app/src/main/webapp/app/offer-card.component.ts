@@ -18,13 +18,9 @@ var checkFirst = true;
     styleUrls: ['./offer-card.component.css']
 })
 export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
-    @Input() public position;
-    @Input() public size;
     @Input() public offer;
     @Input() public resizeCallback;
-    @Input() public deleteCallback;
     @Input() public removeCallback;
-    @Input() public profile: boolean;
     filesToUpload: Array<File>;
 
     private element;
@@ -99,21 +95,18 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
         this.resizeCallback();
     }
 
-    public getPosition() {
-        return this.position + this.inforService.getOfferSize();
-    }
-
     public isProfile() {
-        return this.profile;
+        return this.inforService.getInforUser() &&
+            this.inforService.getInforUser().id === this.offer.source.id;
     }
 
     public isProfileOr() {
         var user = this.inforService.getInforUser();
-        return this.profile || (user && this.offer.member && this.offer.member.target && this.offer.member.target.id === user.id);
+        return this.isProfile() || (user && this.offer.member && this.offer.member.target && this.offer.member.target.id === user.id);
     }
 
     public clickPrice() {
-        if (this.profile) {
+        if (this.isProfile()) {
             return;
         }
 
@@ -152,7 +145,9 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
                 .map(res => {
                     if (res.status == 200) {
                         Materialize.toast('Offer deleted', 4000);
-                        this.deleteCallback(this.position, 1);
+                        if (this.removeCallback) {
+                            this.removeCallback(this.offer);
+                        }
                     } else {
                         Materialize.toast('Offer delete failed', 4000);
                     }
@@ -169,7 +164,6 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
                         Materialize.toast('Photo updated', 4000);
                         this.offer.photo = true;
                         this.offerImage = this.api.earthImageUrl(this.offer.id);
-                        this.deleteCallback(this.position, 3);
                     }
                     else
                         Materialize.toast('Photo update failed', 4000);
@@ -211,7 +205,9 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
                     if (res.status == 200) {
                         Materialize.toast('Photo removed', 4000);
                         this.offerImage = '';
-                        this.deleteCallback(this.position, 3);
+                        if (this.removeCallback) {
+                            this.removeCallback(this.offer);
+                        }
                         setTimeout(() => {
                             this.offer.photo = false;
                         }, 50);

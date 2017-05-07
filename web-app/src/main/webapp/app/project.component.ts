@@ -146,11 +146,11 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     clickActionButton() {
         switch (this.thing.kind) {
             case 'resource':
-                this.actionButtonInfoText = 'Talk with one of the contacts in order to use this resource.';
+                this.actionButtonInfoText = 'Talk with one of the contacts to use this resource.';
                 $(this.element).find('info-modal').find('.modal').modal('open');
                 break;
             case 'project':
-                this.actionButtonInfoText = 'Talk with one of the contacts in order to join this project.';
+                this.actionButtonInfoText = 'Talk with one of the contacts to join this project.';
                 $(this.element).find('info-modal').find('.modal').modal('open');
                 break;
             case 'hub':

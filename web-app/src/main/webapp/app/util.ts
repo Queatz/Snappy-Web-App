@@ -29,7 +29,7 @@ export default class Util {
     }
 
     public static imageUrl(url: string, sz: number) {
-        return url.split('=')[0] + '=' + sz;
+        return url ? url.split('=')[0] + '=' + sz : '';
     }
 
     public static setBodyBackground(url: string) {

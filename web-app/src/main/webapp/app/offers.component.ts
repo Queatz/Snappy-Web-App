@@ -21,12 +21,10 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
     private mutationObserver;
     private person;
 
-    @Input() public profile;
     @Input() public list;
 
     private element;
     private boundResizeCallback;
-    private boundDeleteCallback;
     private boundRemoveCallback;
     private token;
     private signed;
@@ -34,7 +32,6 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
     constructor(private router: Router, private inforService: InforService, private api: ApiService, element: ElementRef) {
         this.element = element.nativeElement;
         this.boundResizeCallback = this.resizeCallback.bind(this);
-        this.boundDeleteCallback = this.deleteCallback.bind(this);
         this.boundRemoveCallback = this.removeCallback.bind(this);
     }
 
@@ -104,7 +101,6 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
     ngAfterViewInit() {
         $(this.element).find('.tooltipped').tooltip({delay: 50});
 
-        this.inforService.setProfileUpdateOffer(this.boundDeleteCallback, this.profile);
         this.signed = !!this.inforService.getInforUser();
     }
 
@@ -121,36 +117,15 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
         }, 100);
     }
 
-    getProfile() {
-        return this.profile;
-    }
-
-    deleteCallback(index, mode) {
-        switch (mode) {
-            case 1: //delete offer
-                this.offers.splice(index, 1);
-                this.inforService.setDeleteOffer(1);
-                this.loaded(this.offers);
-                break;
-            case 2: //add offer
-                this.offers.push(index);
-                if(this.profile)
-                    this.inforService.setDeleteOffer(-1);
-                this.inforService.setOfferSize(this.offers.length);
-                this.loaded(this.offers);
-                break;
-            case 3: //add photo
-                this.loaded(this.offers);
-                break;
-        }
-    }
-
     removeCallback(offer) {
-        _.remove(this.offers, o => o.source.id === offer.id);
+        _.remove(this.offers, o => (
+            o.kind === 'member' ? o.source.id === offer.id :
+            o.kind === 'offer' ? o.id === offer.id : false
+        ));
     }
     
     getOfferPosition(position) {
-        return position + this.inforService.getOfferSize();
+        return position;
     }
 
     isKind(thing: any, kind: string) {

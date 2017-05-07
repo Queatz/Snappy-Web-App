@@ -23,12 +23,12 @@
             </div>
         </a>
         <div class="more-action">
-            <a [hidden]="!isProfileOr()" class="delete modal-trigger tooltipped" href="#modal-action{{ getPosition() }}-1" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Remove'"><i class="material-icons small">delete</i></a>
-            <a [hidden]="!isProfile()" class="add modal-trigger tooltipped" href="#modal-action{{ getPosition() }}-2" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Change photo'"><i class="material-icons small">aspect_ratio</i></a>
+            <a [hidden]="!isProfileOr()" class="delete modal-trigger tooltipped" href="#modal-action{{ offer.id }}-1" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Remove'"><i class="material-icons small">delete</i></a>
+            <a [hidden]="!isProfile()" class="add modal-trigger tooltipped" href="#modal-action{{ offer.id }}-2" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Change photo'"><i class="material-icons small">aspect_ratio</i></a>
         </div>
         <div class="clear"></div>
     </div>
-    <div id="modal-action{{ getPosition() }}-1" class="modal">
+    <div id="modal-action{{ offer.id }}-1" class="modal">
         <div class="modal-content">
             <h5>
                 Remove <b>{{ offer.about }}</b>?
@@ -41,7 +41,7 @@
             <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
         </div>
     </div>
-    <div id="modal-action{{ getPosition() }}-2" class="modal">
+    <div id="modal-action{{ offer.id }}-2" class="modal">
         <div class="modal-content">
             <h4>Set offer photo</h4>
             <div class="file-field input-field">

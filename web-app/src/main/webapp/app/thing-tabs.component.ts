@@ -35,9 +35,4 @@ export class ThingTabsComponent implements AfterViewInit, OnDestroy {
     isSignedIn() {
         return this.inforService.getInforUser();
     }
-
-    isMyProfile() {
-        return this.inforService.getInforUser() &&
-            this.inforService.getInforUser().id === this.thing.id;
-    }
 }
