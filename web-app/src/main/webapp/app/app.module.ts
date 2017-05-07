@@ -61,6 +61,7 @@ import { EditRoleModal } from './edit-role.modal';
 import { InfoModal } from './info.modal';
 
 import { ExactRouteReuseStrategy } from './exact.reuse';
+import { LocalityCardComponent } from './locality-card/locality-card.component';
 
 enableProdMode();
 
@@ -132,6 +133,7 @@ export class MyOptions extends BaseRequestOptions {
         AddThingModal,
         EditRoleModal,
         InfoModal,
+        LocalityCardComponent,
     ],
     entryComponents: [
         FeedbackModal,
