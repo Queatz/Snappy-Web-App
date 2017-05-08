@@ -1,0 +1,22 @@
+<div [hidden]="!locality" class="locality-card card white hoverable">
+  <!--<div class="card-image">-->
+  <!--<div class="amber card-tabbing"></div>-->
+  <!--</div>-->
+  <div class="card-content">
+    <div class="locality flow-text">Keep up with {{ locality }}</div>
+    <form>
+      <div class="input-field">
+        <input id="subscribeEmail" type="text" required [(ngModel)]="subscribeEmail" name="subscribeEmail">
+        <label for="subscribeEmail">Your email address...</label>
+      </div>
+    </form>
+  </div>
+  <div class="card-action">
+    <a (click)="1">
+      <div class="waves-effect secondary-content waves-light btn white-text amber darken-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'You\'ll get updates from ' + locality">
+        <b>Subscribe to {{ locality }}</b>
+      </div>
+    </a>
+    <div class="clear"></div>
+  </div>
+</div>
