@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "https://village.city",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
-    "start-once": "tsc && lite-server",
+    "start": "ng serve -prod -p 3000 ",
     "docker-build": "docker build -t ng2-quickstart .",
     "docker": "npm run docker-build && docker run -it --rm -p 3000:3000 -p 3001:3001 ng2-quickstart",
     "pree2e": "npm run webdriver:update",

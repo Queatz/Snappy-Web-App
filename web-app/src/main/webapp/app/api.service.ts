@@ -236,6 +236,16 @@ export class ApiService {
             .map(res => res.json());
     }
 
+    public subscribeToLocality(coords: any, locality: string, email: string) {
+        var data = 'latitude=' + coords.latitude +
+                   '&longitude=' + coords.longitude +
+                   '&name=' + encodeURIComponent(locality) +
+                   '&email=' + encodeURIComponent(email);
+
+        return this._http.post(this._apiBaseUrl + 'earth/geo-subscribe', data, this.formHeaders())
+            .map(res => res.json());
+    }
+
     private makeFilePostRequest(url: string, formData: FormData) {
         return new Promise((resolve, reject) => {
             var xhr = new XMLHttpRequest();

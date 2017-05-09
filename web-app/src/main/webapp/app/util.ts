@@ -40,6 +40,10 @@ export default class Util {
     }
 
     public static getDistanceText(distance: number) {
+        if (!distance) {
+            return 'Around here';
+        }
+
         if (distance < 1) {
             var ft = distance * 5280;
 
@@ -60,5 +64,10 @@ export default class Util {
 
     public static presence(person) {
         return Util.getDistanceText(person.infoDistance) + ' ' + moment(person.infoUpdated).fromNow();
+    }
+
+    public static validateEmail(email: string) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
     }
 }

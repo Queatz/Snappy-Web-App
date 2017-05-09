@@ -1,8 +1,13 @@
 declare var google;
+declare var Materialize;
 declare var _;
 declare var $;
 
 import { Component, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
+
+import util from '../util';
+import { InforService } from '../infor.service';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'locality-card',
@@ -11,8 +16,10 @@ import { Component, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 })
 export class LocalityCardComponent implements AfterViewInit, OnDestroy {
     public locality: string;
+    private position: any;
+    public subscribeEmail: string;
 
-    constructor(private elementRef: ElementRef) { }
+    constructor(private inforService: InforService, private api: ApiService, private elementRef: ElementRef) { }
 
     ngAfterViewInit() {
         navigator.geolocation.getCurrentPosition(this.onLocationFound.bind(this));
@@ -23,6 +30,7 @@ export class LocalityCardComponent implements AfterViewInit, OnDestroy {
         $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
     }
     private onLocationFound(position: any) {
+        this.position = position;
         new google.maps.Geocoder().geocode({
             location: new google.maps.LatLng(
                 position.coords.latitude,
@@ -47,5 +55,36 @@ export class LocalityCardComponent implements AfterViewInit, OnDestroy {
 
     private onLocalityFound(locality: string) {
         this.locality = locality;
+    }
+
+    public subscribe() {
+        if (!util.validateEmail(this.subscribeEmail)) {
+            Materialize.toast('Enter an email address', 2000);
+            return;
+        }
+
+        this.api.subscribeToLocality(this.position.coords, this.locality, this.subscribeEmail)
+            .subscribe(json => {
+                if (json.success) {
+                    this.inforService.setSubscribedTo(this.locality, true);
+                    Materialize.toast('Subscribed!', 4000);
+                } else {
+                    Materialize.toast('That didn\'t work...', 4000);
+                }
+            }, () => {
+                    Materialize.toast('That didn\'t work...', 4000);
+            });
+    }
+
+    public resubscribe() {
+        this.inforService.setSubscribedTo(this.locality, false);
+    }
+
+    public isSubscribed() {
+        return this.inforService.getSubscribedTo(this.locality);
+    }
+
+    public isAuthenticated() {
+        return !!this.inforService.getInforUser();
     }
 }
