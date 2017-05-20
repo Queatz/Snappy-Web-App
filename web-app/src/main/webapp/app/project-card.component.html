@@ -1,8 +1,7 @@
 <div class="card hoverable large" *ngIf="thing">
     <div class="card-image">
         <div class="card-tabbing {{typeClass}}"></div>
-        <img *ngIf="getPhotoUrl()" src="{{ getPhotoUrl() }}">
-        <img *ngIf="!getPhotoUrl()" src="img/night.png">
+        <div class="card-img" [style.background-image]="'url(' + (getPhotoUrl() ? getPhotoUrl() : 'img/night.png') + ')'"></div>
         <div class="cover-shadow"></div>
         <span class="card-title">{{ thing.name }}{{ thing.member && thing.member.role ? ', ' + thing.member.role : ''}}</span>
         <i class="remove-thing card-hover waves-effect material-icons white-text small waves-light tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Remove'" *ngIf="removable()" (click)="remove($event)">clear</i>

@@ -78,6 +78,10 @@ html body h3 {
     margin-right: 0 !important;
 }
 
+.card-image {
+    height: 60%;
+}
+
 .modal {
     text-align: initial;
 }

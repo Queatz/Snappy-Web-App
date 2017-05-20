@@ -2,6 +2,13 @@
     border-radius: 0;
 }
 
+.card-img {
+    width: 100%;
+    height: 100%;
+    background-position: 0 0;
+    background-size: cover;
+}
+
 .card-tabbing {
     height: 4px;
     border-radius: 2px 2px 0 0;
