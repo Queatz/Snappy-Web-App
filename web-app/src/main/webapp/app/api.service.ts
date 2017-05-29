@@ -111,8 +111,6 @@ export class ApiService {
             formData.append('photo', photoFile, photoFile.name);
         }
 
-        formData.append('thing', thingId);
-
         if (message) {
             formData.append('message', message);
         }
