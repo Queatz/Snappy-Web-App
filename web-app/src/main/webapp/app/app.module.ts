@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import { TutorialService } from './tutorial.service';
+import { LocalityService } from './locality.service';
 import { AppRoutingModule } from './app.routes';
 
 import { FloatingComponent } from './floating.component';
@@ -62,6 +63,7 @@ import { InfoModal } from './info.modal';
 
 import { ExactRouteReuseStrategy } from './exact.reuse';
 import { LocalityCardComponent } from './locality-card/locality-card.component';
+import { IntroCardComponent } from './intro-card/intro-card.component';
 
 enableProdMode();
 
@@ -134,6 +136,7 @@ export class MyOptions extends BaseRequestOptions {
         EditRoleModal,
         InfoModal,
         LocalityCardComponent,
+        IntroCardComponent,
     ],
     entryComponents: [
         FeedbackModal,
@@ -156,6 +159,7 @@ export class MyOptions extends BaseRequestOptions {
         ApiService,
         TutorialService,
         WebTitleService,
+        LocalityService,
         {
             provide: RequestOptions,
             useClass: MyOptions
