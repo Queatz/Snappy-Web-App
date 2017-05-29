@@ -17,6 +17,7 @@ a {
 }
 
 .icard3 {
+    background-color: rgb(79, 41, 64);
     background-image: url('/img/location.png');
     background-size: cover;
     background-position: 0% 100%;

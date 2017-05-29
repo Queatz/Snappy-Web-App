@@ -104,4 +104,17 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
                 break;
         }
     }
+
+    public goUrl() {
+        if (!this.thing) {
+            return;
+        }
+
+        switch (this.thing.kind) {
+            case 'person':
+                return ['/' + this.thing.googleUrl];
+            default:
+                return ['/' + this.thing.kind + 's/' + this.thing.id];
+        }
+    }
 }

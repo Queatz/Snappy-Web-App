@@ -20,7 +20,7 @@
             </span>
         </div>
 
-        <a (click)="go()" class="secondary-content {{typeClass.indexOf('yellow') != -1 ? 'yellow-text text-darken-4' : typeClass.indexOf('red') != -1 ? 'txt-red' : typeClass + '-text'}}">{{
+        <a [routerLink]="goUrl()" class="secondary-content {{typeClass.indexOf('yellow') != -1 ? 'yellow-text text-darken-4' : typeClass.indexOf('red') != -1 ? 'txt-red' : typeClass + '-text'}}">{{
             typeClass == 'deep-orange' ? 'View Project' :
             typeClass == 'brown' ? 'View Resource' :
             typeClass == 'blue' ? 'Go To Hub' :
