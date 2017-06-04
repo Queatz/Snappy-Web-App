@@ -89,7 +89,7 @@ export class ApiService {
     }
 
     public earthPhotoUrl(id: string): string {
-        return this._apiBaseUrl + 'earth/' + id + '/photo?s=800&auth=' + this.token();
+        return this._apiBaseUrl + 'earth/' + id + '/photo?s=1200&auth=' + this.token();
     }
 
     // XXX currently returns a promise, so must use .then()

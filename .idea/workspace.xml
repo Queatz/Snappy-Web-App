@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment="Edit hubs">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.css" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/api.service.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/api.service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/intro-card/intro-card.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/intro-card/intro-card.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/package.json" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/package.json" />
     </list>
     <ignored path="Snappy-Web-App.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -15,7 +16,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -28,28 +28,58 @@
       <file leaf-file-name="offer-card.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.625">
+            <state relative-caret-position="18">
               <caret line="1" column="26" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="offer-card.component.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="offer-card.component.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3846154">
-              <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+            <state relative-caret-position="284">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="offer-card.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.ts">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+            <state relative-caret-position="180">
+              <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="intro-card.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/intro-card/intro-card.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project.component.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1036">
+              <caret line="84" column="26" selection-start-line="84" selection-start-column="26" selection-end-line="84" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project.component.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="666">
+              <caret line="58" column="51" selection-start-line="58" selection-start-column="51" selection-end-line="58" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -80,7 +110,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/new-resource.modal.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/index.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/java/com/queatz/snappy/web/Controller.java" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/invite.modal.ts" />
@@ -91,7 +120,6 @@
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/floating.component.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/clubs.component.html" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/package.json" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/new-hub.modal.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/new-offer.modal.html" />
         <option value="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jsse.jar!/sun/security/ssl/AppInputStream.class" />
@@ -131,13 +159,14 @@
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.css" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/package.json" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/intro-card/intro-card.component.ts" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="27" />
     <option name="width" value="1920" />
-    <option name="height" value="1053" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -164,8 +193,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="AndroidView">
+        <subPane />
+      </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -199,24 +231,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="web-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Snappy-Web-App" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Snappy-Web-App" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -302,116 +316,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="typings" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Snappy-Web-App" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Snappy-Web-App" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="typings" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="browser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ambient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Snappy-Web-App" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Snappy-Web-App" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="typings" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="browser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ambient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="es6-shim" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Snappy-Web-App" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Snappy-Web-App" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web-app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -449,18 +353,15 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="AndroidView">
-        <subPane />
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="offercardcss&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offer-card.component.css&#10;offercard&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offer-card.component.ts&#10;signincom&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/signin.component.ts&#10;signi&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/signin.component.html&#10;signin&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/signin.component.css&#10;app&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/app.component.css&#10;mess&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.html&#10;app.&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/app.component.css&#10;offers&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offers.component.html&#10;res&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/resources.component.html&#10;people&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/people.component.html&#10;feedback&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/feedback.modal.css&#10;newoffer&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/new-offer.modal.ts&#10;project&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/project.component.html&#10;newpro&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/new-project.modal.ts&#10;api&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/api.service.ts&#10;edit-details&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.ts&#10;offerca&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offer-card.component.html&#10;editde&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.html&#10;newoff&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/new-offer.modal.html&#10;editdet&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.html&#10;newhub&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/new-hub.modal.html&#10;messages&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.ts&#10;main&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/main.component.ts&#10;prof&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.html&#10;messages.html&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.html&#10;offercar&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offer-card.component.ts&#10;boot&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/boot.ts&#10;project.com&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/project.component.ts&#10;profile.&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.html&#10;hubmod&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/new-hub.modal.html&#10;floa&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/floating.component.html&#10;project-card&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/project-card.component.ts&#10;profile&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.html&#10;editmodal&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.html&#10;modal.html&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/set-photo.modal.html&#10;.modal.html&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.html&#10;pro&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/project.component.css&#10;inforser&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/infor.service.ts&#10;pack&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/package.json&#10;message&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.html&#10;sign&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/signin.component.ts&#10;offer-coar&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offer-card.component.ts&#10;offer-card&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offer-card.component.ts&#10;messages.css&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.css&#10;messages.&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.html&#10;edith&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.html&#10;projectcard&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/project-card.component.html&#10;ap&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/api.service.ts&#10;newh&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/new-hub.modal.ts" />
+    <property name="SearchEverywhereHistoryKey" value="introcard&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/intro-card/intro-card.component.ts&#10;package&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/package.json&#10;offercardcss&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offer-card.component.css&#10;offercard&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offer-card.component.ts&#10;signincom&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/signin.component.ts&#10;signi&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/signin.component.html&#10;signin&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/signin.component.css&#10;app&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/app.component.css&#10;mess&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.html&#10;app.&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/app.component.css&#10;offers&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offers.component.html&#10;res&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/resources.component.html&#10;people&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/people.component.html&#10;feedback&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/feedback.modal.css&#10;newoffer&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/new-offer.modal.ts&#10;project&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/project.component.html&#10;newpro&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/new-project.modal.ts&#10;api&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/api.service.ts&#10;edit-details&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.ts&#10;offerca&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offer-card.component.html&#10;editde&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.html&#10;newoff&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/new-offer.modal.html&#10;editdet&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.html&#10;newhub&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/new-hub.modal.html&#10;messages&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.ts&#10;main&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/main.component.ts&#10;prof&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.html&#10;messages.html&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.html&#10;offercar&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offer-card.component.ts&#10;boot&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/boot.ts&#10;project.com&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/project.component.ts&#10;profile.&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.html&#10;hubmod&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/new-hub.modal.html&#10;floa&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/floating.component.html&#10;project-card&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/project-card.component.ts&#10;profile&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.html&#10;editmodal&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.html&#10;modal.html&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/set-photo.modal.html&#10;.modal.html&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.html&#10;pro&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/project.component.css&#10;inforser&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/infor.service.ts&#10;pack&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/package.json&#10;message&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.html&#10;sign&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/signin.component.ts&#10;offer-coar&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offer-card.component.ts&#10;offer-card&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/offer-card.component.ts&#10;messages.css&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.css&#10;messages.&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.html&#10;edith&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.html&#10;projectcard&#9;FILE&#9;file:///home/jacob/Documents/Projects/Snappy-Web-App/web-app/src/main/webapp/app/project-card.component.html" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -488,75 +389,78 @@
       <recent name="$PROJECT_DIR$/web-app/src/main/webapp/app" />
     </key>
   </component>
-  <component name="RunManager" selected="Bash.Run">
-    <configuration default="true" type="AndroidNativeRunConfigurationType" factoryName="Android Native">
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
       <option name="PM_INSTALL_OPTIONS" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
       <option name="MODE" value="default_activity" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
       <option name="PREFERRED_AVD" value="" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="DEBUGGER_TYPE" value="Hybrid" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <Native>
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-      </Native>
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
       <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
       </Hybrid>
-      <Profilers>
-        <option name="GAPID_DISABLE_PCS" value="false" />
-      </Profilers>
-      <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="" />
-      <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="PM_INSTALL_OPTIONS" value="" />
-      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="DEBUGGER_TYPE" value="Java" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <Native>
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-      </Native>
       <Java />
-      <Hybrid>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-      </Hybrid>
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
       <Profilers>
-        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
       <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
@@ -564,28 +468,43 @@
       <option name="CLASS_NAME" value="" />
       <option name="PACKAGE_NAME" value="" />
       <option name="EXTRA_OPTIONS" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
       <option name="PREFERRED_AVD" value="" />
       <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <Native>
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-      </Native>
-      <Java />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
       <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
         <option name="WORKING_DIR" value="" />
         <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
       </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
       <Profilers>
-        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
       </Profilers>
       <method />
     </configuration>
@@ -615,17 +534,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="BashConfigurationType" factoryName="Bash">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="INTERPRETER_PATH" value="/bin/bash" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -640,48 +548,6 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnitTestDiscovery" factoryName="JUnit Test Discovery" changeList="All">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -703,23 +569,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Snappy-Web-App" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -786,111 +635,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="tests" factoryName="Attests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Snappy-Web-App" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Snappy-Web-App" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Nosetests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Snappy-Web-App" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Snappy-Web-App" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="py.test">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Snappy-Web-App" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="testToRun" value="" />
-      <option name="keywords" value="" />
-      <option name="params" value="" />
-      <option name="USE_PARAM" value="false" />
-      <option name="USE_KEYWORD" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="Run" type="BashConfigurationType" factoryName="Bash" activateToolWindowBeforeRun="false">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="INTERPRETER_PATH" value="/bin/bash" />
@@ -904,9 +648,73 @@
         <option name="Make" enabled="false" />
       </method>
     </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Bash.Run" />
-    </list>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <Native>
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+      </Native>
+      <Java />
+      <Hybrid>
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+      </Hybrid>
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <Native>
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+      </Native>
+      <Java />
+      <Hybrid>
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+      </Hybrid>
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
+      <method />
+    </configuration>
     <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
       <option name="MAIN_CLASS_NAME" />
       <option name="HTML_FILE_NAME" />
@@ -920,7 +728,9 @@
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
     </configuration>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -929,203 +739,237 @@
       <changelist id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment="" />
       <created>1450799851331</created>
       <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
       <updated>1450799851331</updated>
     </task>
     <task id="LOCAL-00001" summary="Basics">
       <created>1450801821851</created>
       <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
       <updated>1450801821851</updated>
     </task>
     <task id="LOCAL-00002" summary="Basic offer cards showing">
       <created>1451273787435</created>
       <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
       <updated>1451273787435</updated>
     </task>
     <task id="LOCAL-00003" summary="Make it size better on mobile">
       <created>1454134537459</created>
       <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
       <updated>1454134537459</updated>
     </task>
     <task id="LOCAL-00004" summary="Use routerLink">
       <created>1454210994385</created>
       <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
       <updated>1454210994385</updated>
     </task>
     <task id="LOCAL-00005" summary="Follow button">
       <created>1454212001177</created>
       <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1454212001177</updated>
     </task>
     <task id="LOCAL-00006" summary="New loading">
       <created>1454215990697</created>
       <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
       <updated>1454215990697</updated>
     </task>
     <task id="LOCAL-00007" summary="* Fixes for IE11 and Chrome 39.x.x&#10;* Update banner copy&#10;* Layout fixes for portrait profile pages (phones)">
       <created>1454386692870</created>
       <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
       <updated>1454386692870</updated>
     </task>
     <task id="LOCAL-00008" summary="Follow -&gt; Message">
       <created>1454389665196</created>
       <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
       <updated>1454389665196</updated>
     </task>
     <task id="LOCAL-00009" summary="Village App -&gt; village.city">
       <created>1454865305808</created>
       <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
       <updated>1454865305808</updated>
     </task>
     <task id="LOCAL-00010" summary="Ayinde Rules the World">
       <created>1455567684583</created>
       <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
       <updated>1455567684583</updated>
     </task>
     <task id="LOCAL-00011" summary="Add footer">
       <created>1455568329723</created>
       <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
       <updated>1455568329723</updated>
     </task>
     <task id="LOCAL-00012" summary=" Add br">
       <created>1455571368892</created>
       <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
       <updated>1455571368892</updated>
     </task>
     <task id="LOCAL-00013" summary="* Minor updates&#10;* Tabs -&gt; spaces">
       <created>1457207454460</created>
       <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
       <updated>1457207454460</updated>
     </task>
     <task id="LOCAL-00014" summary="Remove }">
       <created>1457207538075</created>
       <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
       <updated>1457207538075</updated>
     </task>
     <task id="LOCAL-00015" summary="Formatting">
       <created>1457674778449</created>
       <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
       <updated>1457674778449</updated>
     </task>
     <task id="LOCAL-00016" summary="Slow down message requests">
       <created>1457675742149</created>
       <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
       <updated>1457675742149</updated>
     </task>
     <task id="LOCAL-00017" summary="Stability and convention">
       <created>1458285573794</created>
       <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
       <updated>1458285573794</updated>
     </task>
     <task id="LOCAL-00018" summary="New icon (thanks Anastasia!)">
       <created>1458287351360</created>
       <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
       <updated>1458287351360</updated>
     </task>
     <task id="LOCAL-00019" summary="Move nicescroll">
       <created>1458288606753</created>
       <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
       <updated>1458288606753</updated>
     </task>
     <task id="LOCAL-00020" summary="Add file">
       <created>1458288902450</created>
       <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
       <updated>1458288902450</updated>
     </task>
     <task id="LOCAL-00021" summary="Modals update">
       <created>1458366107032</created>
       <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
       <updated>1458366107032</updated>
     </task>
     <task id="LOCAL-00022" summary="WHAT????">
       <created>1458366339634</created>
       <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
       <option name="project" value="LOCAL" />
       <updated>1458366339634</updated>
     </task>
     <task id="LOCAL-00023" summary="WHAT????">
       <created>1458366411190</created>
       <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
       <updated>1458366411190</updated>
     </task>
     <task id="LOCAL-00024" summary="Don't show splashes when logged in">
       <created>1458425595102</created>
       <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
       <updated>1458425595102</updated>
     </task>
     <task id="LOCAL-00025" summary="Basic routes for Hubs, Projects, Resources, People, and Search">
       <created>1458533782987</created>
       <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
       <updated>1458533782987</updated>
     </task>
     <task id="LOCAL-00026" summary="Make People page load people">
       <created>1458548239920</created>
       <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
       <updated>1458548239920</updated>
     </task>
     <task id="LOCAL-00027" summary="Use service for name title">
       <created>1458794031266</created>
       <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
       <updated>1458794031266</updated>
     </task>
     <task id="LOCAL-00028" summary="Adds placeholder action buttons to things">
       <created>1459020770620</created>
       <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
       <updated>1459020770620</updated>
     </task>
     <task id="LOCAL-00029" summary="Make FAB configurable with a color and a modal">
       <created>1459746116672</created>
       <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
       <option name="project" value="LOCAL" />
       <updated>1459746116672</updated>
     </task>
     <task id="LOCAL-00030" summary="Make &quot;go to hub&quot; button go to the hub page">
       <created>1460248479269</created>
       <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
       <option name="project" value="LOCAL" />
       <updated>1460248479269</updated>
     </task>
     <task id="LOCAL-00031" summary="Show &quot;Loading Hubs...&quot;">
       <created>1460254527929</created>
       <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
       <option name="project" value="LOCAL" />
       <updated>1460254527929</updated>
     </task>
     <task id="LOCAL-00032" summary="Upload earth photos">
       <created>1460270046657</created>
       <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
       <option name="project" value="LOCAL" />
       <updated>1460270046657</updated>
     </task>
     <task id="LOCAL-00033" summary="Edit hubs">
       <created>1460275171409</created>
       <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
       <option name="project" value="LOCAL" />
       <updated>1460275171409</updated>
     </task>
@@ -1133,31 +977,33 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28619528" sideWeight="0.5187138" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42873177" sideWeight="0.4939378" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50109893" sideWeight="0.5205696" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15824915" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39955106" sideWeight="0.48128623" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42873177" sideWeight="0.4939378" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.50109893" sideWeight="0.47943038" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19346337" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3849607" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17985232" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3846154" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884398" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -1189,6 +1035,11 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3849607" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.facetType" implementationName="Python" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.ts" />
+    <option featureType="com.intellij.configurationType" implementationName="BashConfigurationType" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1237,33 +1088,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2173913">
-          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5251641">
-          <caret line="16" column="59" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/boot.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44378698">
-          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/boot.ts" />
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08595989">
+        <state relative-caret-position="0">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
@@ -1271,7 +1099,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/new-hub.modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3326613">
+        <state relative-caret-position="0">
           <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
           <folding />
         </state>
@@ -1279,23 +1107,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/new-offer.modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58998805">
+        <state relative-caret-position="0">
           <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jsse.jar!/sun/security/ssl/AppInputStream.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.108043216">
-          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jsse.jar!/sun/security/ssl/AppInputStream.class" />
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/api.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.65625">
+        <state relative-caret-position="0">
           <caret line="144" column="22" selection-start-line="144" selection-start-column="11" selection-end-line="144" selection-end-column="22" />
           <folding />
         </state>
@@ -1303,7 +1124,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/new-project.modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3933254">
+        <state relative-caret-position="0">
           <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
           <folding />
         </state>
@@ -1311,15 +1132,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/new-project.modal.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.083333">
+        <state relative-caret-position="0">
           <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
           <folding />
         </state>
@@ -1327,167 +1147,86 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1396761">
+        <state relative-caret-position="0">
           <caret line="55" column="11" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="66" selection-start-line="77" selection-start-column="66" selection-end-line="77" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.js" />
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/floating.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="66" selection-start-line="74" selection-start-column="66" selection-end-line="74" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/floating.component.js" />
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/floating.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state relative-caret-position="0">
           <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1978022">
+        <state relative-caret-position="0">
           <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34285715">
-          <caret line="39" column="52" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.js" />
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3243243">
+        <state relative-caret-position="0">
           <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3243243">
-          <caret line="67" column="52" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3243243">
+        <state relative-caret-position="0">
           <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3243243">
-          <caret line="119" column="52" selection-start-line="119" selection-start-column="52" selection-end-line="119" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.js" />
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offers.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3243243">
+        <state relative-caret-position="0">
           <caret line="95" column="8" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offers.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3243243">
-          <caret line="103" column="52" selection-start-line="103" selection-start-column="52" selection-end-line="103" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30769232">
-          <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offers.component.js" />
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.js" />
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/new-offer.modal.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30769232">
+        <state relative-caret-position="0">
           <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/new-offer.modal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30769232">
-          <caret line="39" column="52" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/new-offer.modal.js" />
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/messages.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3234714">
+        <state relative-caret-position="0">
           <caret line="186" column="8" selection-start-line="186" selection-start-column="8" selection-end-line="186" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/messages.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3234714">
-          <caret line="182" column="52" selection-start-line="182" selection-start-column="52" selection-end-line="182" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/messages.component.js" />
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7337278">
+        <state relative-caret-position="0">
           <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34911242">
-          <caret line="54" column="52" selection-start-line="54" selection-start-column="52" selection-end-line="54" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.js" />
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/things.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13129103">
+        <state relative-caret-position="0">
           <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
           <folding />
         </state>
@@ -1495,7 +1234,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.124223605">
+        <state relative-caret-position="0">
           <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
           <folding />
         </state>
@@ -1503,7 +1242,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/hubs.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.124223605">
+        <state relative-caret-position="0">
           <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
           <folding />
         </state>
@@ -1511,7 +1250,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/feedback.modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.124223605">
+        <state relative-caret-position="0">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
@@ -1519,7 +1258,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/projects.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.124223605">
+        <state relative-caret-position="0">
           <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
           <folding />
         </state>
@@ -1527,15 +1266,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/feedback.modal.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17751479">
+        <state relative-caret-position="0">
           <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offers.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.031055901">
+        <state relative-caret-position="0">
           <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
           <folding />
         </state>
@@ -1543,7 +1281,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/resources.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.062111802">
+        <state relative-caret-position="0">
           <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="14" />
           <folding />
         </state>
@@ -1551,49 +1289,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/people.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49689442">
+        <state relative-caret-position="0">
           <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.124223605">
-          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/messages.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1863354">
+        <state relative-caret-position="0">
           <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-          <folding>
-            <element signature="e#2614#2635#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9112426">
+        <state relative-caret-position="0">
           <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33684212">
+        <state relative-caret-position="0">
           <caret line="69" column="63" selection-start-line="69" selection-start-column="63" selection-end-line="69" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.031055901">
+        <state relative-caret-position="0">
           <caret line="1" column="36" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="36" />
           <folding />
         </state>
@@ -1601,15 +1327,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34911242">
+        <state relative-caret-position="0">
           <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5031056">
+        <state relative-caret-position="0">
           <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
           <folding />
         </state>
@@ -1617,32 +1342,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20710059">
+        <state relative-caret-position="0">
           <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="26" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
-          <caret line="1" column="26" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="26" />
+        <state relative-caret-position="342">
+          <caret line="118" column="0" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3846154">
-          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+        <state relative-caret-position="284">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/intro-card/intro-card.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1036">
+          <caret line="84" column="26" selection-start-line="84" selection-start-column="26" selection-end-line="84" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="666">
+          <caret line="58" column="51" selection-start-line="58" selection-start-column="51" selection-end-line="58" selection-end-column="51" />
           <folding />
         </state>
       </provider>

@@ -9,7 +9,7 @@ import { LocalityService } from '../locality.service';
 })
 export class IntroCardComponent implements OnInit {
 
-    private locality: string;
+    public locality: string;
 
     constructor(private inforService: InforService,
         private localityService: LocalityService) { }
