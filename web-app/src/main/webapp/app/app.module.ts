@@ -50,6 +50,7 @@ import { NewHubModal } from './new-hub.modal';
 import { NewOfferModal } from './new-offer.modal';
 import { NewProjectModal } from './new-project.modal';
 import { NewResourceModal } from './new-resource.modal';
+import { NewFormModal } from './new-form.modal';
 import { SetPhotoModal } from './set-photo.modal';
 import { EditDetailsModal } from './edit-details.modal';
 import { PostUpdateModal } from './post-update.modal';
@@ -131,6 +132,7 @@ export class MyOptions extends BaseRequestOptions {
         SigninRequiredModal,
         NewProjectModal,
         NewResourceModal,
+        NewFormModal,
         InviteModal,
         AddThingModal,
         EditRoleModal,

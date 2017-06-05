@@ -21,4 +21,7 @@
 <div class="start-hidden" id="tab-people">
     <things *ngIf="thing" [things]="thing.people"></things>
 </div>
+<div class="start-hidden" id="tab-forms">
+    <things *ngIf="thing" [things]="thing.forms"></things>
+</div>
 <post-update-modal *ngIf="thing" [thing]="thing"></post-update-modal>

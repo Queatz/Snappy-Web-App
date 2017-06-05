@@ -94,7 +94,7 @@ export class AddThingModal implements AfterViewInit {
 
     private doSearch(position) {
         this.position = position;
-        this.api.earthSearch(position.coords, this.text || '', 'person|resource|project|offer|club|hub').subscribe(results => {
+        this.api.earthSearch(position.coords, this.text || '', 'person|resource|project|offer|club|hub|form').subscribe(results => {
             this.results = results;
             this.searching = false;
 

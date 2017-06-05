@@ -63,6 +63,10 @@ import { ProjectComponent } from "./project.component";
         component: ProjectComponent
       },
       {
+        path: 'forms/:id',
+        component: ProjectComponent
+      },
+      {
         path: 'search/:query',
         component: SearchComponent
       },

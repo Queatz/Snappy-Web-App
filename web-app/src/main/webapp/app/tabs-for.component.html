@@ -7,5 +7,6 @@
         <li *ngIf="thing.hubs && thing.hubs.length" class="tab"><a href="#tab-hubs" (click)="selectTab('hubs')" class="blue-text"><i class="material-icons">room</i> Hubs ({{ thing.hubs.length }})</a></li>
         <li *ngIf="thing.clubs && thing.clubs.length" class="tab"><a href="#tab-clubs" (click)="selectTab('clubs')" class="orange-text"><i class="material-icons">supervisor_account</i> Clubs ({{ thing.clubs.length }})</a></li>
         <li *ngIf="thing.people && thing.people.length" class="tab"><a href="#tab-people" (click)="selectTab('people')" class="txt-red"><i class="material-icons">perm_identity</i> People ({{ thing.people.length }})</a></li>
+        <li *ngIf="thing.forms && thing.forms.length" class="tab"><a href="#tab-forms" (click)="selectTab('forms')" class="txt-purple"><i class="material-icons">receipt</i> Forms ({{ thing.forms.length }})</a></li>
     </ul>
 </div>

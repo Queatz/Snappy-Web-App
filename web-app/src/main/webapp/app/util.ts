@@ -23,6 +23,8 @@ export default class Util {
                 return 'blue';
             case 'club':
                 return 'yellow darken-4';
+            case 'form':
+                return 'purple';
             case 'person':
             default:
                 return 'bkg-red';
