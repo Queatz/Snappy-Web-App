@@ -42,6 +42,10 @@
             <div class="about flow-text" [innerHtml]="thing.about | parseLinks"></div>
             <a class="about" href="#editDetailsModal" *ngIf="!thing.about && thing.owner">Add a description...</a>
             <i *ngIf="!thing.about && !thing.owner" class="about grey-text">No description provided.</i>
+            <div *ngIf="thing['in'] && thing['in'].length">
+                <h6 class="metadata grey-text">BACKING</h6>
+                <person-link *ngFor="let link of thing['in']" [remove]="undefined" [person]="link.target"></person-link>
+            </div>
             <br />
             <div class="waves-effect waves-light btn white-text {{ typeClassOf() }} tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Be a part of ' + thing.name" (click)="clickActionButton()">
                 <b *ngIf="actionButtonEnabled()">{{ actionButton() }}</b>

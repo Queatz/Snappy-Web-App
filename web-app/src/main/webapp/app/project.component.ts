@@ -50,7 +50,6 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
                         this.thing.contacts = _.filter(this.thing.members, m => m.source && m.source.kind === 'contact');
                         this.thing.updates = _.filter(this.thing.members, m => m.source && m.source.kind === 'update');
                         this.thing.forms = _.filter(this.thing.members, m => m.source && m.source.kind === 'form');
-
                         this.thing.updates = _.sortBy(this.thing.updates, m => -moment(m.source && m.source.date));
                     }
 
@@ -81,6 +80,17 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     }
 
     public removeCallbackFor(contact) {
+        return event => {
+            event.stopPropagation();
+            event.preventDefault();
+            this.removingContact = contact;
+            setTimeout(() => {
+                $(this.element).find('#removeContactModal').modal('open');
+            });
+        };
+    }
+
+    public removeCallbackForLink(contact) {
         return event => {
             event.stopPropagation();
             event.preventDefault();

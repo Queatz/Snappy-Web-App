@@ -1,6 +1,6 @@
-<a [routerLink]="['/' + person.googleUrl]" class="person-link waves-effect">
-    <img src="{{ person.imageUrl }}" alt="Profile picture" class="circle" />
+<a [routerLink]="goUrl()" class="person-link waves-effect">
+    <img src="{{ getImageUrl() }}" alt="Photo" class="circle img" />
     <br />
-    <div class="person-name">{{ person.firstName }} {{ person.lastName }}</div>
+    <div class="person-name">{{ getName() }}</div>
     <i class="remove-person waves-effect material-icons grey-text tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Remove'" *ngIf="remove" (click)="remove($event)">clear</i>
 </a>
