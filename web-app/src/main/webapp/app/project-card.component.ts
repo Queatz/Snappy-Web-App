@@ -85,8 +85,9 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
             default:
                 if (this.thing.photo) {
                     return this.api.earthPhotoUrl(this.thing.id);
+                } else {
+                    return 'img/night.png';
                 }
-                break;
         }
     }
 

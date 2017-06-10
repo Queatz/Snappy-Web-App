@@ -45,7 +45,11 @@ export class PersonLinkComponent implements OnInit, AfterViewInit, OnDestroy {
             return this.person.imageUrl;
         }
 
-        return this.api.earthImageUrl(this.person.id, 50);
+        if (this.person.photo) {
+            return this.api.earthImageUrl(this.person.id, 50);
+        } else {
+            return 'img/night.png';
+        }
     }
 
     goUrl() {
