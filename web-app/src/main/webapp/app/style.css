@@ -82,6 +82,21 @@ html body h3 {
     height: 60%;
 }
 
+.card.large .card-image+.card-content {
+    max-height: 20%;
+    height: 20%;
+}
+
 .modal {
     text-align: initial;
+}
+
+.project-label {
+    bprder-radius: 1rem;
+    background: limegreen;
+    color: white;
+    padding: 4px 10px;
+    display: inline-block;
+    line-height: normal;
+    font-size: .9rem;
 }

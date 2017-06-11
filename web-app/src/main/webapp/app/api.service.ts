@@ -115,6 +115,10 @@ export class ApiService {
             formData.append('message', message);
         }
 
+        if (thingId) {
+            formData.append('thing', thingId);
+        }
+
         var headers = new Headers();
         headers.append('Content-Type', undefined);
 
