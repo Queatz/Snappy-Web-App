@@ -205,8 +205,8 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
                     if (res.status == 200) {
                         Materialize.toast('Photo removed', 4000);
                         this.offerImage = '';
-                        if (this.removeCallback) {
-                            this.removeCallback(this.offer);
+                        if (this.resizeCallback) {
+                            this.resizeCallback(this.offer);
                         }
                         setTimeout(() => {
                             this.offer.photo = false;
