@@ -1,29 +1,51 @@
 <section class="chat-container">
   <aside class="topics">
-    <div *ngFor="let topic of topics"
-         class="topic waves-effect waves-blue"
-         (click)="chooseTopic(topic)"
-         [ngClass]="{'active': active === topic}">
-      <div class="to-pic" [style.background-image]="'url(\'img/topics/roommates.png\')'"></div>
-      <div class="blue-text">{{ topic }}</div>
+    <div class="locality grey-text">{{ locality }} Chats</div>
+    <div class="scrollbox">
+      <div *ngFor="let topic of topics"
+           class="topic waves-effect waves-blue"
+           (click)="chooseTopic(topic)"
+           [ngClass]="{'topic-active': active === topic}">
+        <div class="to-pic" [style.background-image]="'url(\'img/topics/roommates.png\')'"></div>
+        <div class="blue-text">{{ topic.name }}<span class="red-text topic-new" *ngIf="topic.recent">{{ topic.recent }} NEW</span></div>
+      </div>
     </div>
     <div class="fade"></div>
   </aside>
-  <section class="room">
+  <section class="view-ads">
+    <div class="waves-effect waves-green btn-flat" [ngClass]="{'green-text': !isShowingAds, 'red-text': isShowingAds}" (click)="toggleMobileAds()">
+      {{ isShowingAds ? 'Hide' : 'View ' + active.name }} Ads
+    </div>
+  </section>
+  <section class="room" [ngClass]="{'is-showing-ads': isShowingAds}">
     <section class="room-main">
-
+      <div class="room-main-chats">
+        <div class="chat-item"
+          *ngFor="let chat of chats">
+          <div class="chat-item-profile waves-effect" [style.background-image]="'url(\'img/topics/roommates.png\')'"></div>
+          <div class="chat-item-message">{{ chat.message }}</div>
+        </div>
+      </div>
     </section>
     <section class="room-action">
-
+      <div class="my-profile waves-effect" [style.background-image]="'url(\'img/topics/roommates.png\')'"></div>
+      <div class="input-field chat-input">
+        <input id="message" type="text" required [(ngModel)]="message" name="message" (keydown.enter)="enterPressedInChat($event)">
+        <label class="active" for="message">Chat in {{ active.name }}...</label>
+      </div>
+      <div class="action-upload waves-effect">
+        <i class="material-icons grey-text tooltipped" [attr.data-position]="'top'" [attr.data-tooltip]="'Post a photo'">add_a_photo</i>
+      </div>
     </section>
   </section>
-  <aside class="info">
+  <aside class="info" [ngClass]="{'is-showing-ads': isShowingAds}">
     <section class="info-main">
-
+      <div></div>
+      <div class="no-ads grey-text">No ads in {{ active.name }}.</div>
     </section>
     <section class="info-action">
       <div class="waves-effect waves-light btn white-text green">
-        Post {{active}} ad
+        Post {{ active.name }} ad
       </div>
     </section>
   </aside>

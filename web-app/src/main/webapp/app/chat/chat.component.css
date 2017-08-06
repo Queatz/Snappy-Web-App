@@ -8,19 +8,35 @@
     overflow: hidden;
     padding: .5rem;
 
-    background: white;
-    border: 1rem solid #f2f2f2;
+    background: rgba(255, 255, 255, 1);
+}
+
+.locality {
+    padding: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 .topics {
-    width: 18rem;
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
+    width: 18rem;
     margin: .5rem;
+    position: relative;
+}
+
+.scrollbox {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     padding-top: .25rem;
     padding-left: .25rem;
     padding-right: .25rem;
-    padding-bottom: 3rem;
+    padding-bottom: 6rem;
     overflow-y: scroll;
 }
 
@@ -35,7 +51,7 @@
     pointer-events: none;
 }
 
-.topics::-webkit-scrollbar {
+.scrollbox::-webkit-scrollbar {
     display: none;
 }
 
@@ -49,9 +65,14 @@
     border-radius: 4px;
 }
 
-.active {
+.topic-new {
+    font-weight: bold;
+    padding: .5rem;
+}
+
+.topic-active {
     box-shadow: 0 0 0 2px #BBDEFB inset;
-    background: rgb(240, 248, 255);
+    background: rgba(187, 222, 251, .5);
 }
 
 .topic:hover {
@@ -82,46 +103,145 @@
     margin: .5rem;
 }
 
-.info {
-    display: flex;
-    flex-direction: column;
-    width: 18rem;
-    margin: .5rem;
-}
-
 .room-main {
     display: flex;
     flex-grow: 1;
+    flex-direction: column;
     height: 0px;
-    background: #f2f2f2;
     box-shadow: 0 0 24px rgba(0, 0, 0, .1) inset;
+    overflow-y: auto;
+    border: 2px solid #BBDEFB;
+    border-radius: 4px;
+    background: white;
+}
+
+.room-main-chats {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    margin: 1rem 0;
+}
+
+.chat-item {
+    display: flex;
+    padding: .5rem 1rem;
+    flex-shrink: 0;
+}
+
+@keyframes scale-in {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.chat-item-message {
+    display: block;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-word;
+    opacity: 0;
+
+    padding: .5rem 1rem;
+
+    animation: fade-in;
+    animation-duration: 190ms;
+    animation-delay: 190ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+.chat-item-profile {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+    margin-top: .5rem;
+    flex-shrink: 0;
+    background-size: 100%;
+    image-rendering: pixelated;
+
+    animation: scale-in;
+    animation-duration: 250ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(1, -0.46, 0.09, 1.44);
 }
 
 .room-action {
     display: flex;
+    flex-shrink: 0;
     align-items: center;
     margin-top: 1rem;
     height: 4rem;
 }
 
+.info {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 18rem;
+    margin: .5rem;
+}
+
 .info-main {
     display: flex;
     flex-grow: 1;
-    height: 0px;
+    flex-direction: column;
+}
+
+.no-ads {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
 }
 
 .info-action {
     display: flex;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
     margin-top: 1rem;
     height: 4rem;
 }
 
-@media only screen and (max-width: 540px) {
+.my-profile {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+    background-size: 100%;
+    image-rendering: pixelated;
+}
+
+.chat-input {
+    display: flex;
+    width: 0;
+    flex-grow: 1;
+}
+
+.action-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 100%;
+}
+
+.view-ads {
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
     .chat-container {
         border: none;
         flex-direction: column;
+    }
+
+    .chat-container.is-showing-ads {
+        display: none;
     }
 
     .topics {
@@ -129,7 +249,19 @@
         width: initial;
     }
 
-    .info {
+    .info:not(.is-showing-ads) {
         display: none;
+    }
+
+    .info {
+        width: initial;
+    }
+
+    .room.is-showing-ads {
+        display: none;
+    }
+
+    .view-ads {
+        display: flex;
     }
 }

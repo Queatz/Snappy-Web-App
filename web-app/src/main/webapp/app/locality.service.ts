@@ -12,6 +12,12 @@ export class LocalityService {
 
     public get(callback: any) {
         this.callbacks.push(callback);
+
+        let lastKnownLocality = localStorage.getItem('lastKnownLocality');
+        if (lastKnownLocality) {
+            callback(lastKnownLocality);
+        }
+
         navigator.geolocation.getCurrentPosition(this.onLocationFound.bind(this));
     }
 
@@ -39,6 +45,8 @@ export class LocalityService {
         }
 
     private onLocalityFound(locality: string) {
+        localStorage.setItem('lastKnownLocality', locality);
+
         while (this.callbacks.length) {
             this.callbacks.pop()(locality);
         }
