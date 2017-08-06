@@ -2,6 +2,7 @@ declare var $;
 declare var Waves;
 
 import { Component, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'tabs-for',
@@ -13,7 +14,8 @@ export class TabsForComponent implements AfterViewInit, OnDestroy {
     private element;
 
     constructor(
-        element: ElementRef
+        element: ElementRef,
+        private location: Location
     ) {
         this.element = element.nativeElement;
     }
@@ -22,7 +24,13 @@ export class TabsForComponent implements AfterViewInit, OnDestroy {
         Waves.displayEffect();
         $(this.element).find('.tooltipped').tooltip({delay: 50});
         $(this.element).find('.modal').modal();
-        $(this.element).find('ul.tabs').tabs();
+        $(this.element).find('ul.tabs').tabs({
+            onShow: this.changed.bind(this)
+        });
+    }
+
+    changed(tab) {
+        this.location.replaceState([this.thing.googleUrl || this.thing.id, tab.attr('id').substr(4)].join('/'));
     }
 
     ngOnDestroy() {

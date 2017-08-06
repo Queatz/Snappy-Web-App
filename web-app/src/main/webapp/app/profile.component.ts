@@ -39,6 +39,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     private postUpdateModal;
     private tab;
     private isFollowing;
+    private preselect: string = null;
     private pageTitle: Subject<string>;
 
     constructor(
@@ -62,13 +63,18 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     ngOnInit() {
          this.inforService.setPageTitle('Village');
 
-         this.route.params.subscribe(params => {
-            let id = params['id'];
-            let tab = params['tab'];
+         this.route.params.subscribe(this.subFunc.bind(this));
+    }
 
-            this.loadPerson(id);
-            this.myProfile = id;
-        });
+    subFunc(params: any) {
+        let id = params['id'];
+        let tab = params['tab'];
+
+        let self = this;
+
+        this.preselect = tab;
+        this.loadPerson(id);
+        this.myProfile = id;
     }
 
     loaded(offers) {
@@ -76,37 +82,42 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     }
 
     loadPerson(personName) {
-            this.api.getPersonByName(personName)
-            .subscribe(person => {
-                this.thing = person;
-                    util.setBodyBackground(util.imageUrl(this.thing.imageUrl, 640));
+        this.api.getPersonByName(personName)
+        .subscribe(person => {
+            this.thing = person;
+                util.setBodyBackground(util.imageUrl(this.thing.imageUrl, 640));
 
-                if (this.thing.members) {
-                    this.thing.people = _.filter(this.thing.members, m => m.source && m.source.kind === 'person');
-                    this.thing.offers = _.filter(this.thing.members, m => m.source && m.source.kind === 'offer');
-                    this.thing.resources = _.filter(this.thing.members, m => m.source && m.source.kind === 'resource');
-                    this.thing.hubs = _.filter(this.thing.members, m => m.source && m.source.kind === 'hub');
-                    this.thing.projects = _.filter(this.thing.members, m => m.source && m.source.kind === 'project');
-                    this.thing.clubs = _.filter(this.thing.members, m => m.source && m.source.kind === 'club');
-                    this.thing.contacts = _.filter(this.thing.members, m => m.source && m.source.kind === 'contact');
-                    this.thing.updates = _.filter(this.thing.members, m => m.source && m.source.kind === 'update');
-                    this.thing.forms = _.filter(this.thing.members, m => m.source && m.source.kind === 'form');
+            if (this.thing.members) {
+                this.thing.people = _.filter(this.thing.members, m => m.source && m.source.kind === 'person');
+                this.thing.offers = _.filter(this.thing.members, m => m.source && m.source.kind === 'offer');
+                this.thing.resources = _.filter(this.thing.members, m => m.source && m.source.kind === 'resource');
+                this.thing.hubs = _.filter(this.thing.members, m => m.source && m.source.kind === 'hub');
+                this.thing.projects = _.filter(this.thing.members, m => m.source && m.source.kind === 'project');
+                this.thing.clubs = _.filter(this.thing.members, m => m.source && m.source.kind === 'club');
+                this.thing.contacts = _.filter(this.thing.members, m => m.source && m.source.kind === 'contact');
+                this.thing.updates = _.filter(this.thing.members, m => m.source && m.source.kind === 'update');
+                this.thing.forms = _.filter(this.thing.members, m => m.source && m.source.kind === 'form');
 
-                    this.thing.updates = _.sortBy(this.thing.updates, m => -moment(m.source && m.source.date));
-                    this.thing.offers = _.sortBy(this.thing.offers, 'price');
-                }
+                this.thing.updates = _.sortBy(this.thing.updates, m => -moment(m.source && m.source.date));
+                this.thing.offers = _.sortBy(this.thing.offers, 'price');
+            }
 
-                this.editAbout = person.about;
-                this.inforService.setPageTitle(person.firstName);
-                this.pageTitle.next(person.firstName);
-                this.loaded(person.offers);
-            },
-            error => this.notFound = true);
+            this.editAbout = person.about;
+            this.inforService.setPageTitle(person.firstName);
+            this.pageTitle.next(person.firstName);
+            this.loaded(person.offers);
+        },
+        error => this.notFound = true);
     }
 
     ngAfterViewInit() {
         $(this.element).find('.tooltipped').tooltip({delay: 50});
         $(this.element.querySelector('.modal')).modal();
+
+        if (this.preselect) {
+            let self = this;
+            setTimeout(() => $(self.element).find('ul.tabs').tabs('select_tab', 'tab-' + this.preselect));
+        }
     }
 
     ngOnDestroy() {

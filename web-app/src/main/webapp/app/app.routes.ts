@@ -80,6 +80,10 @@ import { ChatComponent } from "./chat/chat.component";
         component: ProfileComponent
       },
       {
+        path: ':id/:tab',
+        component: ProfileComponent
+      },
+      {
         path: '**',
         redirectTo: '/'
       }
