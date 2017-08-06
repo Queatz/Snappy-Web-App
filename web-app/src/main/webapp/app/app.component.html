@@ -1,7 +1,7 @@
 <div class="app">
     <div class="navbar-fixed">
         <nav>
-            <div class="nav-wrapper banner" [ngClass]="{'yellow darken-4': isActive(['/clubs']), 'blue': isActive(['/hubs']), 'deep-orange': isActive(['/projects']), 'brown': isActive(['/resources']), 'bkg-red': !isActive(['/hubs']) && !isActive(['/clubs']) && !isActive(['/projects']) && !isActive(['/resources'])}">
+            <div class="nav-wrapper banner" [ngClass]="{'yellow darken-4': isActive(['/clubs']), 'blue': isActive(['/hubs']), 'deep-orange': isActive(['/projects']), 'brown': isActive(['/resources']), 'orange': isActive(['/chat']), 'bkg-red': !isActive(['/hubs']) && !isActive(['/clubs']) && !isActive(['/chat']) && !isActive(['/projects']) && !isActive(['/resources'])}">
                 <div class="skylike"></div>
                 <a class="brand-logo center hide-on-large-only">{{ pageTitle() }}</a>
 
@@ -12,6 +12,7 @@
                     <li [ngClass]="{'active': isActive(['/hubs'])}"><a routerLink="/hubs"><i class="material-icons left">room</i>Places to go</a></li>
                     <!--<li [ngClass]="{'active': isActive(['/clubs'])}"><a routerLink="/clubs"><i class="material-icons left">supervisor_account</i>Clubs</a></li>-->
                     <li [ngClass]="{'active': isActive(['/people'])}"><a routerLink="/people"><i class="material-icons left">perm_identity</i>People to meet</a></li>
+                    <li [ngClass]="{'active': isActive(['/chat'])}"><a routerLink="/chat"><i class="material-icons left">sentiment_very_satisfied</i>Chat</a></li>
                     <!--<li [ngClass]="{'active': isActive(['/search'])}"><a routerLink="/search"><i class="material-icons left">search</i>Search</a></li>-->
                 </ul>
 
@@ -199,6 +200,7 @@
     <li><a routerLink="/hubs"><i class="material-icons left blue-text">room</i>Places to go</a></li>
     <!--<li><a routerLink="/clubs"><i class="material-icons left">supervisor_account</i>Clubs</a></li>-->
     <li><a routerLink="/people"><i class="material-icons left red-text">perm_identity</i>People to meet</a></li>
+    <li><a routerLink="/chat"><i class="material-icons left orange-text">sentiment_very_satisfied</i>Chat</a></li>
     <!--<li><a routerLink="/search"><i class="material-icons left">search</i>Search</a></li>-->
     <li><a class="modal-trigger" *ngIf="userSignined()" href="#feedbackModal"><i class="material-icons left">edit</i>Send Feedback</a></li>
 </ul>

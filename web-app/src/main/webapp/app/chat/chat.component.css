@@ -1,0 +1,135 @@
+.chat-container {
+    display: flex;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    padding: .5rem;
+
+    background: white;
+    border: 1rem solid #f2f2f2;
+}
+
+.topics {
+    width: 18rem;
+    display: flex;
+    flex-direction: column;
+    margin: .5rem;
+    padding-top: .25rem;
+    padding-left: .25rem;
+    padding-right: .25rem;
+    padding-bottom: 3rem;
+    overflow-y: scroll;
+}
+
+.fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6rem;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, .8), white);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.topics::-webkit-scrollbar {
+    display: none;
+}
+
+.topic {
+    padding: 2rem 1rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: row;
+    border-radius: 4px;
+}
+
+.active {
+    box-shadow: 0 0 0 2px #BBDEFB inset;
+    background: rgb(240, 248, 255);
+}
+
+.topic:hover {
+    font-weight: bold;
+}
+
+.topic:hover .to-pic {
+    height: 4rem;
+    width: 4rem;
+    margin: -1rem 1rem -1rem -1rem;
+}
+
+.to-pic {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+    background-size: 100%;
+    image-rendering: pixelated;
+
+    transition: width 190ms, height 190ms, margin 190ms;
+    transition-timing-function: cubic-bezier(1, -0.46, 0.09, 1.44);
+}
+
+.room {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin: .5rem;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    width: 18rem;
+    margin: .5rem;
+}
+
+.room-main {
+    display: flex;
+    flex-grow: 1;
+    height: 0px;
+    background: #f2f2f2;
+    box-shadow: 0 0 24px rgba(0, 0, 0, .1) inset;
+}
+
+.room-action {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    height: 4rem;
+}
+
+.info-main {
+    display: flex;
+    flex-grow: 1;
+    height: 0px;
+}
+
+.info-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    height: 4rem;
+}
+
+@media only screen and (max-width: 540px) {
+    .chat-container {
+        border: none;
+        flex-direction: column;
+    }
+
+    .topics {
+        max-height: 12rem;
+        width: initial;
+    }
+
+    .info {
+        display: none;
+    }
+}

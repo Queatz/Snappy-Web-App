@@ -69,7 +69,7 @@
             <div class="row s3 listmessages">
                 <div class="content scroll">
                     <div class="center-align grey-text text-darken-2 infobar" *ngIf="messageWithSomeone && !messageWithSomeone.length">
-                        Start your conversation with {{ messagesWith.firstName }} below.
+                        Start your conversation with {{ messagesWith.firstName || 'someone' }} below.
                     </div>
                     <div class="scrollpanel">
                         <div class="message-item clear scrollspy" *ngFor="let message of messageWithSomeone">

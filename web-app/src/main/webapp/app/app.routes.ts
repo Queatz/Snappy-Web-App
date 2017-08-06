@@ -10,6 +10,7 @@ import { ResourcesComponent } from "./resources.component";
 import { PeopleComponent } from "./people.component";
 import { SearchComponent } from "./search.component";
 import { ProjectComponent } from "./project.component";
+import { ChatComponent } from "./chat/chat.component";
 
 @NgModule({
   imports: [
@@ -45,6 +46,10 @@ import { ProjectComponent } from "./project.component";
       {
         path: 'people',
         component: PeopleComponent
+      },
+      {
+        path: 'chat',
+        component: ChatComponent
       },
       {
         path: 'hubs/:id',

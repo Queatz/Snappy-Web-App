@@ -1,0 +1,30 @@
+<section class="chat-container">
+  <aside class="topics">
+    <div *ngFor="let topic of topics"
+         class="topic waves-effect waves-blue"
+         (click)="chooseTopic(topic)"
+         [ngClass]="{'active': active === topic}">
+      <div class="to-pic" [style.background-image]="'url(\'img/topics/roommates.png\')'"></div>
+      <div class="blue-text">{{ topic }}</div>
+    </div>
+    <div class="fade"></div>
+  </aside>
+  <section class="room">
+    <section class="room-main">
+
+    </section>
+    <section class="room-action">
+
+    </section>
+  </section>
+  <aside class="info">
+    <section class="info-main">
+
+    </section>
+    <section class="info-action">
+      <div class="waves-effect waves-light btn white-text green">
+        Post {{active}} ad
+      </div>
+    </section>
+  </aside>
+</section>

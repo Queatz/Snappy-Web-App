@@ -79,7 +79,7 @@
     background-position: center;
     background-color: #f2f2f2;
     background-blend-mode: screen;
-    box-shadow: 0 0 24px rgba(0, 0, 0, .25) inset;
+    box-shadow: 0 0 24px rgba(0, 0, 0, .1) inset;
 }
 
 .sendmessage textarea {
@@ -194,6 +194,12 @@ h3.mstitle {
     .row.mainmessage {
         width: 70%;
         margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .messagescontainer {
+        padding: 0;
     }
 }
 
