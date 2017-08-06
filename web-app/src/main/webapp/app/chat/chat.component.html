@@ -13,7 +13,7 @@
     <div class="fade"></div>
   </aside>
   <section class="view-ads">
-    <div class="waves-effect waves-green btn-flat" [ngClass]="{'green-text': !isShowingAds, 'red-text': isShowingAds}" (click)="toggleMobileAds()">
+    <div class="waves-effect btn-flat" [ngClass]="{'green-text waves-green': !isShowingAds, 'red-text waves-red': isShowingAds}" (click)="toggleMobileAds()">
       {{ isShowingAds ? 'Hide' : 'View ' + active.name }} Ads
     </div>
   </section>
@@ -40,8 +40,26 @@
   </section>
   <aside class="info" [ngClass]="{'is-showing-ads': isShowingAds}">
     <section class="info-main">
-      <div></div>
-      <div class="no-ads grey-text">No ads in {{ active.name }}.</div>
+      <div class="info-main-scroll" *ngIf="active && active.ads && active.ads.length">
+          <div class="card hoverable topic-ad" *ngFor="let ad of active.ads">
+              <div class="topic-ad-name">
+                  {{ ad.name }}
+              </div>
+              <div class="topic-ad-desc grey-text">
+                  {{ ad.description }}
+              </div>
+              <div class="topic-ad-actions">
+                  <div class="ad-age grey-text">
+                      5 days ago
+                  </div>
+                  <div class="waves-effect waves-light btn green">
+                      {{ ad.action || 'Reply' }}
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="no-ads grey-text" *ngIf="!(active && active.ads && active.ads.length)">No ads in {{ active.name }}.</div>
+      <div class="fade" *ngIf="active && active.ads && active.ads.length"></div>
     </section>
     <section class="info-action">
       <div class="waves-effect waves-light btn white-text green">

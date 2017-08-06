@@ -15,6 +15,12 @@ export class ChatComponent implements OnInit, AfterViewInit {
         {
             name: 'Community',
             recent: 0,
+            ads: [
+                {
+                    name: 'New chocolate butter!',
+                    description: 'You\'ll love our chocolate butter! PLEASE reply to get some for free - only today!'
+                }
+            ]
         },
         {
             name: 'Singles',
@@ -38,11 +44,29 @@ export class ChatComponent implements OnInit, AfterViewInit {
         },
         {
             name: 'Art',
-            recent: 0,
+            recent: 12,
         },
         {
             name: 'Recruiting',
             recent: 0,
+            ads: [
+                {
+                    name: 'New chocolate butter!',
+                    description: 'You\'ll love our chocolate butter! PLEASE reply to get some for free - only today!'
+                }, {
+                    name: 'New chocolate butter!',
+                    description: 'You\'ll love our chocolate butter! PLEASE reply to get some for free - only today!'
+                }, {
+                    name: 'New chocolate butter!',
+                    description: 'You\'ll love our chocolate butter! PLEASE reply to get some for free - only today!'
+                }, {
+                    name: 'New chocolate butter!',
+                    description: 'You\'ll love our chocolate butter! PLEASE reply to get some for free - only today!'
+                }, {
+                    name: 'New chocolate butter!',
+                    description: 'You\'ll love our chocolate butter! PLEASE reply to get some for free - only today!'
+                }
+            ]
         },
         {
             name: 'Food',

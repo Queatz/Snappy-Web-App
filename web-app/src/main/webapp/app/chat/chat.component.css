@@ -37,7 +37,7 @@
     padding-left: .25rem;
     padding-right: .25rem;
     padding-bottom: 6rem;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .fade {
@@ -51,7 +51,8 @@
     pointer-events: none;
 }
 
-.scrollbox::-webkit-scrollbar {
+.scrollbox::-webkit-scrollbar,
+.info-main-scroll::-webkit-scrollbar {
     display: none;
 }
 
@@ -180,14 +181,25 @@
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    width: 18rem;
-    margin: .5rem;
+    width: 19rem; /* 18 + 1 due to missing margin */
+    margin: .5rem 0;
 }
 
 .info-main {
     display: flex;
     flex-grow: 1;
     flex-direction: column;
+    position: relative;
+}
+
+.info-main-scroll {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    padding-bottom: 6rem;
 }
 
 .no-ads {
@@ -234,6 +246,33 @@
     justify-content: center;
 }
 
+.topic-ad {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    flex-shrink: 0;
+}
+
+.topic-ad-name {
+    font-weight: bold;
+}
+
+.topic-ad-desc {
+    padding-top: 1rem;
+}
+
+.topic-ad-actions {
+    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ad-age {
+    align-self: flex-end;
+}
+
+
 @media only screen and (max-width: 600px) {
     .chat-container {
         border: none;
@@ -255,6 +294,7 @@
 
     .info {
         width: initial;
+        flex-shrink: initial;
     }
 
     .room.is-showing-ads {
