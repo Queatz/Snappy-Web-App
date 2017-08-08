@@ -10,6 +10,7 @@ import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import { TutorialService } from './tutorial.service';
 import { LocalityService } from './locality.service';
+import { ChatService } from './chat.service';
 import { AppRoutingModule } from './app.routes';
 
 import { FloatingComponent } from './floating.component';
@@ -164,6 +165,7 @@ export class MyOptions extends BaseRequestOptions {
         TutorialService,
         WebTitleService,
         LocalityService,
+        ChatService,
         {
             provide: RequestOptions,
             useClass: MyOptions

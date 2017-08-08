@@ -21,8 +21,8 @@
     <section class="room-main">
       <div class="room-main-chats">
         <div class="chat-item"
-          *ngFor="let chat of chats">
-          <div class="chat-item-profile waves-effect" [style.background-image]="'url(\'img/topics/roommates.png\')'"></div>
+          *ngFor="let chat of chats[active.name]">
+          <div class="chat-item-profile" [style.background-image]="'url(\'img/topics/roommates.png\')'"></div>
           <div class="chat-item-message">{{ chat.message }}</div>
         </div>
       </div>
