@@ -201,7 +201,7 @@ export class ChatService {
 
                 break; }
             case 'session.start': {
-                chat.data.forEach(replay => this.proxyMessage(replay));
+                chat.data.replay.forEach(replay => this.proxyMessage(replay));
                 break; }
             default:
                 console.log('Got unknown chat', chat);
