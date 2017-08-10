@@ -165,6 +165,20 @@ export class ChatService {
                 this.chats[chat.data.topic].push({
                     message: chat.data.message
                 });
+
+                let topic = this.topics.find(t => t.name === chat.data.topic);
+
+                if (!topic) {
+                    topic = {
+                        name: chat.data.topic,
+                        recent: 0
+                    };
+
+                    this.topics.push(topic);
+                }
+
+                topic.recent++;
+
                 break;
         }
 

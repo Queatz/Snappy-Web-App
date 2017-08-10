@@ -43,6 +43,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
 
     chooseTopic(topic: any) {
         this.active = topic;
+        this.topics.find(t => t.name === this.active.name).recent = 0;
         setTimeout(() => this.scrollChat(), 5);
     }
 
@@ -70,6 +71,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
     gotChat(chat: any) {
         if (chat.action === 'message.send' && chat.data.topic === this.active.name) {
             this.scrollChat();
+            this.topics.find(t => t.name === this.active.name).recent = 0;
         }
     }
 
