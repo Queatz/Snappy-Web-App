@@ -15,7 +15,6 @@ import { LocalityService } from '../locality.service';
 })
 export class LocalityCardComponent implements AfterViewInit, OnDestroy {
     public locality: string;
-    private position: any;
     public subscribeEmail: string;
 
     constructor(private inforService: InforService,
@@ -42,7 +41,7 @@ export class LocalityCardComponent implements AfterViewInit, OnDestroy {
             return;
         }
 
-        this.api.subscribeToLocality(this.position.coords, this.locality, this.subscribeEmail)
+        this.api.subscribeToLocality(this.localityService.getPosition().coords, this.locality, this.subscribeEmail)
             .subscribe(json => {
                 if (json.success) {
                     this.inforService.setSubscribedTo(this.locality, true);

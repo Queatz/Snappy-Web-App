@@ -57,9 +57,9 @@ export class ChatComponent implements OnInit, AfterViewInit {
     }
 
     sendChat(message: string) {
-        this.chat.send(message, this.active.name);
+        this.chat.sendMessage(message, this.active.name);
         this.chat.proxyMessage({
-            action: 'message.got',
+            action: 'message.send',
             data: {
                 topic: this.active.name,
                 message: message
@@ -68,7 +68,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
     }
 
     gotChat(chat: any) {
-        if (chat.action === 'message.got' && chat.data.topic === this.active.name) {
+        if (chat.action === 'message.send' && chat.data.topic === this.active.name) {
             this.scrollChat();
         }
     }

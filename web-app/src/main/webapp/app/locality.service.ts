@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class LocalityService {
 
     private callbacks = [];
+    private position: any;
 
     constructor() { }
 
@@ -22,27 +23,33 @@ export class LocalityService {
     }
 
     private onLocationFound(position: any) {
-            new google.maps.Geocoder().geocode({
-                location: new google.maps.LatLng(
-                    position.coords.latitude,
-                    position.coords.longitude
-                )
-            }, (results: any) => {
-                for (var i = 0; i < results.length; i++) {
-                    var result = results[i];
+        this.position = position;
 
-                    if ('address_components' in result) {
-                        for (var j = 0; j < result['address_components'].length; j++) {
-                            var component = result['address_components'][j];
-                            if (_.includes(component.types, 'locality')) {
-                                this.onLocalityFound(component.short_name);
-                                break;
-                            }
+        new google.maps.Geocoder().geocode({
+            location: new google.maps.LatLng(
+                position.coords.latitude,
+                position.coords.longitude
+            )
+        }, (results: any) => {
+            for (var i = 0; i < results.length; i++) {
+                var result = results[i];
+
+                if ('address_components' in result) {
+                    for (var j = 0; j < result['address_components'].length; j++) {
+                        var component = result['address_components'][j];
+                        if (_.includes(component.types, 'locality')) {
+                            this.onLocalityFound(component.short_name);
+                            break;
                         }
                     }
                 }
-            });
-        }
+            }
+        });
+    }
+
+    public getPosition(): any {
+        return this.position;
+    }
 
     private onLocalityFound(locality: string) {
         localStorage.setItem('lastKnownLocality', locality);

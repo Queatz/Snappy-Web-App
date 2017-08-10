@@ -12,12 +12,6 @@ export class ChatService {
         {
             name: 'Community',
             recent: 0,
-            ads: [
-                {
-                    name: 'New chocolate butter!',
-                    description: 'You\'ll love our chocolate butter! PLEASE reply to get some for free - only today!'
-                }
-            ]
         },
         {
             name: 'Singles',
@@ -41,29 +35,11 @@ export class ChatService {
         },
         {
             name: 'Art',
-            recent: 12,
+            recent: 0,
         },
         {
             name: 'Recruiting',
             recent: 0,
-            ads: [
-                {
-                    name: 'New chocolate butter!',
-                    description: 'You\'ll love our chocolate butter! PLEASE reply to get some for free - only today!'
-                }, {
-                    name: 'New chocolate butter!',
-                    description: 'You\'ll love our chocolate butter! PLEASE reply to get some for free - only today!'
-                }, {
-                    name: 'New chocolate butter!',
-                    description: 'You\'ll love our chocolate butter! PLEASE reply to get some for free - only today!'
-                }, {
-                    name: 'New chocolate butter!',
-                    description: 'You\'ll love our chocolate butter! PLEASE reply to get some for free - only today!'
-                }, {
-                    name: 'New chocolate butter!',
-                    description: 'You\'ll love our chocolate butter! PLEASE reply to get some for free - only today!'
-                }
-            ]
         },
         {
             name: 'Food',
@@ -83,7 +59,7 @@ export class ChatService {
         },
         {
             name: 'Gaming',
-            recent: 1,
+            recent: 0,
         },
         {
             name: 'Tech',
@@ -91,7 +67,7 @@ export class ChatService {
         },
         {
             name: 'Trade',
-            recent: 3,
+            recent: 0,
         },
         {
             name: 'Events',
@@ -111,11 +87,11 @@ export class ChatService {
         },
         {
             name: 'Ride Sharing',
-            recent: 2,
+            recent: 0,
         },
         {
             name: 'Housework',
-            recent: 5,
+            recent: 0,
         },
         {
             name: 'Collab',
@@ -127,7 +103,7 @@ export class ChatService {
         },
         {
             name: 'Anime',
-            recent: 8,
+            recent: 0,
         },
         {
             name: 'Modeling',
@@ -135,7 +111,7 @@ export class ChatService {
         },
         {
             name: 'Film',
-            recent: 1,
+            recent: 0,
         }
     ];
 
@@ -143,8 +119,12 @@ export class ChatService {
 
     constructor(private api: ApiService) {}
 
-    public send(message: string, topic: string) {
-        let chat = this.make('send', {
+    public start() {
+        this.send(this.make('session.start', null));
+    }
+
+    public sendMessage(message: string, topic: string) {
+        let chat = this.make('message.send', {
             message: message,
             topic: topic
         });
@@ -158,6 +138,16 @@ export class ChatService {
         console.log('send chat', chat);
     }
 
+    public send(chat: any) {
+        if (this.sok().readyState === WebSocket.OPEN) {
+            this.sok().send(chat);
+        } else {
+            this.queue.push(chat);
+        }
+
+        console.log('send chat', chat);
+    }
+
     private make(action: string, data: any) {
         return JSON.stringify({
             action: action,
@@ -166,10 +156,8 @@ export class ChatService {
     }
 
     public proxyMessage(chat: any) {
-        console.log('got chat', chat);
-
         switch (chat.action) {
-            case 'message.got':
+            case 'message.send':
                 if (!this.chats[chat.data.topic]) {
                     this.chats[chat.data.topic] = [];
                 }
@@ -187,11 +175,16 @@ export class ChatService {
 
     private onMessage(message: string) {
         let chat = JSON.parse(message);
+        console.log('got chat', message);
         this.proxyMessage(chat);
     }
 
     public register(listener: any) {
         this.listeners.add(listener);
+
+        if (!this.ws) {
+            this.start();
+        }
     }
 
     public unregister(listener: any) {
@@ -199,7 +192,6 @@ export class ChatService {
     }
 
     private onOpen() {
-        this.ws.send(this.make('session.start', null));
         while (this.queue.length) {
             this.ws.send(this.queue.shift());
         }
