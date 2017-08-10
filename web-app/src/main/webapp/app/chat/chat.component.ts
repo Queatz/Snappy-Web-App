@@ -1,9 +1,11 @@
 declare var $;
+declare var moment;
 declare var Waves;
 
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
 import { LocalityService } from '../locality.service';
 import { ChatService } from '../chat.service';
+import util from '../util';
 
 @Component({
   selector: 'chat',
@@ -51,6 +53,14 @@ export class ChatComponent implements OnInit, AfterViewInit {
         this.isShowingAds = !this.isShowingAds;
     }
 
+    onAddAd(ad: any) {
+        this.chat.sendAdAdd(ad);
+        this.chat.proxyMessage({
+            action: 'ad.add',
+            data: ad
+        });
+    }
+
     enterPressedInChat(event: Event) {
         this.sendChat(this.message);
         this.message = '';
@@ -93,5 +103,9 @@ export class ChatComponent implements OnInit, AfterViewInit {
     ngOnDestroy() {
         this.chat.unregister(this.chatListener);
         $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
+    }
+
+    ago(date: any) {
+        return moment(date).fromNow();
     }
 }

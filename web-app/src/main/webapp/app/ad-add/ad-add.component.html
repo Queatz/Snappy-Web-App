@@ -1,0 +1,32 @@
+<div id="adAddModal" class="modal">
+  <div class="modal-content">
+    <h4>Add {{ topic }} ad</h4>
+
+    <form>
+      <div class="row">
+        <div class="col s12">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">mode_edit</i>
+            <input id="name" type="text" required [(ngModel)]="name" name="name" autofocus autocomplete="off">
+            <label class="active" for="name">Ad title</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">edit</i>
+          <textarea class="materialize-textarea" id="description" type="text" required [(ngModel)]="description" name="description"></textarea>
+          <label for="description">Enter ad details here...</label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <a class="btn-flat waves-effect waves-green modal-action green-text" type="submit" name="action" (click)="add()">
+      Add {{ topic }} ad
+    </a>
+    <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
+  </div>
+
+</div>

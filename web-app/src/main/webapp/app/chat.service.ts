@@ -129,13 +129,11 @@ export class ChatService {
             topic: topic
         });
 
-        if (this.sok().readyState === WebSocket.OPEN) {
-            this.sok().send(chat);
-        } else {
-            this.queue.push(message);
-        }
+        this.send(chat);
+    }
 
-        console.log('send chat', chat);
+    public sendAdAdd(ad: any) {
+        this.send(this.make('ad.add', ad));
     }
 
     public send(chat: any) {
@@ -157,7 +155,7 @@ export class ChatService {
 
     public proxyMessage(chat: any) {
         switch (chat.action) {
-            case 'message.send':
+            case 'message.send': {
                 if (!this.chats[chat.data.topic]) {
                     this.chats[chat.data.topic] = [];
                 }
@@ -179,7 +177,19 @@ export class ChatService {
 
                 topic.recent++;
 
-                break;
+                break; }
+            case 'ad.add': {
+                let topic = this.topics.find(t => t.name === chat.data.topic);
+
+                if (!topic.ads) {
+                    topic.ads = [];
+                }
+
+                topic.ads.unshift(chat.data);
+
+                break; }
+            default:
+                console.log('Got unknown chat', chat);
         }
 
         this.listeners.forEach(l => l(chat));

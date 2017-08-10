@@ -67,6 +67,7 @@ import { ExactRouteReuseStrategy } from './exact.reuse';
 import { LocalityCardComponent } from './locality-card/locality-card.component';
 import { IntroCardComponent } from './intro-card/intro-card.component';
 import { ChatComponent } from './chat/chat.component';
+import { AdAddComponent } from './ad-add/ad-add.component';
 
 enableProdMode();
 
@@ -142,6 +143,7 @@ export class MyOptions extends BaseRequestOptions {
         LocalityCardComponent,
         IntroCardComponent,
         ChatComponent,
+        AdAddComponent,
     ],
     entryComponents: [
         FeedbackModal,
