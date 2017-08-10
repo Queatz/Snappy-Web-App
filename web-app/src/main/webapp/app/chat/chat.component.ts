@@ -43,7 +43,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
 
     chooseTopic(topic: any) {
         this.active = topic;
-        this.scrollChat();
+        setTimeout(() => this.scrollChat(), 5);
     }
 
     toggleMobileAds() {
@@ -74,9 +74,9 @@ export class ChatComponent implements OnInit, AfterViewInit {
     }
 
     scrollChat() {
-        $(this.elementRef.nativeElement).find('.room-main').animate({
+        $(this.elementRef.nativeElement).find('.room-main').stop().animate({
             scrollTop: $(this.elementRef.nativeElement).find('.room-main-chats').height()
-        }, 500);
+        }, 0);
     }
 
     ngAfterViewInit() {

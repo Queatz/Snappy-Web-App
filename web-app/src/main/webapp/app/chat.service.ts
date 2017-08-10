@@ -168,9 +168,7 @@ export class ChatService {
                 break;
         }
 
-        for (let listener in this.listeners) {
-            this.listeners[listener](chat);
-        }
+        this.listeners.forEach(l => l(chat));
     }
 
     private onMessage(message: string) {
