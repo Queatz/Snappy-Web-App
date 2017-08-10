@@ -126,6 +126,10 @@ export class ChatService {
     }
 
     private onStart() {
+        if (this.ws) {
+            return;
+        }
+
         this.send(this.make('session.start', {
             token: this.getChatToken(),
             location: {
