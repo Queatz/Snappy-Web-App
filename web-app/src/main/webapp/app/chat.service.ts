@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
+import { LocalityService } from './locality.service';
+import util from './util';
 
 @Injectable()
 export class ChatService {
@@ -117,10 +119,20 @@ export class ChatService {
 
     public chats: any = {};
 
-    constructor(private api: ApiService) {}
+    constructor(private api: ApiService, private locality: LocalityService) {}
 
     public start() {
-        this.send(this.make('session.start', null));
+        this.locality.get(this.onStart.bind(this));
+    }
+
+    private onStart() {
+        this.send(this.make('session.start', {
+            token: this.getChatToken(),
+            location: {
+                latitude: this.locality.getPosition().coords.latitude,
+                longitude: this.locality.getPosition().coords.longitude
+            }
+        }));
     }
 
     public sendMessage(message: string, topic: string) {
@@ -188,6 +200,9 @@ export class ChatService {
                 topic.ads.unshift(chat.data);
 
                 break; }
+            case 'session.start': {
+                chat.data.forEach(replay => this.proxyMessage(replay));
+                break; }
             default:
                 console.log('Got unknown chat', chat);
         }
@@ -238,5 +253,18 @@ export class ChatService {
         if (this.ws) {
             this.ws.close();
         }
+    }
+
+    private getChatToken() {
+        let token = localStorage.getItem('chat-token');
+
+        if (token) {
+            return token;
+        }
+
+        token = util.rndstr(32);
+        localStorage.setItem('chat-token', token);
+
+        return token;
     }
 }

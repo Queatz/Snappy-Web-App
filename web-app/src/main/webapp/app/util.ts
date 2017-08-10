@@ -72,4 +72,14 @@ export default class Util {
         var re = /\S+@\S+\.\S+/;
         return re.test(email);
     }
+
+    public static rndstr(len: any) {
+        let str = '';
+
+        for(let i = 0; i < (len || 16); i++) {
+            str += Math.random().toString(36).substr(2, 1);
+        }
+
+        return str;
+    }
 }
