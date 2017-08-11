@@ -91,6 +91,7 @@
     height: 2rem;
     margin-right: 1rem;
     background-size: 100%;
+    background-repeat: no-repeat;
     image-rendering: pixelated;
 
     transition: width 190ms, height 190ms, margin 190ms;
@@ -107,7 +108,7 @@
 .room-main {
     display: flex;
     flex-grow: 1;
-    flex-direction: column;
+    flex-direction: column-reverse;
     height: 0px;
     box-shadow: 0 0 24px rgba(0, 0, 0, .1) inset;
     overflow-y: auto;

@@ -52,9 +52,9 @@
                   <div class="ad-age grey-text">
                       {{ ago(ad.date) }}
                   </div>
-                  <div class="waves-effect waves-light btn green">
+                  <a *ngIf="ad.source" class="waves-effect waves-light btn green" [routerLink]="['/messages/' + ad.source]" [queryParams]="{ q: 'I\'d like to know more about ' + ad.name }">
                       {{ ad.action || 'Reply' }}
-                  </div>
+                  </a>
               </div>
           </div>
       </div>

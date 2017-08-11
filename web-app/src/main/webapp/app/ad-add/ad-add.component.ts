@@ -27,7 +27,7 @@ export class AdAddComponent implements OnInit, AfterViewInit {
 
     add() {
         if (!this.inforService.getInforUser()) {
-            Materialize.toast('Create a Village account to post ads', 4000);
+            Materialize.toast('Sign into Village to post ads', 4000);
             return;
         }
 
