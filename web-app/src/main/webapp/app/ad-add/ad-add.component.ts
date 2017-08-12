@@ -16,8 +16,8 @@ export class AdAddComponent implements OnInit, AfterViewInit {
     @Input() topic;
     @Output() onAddAd = new EventEmitter<any>();
 
-    private description: string;
-    private name: string;
+    public description: string;
+    public name: string;
 
     constructor(private elementRef: ElementRef, private inforService: InforService) { }
 

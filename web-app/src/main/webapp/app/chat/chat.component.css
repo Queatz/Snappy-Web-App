@@ -170,6 +170,10 @@
     animation-timing-function: cubic-bezier(1, -0.46, 0.09, 1.44);
 }
 
+.chat-item-photo {
+    border-radius: 4px;
+}
+
 .room-action {
     display: flex;
     flex-shrink: 0;

@@ -23,18 +23,20 @@
         <div class="chat-item"
           *ngFor="let chat of chats[active.name]">
           <div class="chat-item-profile" [style.background-image]="'url(\'img/topics/roommates.png\')'"></div>
-          <div class="chat-item-message">{{ chat.message }}</div>
+          <div *ngIf="chat.message" class="chat-item-message">{{ chat.message }}</div>
+          <img *ngIf="chat.photo" src="{{ chat.photo }}" class="chat-item-photo hoverable z-depth-2" />
         </div>
       </div>
     </section>
     <section class="room-action">
-      <div class="my-profile waves-effect" [style.background-image]="'url(\'img/topics/roommates.png\')'"></div>
+      <div class="my-profile w  aves-effect" [style.background-image]="'url(\'img/topics/roommates.png\')'"></div>
       <div class="input-field chat-input">
         <input id="message" type="text" required [(ngModel)]="message" name="message" (keydown.enter)="enterPressedInChat($event)">
         <label class="active" for="message">Chat in {{ active.name }}...</label>
       </div>
-      <div class="action-upload waves-effect">
-        <i class="material-icons grey-text tooltipped" [attr.data-position]="'top'" [attr.data-tooltip]="'Post a photo'">add_a_photo</i>
+      <div class="action-upload waves-effect tooltipped" [attr.data-position]="'top'" [attr.data-tooltip]="'Post a photo'" (click)="onClickPhotoUpload()">
+        <input id="photoUploadInput" type="file" style="display: none" (change)="onFileUpload($event)" />
+        <i class="material-icons grey-text">add_a_photo</i>
       </div>
     </section>
   </section>

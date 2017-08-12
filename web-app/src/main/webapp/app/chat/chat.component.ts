@@ -1,6 +1,7 @@
 declare var $;
 declare var moment;
 declare var Waves;
+declare var TextEncoder, Uint8Array;
 
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
 import { LocalityService } from '../locality.service';
@@ -43,6 +44,17 @@ export class ChatComponent implements OnInit, AfterViewInit {
         this.locality = locality;
     }
 
+    onClickPhotoUpload() {
+        $(this.elementRef.nativeElement).find('#photoUploadInput').click();
+    }
+
+    onFileUpload(event: Event) {
+        let file = (event.target as HTMLInputElement).files[0];
+        let fr = new FileReader();
+        fr.onloadend = () => this.sendData(fr.result);
+        fr.readAsArrayBuffer(file);
+    }
+
     chooseTopic(topic: any) {
         this.active = topic;
         this.topics.find(t => t.name === this.active.name).recent = 0;
@@ -65,6 +77,22 @@ export class ChatComponent implements OnInit, AfterViewInit {
         this.sendChat(this.message);
         this.message = '';
         event.preventDefault();
+    }
+
+    sendData(data: any) {
+        // Get topic as bytes
+        let t = new TextEncoder('utf-8').encode(this.active.name);
+
+        // Add null-byte separator
+        let topic = new Uint8Array(t.byteLength + 1);
+        topic.set(t);
+
+        // Add file bytes as remainder
+        var blob = new Uint8Array(topic.byteLength + data.byteLength);
+        blob.set(topic);
+        blob.set(new Uint8Array(data), topic.byteLength);
+
+        this.chat.send(blob.buffer);
     }
 
     sendChat(message: string) {

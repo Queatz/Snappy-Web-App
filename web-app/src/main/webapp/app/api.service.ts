@@ -10,7 +10,8 @@ export class ApiService {
     private _token = '';
     private beta = true;
     private _apiDomain = this.beta ? '127.0.0.1:8080' : 'vlllage.com:8443';
-    private _apiBaseUrl = this.beta ? 'http://' + this._apiDomain + '/api/' : 'https://' + this._apiDomain + '/api/';
+    private _apiBase = this.beta ? 'http://' + this._apiDomain : 'https://' + this._apiDomain;
+    private _apiBaseUrl = this._apiBase + '/api/';
 
     constructor(private _http: Http, private inforService: InforService) {
  }
@@ -28,7 +29,11 @@ export class ApiService {
     }
 
     public ws(): WebSocket {
-        return new WebSocket('ws://' + this._apiDomain + '/ws');
+        return new WebSocket((this.beta ? 'ws://' : 'wss://') + this._apiDomain + '/ws');
+    }
+
+    public url(path: string) {
+        return this._apiBase + path;
     }
 
     public getMe(gemail: string, gtoken: string) {

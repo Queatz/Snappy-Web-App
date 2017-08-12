@@ -177,7 +177,8 @@ export class ChatService {
                 }
 
                 this.chats[chat.data.topic].push({
-                    message: chat.data.message
+                    message: chat.data.message,
+                    photo: chat.data.photo ? this.api.url(chat.data.photo) : undefined
                 });
 
                 let topic = this.topics.find(t => t.name === chat.data.topic);
