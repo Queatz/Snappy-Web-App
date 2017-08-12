@@ -21,8 +21,8 @@
         <br />Something's coming. Ruuuuun!
     </h4>
     <div class="info-wrapper" *ngIf="thing">
-        <div>
-            <img class="photo z-depth-1" [src]="thing.imageUrl.split('=')[0] + '=480'" />
+        <div class="image-wrapper">
+            <div class="photo z-depth-1" [style.background-image]="'url(' + thing.imageUrl.split('=')[0] + '=480)'"></div>
         </div>
         <div class="infobox bkg-white z-depth-1">
             <div class="info">

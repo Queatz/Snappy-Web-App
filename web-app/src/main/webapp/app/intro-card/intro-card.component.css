@@ -21,6 +21,7 @@ a {
     background-image: url('/img/location.png');
     background-size: cover;
     background-position: 0% 100%;
+    background-blend-mode: color-dodge;
     color: white;
     font-weight: bold;
     padding: 3rem;

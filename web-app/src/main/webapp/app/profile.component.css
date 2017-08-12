@@ -15,9 +15,18 @@
     background: #fff;
 }
 
+.image-wrapper {
+    display: flex;
+}
+
 .photo {
-    display: inline-block;
+    display: flex;
     vertical-align: top;
+    flex-grow: 1;
+    background-position: center;
+    background-size: cover;
+    width: 480px;
+    min-height: 480px;
 }
 
 .info-wrapper {
