@@ -6,7 +6,7 @@
            class="topic waves-effect waves-blue"
            (click)="chooseTopic(topic)"
            [ngClass]="{'topic-active': active === topic}">
-        <div class="to-pic" [style.background-image]="'url(\'img/topics/roommates.png\')'"></div>
+        <div class="to-pic" [style.background-image]="'url(\'' + topicImg(topic) + '\')'"></div>
         <div class="blue-text">{{ topic.name }}<span class="red-text topic-new" *ngIf="topic.recent">{{ topic.recent }} NEW</span><span class="green-text topic-new" *ngIf="topic.ads">{{ topic.ads.length }} AD{{ topic.ads.length > 1 ? 'S' : '' }}</span></div>
       </div>
     </div>
@@ -22,14 +22,14 @@
       <div class="room-main-chats">
         <div class="chat-item"
           *ngFor="let chat of chats[active.name]">
-          <div class="chat-item-profile" [style.background-image]="'url(\'img/topics/roommates.png\')'"></div>
+          <div class="chat-item-profile" [style.background-image]="'url(\'img/avatars/' + chat.avatar + '.png\')'"></div>
           <div *ngIf="chat.message" class="chat-item-message">{{ chat.message }}</div>
           <img *ngIf="chat.photo" src="{{ chat.photo }}" class="chat-item-photo hoverable z-depth-2" />
         </div>
       </div>
     </section>
     <section class="room-action">
-      <div class="my-profile w  aves-effect" [style.background-image]="'url(\'img/topics/roommates.png\')'"></div>
+      <div class="my-profile waves-effect" [style.background-image]="'url(\'img/avatars/' + avatar + '.png\')'" (click)="randomAvatar()"></div>
       <div class="input-field chat-input">
         <input id="message" type="text" required [(ngModel)]="message" name="message" (keydown.enter)="enterPressedInChat($event)">
         <label class="active" for="message">Chat in {{ active.name }}...</label>

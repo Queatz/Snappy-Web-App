@@ -21,6 +21,24 @@ export class ChatComponent implements OnInit, AfterViewInit {
     public message: string = '';
     public locality: string = '';
     public isShowingAds: boolean = false;
+    public avatar: string;
+
+    private avatars = [
+        'girl1',
+        'girl2',
+        'girl3',
+        'girl4',
+        'girl5',
+        'girl6',
+        'girl7',
+        'guy1',
+        'guy2',
+        'guy3',
+        'guy4',
+        'guy5',
+        'guy6',
+        'guy7',
+    ];
 
     private chatListener: any;
 
@@ -38,6 +56,12 @@ export class ChatComponent implements OnInit, AfterViewInit {
 
         this.chatListener = this.gotChat.bind(this);
         this.chat.register(this.chatListener);
+
+        this.randomAvatar();
+    }
+
+    randomAvatar() {
+        this.avatar = this.avatars[Math.floor(Math.random()*this.avatars.length)];
     }
 
     onLocalityFound(locality: string) {
@@ -81,7 +105,10 @@ export class ChatComponent implements OnInit, AfterViewInit {
 
     sendData(data: any) {
         // Get topic as bytes
-        let t = new TextEncoder('utf-8').encode(this.active.name);
+        let t = new TextEncoder('utf-8').encode(JSON.stringify({
+            topic: this.active.name,
+            avatar: this.avatar
+        }));
 
         // Add null-byte separator
         let topic = new Uint8Array(t.byteLength + 1);
@@ -96,12 +123,13 @@ export class ChatComponent implements OnInit, AfterViewInit {
     }
 
     sendChat(message: string) {
-        this.chat.sendMessage(message, this.active.name);
+        this.chat.sendMessage(message, this.active.name, this.avatar);
         this.chat.proxyMessage({
             action: 'message.send',
             data: {
                 topic: this.active.name,
-                message: message
+                message: message,
+                avatar: this.avatar
             }
         });
     }
@@ -131,6 +159,10 @@ export class ChatComponent implements OnInit, AfterViewInit {
     ngOnDestroy() {
         this.chat.unregister(this.chatListener);
         $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
+    }
+
+    topicImg(topic: any) {
+        return 'img/topics/' + topic.name.toLowerCase() + '.png';
     }
 
     ago(date: any) {

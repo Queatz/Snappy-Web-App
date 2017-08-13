@@ -139,9 +139,10 @@ export class ChatService {
         }));
     }
 
-    public sendMessage(message: string, topic: string) {
+    public sendMessage(message: string, topic: string, avatar: string) {
         let chat = this.make('message.send', {
             message: message,
+            avatar: avatar,
             topic: topic
         });
 
@@ -178,6 +179,7 @@ export class ChatService {
 
                 this.chats[chat.data.topic].push({
                     message: chat.data.message,
+                    avatar: chat.data.avatar,
                     photo: chat.data.photo ? this.api.url(chat.data.photo) : undefined
                 });
 

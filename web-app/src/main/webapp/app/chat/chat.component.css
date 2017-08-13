@@ -146,7 +146,7 @@
     word-break: break-word;
     opacity: 0;
 
-    padding: .5rem 1rem;
+    padding: .5rem 1rem 0 0;
 
     animation: fade-in;
     animation-duration: 190ms;
