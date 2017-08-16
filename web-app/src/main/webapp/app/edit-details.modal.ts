@@ -43,6 +43,7 @@ export class EditDetailsModal implements AfterViewInit {
                 break;
             case 'resource':
             case 'project':
+            case 'form':
                 this.name = this.thing.name;
                 this.about = this.thing.about;
                 break;
@@ -59,6 +60,7 @@ export class EditDetailsModal implements AfterViewInit {
                 return this.saveHub();
             case 'resource':
             case 'project':
+            case 'form':
                 return this.saveResource();
         }
     }

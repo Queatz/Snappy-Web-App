@@ -68,6 +68,7 @@ import { LocalityCardComponent } from './locality-card/locality-card.component';
 import { IntroCardComponent } from './intro-card/intro-card.component';
 import { ChatComponent } from './chat/chat.component';
 import { AdAddComponent } from './ad-add/ad-add.component';
+import { FormComponent } from './form/form.component';
 
 enableProdMode();
 
@@ -144,6 +145,7 @@ export class MyOptions extends BaseRequestOptions {
         IntroCardComponent,
         ChatComponent,
         AdAddComponent,
+        FormComponent,
     ],
     entryComponents: [
         FeedbackModal,

@@ -173,7 +173,8 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
             case 'club':
                 return 'Beg for membership';
             case 'form':
-                return 'Fill out form'; // XXX TODO Go to fill out form page
+                window.open('/forms/' + this.id + '/submit', '_blank');
+                break;
             case 'person':
             default:
                 return '???';

@@ -11,6 +11,7 @@ import { PeopleComponent } from "./people.component";
 import { SearchComponent } from "./search.component";
 import { ProjectComponent } from "./project.component";
 import { ChatComponent } from "./chat/chat.component";
+import { FormComponent } from "./form/form.component";
 
 @NgModule({
   imports: [
@@ -70,6 +71,10 @@ import { ChatComponent } from "./chat/chat.component";
       {
         path: 'forms/:id',
         component: ProjectComponent
+      },
+      {
+        path: 'forms/:id/submit',
+        component: FormComponent
       },
       {
         path: 'search/:query',

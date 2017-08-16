@@ -159,8 +159,6 @@ export class ChatService {
         } else {
             this.queue.push(chat);
         }
-
-        console.log('send chat', chat);
     }
 
     private make(action: string, data: any) {
@@ -219,7 +217,6 @@ export class ChatService {
 
     private onMessage(message: string) {
         let chat = JSON.parse(message);
-        console.log('got chat', message);
         this.proxyMessage(chat);
     }
 
