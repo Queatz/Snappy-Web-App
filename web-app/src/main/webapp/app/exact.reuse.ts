@@ -10,6 +10,10 @@ export class ExactRouteReuseStrategy implements RouteReuseStrategy {
     retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle { return null; }
 
     shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean {
+        if (curr.data && curr.data.reuse && future.data && future.data.reuse) {
+            return true;
+        }
+
         if(future.routeConfig !== curr.routeConfig) {
             return false;
         } else if(Object.keys(future.params).length !== Object.keys(curr.params).length ||

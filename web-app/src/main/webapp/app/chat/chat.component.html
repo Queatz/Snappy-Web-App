@@ -2,13 +2,13 @@
   <aside class="topics">
     <div class="locality grey-text">{{ locality }} Chats</div>
     <div class="scrollbox">
-      <div *ngFor="let topic of topics"
+      <a *ngFor="let topic of topics"
            class="topic waves-effect waves-blue"
-           (click)="chooseTopic(topic)"
+           [routerLink]="['/chat/' + topic.name]"
            [ngClass]="{'topic-active': active === topic}">
         <div class="to-pic" [style.background-image]="'url(\'' + topicImg(topic) + '\')'"></div>
         <div class="blue-text">{{ topic.name }}<span class="red-text topic-new" *ngIf="topic.recent">{{ topic.recent }} NEW</span><span class="green-text topic-new" *ngIf="topic.ads">{{ topic.ads.length }} AD{{ topic.ads.length > 1 ? 'S' : '' }}</span></div>
-      </div>
+      </a>
     </div>
     <div class="fade"></div>
   </aside>

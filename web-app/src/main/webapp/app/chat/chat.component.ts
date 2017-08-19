@@ -4,6 +4,7 @@ declare var Waves;
 declare var TextEncoder, Uint8Array;
 
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { LocalityService } from '../locality.service';
 import { ChatService } from '../chat.service';
 import util from '../util';
@@ -45,6 +46,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
     constructor(
             private elementRef: ElementRef,
             private localityService: LocalityService,
+            private route: ActivatedRoute,
             private chat: ChatService) {
     }
 
@@ -58,6 +60,27 @@ export class ChatComponent implements OnInit, AfterViewInit {
         this.chat.register(this.chatListener);
 
         this.randomAvatar();
+
+        this.route.params.subscribe(params => {
+            if (params['topic']) {
+                this.setTopicByName(params['topic']);
+            }
+        });
+    }
+
+    setTopicByName(topic: string) {
+        let t = this.topics.find(t => t.name === topic);
+
+        if (t) {
+            this.chooseTopic(t);
+        } else {
+            t = {
+                name: topic,
+                recent: 0
+            };
+            this.topics.unshift(t);
+            this.chooseTopic(t);
+        }
     }
 
     randomAvatar() {

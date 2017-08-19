@@ -50,7 +50,17 @@ import { FormComponent } from "./form/form.component";
       },
       {
         path: 'chat',
-        component: ChatComponent
+        component: ChatComponent,
+        data: {
+            reuse: true
+        }
+      },
+      {
+        path: 'chat/:topic',
+        component: ChatComponent,
+        data: {
+            reuse: true
+        }
       },
       {
         path: 'hubs/:id',

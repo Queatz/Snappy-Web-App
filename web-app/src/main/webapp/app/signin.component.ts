@@ -40,6 +40,7 @@ export class SigninComponent implements AfterViewInit, OnInit {
     ngOnInit() {
 
     }
+
     ngAfterViewInit() {
         var inforService = this.inforService;
         gapi.signin2.render(this.element.querySelector('.google-signin'), {

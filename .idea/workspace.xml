@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/form/form.component.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/form/form.component.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/form/form.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/app.module.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/app.module.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/app.routes.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/app.routes.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/chat.service.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/chat.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/chat/chat.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/chat/chat.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/chat/chat.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/chat/chat.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/exact.reuse.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/exact.reuse.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.ts" />
     </list>
     <ignored path="Snappy-Web-App.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,31 +27,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="form.component.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/form/form.component.css">
+      <file leaf-file-name="signin.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="40">
+              <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/form/form.component.html">
+      <file leaf-file-name="signin.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="80">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/form/form.component.ts">
+      <file leaf-file-name="chat.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/chat/chat.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+            <state relative-caret-position="400">
+              <caret line="65" column="16" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chat.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/chat/chat.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chat.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/chat.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3187">
+              <caret line="210" column="11" selection-start-line="210" selection-start-column="11" selection-end-line="210" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.routes.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.routes.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="51" column="9" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -65,48 +90,18 @@
       <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="726">
-              <caret line="165" column="16" selection-start-line="165" selection-start-column="16" selection-end-line="165" selection-end-column="16" />
+            <state relative-caret-position="244">
+              <caret line="65" column="32" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.component.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.html">
+      <file leaf-file-name="exact.reuse.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/exact.reuse.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="84" selection-start-line="15" selection-start-column="84" selection-end-line="15" selection-end-column="84" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit-details.modal.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1060">
-              <caret line="53" column="24" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit-details.modal.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="project.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state relative-caret-position="260">
+              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -137,8 +132,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.ts" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.css" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/package.json" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/intro-card/intro-card.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/thing-tabs.component.html" />
@@ -176,25 +169,26 @@
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.css" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.css" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/chat/chat.component.html" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/chat/chat.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/chat/chat.component.css" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/chat.service.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/project-card.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.ts" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/app.routes.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/form/form.component.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/form/form.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.html" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.ts" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/chat/chat.component.html" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/exact.reuse.ts" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/chat/chat.component.ts" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/app.routes.ts" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="-37" />
     <option name="width" value="1920" />
-    <option name="height" value="1117" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -221,8 +215,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -369,8 +365,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -379,7 +373,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="app&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.component.html&#10;editde&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.ts&#10;project&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project.component.ts&#10;form.&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/form/form.component.ts&#10;app.route&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.routes.ts&#10;chatcss&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat/chat.component.css&#10;cha&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat/chat.component.ts&#10;chatcom&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat/chat.component.html&#10;chat&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat.service.ts&#10;appcss&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.component.css&#10;main&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/main.component.html&#10;ma&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/main.component.html&#10;profcss&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.css&#10;profile&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.html&#10;introcard&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/intro-card/intro-card.component.css&#10;api&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/api.service.ts&#10;ad&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/ad-add/ad-add.component.ts&#10;Ad&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/ad-add/ad-add.component.html&#10;signinreq&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/signin-required.modal.html&#10;signin&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/signin-required.modal.ts&#10;add&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/ad-add/ad-add.component.html&#10;chacss&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat/chat.component.css&#10;messa&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.css&#10;EarthThing.java:47&#9;null&#9;null&#10;chatc&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat/chat.component.html&#10;util&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/util.ts&#10;uti&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/util.ts&#10;locality&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/locality.service.ts&#10;chatser&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat.service.ts&#10;card&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/offer-card.component.ts&#10;feed&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/feedback.modal.html&#10;addmember&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/add-member.component.html&#10;floating&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/floating.component.ts&#10;loca&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/locality.service.ts&#10;local&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/locality-card/locality-card.component.ts&#10;inforser&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/infor.service.ts&#10;chat.&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat/chat.component.ts&#10;app.mod&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.module.ts&#10;localser&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/locality.service.ts&#10;inforserv&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/infor.service.ts&#10;localcard&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/locality-card/locality-card.component.ts&#10;mess&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.ts&#10;messag&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.css&#10;message&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.html&#10;tabsfor&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/tabs-for.component.html&#10;prof&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.ts&#10;messagehtml&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.html&#10;messagescss&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.css&#10;ro&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.routes.ts&#10;offercard&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/offer-card.component.ts" />
+    <property name="SearchEverywhereHistoryKey" value="exact&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/exact.reuse.ts&#10;chat&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat/chat.component.html&#10;form&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/form/form.component.ts&#10;rout&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.routes.ts&#10;signincom&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/signin.component.html&#10;SIGN&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/signin-required.modal.ts&#10;app&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.component.html&#10;editde&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.ts&#10;project&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project.component.ts&#10;form.&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/form/form.component.ts&#10;app.route&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.routes.ts&#10;chatcss&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat/chat.component.css&#10;cha&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat/chat.component.ts&#10;chatcom&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat/chat.component.html&#10;appcss&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.component.css&#10;main&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/main.component.html&#10;ma&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/main.component.html&#10;profcss&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.css&#10;profile&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.html&#10;introcard&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/intro-card/intro-card.component.css&#10;api&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/api.service.ts&#10;ad&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/ad-add/ad-add.component.ts&#10;Ad&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/ad-add/ad-add.component.html&#10;signinreq&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/signin-required.modal.html&#10;signin&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/signin-required.modal.ts&#10;add&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/ad-add/ad-add.component.html&#10;chacss&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat/chat.component.css&#10;messa&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.css&#10;EarthThing.java:47&#9;null&#9;null&#10;chatc&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat/chat.component.html&#10;util&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/util.ts&#10;uti&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/util.ts&#10;locality&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/locality.service.ts&#10;chatser&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat.service.ts&#10;card&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/offer-card.component.ts&#10;feed&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/feedback.modal.html&#10;addmember&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/add-member.component.html&#10;floating&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/floating.component.ts&#10;loca&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/locality.service.ts&#10;local&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/locality-card/locality-card.component.ts&#10;inforser&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/infor.service.ts&#10;chat.&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat/chat.component.ts&#10;app.mod&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.module.ts&#10;localser&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/locality.service.ts&#10;inforserv&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/infor.service.ts&#10;localcard&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/locality-card/locality-card.component.ts&#10;mess&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.ts&#10;messag&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.css&#10;message&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.html&#10;tabsfor&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/tabs-for.component.html" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -785,13 +779,6 @@
       <option name="presentableId" value="Default" />
       <updated>1450799851331</updated>
     </task>
-    <task id="LOCAL-00007" summary="* Fixes for IE11 and Chrome 39.x.x&#10;* Update banner copy&#10;* Layout fixes for portrait profile pages (phones)">
-      <created>1454386692870</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1454386692870</updated>
-    </task>
     <task id="LOCAL-00008" summary="Follow -&gt; Message">
       <created>1454389665196</created>
       <option name="number" value="00008" />
@@ -1128,11 +1115,18 @@
       <option name="project" value="LOCAL" />
       <updated>1502662794226</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="* Forms&#10;* Go back to single word tabs (now that there's 6 of them)">
+      <created>1502922727959</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1502922727961</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-37" width="1920" height="1117" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1141,9 +1135,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50109893" sideWeight="0.5205696" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15824915" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25934067" sideWeight="0.4939378" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12249208" sideWeight="0.47943038" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12197802" sideWeight="0.47943038" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20938818" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23259494" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1184,7 +1178,6 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Make &quot;go to hub&quot; button go to the hub page" />
     <MESSAGE value="Show &quot;Loading Hubs...&quot;" />
     <MESSAGE value="Upload earth photos" />
     <MESSAGE value="Edit hubs" />
@@ -1209,34 +1202,14 @@
     <MESSAGE value="Chat photos" />
     <MESSAGE value="Fix icon position" />
     <MESSAGE value="Avatars on images" />
-    <option name="LAST_COMMIT_MESSAGE" value="Avatars on images" />
+    <MESSAGE value="* Forms&#10;* Go back to single word tabs (now that there's 6 of them)" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Forms&#10;* Go back to single word tabs (now that there's 6 of them)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/person-link.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/tabs-for.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="80" selection-start-line="9" selection-start-column="75" selection-end-line="9" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/tabs-for.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1393,21 +1366,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/signin-required.modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/signin-required.modal.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="30" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/ad-add/ad-add.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1480,27 +1438,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/chat/chat.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="44" column="8" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/chat/chat.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/chat.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1558">
-          <caret line="210" column="11" selection-start-line="210" selection-start-column="11" selection-end-line="210" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -1516,13 +1453,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.routes.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1060">
@@ -1531,19 +1461,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/form/form.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1555,34 +1476,111 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/signin-required.modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/signin-required.modal.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2875">
+          <caret line="29" column="27" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/form/form.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        <state relative-caret-position="380">
+          <caret line="19" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/chat/chat.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="165" column="16" selection-start-line="165" selection-start-column="16" selection-end-line="165" selection-end-column="16" />
+        <state relative-caret-position="244">
+          <caret line="65" column="32" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.html">
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/exact.reuse.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="84" selection-start-line="15" selection-start-column="84" selection-end-line="15" selection-end-column="84" />
+        <state relative-caret-position="260">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/chat/chat.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="65" column="16" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/chat.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3187">
+          <caret line="210" column="11" selection-start-line="210" selection-start-column="11" selection-end-line="210" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.routes.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="51" column="9" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
           <folding />
         </state>
       </provider>
