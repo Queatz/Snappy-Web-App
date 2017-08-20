@@ -22,7 +22,7 @@ export default class Util {
             case 'hub':
                 return 'blue';
             case 'club':
-                return 'yellow darken-4';
+                return 'yellow darken-2';
             case 'form':
                 return 'purple';
             case 'person':

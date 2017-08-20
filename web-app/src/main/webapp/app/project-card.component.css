@@ -26,6 +26,10 @@ a {
     opacity: .75;
 }
 
+.remove-thing.edit-thing {
+    top: 2rem;
+}
+
 .position-relative {
     position: relative;
 }

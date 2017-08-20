@@ -7,9 +7,10 @@
         <i class="remove-thing card-hover waves-effect material-icons white-text small waves-light tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Remove'" *ngIf="removable()" (click)="remove($event)">clear</i>
     </div>
     <div class="card-content position-relative">
+        <club-tag [name]="" class="small"></club-tag>
         <p>{{ thing.about }}</p>
         <i *ngIf="!thing.about" class="grey-text">No description provided.</i>
-        <i class="remove-thing card-content-hover waves-effect material-icons grey-text tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit role'" *ngIf="removable() && thing.member" (click)="editRole($event)">assignment_ind</i>
+        <i class="remove-thing edit-thing card-content-hover waves-effect material-icons grey-text tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit role'" *ngIf="removable() && thing.member" (click)="editRole($event)">assignment_ind</i>
     </div>
     <div class="card-action">
         <div *ngIf="thing.backers">
@@ -20,11 +21,11 @@
             </span>
         </div>
 
-        <a [routerLink]="goUrl()" class="secondary-content {{typeClass.indexOf('yellow') != -1 ? 'yellow-text text-darken-4' : typeClass.indexOf('red') != -1 ? 'txt-red' : typeClass + '-text'}}">{{
+        <a [routerLink]="goUrl()" class="secondary-content {{typeClass.indexOf('yellow') != -1 ? 'yellow-text text-darken-2' : typeClass.indexOf('red') != -1 ? 'txt-red' : typeClass + '-text'}}">{{
             typeClass == 'deep-orange' ? 'View Project' :
             typeClass == 'brown' ? 'View Resource' :
             typeClass == 'blue' ? 'Go To Hub' :
-            typeClass == 'yellow darken-4' ? 'Go to Club' :
+            typeClass == 'yellow darken-2' ? 'Go to Club' :
             typeClass == 'purple' ? 'View Form' :
             typeClass == 'bkg-red' ? 'View ' + thing.firstName : ''
         }}</a>

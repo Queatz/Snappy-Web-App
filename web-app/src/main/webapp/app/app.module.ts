@@ -69,6 +69,7 @@ import { IntroCardComponent } from './intro-card/intro-card.component';
 import { ChatComponent } from './chat/chat.component';
 import { AdAddComponent } from './ad-add/ad-add.component';
 import { FormComponent } from './form/form.component';
+import { ClubTagComponent } from './club-tag/club-tag.component';
 
 enableProdMode();
 
@@ -146,6 +147,7 @@ export class MyOptions extends BaseRequestOptions {
         ChatComponent,
         AdAddComponent,
         FormComponent,
+        ClubTagComponent,
     ],
     entryComponents: [
         FeedbackModal,

@@ -1,0 +1,25 @@
+:host {
+    float: right;
+    padding: 1rem 2rem 1rem 2.5rem;
+    cursor: pointer;
+    color: #fff;
+    background: #fbc02d;
+    font-weight: bold;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+    text-transform: uppercase;
+}
+
+:host.small {
+    font-size: 80%;
+    margin-top: -1.75rem;
+    margin-right: -1rem;
+    padding: .5rem 1rem .5rem 1.5rem;
+}
+
+a {
+    color: inherit;
+}
+
+:host.small a {
+
+}

@@ -17,7 +17,6 @@ export class ClubsComponent implements AfterViewInit, WebTitleProvider {
     constructor(inforService: InforService, element: ElementRef) {
         this.inforService = inforService;
         this.element = element.nativeElement;
-        this.loaded([{}, {}, {}, {}, {}, {}, {}]);
     }
 
     private loaded(projects) {

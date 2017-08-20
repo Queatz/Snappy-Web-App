@@ -23,6 +23,7 @@
     <div class="z-depth-1 bkg-white" *ngIf="thing">
         <img class="photo" *ngIf="thing.photo" [src]="getUrl()" />
         <div class="info">
+            <club-tag [name]="'AUSTINOGRAPHERS'"></club-tag>
             <h3>{{ thing.name }}
                 <span *ngIf="canEdit()">
                     <a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit details'" href="#editDetailsModal"><i class="material-icons small">edit</i></a>
