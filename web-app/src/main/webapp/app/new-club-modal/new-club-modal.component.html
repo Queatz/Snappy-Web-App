@@ -1,0 +1,23 @@
+<div id="{{ modalId || 'modal' }}" class="modal">
+  <div class="modal-content">
+    <h4>Add a Club</h4>
+
+    <form>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">label</i>
+          <input id="name" type="text" required [(ngModel)]="name" name="name">
+          <label for="name">Enter name</label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <a class="btn-flat waves-effect waves-blue modal-action blue-text" type="submit"
+       name="action" (click)="newClub()">
+      Add Club
+    </a>
+    <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
+  </div>
+</div>

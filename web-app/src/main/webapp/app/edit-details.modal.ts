@@ -44,6 +44,7 @@ export class EditDetailsModal implements AfterViewInit {
             case 'resource':
             case 'project':
             case 'form':
+            case 'club':
                 this.name = this.thing.name;
                 this.about = this.thing.about;
                 break;
@@ -54,6 +55,13 @@ export class EditDetailsModal implements AfterViewInit {
         this.map.updateAddress(this.address);
     }
 
+    isCommon() {
+        return this.thing.kind === 'resource' ||
+            this.thing.kind === 'project' ||
+            this.thing.kind === 'form' ||
+            this.thing.kind === 'club';
+    }
+
     save() {
         switch (this.thing.kind) {
             case 'hub':
@@ -61,6 +69,7 @@ export class EditDetailsModal implements AfterViewInit {
             case 'resource':
             case 'project':
             case 'form':
+            case 'club':
                 return this.saveResource();
         }
     }

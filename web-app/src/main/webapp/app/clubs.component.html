@@ -1,8 +1,27 @@
 <div>
+    <div *ngIf="!clubs" class="waiting">
+        <br />
+        <div class="preloader-wrapper active">
+            <div class="spinner-layer">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <span><br /><br />Loading your clubs...</span>
+    </div>
+    <div *ngIf="clubs && !clubs.length" class="waiting">Find Club Invites to join clubs.</div>
+
     <div class="grid center-align">
-        <div class="item" *ngFor="let project of projects">
-            <project-card class="left-align" [typeClass]="'yellow darken-2'" [project]="project"></project-card>
+        <div class="item" *ngFor="let club of clubs">
+            <project-card class="left-align" [typeClass]="'deep-orange'" [thing]="club"></project-card>
         </div>
     </div>
-    <floating [tooltip]="'Add a club'" [color]="'yellow darken-2'"></floating>
+    <floating [tooltip]="'Add a club'" [color]="'yellow darken-2'" [modal]="modal"></floating>
 </div>

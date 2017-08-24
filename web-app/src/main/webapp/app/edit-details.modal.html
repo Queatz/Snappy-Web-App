@@ -41,7 +41,7 @@
                     <map [thing]="thing"></map>
                 </div>
             </div>
-            <div class="row" *ngIf="thing.kind === 'resource' || thing.kind === 'project' || thing.kind === 'form'">
+            <div class="row" *ngIf="isCommon()">
                 <div class="col s12">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">label</i>

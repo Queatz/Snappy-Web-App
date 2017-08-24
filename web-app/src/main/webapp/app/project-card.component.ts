@@ -1,5 +1,6 @@
 declare var Materialize: any;
 declare var $: any;
+declare var _: any;
 
 import { Component, Input, OnInit, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
@@ -26,8 +27,10 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngOnInit() {
         if (this.thing.kind === 'member') {
-            this.thing.source.member = this.thing;
-            this.thing = this.thing.source;
+            if (this.thing.source) {
+                this.thing.source.member = this.thing;
+                this.thing = this.thing.source;
+            }
         }
 
         this.typeClass = util.typeClassOf(this.thing.kind);
@@ -89,6 +92,14 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
                     return 'img/night.png';
                 }
         }
+    }
+
+    getClubs() {
+        if (!this.thing || !this.thing['in'] || !this.thing['in'].length) {
+            return [];
+        }
+
+        return _.map(_.filter(this.thing['in'], m => m.target && m.target.kind === 'club'), m => m.target);
     }
 
     public go() {

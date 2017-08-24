@@ -60,6 +60,14 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
                 error => this.notFound = true);
     }
 
+    getClubs() {
+        if (this.thing.kind === 'club') {
+            return [this.thing];
+        } else {
+            return _.map(_.filter(this.thing['in'], m => m.target && m.target.kind === 'club'), m => m.target);
+        }
+    }
+
     ngOnInit() {
         this.inforService.setPageTitle('Village');
     }
@@ -139,6 +147,10 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
          return util.typeClassOf(this.thing.kind);
     }
 
+    actionBar() {
+        this.thing.kind !== 'club';
+    }
+
     actionButton() {
         switch (this.thing.kind) {
             case 'resource':
@@ -148,7 +160,7 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
             case 'hub':
                 return 'Get directions';
             case 'club':
-                return 'Beg for membership';
+                return 'Create Invite';
             case 'form':
                 return 'Fill out form';
             case 'person':

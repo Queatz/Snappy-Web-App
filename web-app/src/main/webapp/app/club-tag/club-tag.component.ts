@@ -1,6 +1,6 @@
 declare var $: any;
 
-import { Component, OnInit, AfterViewInit, OnDestroy, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, Input, ElementRef, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'club-tag',
@@ -9,7 +9,7 @@ import { Component, OnInit, AfterViewInit, OnDestroy, Input, ElementRef } from '
 })
 export class ClubTagComponent implements OnInit, AfterViewInit, OnDestroy {
 
-    @Input() name: string;
+    @Input() clubs: any;
 
     constructor(private elementRef: ElementRef) { }
 
@@ -22,5 +22,18 @@ export class ClubTagComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngOnDestroy() {
         $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
+    }
+
+    @HostBinding('style.display')
+    get visible() {
+        return this.clubs.length ? 'block' : 'none';
+    }
+
+    getName() {
+        return this.clubs.length ? this.clubs[0].name : 'Public';
+    }
+
+    getLink() {
+        return this.clubs.length ? ['/clubs/' + this.clubs[0].id] : ['/'];
     }
 }

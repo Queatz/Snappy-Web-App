@@ -23,12 +23,13 @@
     <div class="z-depth-1 bkg-white" *ngIf="thing">
         <img class="photo" *ngIf="thing.photo" [src]="getUrl()" />
         <div class="info">
-            <club-tag [name]="'AUSTINOGRAPHERS'"></club-tag>
+            <club-tag [clubs]="getClubs()"></club-tag>
             <h3>{{ thing.name }}
                 <span *ngIf="canEdit()">
                     <a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit details'" href="#editDetailsModal"><i class="material-icons small">edit</i></a>
                     <a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Change photo'" href="#setPhotoModal"><i class="material-icons small">aspect_ratio</i></a>
                     <a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Add someone as a contact'" href="#addContactModal"><i class="material-icons small">person_add</i></a>
+                    <!--<a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Move to club'" href="#moveToClubModal"><i class="material-icons small">arrow_forward</i></a>-->
                 </span>
             </h3>
             <div *ngIf="thing.contacts && thing.contacts.length">
@@ -51,7 +52,7 @@
             <div class="waves-effect waves-light btn white-text {{ typeClassOf() }} tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Be a part of ' + thing.name" (click)="clickActionButton()">
                 <b *ngIf="actionButtonEnabled()">{{ actionButton() }}</b>
             </div>
-            <div class="waves-effect waves-light btn white-text teal tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'You\'ll get updates about ' + thing.name" (click)="toggleFollow()">
+            <div *ngIf="actionBar()" class="waves-effect waves-light btn white-text teal tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'You\'ll get updates about ' + thing.name" (click)="toggleFollow()">
                 <b *ngIf="!isFollowing">Back it</b>
                 <i *ngIf="isFollowing" class="material-icons">check</i>
             </div>

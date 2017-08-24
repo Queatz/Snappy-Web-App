@@ -11,8 +11,8 @@
         <p>{{person.about}}</p>
     </div>
     <div class="card-action">
-        {{ person.infoOffers }}
-        <span class="grey-text" [ngPlural]="person.infoOffers">
+        {{ person.offers ? person.offers.length : 0 }}
+        <span class="grey-text" [ngPlural]="person.offers ? person.offers.length : 0">
             <template ngPluralCase="=1">offer</template>
             <template ngPluralCase="other">offers</template>
         </span>

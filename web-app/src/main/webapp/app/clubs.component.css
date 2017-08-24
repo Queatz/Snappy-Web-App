@@ -11,3 +11,65 @@
         width: 98vw;
     }
 }
+
+.profile-wrapper {
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+@media screen and (max-width: 900px) {
+    .profile-wrapper {
+        margin-top: 0;
+    }
+}
+
+.bkg-white {
+    background: #fff;
+}
+
+.photo {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+}
+
+@media only screen and (max-width: 900px) {
+    .photo {
+        width: 100%;
+    }
+}
+
+.info {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    vertical-align: top;
+    position: relative;
+}
+
+.about {
+    white-space: pre-wrap;
+    max-width: 900px;
+    display: block;
+}
+
+.followers {
+    display: inline-block;
+    margin-left: 1em;
+}
+
+.metadata {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.waiting {
+    font-size: 1.5rem;
+    color: #777;
+    padding: .5em;
+    margin-top: 1rem;
+    text-align: center;
+}

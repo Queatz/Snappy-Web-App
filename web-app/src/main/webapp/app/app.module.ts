@@ -70,6 +70,7 @@ import { ChatComponent } from './chat/chat.component';
 import { AdAddComponent } from './ad-add/ad-add.component';
 import { FormComponent } from './form/form.component';
 import { ClubTagComponent } from './club-tag/club-tag.component';
+import { NewClubModalComponent } from './new-club-modal/new-club-modal.component';
 
 enableProdMode();
 
@@ -148,6 +149,7 @@ export class MyOptions extends BaseRequestOptions {
         AdAddComponent,
         FormComponent,
         ClubTagComponent,
+        NewClubModalComponent,
     ],
     entryComponents: [
         FeedbackModal,
@@ -164,6 +166,7 @@ export class MyOptions extends BaseRequestOptions {
         NewProjectModal,
         NewResourceModal,
         InviteModal,
+        NewClubModalComponent,
     ],
     providers: [
         InforService,

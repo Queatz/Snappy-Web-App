@@ -192,6 +192,11 @@ export class ApiService {
                            .map((res: Response) => res.json());
     }
 
+    public clubs() {
+        return this._http.get(this._apiBaseUrl + 'earth/me/clubs?auth=' + this.token())
+                           .map((res: Response) => res.json());
+    }
+
     public saveAbout(about: string) {
         return this._http.post(this._apiBaseUrl + 'earth/me/?about=' + encodeURIComponent(about) + '&auth=' + this.token(), '')
                            .map((res: Response) => res.json());
