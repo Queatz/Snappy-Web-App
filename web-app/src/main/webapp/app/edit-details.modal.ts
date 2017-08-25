@@ -2,7 +2,7 @@ declare var $;
 declare var Waves;
 declare var _;
 
-import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import { Router } from '@angular/router';
@@ -14,7 +14,7 @@ import { MapComponent } from './map.component';
     templateUrl: './edit-details.modal.html',
     styleUrls: ['./edit-details.modal.css'],
 })
-export class EditDetailsModal implements AfterViewInit {
+export class EditDetailsModal implements OnInit, AfterViewInit {
     @Input() thing;
 
     @ViewChild(MapComponent)
@@ -22,24 +22,28 @@ export class EditDetailsModal implements AfterViewInit {
     private element;
     private name;
     private about;
-    private visibility;
+    private clubs;
     private address;
+
+    public allClubs = [
+        'Public',
+        'Esther\'s Club',
+        'Clexsa\'s Club',
+        'Mai\'s Coffee Garden'
+    ];
 
     constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;
     }
 
-    ngAfterViewInit() {
-        Waves.displayEffect();
-        $(this.element.querySelector('#visibility')).material_select();
-        $(this.element.querySelectorAll('.modal')).modal();
+    ngOnInit() {
+        this.clubs = {};
 
         switch (this.thing.kind) {
             case 'hub':
                 this.name = this.thing.name;
                 this.about = this.thing.about;
                 this.address = this.thing.address;
-                this.visibility = ['1'];
                 break;
             case 'resource':
             case 'project':
@@ -49,6 +53,11 @@ export class EditDetailsModal implements AfterViewInit {
                 this.about = this.thing.about;
                 break;
         }
+    }
+
+    ngAfterViewInit() {
+        Waves.displayEffect();
+        $(this.element.querySelectorAll('.modal')).modal();
     }
 
     updateAddress() {
@@ -111,7 +120,7 @@ export class EditDetailsModal implements AfterViewInit {
     }
 
     saveHub() {
-        if (!this.name || !this.address) {
+        if (!this.name) {
             return;
         }
 

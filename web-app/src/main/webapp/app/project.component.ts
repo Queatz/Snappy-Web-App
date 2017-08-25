@@ -27,7 +27,11 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
 
     private pageTitle: Subject<string>;
 
-    constructor(private ngZone: NgZone, private api: ApiService, private inforService: InforService, private route: ActivatedRoute, elementRef: ElementRef) {
+    constructor(private ngZone: NgZone,
+            private api: ApiService,
+            private inforService: InforService,
+            private route: ActivatedRoute,
+            elementRef: ElementRef) {
         route.params.subscribe(params => {
             this.id = params['id'];
         });
@@ -53,7 +57,6 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
                         this.thing.updates = _.sortBy(this.thing.updates, m => -moment(m.source && m.source.date));
                     }
 
-                    this.inforService.setPageTitle(this.thing.name);
                     this.pageTitle.next(this.thing.name);
                     setTimeout(this.ngAfterViewInit.bind(this), 500);
                 },
@@ -69,7 +72,6 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     }
 
     ngOnInit() {
-        this.inforService.setPageTitle('Village');
     }
 
     ngAfterViewInit() {

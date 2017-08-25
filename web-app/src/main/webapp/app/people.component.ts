@@ -25,7 +25,6 @@ export class PeopleComponent implements AfterViewInit, WebTitleProvider {
     }
 
     ngAfterViewInit() {
-        this.inforService.setPageTitle('People');
     }
 
     private loadNearby(position) {

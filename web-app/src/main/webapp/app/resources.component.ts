@@ -46,7 +46,6 @@ export class ResourcesComponent implements AfterViewInit, WebTitleProvider {
     }
 
     ngAfterViewInit() {
-        this.inforService.setPageTitle('Resources');
     }
 
     public getWebTitle() {

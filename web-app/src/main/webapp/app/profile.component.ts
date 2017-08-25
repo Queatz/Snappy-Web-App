@@ -61,8 +61,6 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     }
 
     ngOnInit() {
-         this.inforService.setPageTitle('Village');
-
          this.route.params.subscribe(this.subFunc.bind(this));
     }
 
@@ -103,7 +101,6 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
             }
 
             this.editAbout = person.about;
-            this.inforService.setPageTitle(person.firstName);
             this.pageTitle.next(person.firstName);
             this.loaded(person.offers);
         },

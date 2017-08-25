@@ -10,116 +10,124 @@ export class ChatService {
     private queue = [];
     private listeners: Set<any> = new Set();
 
-    public topics: any = [
-        {
-            name: 'Community',
-            recent: 0,
-        },
-        {
-            name: 'Singles',
-            recent: 0,
-        },
-        {
-            name: 'Dating',
-            recent: 0,
-        },
-        {
-            name: 'Lunch',
-            recent: 0,
-        },
-        {
-            name: 'Gigs',
-            recent: 0,
-        },
-        {
-            name: 'Music',
-            recent: 0,
-        },
-        {
-            name: 'Art',
-            recent: 0,
-        },
-        {
-            name: 'Recruiting',
-            recent: 0,
-        },
-        {
-            name: 'Food',
-            recent: 0,
-        },
-        {
-            name: 'Tavern',
-            recent: 0,
-        },
-        {
-            name: 'News',
-            recent: 0,
-        },
-        {
-            name: 'Photography',
-            recent: 0,
-        },
-        {
-            name: 'Gaming',
-            recent: 0,
-        },
-        {
-            name: 'Tech',
-            recent: 0,
-        },
-        {
-            name: 'Trade',
-            recent: 0,
-        },
-        {
-            name: 'Events',
-            recent: 0,
-        },
-        {
-            name: 'Language',
-            recent: 0,
-        },
-        {
-            name: 'Parties',
-            recent: 0,
-        },
-        {
-            name: 'Classes',
-            recent: 0,
-        },
-        {
-            name: 'Ride Sharing',
-            recent: 0,
-        },
-        {
-            name: 'Housework',
-            recent: 0,
-        },
-        {
-            name: 'Collab',
-            recent: 0,
-        },
-        {
-            name: 'Roommates',
-            recent: 0,
-        },
-        {
-            name: 'Anime',
-            recent: 0,
-        },
-        {
-            name: 'Modeling',
-            recent: 0,
-        },
-        {
-            name: 'Film',
-            recent: 0,
-        }
-    ];
+    public topics: any;
 
-    public chats: any = {};
+    public chats: any;
 
-    constructor(private api: ApiService, private locality: LocalityService) {}
+    constructor(private api: ApiService, private locality: LocalityService) {
+        this.zero();
+    }
+
+    private zero() {
+        this.topics = [
+            {
+                name: 'Community',
+                recent: 0,
+            },
+            {
+                name: 'Singles',
+                recent: 0,
+            },
+            {
+                name: 'Dating',
+                recent: 0,
+            },
+            {
+                name: 'Lunch',
+                recent: 0,
+            },
+            {
+                name: 'Gigs',
+                recent: 0,
+            },
+            {
+                name: 'Music',
+                recent: 0,
+            },
+            {
+                name: 'Art',
+                recent: 0,
+            },
+            {
+                name: 'Recruiting',
+                recent: 0,
+            },
+            {
+                name: 'Food',
+                recent: 0,
+            },
+            {
+                name: 'Tavern',
+                recent: 0,
+            },
+            {
+                name: 'News',
+                recent: 0,
+            },
+            {
+                name: 'Photography',
+                recent: 0,
+            },
+            {
+                name: 'Gaming',
+                recent: 0,
+            },
+            {
+                name: 'Tech',
+                recent: 0,
+            },
+            {
+                name: 'Trade',
+                recent: 0,
+            },
+            {
+                name: 'Events',
+                recent: 0,
+            },
+            {
+                name: 'Language',
+                recent: 0,
+            },
+            {
+                name: 'Parties',
+                recent: 0,
+            },
+            {
+                name: 'Classes',
+                recent: 0,
+            },
+            {
+                name: 'Ride Sharing',
+                recent: 0,
+            },
+            {
+                name: 'Housework',
+                recent: 0,
+            },
+            {
+                name: 'Collab',
+                recent: 0,
+            },
+            {
+                name: 'Roommates',
+                recent: 0,
+            },
+            {
+                name: 'Anime',
+                recent: 0,
+            },
+            {
+                name: 'Modeling',
+                recent: 0,
+            },
+            {
+                name: 'Film',
+                recent: 0,
+            }
+        ];
+
+        this.chats = {};
+    }
 
     public start() {
         this.locality.get(this.onStart.bind(this));
@@ -206,6 +214,7 @@ export class ChatService {
 
                 break; }
             case 'session.start': {
+                this.zero();
                 chat.data.replay.forEach(replay => this.proxyMessage(replay));
                 break; }
             default:

@@ -209,7 +209,6 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
     }
 
     ngAfterViewInit() {
-        this.inforService.setPageTitle('Messages');
         let signinModal = $(this.element).find('signin-required-modal .modal');
 
         if (signinModal.length) {

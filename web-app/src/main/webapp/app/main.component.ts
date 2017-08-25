@@ -23,7 +23,6 @@ export class MainComponent implements AfterViewInit, OnDestroy {
     }
 
     ngAfterViewInit() {
-        this.inforService.setPageTitle('Village');
         $(this.elementRef.nativeElement).find('.tooltipped').tooltip({delay: 50});
     }
 

@@ -37,16 +37,6 @@ export class InforService {
         }
     }
 
-    // Deprecated, use extra.ts
-    setPageTitle(title) {
-        this.title = title;
-    }
-
-    // Deprecated, use extra.ts
-    getPageTitle() {
-        return this.title;
-    }
-
     setSubscribedTo(locality: string, subscribe: boolean) {
         localStorage.setItem('subscribedTo--' + locality, JSON.stringify(subscribe));
     }

@@ -23,19 +23,17 @@
                         <label class="active" for="about">Enter description</label>
                     </div>
 
-                    <!--<div class="input-field col s12 select-wrapper">-->
-                        <!--<i class="material-icons prefix">visibility</i>-->
-                        <!--<select id="visibility" [(ngModel)]="visibility" name="visibility" multiple>-->
-                            <!--<option value="0" disabled selected>Select one...</option>-->
-                            <!--<option value="1">Public</option>-->
-                            <!--<option value="3">People that back me</option>-->
-                            <!--<option value="4">People that I back</option>-->
-                            <!--<optgroup label="Clubs">-->
-                                <!--<option value="2">Members of <b>Mai's Coffee Garden</b></option>-->
-                            <!--</optgroup>-->
-                        <!--</select>-->
-                        <!--<label for="visibility">Visibility</label>-->
-                    <!--</div>-->
+                    <div class="col s12">
+                        <div class="row" *ngFor="let club of allClubs">
+                            <div class="switch">
+                                <label>
+                                    <input [disabled]="clubs['Public']" name="club-{{ club }}" [(ngModel)]="clubs[club]" type="checkbox" />
+                                    <span class="lever"></span>
+                                    {{ club }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col s12 m6">
                     <map [thing]="thing"></map>
@@ -53,6 +51,18 @@
                         <i class="material-icons prefix">edit</i>
                         <textarea class="materialize-textarea" id="about" type="text" [(ngModel)]="about" name="about"></textarea>
                         <label class="active" for="about">Enter description</label>
+                    </div>
+
+                    <div class="col s12">
+                        <div class="row" *ngFor="let club of allClubs" [hidden]="club !== 'Public' && clubs['Public']">
+                            <div class="switch">
+                                <label>
+                                    <input name="club-{{ club }}" [(ngModel)]="clubs[club]" type="checkbox" />
+                                    <span class="lever"></span>
+                                    {{ club }}
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

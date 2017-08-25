@@ -48,7 +48,6 @@ export class ClubsComponent implements AfterViewInit, WebTitleProvider {
     }
 
     ngAfterViewInit() {
-        this.inforService.setPageTitle('Clubs');
     }
 
     public getWebTitle() {

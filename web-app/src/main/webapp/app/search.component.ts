@@ -28,6 +28,5 @@ export class SearchComponent implements AfterViewInit {
     }
 
     ngAfterViewInit() {
-        this.inforService.setPageTitle('Search');
     }
 }

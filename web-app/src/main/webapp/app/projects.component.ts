@@ -44,7 +44,6 @@ export class ProjectsComponent implements AfterViewInit, WebTitleProvider {
     }
 
     ngAfterViewInit() {
-        this.inforService.setPageTitle('Projects');
     }
 
     public getWebTitle() {

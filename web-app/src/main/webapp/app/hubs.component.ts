@@ -44,7 +44,6 @@ export class HubsComponent implements AfterViewInit, WebTitleProvider {
     }
 
     ngAfterViewInit() {
-        this.inforService.setPageTitle('Hubs');
     }
 
     public getWebTitle() {

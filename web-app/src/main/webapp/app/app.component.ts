@@ -2,6 +2,7 @@ declare var $;
 declare var _;
 
 import { Component, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { InforService } from './infor.service';
 import { TutorialService } from './tutorial.service';
@@ -12,7 +13,11 @@ import { TutorialService } from './tutorial.service';
 	styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements AfterViewInit, OnDestroy {
-	constructor(private inforService: InforService, element: ElementRef, private router: Router, public tutorial: TutorialService) {
+	constructor(private inforService: InforService,
+            element: ElementRef,
+            private router: Router,
+            public tutorial: TutorialService,
+            private title: Title) {
     	this.element = element.nativeElement;
     }
 
@@ -75,6 +80,6 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     }
 
     pageTitle() {
-        return this.inforService.getPageTitle();
+        return this.title.getTitle();
     }
 }
