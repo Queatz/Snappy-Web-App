@@ -28,6 +28,14 @@ export class InforService {
         return '';
     }
 
+    myClubs() {
+        if (this.inforUser) {
+            return this.inforUser.clubs;
+        }
+
+        return null;
+    }
+
     setInforUser(inforUser) {
         if (inforUser !== null) {
             this.inforUser = inforUser;

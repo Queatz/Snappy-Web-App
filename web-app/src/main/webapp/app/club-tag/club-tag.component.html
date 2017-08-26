@@ -1,1 +1,5 @@
-<a class="tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="clubs ? 'Visible to ' + getName() : 'Visible to public'" [routerLink]="getLink()">{{ getName() }}</a>
+<a *ngFor="let club of clubs"
+    class="club-link tooltipped"
+    [attr.data-position]="'bottom'"
+    [attr.data-tooltip]="'Visible to ' + club.name"
+    [routerLink]="['/clubs/' + club.id]">{{ club.name }}</a>

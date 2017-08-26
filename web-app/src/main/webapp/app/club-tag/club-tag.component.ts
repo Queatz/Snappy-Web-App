@@ -14,6 +14,9 @@ export class ClubTagComponent implements OnInit, AfterViewInit, OnDestroy {
     constructor(private elementRef: ElementRef) { }
 
     ngOnInit() {
+        if (!this.clubs) {
+            this.clubs = [];
+        }
     }
 
     ngAfterViewInit() {

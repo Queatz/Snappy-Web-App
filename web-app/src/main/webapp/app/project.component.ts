@@ -19,6 +19,7 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     public notFound = false;
 
     private id;
+    private clubs;
     private element;
     private isFollowing;
     private selectedTab;
@@ -44,6 +45,9 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
                         util.setBodyBackground(this.getUrl());
                     }
 
+                    // Will be overwritten below
+                    this.clubs = this.thing.clubs;
+
                     if (this.thing.members) {
                         this.thing.people = _.filter(this.thing.members, m => m.source && m.source.kind === 'person');
                         this.thing.offers = _.filter(this.thing.members, m => m.source && m.source.kind === 'offer');
@@ -64,11 +68,7 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     }
 
     getClubs() {
-        if (this.thing.kind === 'club') {
-            return [this.thing];
-        } else {
-            return _.map(_.filter(this.thing['in'], m => m.target && m.target.kind === 'club'), m => m.target);
-        }
+        return this.clubs;
     }
 
     ngOnInit() {

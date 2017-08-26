@@ -95,11 +95,11 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     getClubs() {
-        if (!this.thing || !this.thing['in'] || !this.thing['in'].length) {
+        if (!this.thing || !this.thing.clubs || !this.thing.clubs.length) {
             return [];
         }
 
-        return _.map(_.filter(this.thing['in'], m => m.target && m.target.kind === 'club'), m => m.target);
+        return this.thing.clubs;
     }
 
     public go() {
