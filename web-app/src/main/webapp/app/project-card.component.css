@@ -27,7 +27,7 @@ a {
 }
 
 .remove-thing.edit-thing {
-    top: 2rem;
+    right: 4rem;
 }
 
 .position-relative {
@@ -60,4 +60,9 @@ a {
     bottom: 0;
     background: linear-gradient(0deg, black, transparent);
     background: -moz-linear-gradient(0deg, black, transparent);
+}
+
+.thing-role {
+    opacity: .75;
+    font-size: 66%;
 }

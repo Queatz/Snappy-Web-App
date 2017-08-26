@@ -31,12 +31,4 @@ export class ClubTagComponent implements OnInit, AfterViewInit, OnDestroy {
     get visible() {
         return this.clubs.length ? 'block' : 'none';
     }
-
-    getName() {
-        return this.clubs.length ? this.clubs[0].name : 'Public';
-    }
-
-    getLink() {
-        return this.clubs.length ? ['/clubs/' + this.clubs[0].id] : ['/'];
-    }
 }

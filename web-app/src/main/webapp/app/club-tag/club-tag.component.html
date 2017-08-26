@@ -1,5 +1,5 @@
 <a *ngFor="let club of clubs"
     class="club-link tooltipped"
     [attr.data-position]="'bottom'"
-    [attr.data-tooltip]="'Visible to ' + club.name"
+    [attr.data-tooltip]="'In ' + club.name"
     [routerLink]="['/clubs/' + club.id]">{{ club.name }}</a>

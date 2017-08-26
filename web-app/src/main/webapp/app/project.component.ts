@@ -126,6 +126,10 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
             return false;
         }
 
+        if (this.thing && this.thing.owner) {
+            return true;
+        }
+
         var me = this.inforService.getInforUser().id;
 
         return this.thing && _.any(this.thing.contacts, t => t.source.target.id === me);

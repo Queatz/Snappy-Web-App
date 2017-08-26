@@ -47,7 +47,7 @@ export class NewHubModal implements AfterViewInit {
     }
 
     newHub() {
-        if (!this.name || !this.address) {
+        if (!this.name) {
             return;
         }
 

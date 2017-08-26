@@ -10,3 +10,12 @@
 .sec {
     padding-bottom: 1rem;
 }
+
+.cover-shadow {
+    height: 50%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(0deg, black, transparent);
+    background: -moz-linear-gradient(0deg, black, transparent);
+}
