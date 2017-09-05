@@ -14,9 +14,7 @@ export class PersonLinkComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() person;
     @Input() remove;
 
-    constructor(private elementRef: ElementRef, private api: ApiService) {
-
-    }
+    constructor(private elementRef: ElementRef, private api: ApiService) {}
 
     ngOnInit() {
         if (this.person.kind === 'member') {

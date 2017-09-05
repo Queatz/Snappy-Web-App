@@ -77,6 +77,10 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
         $(this.elementRef.nativeElement.querySelector('#editRoleModal')).modal('open');
     }
 
+    public presence() {
+        return util.presence(this.thing);
+    }
+
     public getPhotoUrl() {
         if (!this.thing) {
             return null;
@@ -108,5 +112,20 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
         return util.thingUrl(this.thing);
+    }
+
+    public goText() {
+        if (!this.thing) {
+            return;
+        }
+
+        switch (this.thing.kind) {
+            case 'project': return 'View Project';
+            case 'resource': return 'View Resource';
+            case 'hub': return 'Go To Hub';
+            case 'club': return 'Go to Club';
+            case 'form': return 'View Form';
+            case 'person': return 'Visit ' + this.thing.firstName;
+        }
     }
 }

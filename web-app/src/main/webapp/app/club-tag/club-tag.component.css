@@ -23,6 +23,10 @@ a {
     color: inherit;
 }
 
+.more {
+    opacity: .66;
+}
+
 .club-link {
     display: block;
 }

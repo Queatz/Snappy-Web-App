@@ -19,7 +19,7 @@
 
     <div class="grid center-align">
         <div class="item" *ngFor="let person of people">
-            <person-card class="left-align" [person]="person"></person-card>
+            <project-card class="left-align" [thing]="person"></project-card>
         </div>
     </div>
     <div *ngIf="people && !people.length" class="center-align">

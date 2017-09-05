@@ -22,7 +22,6 @@ import { InfoPanelComponent } from './info-panel.component';
 import { OfferCardComponent } from './offer-card.component'
 import { OffersComponent } from './offers.component';
 import { ThingsComponent } from './things.component';
-import { PersonCardComponent } from './person-card.component';
 import { MapComponent } from './map.component';
 import { PersonLinkComponent } from './person-link.component';
 import { ThingUpdatesComponent } from './thing-updates.component';
@@ -103,7 +102,6 @@ export class MyOptions extends BaseRequestOptions {
         OfferCardComponent,
         OffersComponent,
         ThingsComponent,
-        PersonCardComponent,
         MapComponent,
         PersonLinkComponent,
         ThingUpdatesComponent,

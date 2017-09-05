@@ -75,6 +75,10 @@ export default class Util {
     }
 
     public static presence(person) {
+        if (!person.infoUpdated) {
+            return;
+        }
+
         return Util.getDistanceText(person.infoDistance) + ' ' + moment(person.infoUpdated).fromNow();
     }
 

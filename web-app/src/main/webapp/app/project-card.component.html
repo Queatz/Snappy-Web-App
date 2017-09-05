@@ -1,10 +1,11 @@
 <div class="card hoverable large" *ngIf="thing">
     <div class="card-image">
         <div class="card-tabbing {{typeClass}}"></div>
-        <div class="card-img" [style.background-image]="'url(' + (getPhotoUrl() ? getPhotoUrl() : 'img/night.png') + ')'"></div>
+        <div class="card-img waves-effect waves-block waves-light" [routerLink]="goUrl()" [style.background-image]="'url(' + (getPhotoUrl() ? getPhotoUrl() : 'img/night.png') + ')'"></div>
         <div class="cover-shadow"></div>
         <div class="card-title">
-            <div>{{ thing.name }}</div>
+            <div *ngIf="thing.kind === 'person'">{{ thing.firstName }} {{ thing.lastName }}</div>
+            <div *ngIf="thing.kind !== 'person'">{{ thing.name }}</div>
             <div class="thing-role" *ngIf="thing.member && thing.member.role">{{ thing.member.role }}</div>
         </div>
         <i class="remove-thing card-hover waves-effect material-icons white-text small waves-light tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Remove'" *ngIf="removable()" (click)="remove($event)">clear</i>
@@ -12,6 +13,7 @@
     </div>
     <div class="card-content position-relative">
         <club-tag [clubs]="thing.clubs" class="small"></club-tag>
+        <p *ngIf="presence()" class="grey-text sec">{{ presence() }}</p>
         <p>{{ thing.about }}</p>
         <i *ngIf="!thing.about" class="grey-text">No description provided.</i>
     </div>
@@ -25,12 +27,7 @@
         </div>
 
         <a [routerLink]="goUrl()" class="secondary-content {{typeClass.indexOf('yellow') != -1 ? 'yellow-text text-darken-2' : typeClass.indexOf('red') != -1 ? 'txt-red' : typeClass + '-text'}}">{{
-            typeClass == 'deep-orange' ? 'View Project' :
-            typeClass == 'brown' ? 'View Resource' :
-            typeClass == 'blue' ? 'Go To Hub' :
-            typeClass == 'yellow darken-2' ? 'Go to Club' :
-            typeClass == 'purple' ? 'View Form' :
-            typeClass == 'bkg-red' ? 'View ' + thing.firstName : ''
+            goText()
         }}</a>
     </div>
 </div>
