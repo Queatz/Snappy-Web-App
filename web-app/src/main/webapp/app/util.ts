@@ -4,6 +4,16 @@ declare var $: any;
 var Masonry = require('masonry-layout');
 
 export default class Util {
+
+    public static thingUrl(thing: any) {
+        switch (thing.kind) {
+            case 'person':
+                return ['/' + thing.googleUrl];
+            default:
+                return ['/' + thing.kind + 's/' + thing.id];
+        }
+    }
+
     public static masonry(element: any) {
         return new Masonry(element, {
             itemSelector: '.item',

@@ -16,12 +16,9 @@ import { Router } from '@angular/router';
 export class AddThingModal implements AfterViewInit {
     @Input() thing;
     @Input() resizeCallback;
-    public text: string;
     public results;
     private newThing;
     public newThingName;
-    public searching;
-    private position;
 
     private element;
 
@@ -33,7 +30,16 @@ export class AddThingModal implements AfterViewInit {
     ngAfterViewInit() {
         Waves.displayEffect();
         $(this.element.querySelector('.modal')).modal();
-        this.search();
+    }
+
+    onSearchResults(results: any) {
+        this.results = results;
+
+        if (this.results.length) {
+            this.newThingName = this.results[0].name || this.results[0].firstName || this.results[0].about;
+        } else {
+            this.newThingName = undefined;
+        }
     }
 
     add() {
@@ -54,6 +60,9 @@ export class AddThingModal implements AfterViewInit {
                 case 'person':
                     k = 'people';
                     break;
+                case 'club':
+                    k = 'clubMembers';
+                    break;
                 default:
                     k = newThing.kind + 's';
             }
@@ -71,48 +80,5 @@ export class AddThingModal implements AfterViewInit {
             $(this.element.querySelector('.modal')).modal('close');
             Materialize.toast((member.source.name || member.source.firstName || member.source.about) + ' added', 4000);
         });
-    }
-
-    search() {
-        this.searching = true;
-        if (!this.position) {
-            navigator.geolocation.getCurrentPosition(this.doSearch.bind(this));
-        } else {
-            this.doSearch(this.position);
-        }
-    }
-
-    select(index) {
-        this.results = [this.results[index]];
-
-        if (this.results.length) {
-            this.newThingName = this.results[0].name || this.results[0].firstName || this.results[0].about;
-        } else {
-            this.newThingName = undefined;
-        }
-    }
-
-    private doSearch(position) {
-        this.position = position;
-        this.api.earthSearch(position.coords, this.text || '', 'person|resource|project|offer|club|hub|form').subscribe(results => {
-            this.results = results;
-            this.searching = false;
-
-            if (results.length) {
-                this.newThingName = results[0].name || results[0].firstName || results[0].about;
-            } else {
-                this.newThingName = undefined;
-            }
-        });
-    }
-
-    url(thing: any) {
-        if (thing.kind === 'person') {
-            return thing.imageUrl;
-        }
-
-        if (thing.photo) {
-            return this.api.earthImageUrl(thing.id, 64);
-        }
     }
 }

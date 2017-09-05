@@ -1,4 +1,5 @@
-import { Component, ElementRef, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { InforService } from './infor.service';
 import util from './util';
 
@@ -6,27 +7,10 @@ import util from './util';
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.css'],
 })
-export class SearchComponent implements AfterViewInit {
-    public projects;
+export class SearchComponent {
+    constructor(private inforService: InforService, private router: Router) {}
 
-    private masonry;
-    private inforService;
-    private element;
-
-    constructor(inforService: InforService, element: ElementRef) {
-        this.inforService = inforService;
-        this.element = element.nativeElement;
-        this.loaded([{}, {}]);
-    }
-
-    private loaded(projects) {
-        this.projects = projects;
-
-        setTimeout(() => {
-            this.masonry = util.masonry(this.element.querySelector('.grid'));
-        });
-    }
-
-    ngAfterViewInit() {
+    onSearchResultClicked(thing: any) {
+        this.router.navigate(util.thingUrl(thing));
     }
 }

@@ -1,12 +1,7 @@
 <div>
-    <div class="row">
-        <div class="card col s6 offset-s3">
-            <form>
-                <div class="input-field">
-                    <input id="search" type="search" required>
-                    <label for="search"><i class="material-icons prefix">search</i></label>
-                </div>
-            </form>
+    <div class="search-card card">
+        <div class="card-content">
+            <searchbox (onSearchResultClicked)="onSearchResultClicked($event)"></searchbox>
         </div>
     </div>
 </div>

@@ -73,8 +73,8 @@
     content: "\e8af";
 }
 
-.nav-title {
-    max-width: 50%;
+.nav-tit {
+    max-width: 50vw;
     overflow: hidden;
     text-overflow: ellipsis;
 }

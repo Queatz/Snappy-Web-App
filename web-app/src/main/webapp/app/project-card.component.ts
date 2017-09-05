@@ -99,14 +99,7 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
             return;
         }
 
-        switch (this.thing.kind) {
-            case 'person':
-                this.router.navigate(['/' + this.thing.googleUrl]);
-                break;
-            default:
-                this.router.navigate(['/' + this.thing.kind + 's/' + this.thing.id]);
-                break;
-        }
+        this.router.navigate(util.thingUrl(this.thing));
     }
 
     public goUrl() {
@@ -114,11 +107,6 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
             return;
         }
 
-        switch (this.thing.kind) {
-            case 'person':
-                return ['/' + this.thing.googleUrl];
-            default:
-                return ['/' + this.thing.kind + 's/' + this.thing.id];
-        }
+        return util.thingUrl(this.thing);
     }
 }

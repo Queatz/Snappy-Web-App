@@ -87,6 +87,10 @@ import { FormComponent } from "./form/form.component";
         component: FormComponent
       },
       {
+        path: 'search',
+        component: SearchComponent
+      },
+      {
         path: 'search/:query',
         component: SearchComponent
       },
