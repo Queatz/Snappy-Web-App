@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment="Show action icons on hover">
+    <list default="true" id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/settings/settings.component.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/settings/settings.component.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/settings/settings.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.css" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/app.module.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/app.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/app.routes.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/app.routes.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/infor.service.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/infor.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.ts" />
     </list>
     <ignored path="Snappy-Web-App.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.component.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/settings/settings.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+            <state relative-caret-position="160">
+              <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -81,7 +77,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="infor.service.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="infor.service.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/infor.service.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="467">
@@ -906,13 +902,6 @@
       <option name="presentableId" value="Default" />
       <updated>1450799851331</updated>
     </task>
-    <task id="LOCAL-00020" summary="Add file">
-      <created>1458288902450</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1458288902450</updated>
-    </task>
     <task id="LOCAL-00021" summary="Modals update">
       <created>1458366107032</created>
       <option name="number" value="00021" />
@@ -1249,7 +1238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1504614961334</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Adds settings page + sign out button">
+      <created>1504617243602</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1504617243602</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1323,7 +1319,6 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Adds chat service" />
     <MESSAGE value="Chat working" />
     <MESSAGE value="Faster animation" />
     <MESSAGE value="Show new count" />
@@ -1348,7 +1343,8 @@
     <MESSAGE value="Adds search" />
     <MESSAGE value="Cleanup + merge person-card into project-card" />
     <MESSAGE value="Show action icons on hover" />
-    <option name="LAST_COMMIT_MESSAGE" value="Show action icons on hover" />
+    <MESSAGE value="Adds settings page + sign out button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds settings page + sign out button" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1715,14 +1711,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/settings/settings.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/settings/settings.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -1759,6 +1747,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="467">
           <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/settings/settings.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
           <folding />
         </state>
       </provider>
