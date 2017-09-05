@@ -95,7 +95,8 @@ export class ApiService {
             data += '&' + key + '=' + encodeURIComponent(params[key]);
         }
 
-        return this._http.post(this._apiBaseUrl + 'earth/' + id, data, this.formHeaders());
+        return this._http.post(this._apiBaseUrl + 'earth/' + id, data, this.formHeaders())
+            .map((res: Response) => res.json());
     }
 
     public earthPhotoUrl(id: string): string {

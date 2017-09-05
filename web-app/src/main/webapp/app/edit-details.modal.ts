@@ -24,21 +24,13 @@ export class EditDetailsModal implements OnInit, AfterViewInit {
     private about;
     private clubs;
     private address;
-
-    public allClubs = [
-        'Public',
-        'Esther\'s Club',
-        'Clexsa\'s Club',
-        'Mai\'s Coffee Garden'
-    ];
+    private isPublic;
 
     constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;
     }
 
     ngOnInit() {
-        this.clubs = {};
-
         switch (this.thing.kind) {
             case 'hub':
                 this.name = this.thing.name;
@@ -53,11 +45,29 @@ export class EditDetailsModal implements OnInit, AfterViewInit {
                 this.about = this.thing.about;
                 break;
         }
+
+        this.refreshClubToggles();
+    }
+
+    refreshClubToggles() {
+        this.isPublic = !this.thing.hidden;
+
+        this.clubs = {};
+
+        if (this.thing.clubs) {
+            this.thing.clubs.forEach(club => {
+                this.clubs[club.id] = true;
+            });
+        }
     }
 
     ngAfterViewInit() {
         Waves.displayEffect();
         $(this.element.querySelectorAll('.modal')).modal();
+    }
+
+    clubsList() {
+        return this.inforService.myClubs();
     }
 
     updateAddress() {
@@ -111,10 +121,15 @@ export class EditDetailsModal implements OnInit, AfterViewInit {
 
         this.api.earthEdit(this.thing.id, {
             name: this.name,
-            about: this.about
-        }).subscribe(success => {
-            this.thing.name = this.name;
-            this.thing.about = this.about;
+            about: this.about,
+            hidden: !this.isPublic,
+            clubs: JSON.stringify(this.clubs)
+        }).subscribe(updatedThing => {
+            this.thing.name = updatedThing.name;
+            this.thing.about = updatedThing.about;
+            this.thing.clubs = updatedThing.clubs;
+            this.thing.hidden = updatedThing.hidden;
+            this.refreshClubToggles();
             $(this.element.querySelector('#editDetailsModal')).modal('close');
         });
     }
@@ -128,12 +143,17 @@ export class EditDetailsModal implements OnInit, AfterViewInit {
             name: this.name,
             address: this.address,
             about: this.about,
+            hidden: !this.isPublic,
+            clubs: JSON.stringify(this.clubs),
             latitude: this.map.getMarkerPosition().lat(),
             longitude: this.map.getMarkerPosition().lng()
-        }).subscribe(success => {
-            this.thing.name = this.name;
-            this.thing.address = this.address;
-            this.thing.about = this.about;
+        }).subscribe(updatedThing => {
+            this.thing.name = updatedThing.name;
+            this.thing.address = updatedThing.address;
+            this.thing.about = updatedThing.about;
+            this.thing.clubs = updatedThing.clubs;
+            this.thing.hidden = updatedThing.hidden;
+            this.refreshClubToggles();
             $(this.element.querySelector('#editDetailsModal')).modal('close');
         });
     }

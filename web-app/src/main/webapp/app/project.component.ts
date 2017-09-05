@@ -19,7 +19,6 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     public notFound = false;
 
     private id;
-    private clubs;
     private element;
     private isFollowing;
     private selectedTab;
@@ -45,16 +44,13 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
                         util.setBodyBackground(this.getUrl());
                     }
 
-                    // Will be overwritten below
-                    this.clubs = this.thing.clubs;
-
                     if (this.thing.members) {
                         this.thing.people = _.filter(this.thing.members, m => m.source && m.source.kind === 'person');
                         this.thing.offers = _.filter(this.thing.members, m => m.source && m.source.kind === 'offer');
                         this.thing.resources = _.filter(this.thing.members, m => m.source && m.source.kind === 'resource');
                         this.thing.hubs = _.filter(this.thing.members, m => m.source && m.source.kind === 'hub');
                         this.thing.projects = _.filter(this.thing.members, m => m.source && m.source.kind === 'project');
-                        this.thing.clubs = _.filter(this.thing.members, m => m.source && m.source.kind === 'club');
+                        this.thing.clubMembers = _.filter(this.thing.members, m => m.source && m.source.kind === 'club');
                         this.thing.contacts = _.filter(this.thing.members, m => m.source && m.source.kind === 'contact');
                         this.thing.updates = _.filter(this.thing.members, m => m.source && m.source.kind === 'update');
                         this.thing.forms = _.filter(this.thing.members, m => m.source && m.source.kind === 'form');
@@ -65,10 +61,6 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
                     setTimeout(this.ngAfterViewInit.bind(this), 500);
                 },
                 error => this.notFound = true);
-    }
-
-    getClubs() {
-        return this.clubs;
     }
 
     ngOnInit() {

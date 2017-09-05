@@ -91,7 +91,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
                 this.thing.resources = _.filter(this.thing.members, m => m.source && m.source.kind === 'resource');
                 this.thing.hubs = _.filter(this.thing.members, m => m.source && m.source.kind === 'hub');
                 this.thing.projects = _.filter(this.thing.members, m => m.source && m.source.kind === 'project');
-                this.thing.clubs = _.filter(this.thing.members, m => m.source && m.source.kind === 'club');
+                this.thing.clubMembers = _.filter(this.thing.members, m => m.source && m.source.kind === 'club');
                 this.thing.contacts = _.filter(this.thing.members, m => m.source && m.source.kind === 'contact');
                 this.thing.updates = _.filter(this.thing.members, m => m.source && m.source.kind === 'update');
                 this.thing.forms = _.filter(this.thing.members, m => m.source && m.source.kind === 'form');
