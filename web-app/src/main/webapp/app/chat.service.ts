@@ -15,11 +15,15 @@ export class ChatService {
     public chats: any;
 
     constructor(private api: ApiService, private locality: LocalityService) {
+        this.topics = [];
+        this.chats = {};
         this.zero();
     }
 
     private zero() {
-        this.topics = [
+        this.topics.length = 0;
+
+        [
             {
                 name: 'Community',
                 recent: 0,
@@ -124,9 +128,11 @@ export class ChatService {
                 name: 'Film',
                 recent: 0,
             }
-        ];
+        ].forEach(topic => this.topics.push(topic));
 
-        this.chats = {};
+        for (var key in this.chats) {
+            delete this.chats[key];
+        }
     }
 
     public start() {

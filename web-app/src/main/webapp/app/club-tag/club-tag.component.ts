@@ -29,6 +29,6 @@ export class ClubTagComponent implements OnInit, AfterViewInit, OnDestroy {
 
     @HostBinding('style.display')
     get visible() {
-        return this.clubs.length ? 'block' : 'none';
+        return this.clubs && this.clubs.length ? 'block' : 'none';
     }
 }

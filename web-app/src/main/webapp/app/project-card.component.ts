@@ -94,14 +94,6 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
 
-    getClubs() {
-        if (!this.thing || !this.thing.clubs || !this.thing.clubs.length) {
-            return [];
-        }
-
-        return this.thing.clubs;
-    }
-
     public go() {
         if (!this.thing) {
             return;
