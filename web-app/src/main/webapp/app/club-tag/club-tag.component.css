@@ -5,7 +5,7 @@
     cursor: pointer;
     color: #fff;
     background: #fbc02d;
-    background: linear-gradient(to bottom, #ffb600, #fbc02d);
+    background: linear-gradient(to bottom, #f7ce84, #fbc02d);
     font-weight: bold;
     text-align: right;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);

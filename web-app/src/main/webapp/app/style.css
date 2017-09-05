@@ -82,11 +82,6 @@ html body h3 {
     height: 60%;
 }
 
-.card.large .card-image+.card-content {
-    max-height: 20%;
-    height: 20%;
-}
-
 .modal {
     text-align: initial;
 }
