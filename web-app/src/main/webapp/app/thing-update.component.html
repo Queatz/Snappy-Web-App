@@ -4,7 +4,7 @@
         <img (load)="loaded()" *ngIf="update.photo" src="{{updateImage}}" />
     </div>
     <div class="card-content">
-        <a *ngIf="isMine()" (click)="edit()" href="javascript:" class="right grey-text text-lighten-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit'"><i class="material-icons small">edit</i></a>
+        <a *ngIf="isMine()" (click)="edit()" href="javascript:" class="thing-action-icon right grey-text text-lighten-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit'"><i class="material-icons small">edit</i></a>
         <div class="blox">
             <a [routerLink]="['/' + update.source.googleUrl]" class="tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="update.source.firstName + ' ' + update.source.lastName"> <img src="{{ update.source.imageUrl }}" alt="Profile picture" class="circle" /> </a>
         </div>

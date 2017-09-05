@@ -8,6 +8,14 @@
     margin: 1rem;
 }
 
+.thing-action-icon {
+    display: none;
+}
+
+.card:hover .thing-action-icon {
+    display: block;
+}
+
 .card .card-image img {
     border-radius: 0;
 }
