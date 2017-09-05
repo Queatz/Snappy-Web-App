@@ -1,3 +1,5 @@
+declare var gapi;
+
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -37,12 +39,19 @@ export class InforService {
     }
 
     setInforUser(inforUser) {
-        if (inforUser !== null) {
+        if (inforUser) {
             this.inforUser = inforUser;
             localStorage.setItem('myInfo', JSON.stringify(inforUser));
         } else {
-            localStorage.setItem('myInfo', null);
+            localStorage.removeItem('myInfo');
         }
+    }
+
+    signOut() {
+        this.localData = undefined;
+        this.inforUser = undefined;
+        this.setInforUser(null);
+        gapi.auth2.getAuthInstance().signOut();
     }
 
     setSubscribedTo(locality: string, subscribe: boolean) {

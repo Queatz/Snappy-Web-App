@@ -12,6 +12,7 @@ import { SearchComponent } from "./search.component";
 import { ProjectComponent } from "./project.component";
 import { ChatComponent } from "./chat/chat.component";
 import { FormComponent } from "./form/form.component";
+import { SettingsComponent } from "./settings/settings.component";
 
 @NgModule({
   imports: [
@@ -93,6 +94,10 @@ import { FormComponent } from "./form/form.component";
       {
         path: 'search/:query',
         component: SearchComponent
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent
       },
       {
         path: ':id',

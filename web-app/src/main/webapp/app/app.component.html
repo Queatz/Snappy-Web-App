@@ -20,6 +20,7 @@
 
                 <div class="right right-actions">
                     <a class="feedback hide-on-med-and-down modal-trigger right tooltipped" *ngIf="userSignined()" href="#feedbackModal" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Send feedback about Village to the development team'">Feedback</a>
+                    <a class="settings hide-on-med-and-down right tooltipped" *ngIf="userSignined()" routerLink="/settings" [attr.data-position]="'bottom'" [attr.data-tooltip]="'View settings'"><i class="material-icons">settings</i></a>
                     <a class="chat right tooltipped" *ngIf="userSignined()" routerLink="/messages" [attr.data-position]="'bottom'" [attr.data-tooltip]="'View your messages'"><i class="material-icons">chat_bubble</i></a>
                     <div class="signin right tooltipped right-actions" [attr.data-position]="'left'" [attr.data-tooltip]="'View your profile'">
                         <signin></signin>
@@ -202,5 +203,6 @@
     <li><a routerLink="/people"><i class="material-icons left red-text">perm_identity</i>People</a></li>
     <li><a routerLink="/chat"><i class="material-icons left orange-text">sentiment_very_satisfied</i>Chat</a></li>
     <li><a routerLink="/search"><i class="material-icons left">search</i>Search</a></li>
+    <li><a routerLink="/settings"><i class="material-icons left">settings</i>Settings</a></li>
     <li><a class="modal-trigger" *ngIf="userSignined()" href="#feedbackModal"><i class="material-icons left">edit</i>Send Feedback</a></li>
 </ul>

@@ -71,6 +71,7 @@ import { FormComponent } from './form/form.component';
 import { ClubTagComponent } from './club-tag/club-tag.component';
 import { NewClubModalComponent } from './new-club-modal/new-club-modal.component';
 import { SearchboxComponent } from './searchbox/searchbox.component';
+import { SettingsComponent } from './settings/settings.component';
 
 enableProdMode();
 
@@ -150,6 +151,7 @@ export class MyOptions extends BaseRequestOptions {
         ClubTagComponent,
         NewClubModalComponent,
         SearchboxComponent,
+        SettingsComponent,
     ],
     entryComponents: [
         FeedbackModal,

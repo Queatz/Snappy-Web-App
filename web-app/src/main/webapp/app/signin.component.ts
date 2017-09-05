@@ -13,7 +13,6 @@ import {ApiService} from './api.service';
     styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements AfterViewInit, OnInit {
-    public signedIn: boolean;
     private element;
 
     private localData;
@@ -27,13 +26,12 @@ export class SigninComponent implements AfterViewInit, OnInit {
         private router: Router,
         elementRef: ElementRef) {
         this.element = elementRef.nativeElement;
-        this.signedIn = !!inforService.getInforUser();
-        if (localStorage.getItem('myInfo')) {
-            this.localData = JSON.parse(localStorage.getItem('myInfo'));
-            if (this.localData) {
-                this.glink = this.localData.googleUrl;
-                this.gimage = this.localData.imageUrl;
-            }
+
+        let me = inforService.getInforUser();
+
+        if (me) {
+            this.glink = me.googleUrl;
+            this.gimage = me.imageUrl;
         }
     }
 
@@ -47,7 +45,6 @@ export class SigninComponent implements AfterViewInit, OnInit {
             width: 120,
             longtitle: false,
             onsuccess: (googleUser) => {
-                this.signedIn = true;
                 this.onSuccess(googleUser);
             },
             onfailure: (error) => {
@@ -67,6 +64,10 @@ export class SigninComponent implements AfterViewInit, OnInit {
                 });
             }
         });
+    }
+
+    signedIn() {
+        return this.inforService.getInforUser();
     }
 
     /**

@@ -1,5 +1,5 @@
-<div class="signin-wrapper google-signin" [hidden]="signedIn"></div>
-<div class="profile" *ngIf="signedIn">
+<div class="signin-wrapper google-signin" [hidden]="signedIn()"></div>
+<div class="profile" *ngIf="signedIn()">
     <a [routerLink]="['/' + glink]">
         <img class="circle" src="{{gimage}}" />
     </a>
