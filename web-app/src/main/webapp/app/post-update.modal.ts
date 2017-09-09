@@ -30,13 +30,22 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
         element: ElementRef
     ) {
         this.element = element.nativeElement;
-        this.isPublic = true;
-        this.clubs = {};
     }
 
     ngOnInit() {
+        this.clubs = {};
+
         if (this.update) {
             this.message = this.update.about;
+            this.isPublic = !this.update.hidden;
+
+            if (this.update.clubs) {
+                this.update.clubs.forEach(club => {
+                    this.clubs[club.id] = true;
+                });
+            }
+        } else {
+            this.isPublic = true;
         }
     }
 
@@ -71,7 +80,10 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
                     this.update.photo = false;
                 }
 
-                this.api.earthSaveUpdate(this.update.id, this.message, isFile ? this.filesToUpload[0] : null)
+                this.api.earthSaveUpdate(this.update.id, this.message, isFile ? this.filesToUpload[0] : null, {
+                    hidden: !this.isPublic,
+                    clubs: JSON.stringify(this.clubs)
+                })
                     .then(result => {
                         var updated: Object = JSON.parse(result);
 
@@ -92,7 +104,10 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
         var updates = this.thing.updates;
 
         if (this.message || isFile) {
-            this.api.earthPostUpdate(this.thing.id, this.message, isFile ? this.filesToUpload[0] : null)
+            this.api.earthPostUpdate(this.thing.id, this.message, isFile ? this.filesToUpload[0] : null, {
+                hidden: !this.isPublic,
+                clubs: JSON.stringify(this.clubs)
+            })
                 .then(result => {
                     if (_.isArray(updates)) {
                         updates.unshift(JSON.parse(result));

@@ -56,7 +56,9 @@ export class NewResourceModal implements AfterViewInit {
            kind: 'resource',
            name: this.name,
            photo: isFile ? this.filesToUpload[0] : undefined,
-           'in': this.asMemberOf ? this.asMemberOf.id : undefined
+           hidden: !this.isPublic,
+           clubs: JSON.stringify(this.clubs),
+           'in': this.asMemberOf ? this.asMemberOf.id : ''
        }, true).then(resource => {
            resource = JSON.parse(resource);
 

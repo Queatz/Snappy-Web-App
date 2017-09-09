@@ -42,7 +42,7 @@
                         <label class="active" for="about">Enter description</label>
                     </div>
 
-                    <visibility-picker [clubs]="clubs" [(public)]="isPublic"></visibility-picker>
+                    <visibility-picker *ngIf="canEditClubs()" [clubs]="clubs" [(public)]="isPublic"></visibility-picker>
                 </div>
             </div>
         </form>

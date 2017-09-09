@@ -35,8 +35,6 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
         this.enumber = 0;
         this.edetails = '';
         this.emessage = '';
-        this.isPublic = true;
-        this.clubs = {};
     }
 
     ngOnInit() {
@@ -51,6 +49,8 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
                 this.enumber = this.offer.price;
             }
         }
+
+        this.refreshClubToggles();
     }
 
     ngAfterViewInit() {
@@ -64,6 +64,23 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
 
     isRequest() {
         return this.enumber < 0 || this.isWant;
+    }
+
+    refreshClubToggles() {
+        this.clubs = {};
+
+        if (!this.offer) {
+            this.isPublic = true;
+            return;
+        }
+
+        this.isPublic = !this.offer.hidden;
+
+        if (this.offer.clubs) {
+            this.offer.clubs.forEach(club => {
+                this.clubs[club.id] = true;
+            });
+        }
     }
 
     newOffer() {
@@ -86,7 +103,10 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
 
         if (this.offer) {
             var self = this;
-            this.api.editOffer(this.offer.id, edetails, enumber, emessage, this.isWant)
+            this.api.editOffer(this.offer.id, edetails, enumber, emessage, this.isWant, {
+                hidden: !this.isPublic,
+                clubs: JSON.stringify(this.clubs)
+            })
                 .subscribe(offer => {
                     if (offer.id) {
                         self.offer.price = offer.price;
@@ -113,7 +133,6 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
             .subscribe(member => {
                 if (member.id) {
                     Materialize.toast('Offer added', 4000);
-                    this.inforService.setNewOffer(member);
                     this.edetails = '';
                     this.emessage = '';
 

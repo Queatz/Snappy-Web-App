@@ -38,6 +38,12 @@ export class InforService {
         return null;
     }
 
+    addClub(club: any) {
+        if (this.inforUser) {
+            return this.inforUser.clubs.push(club);
+        }
+    }
+
     setInforUser(inforUser) {
         if (inforUser) {
             this.inforUser = inforUser;

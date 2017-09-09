@@ -40,6 +40,7 @@ export class NewClubModalComponent implements AfterViewInit {
            kind: 'club',
            name: this.name
        }).subscribe(club => {
+           this.inforService.addClub(club);
            $(this.element.querySelector('.modal')).modal('close');
            this.router.navigate(['/clubs/' + club.id]);
        });

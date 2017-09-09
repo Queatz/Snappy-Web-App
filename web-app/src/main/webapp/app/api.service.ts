@@ -115,7 +115,7 @@ export class ApiService {
     }
 
     // XXX currently returns a promise, so must use .then()
-    public earthPostUpdate(thingId: string, message: string, photoFile: File) {
+    public earthPostUpdate(thingId: string, message: string, photoFile: File, visibility: any) {
         var formData = new FormData();
 
         if (photoFile) {
@@ -130,6 +130,11 @@ export class ApiService {
             formData.append('thing', thingId);
         }
 
+        if (visibility) {
+            formData.append('hidden', visibility.hidden);
+            formData.append('clubs', visibility.clubs);
+        }
+
         var headers = new Headers();
         headers.append('Content-Type', undefined);
 
@@ -137,7 +142,7 @@ export class ApiService {
     }
 
     // XXX currently returns a promise, so must use .then()
-    public earthSaveUpdate(updateId: string, message: string, photoFile: File) {
+    public earthSaveUpdate(updateId: string, message: string, photoFile: File, visibility: any) {
         var formData = new FormData();
 
         if (photoFile) {
@@ -146,6 +151,11 @@ export class ApiService {
 
         if (message) {
             formData.append('message', message);
+        }
+
+        if (visibility) {
+            formData.append('hidden', visibility.hidden);
+            formData.append('clubs', visibility.clubs);
         }
 
         var headers = new Headers();
@@ -223,11 +233,14 @@ export class ApiService {
         return this._http.post(this._apiBaseUrl + 'earth', creds, this.formHeaders()).map((res: Response) => res.json());
     }
 
-    public editOffer(offerId, details, price, unit, want) {
+    public editOffer(offerId, details, price, unit, want, visibility) {
         var creds = "auth=" + this.token() +
             "&details=" + encodeURIComponent(details) +
             "&price=" + encodeURIComponent(price) +
             "&unit=" + encodeURIComponent(unit) +
+            (
+                visibility ? "&hidden=" + visibility.hidden + "&clubs=" + encodeURIComponent(visibility.clubs) : ""
+            ) +
             "&want=" + encodeURIComponent(want);
         return this._http.post(this._apiBaseUrl + 'earth/' + offerId, creds, this.formHeaders()).map((res: Response) => res.json());
     }

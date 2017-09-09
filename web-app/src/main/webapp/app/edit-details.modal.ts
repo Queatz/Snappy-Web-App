@@ -77,6 +77,10 @@ export class EditDetailsModal implements OnInit, AfterViewInit {
             this.thing.kind === 'club';
     }
 
+    canEditClubs() {
+        return this.thing.kind !== 'club';
+    }
+
     save() {
         switch (this.thing.kind) {
             case 'hub':
