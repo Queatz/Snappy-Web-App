@@ -25,10 +25,15 @@ export class NewHubModal implements AfterViewInit {
     public address;
     public thing;
 
+    public isPublic: any;
+    public clubs: any;
+
     constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;
         this.name = '';
         this.address = '';
+        this.isPublic = true;
+        this.clubs = {};
 
         navigator.geolocation.getCurrentPosition((position) => {
             this.thing = {
@@ -57,6 +62,8 @@ export class NewHubModal implements AfterViewInit {
             address: this.address,
             latitude: this.map.getMarkerPosition().lat(),
             longitude: this.map.getMarkerPosition().lng(),
+            hidden: !this.isPublic,
+            clubs: JSON.stringify(this.clubs),
             'in': this.asMemberOf ? this.asMemberOf.id : undefined
         }).subscribe(hub => {
             $(this.element.querySelector('.modal')).modal('close');

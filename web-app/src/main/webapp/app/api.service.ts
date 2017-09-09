@@ -209,11 +209,14 @@ export class ApiService {
                            .map((res: Response) => res.json());
     }
 
-    public newOffer(details, price, unit, asMemberOf = null, want = false) {
+    public newOffer(details, price, unit, asMemberOf = null, want = false, visibility = null) {
         var creds = "auth=" + this.token() +
         "&details=" + encodeURIComponent(details) +
         "&price=" + encodeURIComponent(price) +
         "&unit=" + encodeURIComponent(unit) +
+        (
+            visibility ? "&hidden=" + visibility.hidden + "&clubs=" + encodeURIComponent(visibility.clubs) : ""
+        ) +
         "&want=" + encodeURIComponent(want.toString()) +
         "&kind=offer" +
         (asMemberOf ? "&in=" + encodeURIComponent(asMemberOf.id) : "");

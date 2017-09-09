@@ -16,6 +16,9 @@ export class NewFormModal implements AfterViewInit {
     @Input() asMemberOf;
     private filesToUpload: Array<File>;
 
+    public isPublic: any;
+    public clubs: any;
+
     private element;
     public name;
     public efile;
@@ -24,6 +27,8 @@ export class NewFormModal implements AfterViewInit {
    constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
        this.element = element.nativeElement;
        this.name = '';
+       this.isPublic = true;
+       this.clubs = {};
 
        navigator.geolocation.getCurrentPosition((position) => {
            this.thing = {
@@ -50,6 +55,8 @@ export class NewFormModal implements AfterViewInit {
        this.api.earthCreate({
            kind: 'form',
            name: this.name,
+           hidden: !this.isPublic,
+           clubs: JSON.stringify(this.clubs),
            'in': this.asMemberOf ? this.asMemberOf.id : undefined
        }, true).then(form => {
            form = JSON.parse(form);

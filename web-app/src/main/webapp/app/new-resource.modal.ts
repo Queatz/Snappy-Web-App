@@ -21,9 +21,14 @@ export class NewResourceModal implements AfterViewInit {
     public efile;
     private thing;
 
+    public isPublic: any;
+    public clubs: any;
+
    constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
        this.element = element.nativeElement;
        this.name = '';
+       this.isPublic = true;
+       this.clubs = {};
 
        navigator.geolocation.getCurrentPosition((position) => {
            this.thing = {

@@ -16,6 +16,10 @@
                         <input id="hubAddress" type="text" required [(ngModel)]="address" name="address">
                         <label for="hubAddress">Enter address</label>
                     </div>
+
+                    <div class="row">
+                        <visibility-picker [clubs]="clubs" [(public)]="isPublic"></visibility-picker>
+                    </div>
                 </div>
                 <div class="col s12 m6">
                     <map *ngIf="thing" [thing]="thing"></map>

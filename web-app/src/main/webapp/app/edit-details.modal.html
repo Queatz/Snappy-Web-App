@@ -22,30 +22,7 @@
                         <textarea class="materialize-textarea" id="about" type="text" [(ngModel)]="about" name="about"></textarea>
                         <label class="active" for="about">Enter description</label>
                     </div>
-
-                    <div class="col s12 visibility-section">
-                        <div class="row">
-                            <div class="switch">
-                                <label class="is-club" [ngClass]="{'green-text': isPublic, 'grey-text': !isPublic}">
-                                    <input name="is-public" [(ngModel)]="isPublic" type="checkbox" />
-                                    <span class="lever"></span>
-                                    Visible to everyone
-                                </label>
-                            </div>
-                        </div>
-
-                        <div *ngIf="!isPublic">
-                            <div class="row" *ngFor="let club of clubsList()">
-                                <div class="switch">
-                                    <label [ngClass]="{'green-text': clubs[club.id], 'grey-text': !clubs[club.id]}">
-                                        <input name="club-{{ club.id }}" [(ngModel)]="clubs[club.id]" type="checkbox" />
-                                        <span class="lever"></span>
-                                        Visible to <span class="is-club">{{ club.name }}</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <visibility-picker [clubs]="clubs" [(public)]="isPublic"></visibility-picker>
                 </div>
                 <div class="col s12 m6">
                     <map [thing]="thing"></map>
@@ -65,29 +42,7 @@
                         <label class="active" for="about">Enter description</label>
                     </div>
 
-                    <div class="col s12 visibility-section">
-                        <div class="row">
-                            <div class="switch">
-                                <label class="is-club" [ngClass]="{'green-text': isPublic, 'grey-text': !isPublic}">
-                                    <input name="is-public" [(ngModel)]="isPublic" type="checkbox" />
-                                    <span class="lever"></span>
-                                    Visible to everyone
-                                </label>
-                            </div>
-                        </div>
-
-                        <div *ngIf="!isPublic">
-                            <div class="row" *ngFor="let club of clubsList()">
-                                <div class="switch">
-                                    <label [ngClass]="{'green-text': clubs[club.id], 'grey-text': !clubs[club.id]}">
-                                        <input name="club-{{ club.id }}" [(ngModel)]="clubs[club.id]" type="checkbox" />
-                                        <span class="lever"></span>
-                                        Visible to <span class="is-club">{{ club.name }}</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <visibility-picker [clubs]="clubs" [(public)]="isPublic"></visibility-picker>
                 </div>
             </div>
         </form>

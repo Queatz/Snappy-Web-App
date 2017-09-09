@@ -66,10 +66,6 @@ export class EditDetailsModal implements OnInit, AfterViewInit {
         $(this.element.querySelectorAll('.modal')).modal();
     }
 
-    clubsList() {
-        return this.inforService.myClubs();
-    }
-
     updateAddress() {
         this.map.updateAddress(this.address);
     }

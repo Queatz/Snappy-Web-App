@@ -26,12 +26,17 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
     public isWant;
     public name;
 
+    public isPublic: any;
+    public clubs: any;
+
     constructor(private api: ApiService, inforService: InforService, element: ElementRef) {
         this.inforService = inforService;
         this.element = element.nativeElement;
         this.enumber = 0;
         this.edetails = '';
         this.emessage = '';
+        this.isPublic = true;
+        this.clubs = {};
     }
 
     ngOnInit() {
@@ -101,7 +106,10 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
 
         var asMemberOf = this.asMemberOf;
 
-        this.api.newOffer(edetails, enumber, emessage, this.asMemberOf, this.isWant)
+        this.api.newOffer(edetails, enumber, emessage, this.asMemberOf, this.isWant, {
+            hidden: !this.isPublic,
+            clubs: JSON.stringify(this.clubs)
+        })
             .subscribe(member => {
                 if (member.id) {
                     Materialize.toast('Offer added', 4000);

@@ -1,0 +1,23 @@
+<div class="col s12 visibility-section">
+  <div class="row">
+    <div class="switch">
+      <label class="is-club" [ngClass]="{'green-text': public, 'grey-text': !public}">
+        <input name="is-public" [(ngModel)]="public" (change)="publicChanged()" type="checkbox" />
+        <span class="lever"></span>
+        Visible to everyone
+      </label>
+    </div>
+  </div>
+
+  <div *ngIf="!public">
+    <div class="row" *ngFor="let club of clubsList()">
+      <div class="switch">
+        <label [ngClass]="{'green-text': clubs[club.id], 'grey-text': !clubs[club.id]}">
+          <input name="club-{{ club.id }}" [(ngModel)]="clubs[club.id]" type="checkbox" />
+          <span class="lever"></span>
+          Visible to <span class="is-club">{{ club.name }}</span>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

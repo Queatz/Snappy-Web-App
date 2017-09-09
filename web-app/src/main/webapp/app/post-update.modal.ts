@@ -21,12 +21,17 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
     private element;
     public efile;
 
+    public isPublic: any;
+    public clubs: any;
+
     constructor(
         private inforService: InforService,
         private api: ApiService,
         element: ElementRef
     ) {
         this.element = element.nativeElement;
+        this.isPublic = true;
+        this.clubs = {};
     }
 
     ngOnInit() {

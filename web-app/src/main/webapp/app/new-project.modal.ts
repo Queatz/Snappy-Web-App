@@ -12,37 +12,44 @@ import { ApiService } from './api.service';
     styleUrls: ['./new-project.modal.css'],
 })
 export class NewProjectModal implements AfterViewInit {
-   @Input() modalId;
-   @Input() asMemberOf;
+    @Input() modalId;
+    @Input() asMemberOf;
 
-   private element: HTMLElement;
-   public name: string;
-   private thing: Object;
+    private element: HTMLElement;
+    public name: string;
+    private thing: Object;
 
-   constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
-       this.element = element.nativeElement;
-       this.name = '';
+    public isPublic: any;
+    public clubs: any;
 
-       this.thing = {};
-   }
+    constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
+        this.element = element.nativeElement;
+        this.name = '';
 
-   ngAfterViewInit() {
-       Waves.displayEffect();
-       $(this.element.querySelector('.modal')).modal();
-   }
+        this.thing = {};
+        this.isPublic = true;
+        this.clubs = {};
+    }
 
-   newProject() {
-       if (!this.name) {
-           return;
-       }
+    ngAfterViewInit() {
+        Waves.displayEffect();
+        $(this.element.querySelector('.modal')).modal();
+    }
 
-       this.api.earthCreate({
-           kind: 'project',
-           name: this.name,
-           'in': this.asMemberOf ? this.asMemberOf.id : undefined
-       }).subscribe(project => {
-           $(this.element.querySelector('.modal')).modal('close');
-           this.router.navigate(['/projects/' + project.id]);
-       });
-   }
+    newProject() {
+        if (!this.name) {
+            return;
+        }
+
+        this.api.earthCreate({
+            kind: 'project',
+            name: this.name,
+            hidden: !this.isPublic,
+            clubs: JSON.stringify(this.clubs),
+            'in': this.asMemberOf ? this.asMemberOf.id : undefined
+        }).subscribe(project => {
+            $(this.element.querySelector('.modal')).modal('close');
+            this.router.navigate(['/projects/' + project.id]);
+        });
+    }
 }

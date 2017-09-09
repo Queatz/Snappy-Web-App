@@ -72,6 +72,7 @@ import { ClubTagComponent } from './club-tag/club-tag.component';
 import { NewClubModalComponent } from './new-club-modal/new-club-modal.component';
 import { SearchboxComponent } from './searchbox/searchbox.component';
 import { SettingsComponent } from './settings/settings.component';
+import { VisibilityPickerComponent } from './visibility-picker/visibility-picker.component';
 
 enableProdMode();
 
@@ -152,6 +153,7 @@ export class MyOptions extends BaseRequestOptions {
         NewClubModalComponent,
         SearchboxComponent,
         SettingsComponent,
+        VisibilityPickerComponent,
     ],
     entryComponents: [
         FeedbackModal,
