@@ -42,7 +42,7 @@
             </div>
             <h6 class="metadata grey-text">ABOUT</h6>
             <div class="about flow-text" [innerHtml]="thing.about | parseLinks"></div>
-            <a class="about" href="#editDetailsModal" *ngIf="!thing.about && canEdit()">Add a description...</a>
+            <a class="about modal-trigger" href="#editDetailsModal" *ngIf="!thing.about && canEdit()">Add a description...</a>
             <i *ngIf="!thing.about && !canEdit()" class="about grey-text">No description provided.</i>
             <div *ngIf="thing['in'] && thing['in'].length">
                 <h6 class="metadata grey-text">ADDED TO</h6>

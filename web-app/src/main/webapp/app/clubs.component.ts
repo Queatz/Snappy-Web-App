@@ -14,7 +14,7 @@ export class ClubsComponent implements AfterViewInit, WebTitleProvider {
     public clubs: Array<Object>;
     private element: HTMLElement;
     private masonry;
-    private modal;
+    public modal;
 
     constructor(private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.inforService = inforService;

@@ -37,8 +37,8 @@
             <span *ngIf="offer.member">Offer will be removed from {{ offer.member.target.name }}.</span>
         </div>
         <div class="modal-footer">
-            <a class="modal-action modal-close waves-effect waves-red btn-flat red-text" (click)="deleteOffer()">Remove</a>
             <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
+            <a class="modal-action modal-close waves-effect waves-red btn-flat red-text" (click)="deleteOffer()">Remove</a>
         </div>
     </div>
     <div id="modal-action{{ offer.id }}-2" class="modal">
@@ -56,8 +56,8 @@
         </div>
         <div class="modal-footer">
             <a class="left modal-action modal-close waves-effect waves-red btn-flat red-text" (click)="deleteImage()">Remove photo</a>
-            <a class="right modal-action modal-close waves-effect waves-blue btn-flat blue-text" (click)="uploadPhoto()">Set photo</a>
-            <a class="right modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
+            <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
+            <a class="modal-action modal-close waves-effect waves-blue btn-flat blue-text" (click)="uploadPhoto()">Set photo</a>
         </div>
     </div>
 </div>

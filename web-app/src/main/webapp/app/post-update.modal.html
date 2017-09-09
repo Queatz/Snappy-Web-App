@@ -25,7 +25,7 @@
     </div>
     <div class="modal-footer">
         <a class="modal-action modal-close waves-effect waves-red btn-flat red-text left" (click)="remove()" [ngClass]="{hide: !update}">Remove Update</a>
-        <a class="right modal-action modal-close waves-effect waves-blue btn-flat blue-text" (click)="post()">{{ update ? 'Save' : 'Post'}}</a>
-        <a class="right modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
+        <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
+        <a class="modal-action modal-close waves-effect waves-blue btn-flat blue-text" (click)="post()">{{ update ? 'Save' : 'Post'}}</a>
     </div>
 </div>

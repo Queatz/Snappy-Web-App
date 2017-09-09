@@ -95,10 +95,10 @@
 
     <div class="modal-footer">
         <a class="modal-action modal-close waves-effect btn-flat grey-text left" (click)="remove()" *ngIf="canEdit()">Remove {{ thing.kind }}</a>
-        <a class="btn-flat waves-effect waves-blue modal-action blue-text" type="submit" name="action" (click)="save()">
+        <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
+        <a class="btn-flat waves-effect waves-blue modal-action blue-text" (click)="save()">
             Save
         </a>
-        <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
     </div>
 
 </div>
@@ -130,7 +130,7 @@
         </div>
     </div>
     <div class="modal-footer">
-        <a class="modal-action waves-effect waves-red btn-flat red-text" (click)="confirmRemove()">Remove</a>
         <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
+        <a class="modal-action waves-effect waves-red btn-flat red-text" (click)="confirmRemove()">Remove</a>
     </div>
 </div>
