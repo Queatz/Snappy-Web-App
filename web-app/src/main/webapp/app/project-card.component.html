@@ -18,13 +18,13 @@
         <i *ngIf="!thing.about" class="grey-text">No description provided.</i>
     </div>
     <div class="card-action">
-        <div *ngIf="thing.backers">
+        <span *ngIf="thing.backers">
             {{ thing.backers }}
             <span class="grey-text" [ngPlural]="thing.backers">
                 <template ngPluralCase="=1">backing</template>
                 <template ngPluralCase="other">backers</template>
             </span>
-        </div>
+        </span>
 
         <a [routerLink]="goUrl()" class="secondary-content {{typeClass.indexOf('yellow') != -1 ? 'yellow-text text-darken-2' : typeClass.indexOf('red') != -1 ? 'txt-red' : typeClass + '-text'}}">{{
             goText()

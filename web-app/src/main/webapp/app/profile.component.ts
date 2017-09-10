@@ -38,7 +38,6 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     private newHubModal;
     private postUpdateModal;
     private tab;
-    private isFollowing;
     private preselect: string = null;
     private pageTitle: Subject<string>;
 
@@ -127,14 +126,19 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
         });
     }
 
-    toggleFollow() {
-        if (this.isFollowing) {
-            // Show unfollow modal ->
-            this.isFollowing = false;
-        } else {
-            // Follow -> this.isFollowing => true
-            this.isFollowing = true;
-        }
+    toggleBacking() {
+        this.api.follow(this.thing.id, !this.thing.backing)
+            .subscribe(thing => {
+                switch (thing.kind) {
+                    case 'person':
+                        this.thing.backing = thing.backing;
+                        this.thing.infoFollowers = thing.infoFollowers;
+                        break;
+                    case 'follower':
+                        this.thing.backing = true;
+                        this.thing.infoFollowers = thing.target.infoFollowers;
+                }
+            });
     }
 
     isMyProfile() {

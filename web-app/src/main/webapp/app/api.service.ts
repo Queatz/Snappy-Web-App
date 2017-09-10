@@ -281,6 +281,13 @@ export class ApiService {
             .map(res => res.json());
     }
 
+    public follow(personId: string, follow: boolean) {
+        var creds = "auth=" + this.token() + "&follow=" + follow;
+
+        return this._http.post(this._apiBaseUrl + 'earth/' + personId, creds, this.formHeaders())
+            .map(res => res.json());
+    }
+
     private makeFilePostRequest(url: string, formData: FormData) {
         return new Promise((resolve, reject) => {
             var xhr = new XMLHttpRequest();
