@@ -20,7 +20,6 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
 
     private id;
     private element;
-    private isFollowing;
     private selectedTab;
     public removingContact;
     public actionButtonInfoText;
@@ -131,14 +130,19 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
         return 'https://www.google.com/maps/place/' + this.thing.address + '/@' + this.thing.geo.latitude + ',' + this.thing.geo.longitude + ',15z'
     }
 
-    toggleFollow() {
-        if (this.isFollowing) {
-            // Show unfollow modal ->
-            this.isFollowing = false;
-        } else {
-            // Follow -> this.isFollowing => true
-            this.isFollowing = true;
-        }
+    toggleBacking() {
+        this.api.follow(this.thing.id, !this.thing.backing)
+            .subscribe(thing => {
+                switch (thing.kind) {
+                    case 'person':
+                        this.thing.backing = thing.backing;
+                        this.thing.infoFollowers = thing.infoFollowers;
+                        break;
+                    case 'follower':
+                        this.thing.backing = true;
+                        this.thing.infoFollowers = thing.target.infoFollowers;
+                }
+            });
     }
 
     typeClassOf() {

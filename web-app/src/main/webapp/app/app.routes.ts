@@ -2,17 +2,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MainComponent } from './main.component';
 import { ProfileComponent } from './profile.component';
-import { MessagesComponent } from "./messages.component";
-import { ProjectsComponent } from "./projects.component";
-import { HubsComponent } from "./hubs.component";
-import { ClubsComponent } from "./clubs.component";
-import { ResourcesComponent } from "./resources.component";
-import { PeopleComponent } from "./people.component";
-import { SearchComponent } from "./search.component";
-import { ProjectComponent } from "./project.component";
-import { ChatComponent } from "./chat/chat.component";
-import { FormComponent } from "./form/form.component";
-import { SettingsComponent } from "./settings/settings.component";
+import { MessagesComponent } from './messages.component';
+import { ProjectsComponent } from './projects.component';
+import { HubsComponent } from './hubs.component';
+import { ClubsComponent } from './clubs.component';
+import { ResourcesComponent } from './resources.component';
+import { PeopleComponent } from './people.component';
+import { SearchComponent } from './search.component';
+import { ProjectComponent } from './project.component';
+import { ChatComponent } from './chat/chat.component';
+import { FormComponent } from './form/form.component';
+import { SettingsComponent } from './settings/settings.component';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 @NgModule({
   imports: [
@@ -98,6 +99,13 @@ import { SettingsComponent } from "./settings/settings.component";
       {
         path: 'settings',
         component: SettingsComponent
+      },
+      {
+        path: 'authenticate',
+        component: AuthenticateComponent,
+        data: {
+            solo: true
+        }
       },
       {
         path: ':id',

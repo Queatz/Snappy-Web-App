@@ -23,7 +23,7 @@
     <div class="z-depth-1 bkg-white" *ngIf="thing">
         <img class="photo" *ngIf="thing.photo" [src]="getUrl()" />
         <div class="info">
-            <club-tag [clubs]="thing.clubs"></club-tag>
+            <club-tag [clubs]="thing.clubs" [isPublic]="!thing.hidden"></club-tag>
             <h3>{{ thing.name }}
                 <span *ngIf="canEdit()">
                     <a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit details'" href="#editDetailsModal"><i class="material-icons small">edit</i></a>
@@ -52,9 +52,9 @@
             <div class="waves-effect waves-light btn white-text {{ typeClassOf() }} tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Be a part of ' + thing.name" (click)="clickActionButton()">
                 <b *ngIf="actionButtonEnabled()">{{ actionButton() }}</b>
             </div>
-            <div *ngIf="actionBar()" class="waves-effect waves-light btn white-text teal tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'You\'ll get updates about ' + thing.name" (click)="toggleFollow()">
-                <b *ngIf="!isFollowing">Back it</b>
-                <i *ngIf="isFollowing" class="material-icons">check</i>
+            <div *ngIf="actionBar()" class="waves-effect waves-light btn white-text teal tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'You\'ll get updates about ' + thing.name" (click)="toggleBacking()">
+                <b *ngIf="!thing.backing">Back it</b>
+                <i *ngIf="thing.backing" class="material-icons">check</i>
             </div>
         </div>
         <tabs-for [thing]="thing"></tabs-for>

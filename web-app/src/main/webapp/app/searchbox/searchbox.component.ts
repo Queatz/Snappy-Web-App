@@ -13,6 +13,7 @@ export class SearchboxComponent implements OnInit {
 
     public results;
     private position;
+    private searchRequest = null;
     public text: string;
     public searching;
 
@@ -51,9 +52,15 @@ export class SearchboxComponent implements OnInit {
 
     private doSearch(position) {
         this.position = position;
-        this.api.earthSearch(position.coords, this.text || '', 'person|resource|project|offer|club|hub|form').subscribe(results => {
+
+        if (this.searchRequest) {
+            this.searchRequest.unsubscribe();
+        }
+
+        this.searchRequest = this.api.earthSearch(position.coords, this.text || '', 'person|resource|project|offer|club|hub|form|party').subscribe(results => {
             this.results = results;
             this.searching = false;
+            this.searchRequest = null;
             this.onSearchResults.emit(this.results);
         });
     }

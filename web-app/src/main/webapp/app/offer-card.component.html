@@ -4,6 +4,7 @@
         <img (load)="loaded()" *ngIf="offer.photo" src="{{offerImage}}" />
     </div>
     <div class="card-content">
+        <club-tag [clubs]="offer.clubs" [isPublic]="!offer.hidden" class="small in-card"></club-tag>
         <a *ngIf="isProfile()" (click)="edit()" href="javascript:" class="thing-action-icon right grey-text text-lighten-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit'"><i class="material-icons small">edit</i></a>
         <div class="blox">
             <a [routerLink]="['/' + offer.source.googleUrl]" class="tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="offer.source.firstName + ' ' + offer.source.lastName"> <img src="{{ offer.source.imageUrl }}" alt="Profile picture" class="circle" /></a>

@@ -1,6 +1,6 @@
 declare var $;
 
-import { Component, Input, OnInit, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, OnDestroy, ElementRef, HostBinding } from '@angular/core';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import util from './util';
@@ -17,8 +17,10 @@ export class PersonLinkComponent implements OnInit, AfterViewInit, OnDestroy {
     constructor(private elementRef: ElementRef, private api: ApiService) {}
 
     ngOnInit() {
-        if (this.person.kind === 'member') {
-            this.person = this.person.source;
+        if (this.person) {
+            if (this.person.kind === 'member') {
+                this.person = this.person.source;
+            }
         }
     }
 
@@ -30,7 +32,20 @@ export class PersonLinkComponent implements OnInit, AfterViewInit, OnDestroy {
         $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
     }
 
+    @HostBinding('style.display')
+    get visible() {
+        if (!this.person) {
+            return 'none';
+        }
+
+        return 'inline-block';
+    }
+
     getName() {
+        if (!this.person) {
+            return;
+        }
+
         if (this.person.firstName) {
             return this.person.firstName + ' ' + this.person.lastName;
         }
@@ -39,6 +54,10 @@ export class PersonLinkComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     getImageUrl() {
+        if (!this.person) {
+            return;
+        }
+
         if (this.person.imageUrl) {
             return this.person.imageUrl;
         }

@@ -9,6 +9,7 @@ import { Component, OnInit, AfterViewInit, OnDestroy, Input, ElementRef, HostBin
 })
 export class ClubTagComponent implements OnInit, AfterViewInit, OnDestroy {
 
+    @Input() isPublic: boolean;
     @Input() clubs: any;
 
     constructor(private elementRef: ElementRef) { }
@@ -25,6 +26,11 @@ export class ClubTagComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngOnDestroy() {
         $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
+    }
+
+    @HostBinding('class.is-public')
+    get classIsPublic() {
+        return this.isPublic;
     }
 
     @HostBinding('style.display')

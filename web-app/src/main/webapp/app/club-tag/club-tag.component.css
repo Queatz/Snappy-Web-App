@@ -12,11 +12,21 @@
     text-transform: uppercase;
 }
 
+:host.is-public {
+    background: #37d011;
+    background: linear-gradient(to bottom, #55ec30, #37d011);
+}
+
 :host.small {
     font-size: 80%;
     margin-top: -1.75rem;
     margin-right: -1.75rem;
     padding: .5rem 1rem .5rem 1.5rem;
+}
+
+:host.small.in-card {
+    margin-top: -24px;
+    margin-right: -24px;
 }
 
 a {
