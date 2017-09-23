@@ -288,6 +288,13 @@ export class ApiService {
             .map(res => res.json());
     }
 
+    public getAppToken(domain: string) {
+        var creds = "auth=" + this.token() + "&domain=" + encodeURIComponent(domain);
+
+        return this._http.get(this._apiBaseUrl + 'earth/app/token?' + creds)
+            .map(res => res.json());
+    }
+
     private makeFilePostRequest(url: string, formData: FormData) {
         return new Promise((resolve, reject) => {
             var xhr = new XMLHttpRequest();
