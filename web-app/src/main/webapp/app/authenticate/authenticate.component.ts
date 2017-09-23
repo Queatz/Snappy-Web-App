@@ -9,6 +9,8 @@ import { ApiService } from '../api.service';
 })
 export class AuthenticateComponent implements OnInit {
 
+    private getAppTokenSubscription: any;
+
     constructor(private api: ApiService, private inforService: InforService, private router: Router) {
         let self = this;
         window.addEventListener('message', event => {
@@ -27,7 +29,11 @@ export class AuthenticateComponent implements OnInit {
                 return;
             }
 
-            this.api.getAppToken(referrer).subscribe(result => {
+            if (this.getAppTokenSubscription) {
+                return;
+            }
+
+            this.getAppTokenSubscription = this.api.getAppToken(referrer).subscribe(result => {
                 event.source.postMessage({
                     me: {
                         firstName: user.firstName,
