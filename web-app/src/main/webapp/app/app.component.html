@@ -1,5 +1,5 @@
 <div class="app">
-    <div class="navbar-fixed" *ngIf="!isSolo">
+    <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper banner" [ngClass]="{'yellow darken-2': isActive(['/clubs']), 'blue': isActive(['/hubs']), 'deep-orange': isActive(['/projects']), 'brown': isActive(['/resources']), 'orange': isActive(['/chat']), 'bkg-red': !isActive(['/hubs']) && !isActive(['/clubs']) && !isActive(['/chat']) && !isActive(['/projects']) && !isActive(['/resources'])}">
                 <div class="skylike"></div>
@@ -194,7 +194,7 @@
     <router-outlet></router-outlet>
 </div>
 
-<ul *ngIf="!isSolo" id="slide-out" class="side-nav" (click)="menuTapped()">
+<ul id="slide-out" class="side-nav" (click)="menuTapped()">
     <li><a routerLink="/"><img src="img/favicon.png" class="logo-icon left" />Home</a></li>
     <li><a routerLink="/clubs"><i class="material-icons left yellow-text text-darken-2">supervisor_account</i>Clubs</a></li>
     <li><a routerLink="/projects"><i class="material-icons left deep-orange-text">settings</i>Projects</a></li>

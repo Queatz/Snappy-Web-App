@@ -22,7 +22,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     	this.element = element.nativeElement;
     }
 
-    public isSolo = true;
+    public isSolo = false;
     private element;
 
     ngOnInit() {
