@@ -78,4 +78,32 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
     public time() {
         return moment(this.update.date).fromNow();
     }
+
+    public atWith() {
+        if (!this.update.joins || !this.update.joins.length) {
+            return null;
+        }
+
+        let result = {
+            with: [],
+            at: []
+        };
+
+        this.update.joins.forEach(join => {
+            switch (join.source.kind) {
+                case 'person':
+                    result.with.push(join.source);
+                    break;
+                case 'hub':
+                    result.at.push(join.source);
+                    break;
+            }
+        });
+
+        if (!result.with.length && !result.at.length) {
+            return null;
+        }
+
+        return result;
+    }
 }

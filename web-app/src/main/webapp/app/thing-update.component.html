@@ -12,6 +12,11 @@
         <div class="blox">
             <span class="title update-type blue-text">{{ update.source.firstName }} posted</span>
             <span class="title grey-text">{{ time() }}</span>
+            <span *ngIf="atWith()" class="title grey-text">
+                <span *ngIf="atWith().with.length">with</span>
+                <span *ngFor="let with of atWith().with"><a [routerLink]="'/' + with.googleUrl">{{ with.firstName }} {{ with.lastName }}</a></span>
+                <span *ngIf="atWith().at.length">at <a [routerLink]="'/hubs/' + atWith().at[0].id">{{ atWith().at[0].name }}</a></span>
+            </span>
             <p class="flow-text" [innerHtml]="update.about | parseLinks"></p>
         </div>
     </div>
