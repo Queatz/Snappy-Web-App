@@ -92,7 +92,7 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
         this.update.joins.forEach(join => {
             switch (join.source.kind) {
                 case 'person':
-                    result.with.push(join.source);
+                    result.with.push({ person: join.source, isLast: false });
                     break;
                 case 'hub':
                     result.at.push(join.source);
@@ -102,6 +102,10 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
 
         if (!result.with.length && !result.at.length) {
             return null;
+        }
+
+        if (result.with.length) {
+            result.with[result.with.length - 1].isLast = true;
         }
 
         return result;

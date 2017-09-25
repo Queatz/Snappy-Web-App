@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/api.service.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/api.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.ts" />
     </list>
@@ -57,21 +56,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="thing-update.component.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="thing-update.component.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
+            <state relative-caret-position="365">
+              <caret line="94" column="49" selection-start-line="94" selection-start-column="49" selection-end-line="94" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="thing-update.component.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="thing-update.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+            <state relative-caret-position="240">
+              <caret line="16" column="117" selection-start-line="16" selection-start-column="117" selection-end-line="16" selection-end-column="117" />
+              <caret line="16" column="145" selection-start-line="16" selection-start-column="145" selection-end-line="16" selection-end-column="145" />
               <folding />
             </state>
           </provider>
@@ -201,8 +201,8 @@
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/signin.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/api.service.ts" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.html" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.ts" />
       </list>
     </option>
   </component>
@@ -833,13 +833,6 @@
       <option name="presentableId" value="Default" />
       <updated>1450799851331</updated>
     </task>
-    <task id="LOCAL-00030" summary="Make &quot;go to hub&quot; button go to the hub page">
-      <created>1460248479269</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1460248479269</updated>
-    </task>
     <task id="LOCAL-00031" summary="Show &quot;Loading Hubs...&quot;">
       <created>1460254527929</created>
       <option name="number" value="00031" />
@@ -1176,7 +1169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506229048760</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Show at/with">
+      <created>1506310579911</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1506310579912</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1279,7 +1279,6 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Fix icon position" />
     <MESSAGE value="Avatars on images" />
     <MESSAGE value="* Forms&#10;* Go back to single word tabs (now that there's 6 of them)" />
     <MESSAGE value="Link directly to chat topic" />
@@ -1304,7 +1303,8 @@
     <MESSAGE value="Use app token service" />
     <MESSAGE value="Only call token service once" />
     <MESSAGE value="Have to remove because of google signin bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Have to remove because of google signin bug" />
+    <MESSAGE value="Show at/with" />
+    <option name="LAST_COMMIT_MESSAGE" value="Show at/with" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1684,18 +1684,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.ts">
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
+        <state relative-caret-position="240">
+          <caret line="16" column="117" selection-start-line="16" selection-start-column="117" selection-end-line="16" selection-end-column="117" />
+          <caret line="16" column="145" selection-start-line="16" selection-start-column="145" selection-end-line="16" selection-end-column="145" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.html">
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+        <state relative-caret-position="365">
+          <caret line="94" column="49" selection-start-line="94" selection-start-column="49" selection-end-line="94" selection-end-column="49" />
           <folding />
         </state>
       </provider>
