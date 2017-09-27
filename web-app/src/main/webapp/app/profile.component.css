@@ -83,3 +83,13 @@ a {
 .link-precheck {
     margin-left: 3rem;
 }
+
+.hover-edit+i.material-icons {
+    display: none;
+    font-size: inherit;
+    padding-left: .25rem;
+}
+
+.hover-edit:hover+i.material-icons {
+    display: inline;
+}

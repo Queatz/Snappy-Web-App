@@ -64,7 +64,7 @@
                 Change your name and photo on <a href="https://aboutme.google.com" target="_blank">Google+</a>.
                 <br />
                 <br />
-                Your Village link is <a (click)="toggleShowLink()">vlllage.com/{{thing.googleUrl}}</a>
+                Your Village link is <a (click)="toggleShowLink()" class="hover-edit">vlllage.com/{{thing.googleUrl}}</a><i class="material-icons grey-text">edit</i>
             </div>
             <br *ngIf="showLink" />
             <div *ngIf="showLink" class="input-field col s12">
