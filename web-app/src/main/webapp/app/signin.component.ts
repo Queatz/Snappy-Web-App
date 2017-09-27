@@ -15,10 +15,6 @@ import {ApiService} from './api.service';
 export class SigninComponent implements AfterViewInit, OnInit {
     private element;
 
-    private localData;
-    private glink;
-    private gimage;
-
     constructor(
         private inforService: InforService,
         private api: ApiService,
@@ -26,13 +22,6 @@ export class SigninComponent implements AfterViewInit, OnInit {
         private router: Router,
         elementRef: ElementRef) {
         this.element = elementRef.nativeElement;
-
-        let me = inforService.getInforUser();
-
-        if (me) {
-            this.glink = me.googleUrl;
-            this.gimage = me.imageUrl;
-        }
     }
 
     ngOnInit() {
@@ -82,8 +71,6 @@ export class SigninComponent implements AfterViewInit, OnInit {
         this.api.getMe(gemail, gtoken)
             .subscribe(dataInput => {
                 this.inforService.setInforUser(dataInput);
-                this.glink = dataInput.googleUrl;
-                this.gimage = dataInput.imageUrl;
 
                 if (gday) {
                     // Modal is in app.component

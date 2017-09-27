@@ -217,6 +217,16 @@ export class ApiService {
                            .map((res: Response) => res.json());
     }
 
+    public saveMyLink(myLink: string) {
+        return this._http.post(this._apiBaseUrl + 'earth/me/?link=' + encodeURIComponent(myLink) + '&auth=' + this.token(), '')
+                           .map((res: Response) => res.json());
+    }
+
+    public saveMyLinkPrecheck(myLink: string) {
+        return this._http.post(this._apiBaseUrl + 'earth/me/?link_precheck=' + encodeURIComponent(myLink) + '&auth=' + this.token(), '')
+                           .map((res: Response) => res.json());
+    }
+
     public personMessages(personId) {
         return this._http.get(this._apiBaseUrl + 'earth/' + personId
                               + '/messages?auth=' + this.token())

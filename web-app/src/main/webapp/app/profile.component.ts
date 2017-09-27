@@ -13,7 +13,7 @@ import { ApiService } from './api.service';
 import { InforService } from './infor.service';
 import util from './util';
 import { WebTitleProvider } from './extra';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, Subscription } from 'rxjs';
 
 
 @Component({
@@ -28,7 +28,11 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     public notFound = false;
     private myProfile;
     public editAbout;
+    public editLink;
+    public editLinkPrecheck;
+    public showLink;
 
+    private editLinkPrecheckSubscription: Subscription;
     private inforService: InforService;
     private element;
     public thing;
@@ -100,6 +104,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
             }
 
             this.editAbout = person.about;
+            this.editLink = person.googleUrl;
             this.pageTitle.next(person.firstName);
             this.loaded(person.offers);
         },
@@ -124,6 +129,27 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
         this.api.saveAbout(this.editAbout).subscribe(() => {
             this.thing.about = this.editAbout;
         });
+
+        if (this.showLink) {
+            this.api.saveMyLink(this.editLink).subscribe(response => {
+                if (response.success) {
+                    this.thing.googleUrl = this.editLink;
+                    this.inforService.getInforUser().googleUrl = this.editLink;
+                    this.inforService.setInforUser(this.inforService.getInforUser());
+                }
+            });
+        }
+    }
+
+    onLinkChange() {
+        if (this.editLinkPrecheckSubscription) {
+            this.editLinkPrecheckSubscription.unsubscribe();
+        }
+
+        this.editLinkPrecheck = 'checking';
+        this.editLinkPrecheckSubscription = this.api.saveMyLinkPrecheck(this.editLink).subscribe(response => {
+            this.editLinkPrecheck = (response.success ? 'available' : 'unavailable');
+        });
     }
 
     toggleBacking() {
@@ -144,6 +170,10 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     isMyProfile() {
         return this.inforService.getInforUser() !== undefined
                 && this.myProfile == this.inforService.getInforUser().googleUrl;
+    }
+
+    toggleShowLink() {
+        this.showLink = !this.showLink;
     }
 
     public getWebTitle() {

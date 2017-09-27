@@ -1,6 +1,6 @@
 <div class="signin-wrapper google-signin" [hidden]="signedIn()"></div>
 <div class="profile" *ngIf="signedIn()">
-    <a [routerLink]="['/' + glink]">
-        <img class="circle" src="{{gimage}}" />
+    <a [routerLink]="['/' + signedIn().googleUrl]">
+        <img class="circle" src="{{ signedIn().imageUrl }}" />
     </a>
 </div>

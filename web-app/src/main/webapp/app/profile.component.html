@@ -52,7 +52,7 @@
     <br />
     <thing-tabs [thing]="thing"></thing-tabs>
     <div id="edit-about" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" *ngIf="thing">
             <h4>Edit me</h4>
             <div class="input-field col s12">
                 <i class="material-icons prefix">edit</i>
@@ -62,6 +62,20 @@
             <br />
             <div class="grey-text">
                 Change your name and photo on <a href="https://aboutme.google.com" target="_blank">Google+</a>.
+                <br />
+                <br />
+                Your Village link is <a (click)="toggleShowLink()">vlllage.com/{{thing.googleUrl}}</a>
+            </div>
+            <br *ngIf="showLink" />
+            <div *ngIf="showLink" class="input-field col s12">
+                <i class="material-icons prefix">link</i>
+                <input id="editLink" type="text" [(ngModel)]="editLink" (keyup)="onLinkChange()" name="editLink" />
+                <label class="active" for="editAbout">Village link</label>
+            </div>
+            <div *ngIf="showLink" class="link-precheck">
+                <span *ngIf="editLinkPrecheck === 'checking'" class="grey-text">Checking...</span>
+                <span *ngIf="editLinkPrecheck === 'unavailable'" class="red-text">Unavailable</span>
+                <span *ngIf="editLinkPrecheck === 'available'" class="green-text">Available</span>
             </div>
         </div>
         <div class="modal-footer">
