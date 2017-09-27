@@ -38,6 +38,14 @@ export class InforService {
         return null;
     }
 
+    getLocation(callback: any) {
+        navigator.geolocation.getCurrentPosition(callback, this.noLocation);
+    }
+
+    noLocation() {
+        alert('Village was unable to access your current location.  Some things may not work properly.');
+    }
+
     addClub(club: any) {
         if (this.inforUser) {
             return this.inforUser.clubs.push(club);

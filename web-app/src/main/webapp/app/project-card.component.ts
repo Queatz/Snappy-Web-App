@@ -18,12 +18,16 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() public deleteCallback;
     @Input() public thing;
 
+    public isSameKind: any;
+
     constructor(
         private api: ApiService,
         private router: Router,
         private inforService: InforService,
         private elementRef: ElementRef
-    ) {}
+    ) {
+        this.isSameKind = this.isSameKindBounded.bind(this);
+    }
 
     ngOnInit() {
         if (this.thing.kind === 'member') {
@@ -77,21 +81,29 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
         $(this.elementRef.nativeElement.querySelector('#editRoleModal')).modal('open');
     }
 
+    public isSameKindBounded(thing: any) {
+        return thing && thing.target && thing.target.kind === this.thing.kind;
+    }
+
     public presence() {
         return util.presence(this.thing);
     }
 
     public getPhotoUrl() {
-        if (!this.thing) {
-            return null;
+        return this.getPhotoUrlFor(this.thing, 480);
+    }
+
+    public getPhotoUrlFor(thing: any, sz: number) {
+        if (!thing) {
+            return 'img/night.png';
         }
 
-        switch (this.thing.kind) {
+        switch (thing.kind) {
             case 'person':
-                return this.thing.imageUrl.split('=')[0] + '=480';
+                return thing.imageUrl.split('=')[0] + '=' + sz;
             default:
-                if (this.thing.photo) {
-                    return this.api.earthPhotoUrl(this.thing.id);
+                if (thing.photo) {
+                    return this.api.earthPhotoUrlForSize(thing.id, sz);
                 } else {
                     return 'img/night.png';
                 }
@@ -112,6 +124,14 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
         return util.thingUrl(this.thing);
+    }
+
+    public goUrlFor(thing: any) {
+        if (!thing) {
+            return;
+        }
+
+        return util.thingUrl(thing);
     }
 
     public goText() {

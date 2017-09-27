@@ -22,7 +22,7 @@ export class ProjectsComponent implements AfterViewInit, WebTitleProvider {
 
         this.newProjectModal = this.inforService.getInforUser() ? NewProjectModal : SigninRequiredModal;
 
-        navigator.geolocation.getCurrentPosition(this.loadNearby.bind(this));
+        this.inforService.getLocation(this.loadNearby.bind(this));
     }
 
     private loadNearby(position) {

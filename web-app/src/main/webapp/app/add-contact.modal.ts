@@ -58,7 +58,7 @@ export class AddContactModal implements AfterViewInit {
     search() {
         this.searching = true;
         if (!this.position) {
-            navigator.geolocation.getCurrentPosition(this.doSearch.bind(this));
+            this.inforService.getLocation(this.doSearch.bind(this));
         } else {
             this.doSearch(this.position);
         }

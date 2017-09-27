@@ -22,7 +22,7 @@ export class HubsComponent implements AfterViewInit, WebTitleProvider {
         this.element = element.nativeElement;
         this.newHubModal = this.inforService.getInforUser() ? NewHubModal : SigninRequiredModal;
 
-        navigator.geolocation.getCurrentPosition(this.loadNearby.bind(this));
+        this.inforService.getLocation(this.loadNearby.bind(this));
     }
 
     private loadNearby(position) {

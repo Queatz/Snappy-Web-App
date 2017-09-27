@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../api.service';
+import { InforService } from '../infor.service';
 
 @Component({
   selector: 'searchbox',
@@ -17,7 +18,7 @@ export class SearchboxComponent implements OnInit {
     public text: string;
     public searching;
 
-    constructor(private api: ApiService) {
+    constructor(private api: ApiService, private inforService: InforService) {
         this.results = [];
         this.search();
     }
@@ -28,7 +29,7 @@ export class SearchboxComponent implements OnInit {
     search() {
         this.searching = true;
         if (!this.position) {
-            navigator.geolocation.getCurrentPosition(this.doSearch.bind(this));
+            this.inforService.getLocation(this.doSearch.bind(this));
         } else {
             this.doSearch(this.position);
         }

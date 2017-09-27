@@ -23,7 +23,7 @@ export class ResourcesComponent implements AfterViewInit, WebTitleProvider {
 
         this.newResourceModal = this.inforService.getInforUser() ? NewResourceModal : SigninRequiredModal;
 
-        navigator.geolocation.getCurrentPosition(this.loadNearby.bind(this));
+        this.inforService.getLocation(this.loadNearby.bind(this));
     }
 
     private loadNearby(position) {

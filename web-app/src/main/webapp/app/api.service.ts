@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class ApiService {
     private _token = '';
-    private beta = !true;
+    private beta = true;
     private _apiDomain = this.beta ? '127.0.0.1:8080' : 'vlllage.com:8443';
     private _apiBase = this.beta ? 'http://' + this._apiDomain : 'https://' + this._apiDomain;
     private _apiBaseUrl = this._apiBase + '/api/';
@@ -100,7 +100,11 @@ export class ApiService {
     }
 
     public earthPhotoUrl(id: string): string {
-        return this._apiBaseUrl + 'earth/' + id + '/photo?s=1200&auth=' + this.token();
+        return this.earthPhotoUrlForSize(id, 1200);
+    }
+
+    public earthPhotoUrlForSize(id: string, sz: number): string {
+        return this._apiBaseUrl + 'earth/' + id + '/photo?s=' + sz + '&auth=' + this.token();
     }
 
     // XXX currently returns a promise, so must use .then()

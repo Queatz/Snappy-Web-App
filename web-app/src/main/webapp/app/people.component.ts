@@ -21,7 +21,7 @@ export class PeopleComponent implements AfterViewInit, WebTitleProvider {
 
         this.inviteModal = InviteModal;
 
-        navigator.geolocation.getCurrentPosition(this.loadNearby.bind(this));
+        this.inforService.getLocation(this.loadNearby.bind(this));
     }
 
     ngAfterViewInit() {

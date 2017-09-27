@@ -26,6 +26,7 @@ import { MapComponent } from './map.component';
 import { PersonLinkComponent } from './person-link.component';
 import { ThingUpdatesComponent } from './thing-updates.component';
 import { ParseLinksPipe } from './parse-links.pipe';
+import { FilterPipe } from './filter.pipe';
 import { ThingUpdateComponent } from './thing-update.component';
 import { MainComponent } from './main.component';
 import { MessagesComponent } from './messages.component';
@@ -126,6 +127,7 @@ export class MyOptions extends BaseRequestOptions {
         ParseLinksComponent,
 
         ParseLinksPipe,
+        FilterPipe,
 
         FeedbackModal,
         WelcomeModal,

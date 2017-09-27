@@ -60,7 +60,7 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
             });
 
             // Then try to ask for their real location
-            navigator.geolocation.getCurrentPosition(this.loadNearby.bind(this));
+            this.inforService.getLocation(this.loadNearby.bind(this));
         } else {
 
         }

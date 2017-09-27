@@ -35,7 +35,7 @@ export class NewHubModal implements AfterViewInit {
         this.isPublic = true;
         this.clubs = {};
 
-        navigator.geolocation.getCurrentPosition((position) => {
+        this.inforService.getLocation((position) => {
             this.thing = {
                 geo: {
                     latitude: position.coords.latitude,
