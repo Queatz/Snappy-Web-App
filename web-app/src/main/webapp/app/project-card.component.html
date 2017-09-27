@@ -32,6 +32,13 @@
                 <template ngPluralCase="other">backers</template>
             </span>
         </span>
+        <span *ngIf="!thing.backers && numberOfSameKindMembers()">
+            {{ numberOfSameKindMembers() }}
+            <span class="grey-text" [ngPlural]="numberOfSameKindMembers()">
+                <template ngPluralCase="=1">{{ thing.kind }}</template>
+                <template ngPluralCase="other">{{ thing.kind }}s</template>
+            </span>
+        </span>
 
         <a [routerLink]="goUrl()" class="secondary-content {{typeClass.indexOf('yellow') != -1 ? 'yellow-text text-darken-2' : typeClass.indexOf('red') != -1 ? 'txt-red' : typeClass + '-text'}}">{{
             goText()

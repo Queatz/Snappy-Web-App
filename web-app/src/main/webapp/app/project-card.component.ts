@@ -85,6 +85,13 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
         return thing && thing.target && thing.target.kind === this.thing.kind;
     }
 
+    public numberOfSameKindMembers() {
+        if (!this.thing || !this.thing.members) {
+            return;
+        }
+        return this.thing.members.reduce((i, member) => i + (member.source && member.source.kind === this.thing.kind ? 1 : 0), 0);
+    }
+
     public presence() {
         return util.presence(this.thing);
     }
