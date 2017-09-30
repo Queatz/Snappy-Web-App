@@ -94,6 +94,10 @@ export class EditDetailsModal implements OnInit, AfterViewInit {
     }
 
     public canEdit() {
+        if (this.thing.owner) {
+            return true;
+        }
+
         if (!this.inforService.getInforUser()) {
             return false;
         }

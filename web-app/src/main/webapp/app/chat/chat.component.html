@@ -7,7 +7,7 @@
            [routerLink]="['/chat/' + topic.name]"
            [ngClass]="{'topic-active': active === topic}">
         <div class="to-pic" [style.background-image]="'url(\'' + topicImg(topic) + '\')'"></div>
-        <div class="blue-text">{{ topic.name }}<span class="red-text topic-new" *ngIf="topic.recent">{{ topic.recent }} NEW</span><span class="green-text topic-new" *ngIf="topic.ads">{{ topic.ads.length }} AD{{ topic.ads.length > 1 ? 'S' : '' }}</span></div>
+        <div class="blue-text">{{ topic.name }}<span class="red-text topic-new" *ngIf="topic.recent">{{ topic.recent }} NEW</span><span class="green-text topic-new" *ngIf="topic.ads && topic.ads.length">{{ topic.ads.length }} AD{{ topic.ads.length > 1 ? 'S' : '' }}</span></div>
       </a>
     </div>
     <div class="fade"></div>

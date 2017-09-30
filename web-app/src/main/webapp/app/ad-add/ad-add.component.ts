@@ -46,6 +46,7 @@ export class AdAddComponent implements OnInit, AfterViewInit {
             description: this.description,
             name: this.name,
             date: new Date(),
+            source: this.inforService.getInforUser().id,
             token: this.inforService.getInforUser().auth
         });
 

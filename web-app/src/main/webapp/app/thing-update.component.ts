@@ -26,6 +26,7 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
     private cr;
     private updateImage;
     private member;
+    private __atWith;
 
     constructor(private inforService: InforService,
             private api: ApiService,
@@ -80,6 +81,10 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     public atWith() {
+        if (this.__atWith) {
+            return this.__atWith;
+        }
+
         if (!this.update.joins || !this.update.joins.length) {
             return null;
         }
@@ -107,6 +112,8 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
         if (result.with.length) {
             result.with[result.with.length - 1].isLast = true;
         }
+
+        this.__atWith = result;
 
         return result;
     }

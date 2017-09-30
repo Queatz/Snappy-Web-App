@@ -66,21 +66,14 @@ export class ChatComponent implements OnInit, AfterViewInit {
                 this.setTopicByName(params['topic']);
             }
         });
+
+        this.chat.events.subscribe(() => {
+            this.active = this.chat.getTopicByName(this.active.name);
+        });
     }
 
     setTopicByName(topic: string) {
-        let t = this.topics.find(t => t.name === topic);
-
-        if (t) {
-            this.chooseTopic(t);
-        } else {
-            t = {
-                name: topic,
-                recent: 0
-            };
-            this.topics.unshift(t);
-            this.chooseTopic(t);
-        }
+        this.chooseTopic(this.chat.getTopicByName(topic));
     }
 
     randomAvatar() {
@@ -104,8 +97,8 @@ export class ChatComponent implements OnInit, AfterViewInit {
 
     chooseTopic(topic: any) {
         this.active = topic;
-        this.topics.find(t => t.name === this.active.name).recent = 0;
         setTimeout(() => this.scrollChat(), 5);
+        this.chat.setActiveTopic(topic);
     }
 
     toggleMobileAds() {
@@ -160,7 +153,6 @@ export class ChatComponent implements OnInit, AfterViewInit {
     gotChat(chat: any) {
         if (chat.action === 'message.send' && chat.data.topic === this.active.name) {
             this.scrollChat();
-            this.topics.find(t => t.name === this.active.name).recent = 0;
         }
     }
 

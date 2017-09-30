@@ -1,4 +1,6 @@
-import { Injectable } from '@angular/core';
+declare var moment: any;
+
+import { Injectable, EventEmitter } from '@angular/core';
 import { ApiService } from './api.service';
 import { LocalityService } from './locality.service';
 import util from './util';
@@ -9,9 +11,10 @@ export class ChatService {
     private ws: WebSocket = null;
     private queue = [];
     private listeners: Set<any> = new Set();
+    private activeTopic: any;
+    public events: EventEmitter<string> = new EventEmitter();
 
     public topics: any;
-
     public chats: any;
 
     constructor(private api: ApiService, private locality: LocalityService) {
@@ -133,6 +136,12 @@ export class ChatService {
         for (var key in this.chats) {
             delete this.chats[key];
         }
+
+        if (this.activeTopic) {
+            this.activeTopic = this.getTopicByName(this.activeTopic.name);
+        }
+
+        this.events.emit('zero');
     }
 
     public start() {
@@ -195,27 +204,19 @@ export class ChatService {
                     photo: chat.data.photo ? this.api.url(chat.data.photo) : undefined
                 });
 
-                let topic = this.topics.find(t => t.name === chat.data.topic);
+                let topic = this.getTopicByName(chat.data.topic);
 
-                if (!topic) {
-                    topic = {
-                        name: chat.data.topic,
-                        recent: 0
-                    };
-
-                    this.topics.push(topic);
+                if (this.activeTopic && this.activeTopic.name === chat.data.topic) {
+                    this.setSeen(this.activeTopic.name);
+                } else {
+                    if (this.isNew(chat.data)) {
+                        topic.recent++;
+                    }
                 }
-
-                topic.recent++;
 
                 break; }
             case 'ad.add': {
-                let topic = this.topics.find(t => t.name === chat.data.topic);
-
-                if (!topic.ads) {
-                    topic.ads = [];
-                }
-
+                let topic = this.getTopicByName(chat.data.topic);
                 topic.ads.unshift(chat.data);
 
                 break; }
@@ -228,6 +229,26 @@ export class ChatService {
         }
 
         this.listeners.forEach(l => l(chat));
+    }
+
+    public getTopicByName(topicName: string) {
+        let topic = this.topics.find(t => t.name === topicName);
+
+        if (!topic) {
+            topic = {
+                name: topicName,
+                recent: 0,
+                ads: []
+            };
+
+            this.topics.push(topic);
+        }
+
+        if (topic.ads === undefined) {
+            topic.ads = [];
+        }
+
+        return topic;
     }
 
     private onMessage(message: string) {
@@ -272,6 +293,26 @@ export class ChatService {
         if (this.ws) {
             this.ws.close();
         }
+    }
+
+    public setActiveTopic(topic: any) {
+        topic.recent = 0;
+        this.setSeen(topic.name);
+        this.activeTopic = topic;
+    }
+
+    private setSeen(topic: string) {
+        localStorage.setItem('chat.topic.seen[' + topic + ']', moment().toISOString());
+    }
+
+    private isNew(chat: any) {
+        let date = localStorage.getItem('chat.topic.seen[' + chat.topic + ']');
+
+        if (!date) {
+            return true;
+        }
+
+        return moment(date).isBefore(moment(chat.date));
     }
 
     private getChatToken() {

@@ -88,6 +88,12 @@
     animation-duration: 450ms;
 }
 
+.actions-bar {
+    background: rgba(0, 0, 0, 0.25);
+    padding-left: 1rem;
+    border-radius: 2rem 0 0 2rem;
+}
+
 @keyframes slide-down {
     from {
         transform: translateY(-100%);
