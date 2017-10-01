@@ -1,0 +1,48 @@
+.form-wrapper {
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+@media screen and (max-width: 993px) {
+    .form-wrapper {
+        margin-top: 0;
+    }
+
+    .container {
+        width: initial;
+    }
+}
+
+.waiting {
+    font-size: 1.5rem;
+    padding: .5em;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.photo {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+}
+
+.form-item {
+    margin-top: 2rem;
+}
+
+.subtext-footer {
+    text-align: center;
+    padding: 2rem;
+}
+
+.pre {
+    white-space: pre-wrap;
+}
+
+.form-submitted-message {
+    text-align: center;
+    font-size: 200%;
+    padding: 1rem;
+}

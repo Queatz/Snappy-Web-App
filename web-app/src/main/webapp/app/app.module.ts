@@ -165,6 +165,7 @@ export class MyOptions extends BaseRequestOptions {
         GdayModal,
         NewHubModal,
         NewOfferModal,
+        NewFormModal,
         SetPhotoModal,
         EditDetailsModal,
         PostUpdateModal,

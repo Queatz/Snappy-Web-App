@@ -87,7 +87,7 @@ export default class Util {
         return re.test(email);
     }
 
-    public static rndstr(len: any) {
+    public static rndstr(len: any = 16) {
         let str = '';
 
         for(let i = 0; i < (len || 16); i++) {

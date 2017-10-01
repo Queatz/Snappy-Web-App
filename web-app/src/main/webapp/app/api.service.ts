@@ -309,6 +309,34 @@ export class ApiService {
             .map(res => res.json());
     }
 
+    public submitForm(formId: string, files: Map<string, File>, photos: Map<string, File>, data: any) {
+        var formData = new FormData();
+
+        if (!formId) {
+            return;
+        }
+
+        if (!data) {
+            return;
+        }
+
+        formData.append('in', formId);
+        formData.append('data', JSON.stringify(data));
+
+        for(let photo in photos) {
+            formData.append('photo---' + photo, photos[photo]);
+        }
+
+        for(let file in files) {
+            formData.append('file---' + file, files[file]);
+        }
+
+        var headers = new Headers();
+        headers.append('Content-Type', undefined);
+
+        return this.makeFilePostRequest(this._apiBaseUrl + 'earth?kind=form-submission', formData);
+    }
+
     private makeFilePostRequest(url: string, formData: FormData) {
         return new Promise((resolve, reject) => {
             var xhr = new XMLHttpRequest();

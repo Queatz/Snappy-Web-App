@@ -1,3 +1,103 @@
-<p>
-  form {{id}} works!!
-</p>
+<div class="form-wrapper">
+  <div *ngIf="!thing && !notFound" class="waiting">
+    <br />
+    <div class="preloader-wrapper active">
+      <div class="spinner-layer">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+    <span><br /><br />Loading form...</span>
+  </div>
+
+  <h4 class="grey-text center-align" *ngIf="notFound">
+    <br />You see nothing.
+  </h4>
+
+  <div *ngIf="thing" class="container">
+    <div class="card">
+      <div *ngIf="thing.photo" class="card-image">
+        <img class="photo" [src]="getPhotoUrl()" />
+      </div>
+      <div class="card-content">
+        <h3>{{ thing.name }}</h3>
+
+        <div *ngIf="formCompleted" class="form-submitted-message green-text">
+          Thank you!
+        </div>
+
+        <div *ngIf="formItems && !formCompleted" class="form-container">
+          <div *ngFor="let formItem of formItems" class="form-item" [ngSwitch]="formItem.type">
+            <div *ngSwitchCase="'text'" class="pre">{{ formItem.about.trim() }}</div>
+            <div *ngSwitchCase="'paragraph'">
+              <h5>{{ formItem.name }}</h5>
+              <div class="input-field">
+                <textarea id="answer-{{ formItem.__id }}" [(ngModel)]="formItem.answer" class="materialize-textarea"></textarea>
+                <label for="answer-{{ formItem.__id }}">Enter your answer here</label>
+              </div>
+            </div>
+            <div *ngSwitchCase="'file'">
+              <h5>{{ formItem.name }}</h5>
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>Upload file</span>
+                  <input type="file" (change)="fileChangeEvent($event, formItem)" />
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text" placeholder="Upload file">
+                </div>
+              </div>
+            </div>
+            <div *ngSwitchCase="'photo'">
+              <h5>{{ formItem.name }}</h5>
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>Upload photo</span>
+                  <input type="file" accept="image/*" (change)="photoChangeEvent($event, formItem)" />
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text" placeholder="Upload photo">
+                </div>
+              </div>
+            </div>
+            <div *ngSwitchCase="'date'">
+              Date
+            </div>
+            <div *ngSwitchCase="'checkbox'">
+              <div class="form-row">
+                <input [(ngModel)]="formItem.answer" type="checkbox" id="answer-{{ formItem.__id }}" />
+                <label for="answer-{{ formItem.__id }}">{{ formItem.about }}</label>
+              </div>
+            </div>
+            <div *ngSwitchCase="'choice'">
+              <h5>{{ formItem.name }}</h5>
+              <div>
+                <div class="form-row" *ngFor="let choice of formItem.choices; let i = index">
+                  <div>
+                    <input [(ngModel)]="formItem.answer" type="radio" name="answer-{{ formItem.__id }}" value="{{ i }}" id="answer-{{ formItem.__id }}-{{ i }}" class="with-gap" />
+                    <label for="answer-{{ formItem.__id }}-{{ i }}">{{ choice.about }}</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!formCompleted" class="form-item">
+          <div class="btn" (click)="submit()">Submit</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="thing" class="subtext-footer">
+    <a class="grey-text modal-trigger" href="#modal">Create your own <b>Village Form</b></a>
+  </div>
+
+</div>

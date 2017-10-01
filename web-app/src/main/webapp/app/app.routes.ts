@@ -86,7 +86,10 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
       },
       {
         path: 'forms/:id/submit',
-        component: FormComponent
+        component: FormComponent,
+        data: {
+            solo: true
+        }
       },
       {
         path: 'search',

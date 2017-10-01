@@ -6,7 +6,7 @@
             <div class="row" *ngIf="thing.kind === 'form'">
                 <div class="col s12 m6">
                     <div *ngIf="formItems" class="form-container">
-                        <div *ngFor="let formItem of formItems" class="form-item grey lighten-4 hoverable z-depth-1" [ngSwitch]="formItem.type">
+                        <div *ngFor="let formItem of formItems" class="form-item hoverable z-depth-1" [ngSwitch]="formItem.type">
                             <div *ngSwitchCase="'text'">
                                 <div class="input-field">
                                     <textarea [ngModelOptions]="{standalone: true}" [(ngModel)]="formItem.about" placeholder="Enter some text" id="question" class="materialize-textarea"></textarea>
@@ -28,7 +28,7 @@
                                 <div class="file-field input-field">
                                     <div class="btn disabled">
                                         <span>Upload file</span>
-                                        <input type="file">
+                                        <input type="file" />
                                     </div>
                                     <div class="file-path-wrapper">
                                         <input disabled class="file-path validate" type="text" placeholder="Upload file">
@@ -42,7 +42,7 @@
                                 <div class="file-field input-field">
                                     <div class="btn disabled">
                                         <span>Upload photo</span>
-                                        <input type="file">
+                                        <input type="file" />
                                     </div>
                                     <div class="file-path-wrapper">
                                         <input disabled class="file-path validate" type="text" placeholder="Upload photo">
@@ -74,7 +74,7 @@
                                             <label for="question"></label>
                                         </div>
                                         <div class="input-field">
-                                            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="choice.about" placeholder="Enter choice text" type="text" id="question" name="question" />
+                                            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="choice.about" placeholder="Enter choice text" type="text" id="question" name="question" class="with-gap" />
                                         </div>
                                         <i class="form-tool material-icons grey-text" tabindex="0" (click)="deleteFormItemChoice(formItem, choice)">delete</i>
                                     </div>
