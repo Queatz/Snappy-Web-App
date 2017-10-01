@@ -1,8 +1,123 @@
 <div id="editDetailsModal" class="modal">
     <div class="modal-content">
-        <h4>Edit</h4>
+        <h4>Edit {{ thing.name }}</h4>
 
         <form>
+            <div class="row" *ngIf="thing.kind === 'form'">
+                <div class="col s12 m6">
+                    <div *ngIf="formItems" class="form-container">
+                        <div *ngFor="let formItem of formItems" class="form-item grey lighten-4 hoverable z-depth-1" [ngSwitch]="formItem.type">
+                            <div *ngSwitchCase="'text'">
+                                <div class="input-field">
+                                    <textarea [ngModelOptions]="{standalone: true}" [(ngModel)]="formItem.about" placeholder="Enter some text" id="question" class="materialize-textarea"></textarea>
+                                </div>
+                            </div>
+                            <div *ngSwitchCase="'paragraph'">
+                                <div class="input-field form-question-title">
+                                    <input [ngModelOptions]="{standalone: true}" [(ngModel)]="formItem.name" placeholder="Enter question" type="text" id="question">
+                                </div>
+                                <div class="input-field">
+                                    <textarea disabled id="question" class="materialize-textarea"></textarea>
+                                    <label for="question">Enter some text</label>
+                                </div>
+                            </div>
+                            <div *ngSwitchCase="'file'">
+                                <div class="input-field form-question-title">
+                                    <input [ngModelOptions]="{standalone: true}" [(ngModel)]="formItem.name" placeholder="Enter question" type="text" id="question">
+                                </div>
+                                <div class="file-field input-field">
+                                    <div class="btn disabled">
+                                        <span>Upload file</span>
+                                        <input type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input disabled class="file-path validate" type="text" placeholder="Upload file">
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngSwitchCase="'photo'">
+                                <div class="input-field form-question-title">
+                                    <input [ngModelOptions]="{standalone: true}" [(ngModel)]="formItem.name" placeholder="Enter question" type="text" id="question">
+                                </div>
+                                <div class="file-field input-field">
+                                    <div class="btn disabled">
+                                        <span>Upload photo</span>
+                                        <input type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input disabled class="file-path validate" type="text" placeholder="Upload photo">
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngSwitchCase="'date'">
+                                Date
+                            </div>
+                            <div *ngSwitchCase="'checkbox'">
+                                <div class="form-row">
+                                    <div>
+                                        <input disabled type="checkbox" id="question" name="question" />
+                                        <label for="question"></label>
+                                    </div>
+                                    <div class="input-field">
+                                        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="formItem.about" placeholder="Enter choice text" type="text" id="question" name="question" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngSwitchCase="'choice'">
+                                <div class="input-field form-question-title">
+                                    <input [ngModelOptions]="{standalone: true}" [(ngModel)]="formItem.name" placeholder="Enter question" type="text" id="question">
+                                </div>
+                                    <div>
+                                    <div class="form-row" *ngFor="let choice of formItem.choices">
+                                        <div>
+                                            <input disabled type="radio" id="question" name="question" />
+                                            <label for="question"></label>
+                                        </div>
+                                        <div class="input-field">
+                                            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="choice.about" placeholder="Enter choice text" type="text" id="question" name="question" />
+                                        </div>
+                                        <i class="form-tool material-icons grey-text" tabindex="0" (click)="deleteFormItemChoice(formItem, choice)">delete</i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <br />
+                                    <div class="btn" (click)="addFormItemChoice(formItem)">Add choice</div>
+                                </div>
+                            </div>
+                            <div class="form-tools">
+                                <i class="material-icons teal-text" tabindex="0" (click)="moveFormItem(formItem, -1)">arrow_upward</i>
+                                <i class="material-icons teal-text" tabindex="0" (click)="moveFormItem(formItem, 1)">arrow_downward</i>
+                                <i class="material-icons grey-text" tabindex="0" (click)="deleteFormItem(formItem)">delete</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown-button btn" data-activates="dropdown-add-item">Add Form Item</div>
+                    <ul id="dropdown-add-item" class="dropdown-content">
+                        <li><a (click)="addFormItem('text')"><i class="material-icons">mode_edit</i>Text</a></li>
+                        <li><a (click)="addFormItem('paragraph')"><i class="material-icons">assignment</i>Paragraph</a></li>
+                        <li><a (click)="addFormItem('file')"><i class="material-icons">attach_file</i>File</a></li>
+                        <li><a (click)="addFormItem('photo')"><i class="material-icons">photo</i>Photo</a></li>
+                        <li><a (click)="addFormItem('date')"><i class="material-icons">date_range</i>Date</a></li>
+                        <li><a (click)="addFormItem('checkbox')"><i class="material-icons">check_box</i>Checkbox</a></li>
+                        <li><a (click)="addFormItem('choice')"><i class="material-icons">radio_button_checked</i>Multiple choice</a></li>
+                    </ul>
+                </div>
+                <div class="col s12 m6">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">label</i>
+                        <input id="name" type="text" required [(ngModel)]="name" name="name">
+                        <label class="active" for="name">Enter name</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">edit</i>
+                        <textarea class="materialize-textarea" id="about" type="text" [(ngModel)]="about" name="about"></textarea>
+                        <label class="active" for="about">Enter description</label>
+                    </div>
+
+                    <visibility-picker *ngIf="canEditClubs()" [clubs]="clubs" [(public)]="isPublic"></visibility-picker>
+                </div>
+            </div>
             <div class="row" *ngIf="thing.kind === 'hub'">
                 <div class="col s12 m6">
                     <div class="input-field col s12">

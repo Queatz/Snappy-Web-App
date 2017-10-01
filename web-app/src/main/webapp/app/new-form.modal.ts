@@ -21,23 +21,12 @@ export class NewFormModal implements AfterViewInit {
 
     private element;
     public name;
-    public efile;
-    private thing;
 
    constructor(private router: Router, private api: ApiService, private inforService: InforService, element: ElementRef) {
        this.element = element.nativeElement;
        this.name = '';
        this.isPublic = true;
        this.clubs = {};
-
-       this.inforService.getLocation((position) => {
-           this.thing = {
-               geo: {
-                   latitude: position.coords.latitude,
-                   longitude: position.coords.longitude
-               }
-           };
-       });
    }
 
    ngAfterViewInit() {

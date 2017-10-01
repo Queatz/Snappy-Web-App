@@ -1,0 +1,63 @@
+.form-container {
+    margin-bottom: 1rem;
+}
+
+.form-container input:not(:focus) {
+    border-bottom-color: transparent;
+}
+
+.form-container .input-field {
+    margin-top: 0rem;
+}
+
+.form-item {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: .5rem;
+}
+
+.form-item:hover {
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.form-row .input-field {
+    flex-grow: 1;
+}
+
+.form-row input,
+.form-row .input-field {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+.form-question-title > input {
+    font-size: 150%;
+}
+
+.form-question-title > input {
+    margin-bottom: 0px;
+}
+
+.form-tools {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-tool,
+.form-tools i.material-icons {
+    padding: .5rem;
+    opacity: .5;
+    cursor: pointer;
+}
+
+.form-tool:hover,
+.form-tool:focus,
+.form-tools i.material-icons:hover,
+.form-tools i.material-icons:focus {
+    opacity: 1;
+}
