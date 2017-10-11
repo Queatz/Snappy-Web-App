@@ -75,6 +75,7 @@ import { SearchboxComponent } from './searchbox/searchbox.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { VisibilityPickerComponent } from './visibility-picker/visibility-picker.component';
+import { AddActionModal } from './add-action.modal/add-action.modal.component';
 
 enableProdMode();
 
@@ -158,6 +159,7 @@ export class MyOptions extends BaseRequestOptions {
         SettingsComponent,
         VisibilityPickerComponent,
         AuthenticateComponent,
+        AddActionModal,
     ],
     entryComponents: [
         FeedbackModal,

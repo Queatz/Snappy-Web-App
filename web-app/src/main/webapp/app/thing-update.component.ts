@@ -100,7 +100,7 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
                     result.with.push({ person: join.source, isLast: false });
                     break;
                 case 'hub':
-                    result.at.push(join.source);
+                    result.at.push({ hub: join.source, going: join.target.going });
                     break;
             }
         });

@@ -1,0 +1,73 @@
+.option-wrapper {
+    display: flex;
+}
+
+.option {
+    display: inline-flex;
+    width: 5rem;
+    height: 7rem;
+    padding: 1rem;
+    border-radius: .5rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: 500;
+    text-transform: uppercase;
+    display: flex;
+    box-shadow: 0 0 0 2px #f0f0f0 inset;
+    cursor: pointer;
+    color: #aaa;
+    outline: none;
+    opacity: .5;
+
+    transition: box-shadow 190ms, background 190ms, opacity 190ms;
+}
+
+.option + .option {
+    margin-left: 1rem;
+}
+
+.option:hover,
+.option:focus {
+    background: white;
+    opacity: 1;
+}
+
+.option.option-selected {
+    box-shadow: 0 0 0 2px #e91e63 inset;
+    background: white;
+    color: #012;
+    opacity: 1;
+}
+
+.metadata {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.form-row>div {
+    display: flex;
+}
+
+.form-row>div:first-child {
+    flex-grow: 1;
+}
+
+.form-tool {
+    padding: .5rem;
+    opacity: .5;
+    cursor: pointer;
+}
+
+.form-tool:hover,
+.form-tool:focus {
+    opacity: 1;
+}

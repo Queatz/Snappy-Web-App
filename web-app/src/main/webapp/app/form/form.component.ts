@@ -21,6 +21,7 @@ export class FormComponent implements OnInit {
     public photos: Map<string, File> = new Map<string, File>();
     public notFound: boolean;
     public formCompleted: boolean;
+    public isSubmitting: boolean;
 
     constructor(
             private resolver: ComponentFactoryResolver,
@@ -67,10 +68,17 @@ export class FormComponent implements OnInit {
     }
 
     submit() {
+        if (this.isSubmitting) {
+            return;
+        }
+
+        this.isSubmitting = true;
         this.api.submitForm(this.id, this.files, this.photos, this.formItems).then(
             result => {
                 this.formCompleted = true;
+                this.isSubmitting = false;
             }, error => {
+                this.isSubmitting = false;
                 Materialize.toast('Something went wrong', 4000);
             }
         );

@@ -90,7 +90,7 @@
           </div>
         </div>
         <div *ngIf="!formCompleted" class="form-item">
-          <div class="btn" (click)="submit()">Submit</div>
+          <div class="btn" [ngClass]="{'disabled': isSubmitting}" (click)="submit()">{{ isSubmitting ? 'Submitting' : 'Submit' }}</div>
         </div>
       </div>
     </div>

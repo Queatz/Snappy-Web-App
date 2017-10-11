@@ -52,6 +52,10 @@ html body h3 {
     background-color: rgba(33, 150, 243, 0.65);
 }
 
+.waves-effect.waves-pink .waves-ripple {
+    background-color: rgba(233, 30, 99, 0.65);
+}
+
 .preloader-wrapper,
 .spinner-layer {
     border-color: transparent !important;

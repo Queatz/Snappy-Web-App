@@ -9,6 +9,7 @@ export class InforService {
 
     private inforUser;
     private localData;
+    private errorShown: boolean = false;
 
     getInforUser() {
         if (this.inforUser === undefined) {
@@ -39,11 +40,14 @@ export class InforService {
     }
 
     getLocation(callback: any) {
-        navigator.geolocation.getCurrentPosition(callback, this.noLocation);
+        navigator.geolocation.getCurrentPosition(callback, this.noLocation.bind(this));
     }
 
-    noLocation() {
-        alert('Village was unable to access your current location.  Some things may not work properly.');
+    noLocation(err: PositionError) {
+        if (err.code === 1 && !this.errorShown) { // PositionError.PERMISSION_DENIED
+            this.errorShown = true;
+            alert('Village was unable to access your current location.  Some things may not work properly.');
+        }
     }
 
     addClub(club: any) {

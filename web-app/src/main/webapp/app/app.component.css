@@ -81,6 +81,7 @@
     max-width: 50vw;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .navbar-fixed {

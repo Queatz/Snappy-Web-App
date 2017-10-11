@@ -29,6 +29,7 @@
                     <a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit details'" href="#editDetailsModal"><i class="material-icons small">edit</i></a>
                     <a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Change photo'" href="#setPhotoModal"><i class="material-icons small">aspect_ratio</i></a>
                     <a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Add someone as a contact'" href="#addContactModal"><i class="material-icons small">person_add</i></a>
+                    <a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Add an action'" href="#addActionModal"><i class="material-icons small">stars</i></a>
                     <!--<a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Move to club'" href="#moveToClubModal"><i class="material-icons small">arrow_forward</i></a>-->
                 </span>
             </h3>
@@ -48,9 +49,9 @@
                 <h6 class="metadata grey-text">ADDED TO</h6>
                 <person-link *ngFor="let link of thing['in']" [remove]="undefined" [person]="link.target"></person-link>
             </div>
-            <br />
-            <div class="waves-effect waves-light btn white-text {{ typeClassOf() }} tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Be a part of ' + thing.name" (click)="clickActionButton()">
-                <b *ngIf="actionButtonEnabled()">{{ actionButton() }}</b>
+            <br *ngIf="actionButtonEnabled()" />
+            <div *ngIf="actionButtonEnabled()" class="waves-effect waves-light btn white-text {{ typeClassOf() }} tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Be a part of ' + thing.name" (click)="clickActionButton()">
+                <b>{{ actionButton() }}</b>
             </div>
             <div *ngIf="actionBar()" class="waves-effect waves-light btn white-text teal tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'You\'ll get updates about ' + thing.name" (click)="toggleBacking()">
                 <b *ngIf="!thing.backing">Back it</b>
@@ -61,6 +62,7 @@
     </div>
     <br />
     <thing-tabs [thing]="thing"></thing-tabs>
+    <add-action-modal *ngIf="canEdit()" [thing]="thing"></add-action-modal>
     <edit-details-modal *ngIf="canEdit()" [thing]="thing"></edit-details-modal>
     <add-contact-modal *ngIf="canEdit()" [thing]="thing"></add-contact-modal>
     <remove-contact-modal *ngIf="canEdit() && removingContact" [thing]="thing" [contact]="removingContact"></remove-contact-modal>

@@ -196,7 +196,17 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     }
 
     actionButtonEnabled() {
-        return true;
+        switch (this.thing.kind) {
+            case 'resource':
+            case 'project':
+                return this.thing && this.thing.contacts && this.thing.contacts.length;
+            case 'hub':
+            case 'club':
+            case 'form':
+            case 'person':
+            default:
+                return true;
+        }
     }
 
     public getWebTitle() {
