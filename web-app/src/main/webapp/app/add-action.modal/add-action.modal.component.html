@@ -6,12 +6,12 @@
       <div class="row">
         <div class="col s12 input-field">
           <input id="name" type="text" required [(ngModel)]="name" name="name">
-          <label class="active" for="name">Name</label>
+          <label class="active" for="name">Action role</label>
         </div>
         <div class="col s12">
           <h6 class="metadata grey-text">TYPE</h6>
           <div class="option-wrapper">
-            <div *ngFor="let t of types" [ngClass]="{ 'option-selected': t.name === type }" (click)="setType(t.name)" class="option" tabindex="0">
+            <div *ngFor="let t of types" [ngClass]="{ 'option-selected': t.name === type }" (click)="setType(t.name)" (keydown.enter)="setType(t.name, $event)" (keydown.space)="setType(t.name, $event)" class="option" tabindex="0">
               <div>
                 <i class="material-icons medium {{ t.color }}-text">{{ t.icon }}</i>
               </div>
@@ -68,6 +68,9 @@
                 <label class="active" for="value">Custom Value</label>
               </div>
             </div>
+            <div *ngSwitchDefault class="grey-text">
+              Choose an action type above.
+            </div>
           </div>
         </div>
       </div>
@@ -99,19 +102,23 @@
       </div>
       <div class="row">
         <div class="col s12">
-          <h6 class="metadata grey-text">REMOTE VALUE CALLBACK</h6>
+          <h6 class="metadata grey-text">REMOTE VALUE TOKEN</h6>
           <div class="row">
             <div class="col s12 grey-text" *ngIf="!statusCallbackUrls.length">
-              Adding a remote value callback will allow you to report back the actual remote value of this action.
+              Adding a remote value token will allow you to report back the actual remote value of this action.
             </div>
             <div class="input-field col s12" *ngFor="let n of statusCallbackUrls">
-              <b>POST</b> {{ n.url }}<br />
-              <b>BODY</b> <span class="grey-text">value</span><br />
-              <br />
-              <span class="grey-text">Send a POST request to the URL with the remote value in the POST body</span>
+              <div class="form-row">
+                <div>
+                  <i class="material-icons prefix">link</i>
+                  <input id="url" type="text" required [(ngModel)]="n.url" [ngModelOptions]="{standalone: true}">
+                  <label class="active" for="url">Enter token</label>
+                </div>
+                <i class="form-tool material-icons grey-text" tabindex="0" (click)="deleteStatusCallbackUrls(n)">delete</i>
+              </div>
             </div>
           </div>
-          <div *ngIf="!statusCallbackUrls.length" class="btn pink" (click)="addStatusCallbackUrl({ url: 'http://example.com/32323322323323232' })">Generate Status Callback URL</div>
+          <div *ngIf="!statusCallbackUrls.length" class="btn pink" (click)="addStatusCallbackUrl()">Generate Remote Value Token</div>
         </div>
       </div>
       <div class="row">

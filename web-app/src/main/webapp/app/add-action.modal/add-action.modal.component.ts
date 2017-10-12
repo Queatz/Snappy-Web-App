@@ -1,10 +1,12 @@
 declare var $;
 declare var _;
 declare var Waves;
+declare var Materialize;
 
 import { Component, OnInit, OnDestroy, Input, AfterViewInit, ElementRef } from '@angular/core';
 
 import { ApiService } from '../api.service';
+import util from '../util';
 
 @Component({
   selector: 'add-action-modal',
@@ -59,7 +61,11 @@ export class AddActionModal implements OnInit, OnDestroy, AfterViewInit {
         }
     }
 
-    setType(type: string) {
+    setType(type: string, event: Event = null) {
+        if (event) {
+            event.preventDefault();
+        }
+
         this.type = type;
 
         this.actionConfig = (<any>Object).assign({}, _.find(this.types, { name: this.type }).config);
@@ -70,7 +76,7 @@ export class AddActionModal implements OnInit, OnDestroy, AfterViewInit {
     }
 
     addStatusCallbackUrl(url: string) {
-        this.statusCallbackUrls.push(url);
+        this.statusCallbackUrls.push({ url: util.rndstr() });
     }
 
     addChangeNotificationUrl(url: string) {
@@ -87,7 +93,42 @@ export class AddActionModal implements OnInit, OnDestroy, AfterViewInit {
         this.changeNotificationUrls.splice(i, 1);
     }
 
-    add() {
+    deleteStatusCallbackUrls(url: any) {
+        let i = this.statusCallbackUrls.indexOf(url);
 
+        if (i === -1) {
+            return;
+        }
+
+        this.statusCallbackUrls.splice(i, 1);
+    }
+
+    add() {
+        if (!this.name || !this.name.trim()) {
+            Materialize.toast('Enter action role', 4000);
+            return;
+        }
+
+        if (!this.type) {
+            Materialize.toast('Choose action type', 4000);
+            return;
+        }
+
+        let data = {
+            config: this.actionConfig,
+            changeNotificationUrls: _.pluck(this.changeNotificationUrls, 'url')
+        };
+
+        this.api.earthCreate({
+            kind: 'action',
+            role: this.name,
+            type: this.type,
+            token: this.statusCallbackUrls.length ? this.statusCallbackUrls[0].url : '',
+            data: JSON.stringify(data),
+            hidden: !this.isPublic,
+            clubs: JSON.stringify(this.clubs)
+        }).subscribe(form => {
+            $(this.elementRef.nativeElement.querySelector('.modal')).modal('close');
+        });
     }
 }
