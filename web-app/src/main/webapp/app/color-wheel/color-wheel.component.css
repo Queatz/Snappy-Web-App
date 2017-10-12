@@ -1,0 +1,13 @@
+.colorwheel-container {
+    position: relative;
+}
+
+.colorwheel-indicator {
+    position: absolute;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+    border: 1px solid white;
+    border-radius: 2px;
+    box-shadow: 0 0 0 2px black;
+}

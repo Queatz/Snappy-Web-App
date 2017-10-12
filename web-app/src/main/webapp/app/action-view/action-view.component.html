@@ -1,0 +1,40 @@
+<div class="action-view card hoverable">
+  <div class="action-name blue-text">
+    {{ action.role }}
+  </div>
+  <div [ngSwitch]="action.type">
+    <div *ngSwitchCase="'color'">
+      <color-wheel [color]="value" (colorChange)="set()"></color-wheel>
+    </div>
+    <div *ngSwitchCase="'text'">
+      <div class="input-field">
+        <input placeholder="Enter text" id="value" [(ngModel)]="value" [ngModelOptions]="{standalone: true}" (keydown.enter)="set()" />
+      </div>
+    </div>
+    <div *ngSwitchCase="'switch'" class="center">
+      <a class="btn-floating btn-large waves-effect waves-light"
+         [ngClass]="{ 'red': value !== action.data.config.onValue, 'light-green accent-3': value === action.data.config.onValue }"
+         (click)="set()"><i class="material-icons white-text">{{value === action.data.config.onValue ? 'power_settings_new' : 'do_not_disturb'}}</i></a>
+    </div>
+    <div *ngSwitchCase="'slider'">
+      <div class="input-field range-field">
+        <input [(ngModel)]="value"
+               [ngModelOptions]="{standalone: true}"
+               (change)="set()"
+               name="value"
+               type="range"
+               id="value"
+               min="{{ action.data.config.minValue }}"
+               max="{{ action.data.config.maxValue }}"
+               value="0"
+               step="{{ action.data.config.isFloat ? '0.01' : '1' }}" />
+      </div>
+    </div>
+    <div *ngSwitchCase="'trigger'">
+      <button class="btn pink waves-effect waves-light" (click)="set()">{{ action.data.config.value }}</button>
+    </div>
+  </div>
+  <div *ngIf="canEdit()" class="action-actions">
+    <a class="btn-flat pink-text waves-effect text-lighten-3" (click)="edit()">Reconfigure</a>
+  </div>
+</div>

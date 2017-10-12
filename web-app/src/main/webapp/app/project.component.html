@@ -33,12 +33,16 @@
                     <!--<a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Move to club'" href="#moveToClubModal"><i class="material-icons small">arrow_forward</i></a>-->
                 </span>
             </h3>
+            <div *ngIf="thing.actions && thing.actions.length">
+                <h6 class="metadata grey-text">ACTIONS</h6>
+                <action-view *ngFor="let action of thing.actions" [action]="action.source"></action-view>
+            </div>
             <div *ngIf="thing.contacts && thing.contacts.length">
                 <h6 class="metadata grey-text">CONTACTS</h6>
                 <person-link *ngFor="let contact of thing.contacts" [remove]="canEdit() ? removeCallbackFor(contact.source) : undefined" [person]="contact.source.target"></person-link>
             </div>
             <div *ngIf="thing.address">
-                <h6 class="metadata grey-text">LOCATION</h6>
+                <h6 class="metadata grey-text">ADDRESS</h6>
                 <a href="{{ addressLink() }}" target="_blank">{{ thing.address }}</a>
             </div>
             <h6 class="metadata grey-text">ABOUT</h6>

@@ -76,6 +76,8 @@ import { SettingsComponent } from './settings/settings.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { VisibilityPickerComponent } from './visibility-picker/visibility-picker.component';
 import { AddActionModal } from './add-action.modal/add-action.modal.component';
+import { ActionViewComponent } from './action-view/action-view.component';
+import { ColorWheelComponent } from './color-wheel/color-wheel.component';
 
 enableProdMode();
 
@@ -160,6 +162,8 @@ export class MyOptions extends BaseRequestOptions {
         VisibilityPickerComponent,
         AuthenticateComponent,
         AddActionModal,
+        ActionViewComponent,
+        ColorWheelComponent,
     ],
     entryComponents: [
         FeedbackModal,
@@ -178,6 +182,7 @@ export class MyOptions extends BaseRequestOptions {
         NewResourceModal,
         InviteModal,
         NewClubModalComponent,
+        AddActionModal,
     ],
     providers: [
         InforService,

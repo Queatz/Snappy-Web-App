@@ -1,0 +1,23 @@
+.action-view {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: .5rem;
+    margin: 1rem;
+}
+
+.action-view>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-name {
+    font-weight: 500;
+    padding-bottom: 1rem;
+}
+
+.action-actions {
+    padding-top: 1rem;
+}

@@ -1,6 +1,7 @@
 <div id="addActionModal" class="modal">
   <div class="modal-content">
-    <h4>Add an action to {{ thing.name }}</h4>
+    <h4 *ngIf="!action">Add an action to {{ thing.name }}</h4>
+    <h4 *ngIf="action">Edit {{ thing.name }}</h4>
 
     <form>
       <div class="row">
@@ -69,7 +70,7 @@
               </div>
             </div>
             <div *ngSwitchDefault class="grey-text">
-              Choose an action type above.
+              Choose a
             </div>
           </div>
         </div>
@@ -131,9 +132,10 @@
   </div>
 
   <div class="modal-footer">
+    <a class="waves-effect btn-flat red-text left" (click)="remove()" *ngIf="action">Remove {{ action.role }}</a>
     <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
     <a class="btn-flat waves-effect waves-pink modal-action pink-text" (click)="add()">
-      Add Action
+      {{ action ? 'Save' : 'Add Action' }}
     </a>
   </div>
 </div>

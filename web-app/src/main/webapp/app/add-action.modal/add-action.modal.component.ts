@@ -3,9 +3,10 @@ declare var _;
 declare var Waves;
 declare var Materialize;
 
-import { Component, OnInit, OnDestroy, Input, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, AfterViewInit, ElementRef, SimpleChanges } from '@angular/core';
 
 import { ApiService } from '../api.service';
+import { InforService } from '../infor.service';
 import util from '../util';
 
 @Component({
@@ -16,6 +17,7 @@ import util from '../util';
 export class AddActionModal implements OnInit, OnDestroy, AfterViewInit {
 
     @Input() thing;
+    @Input() action;
 
     private types = [
         { name: 'color', icon: 'color_lens', color: 'red', variables: 'Use {{value}} in URLs. Use {{person}} to get the id of the person using the action.', config: { format: 'r:g:b' }},
@@ -34,13 +36,30 @@ export class AddActionModal implements OnInit, OnDestroy, AfterViewInit {
     private type: string = '';
     private actionConfig: any;
 
-    constructor(private api: ApiService, private elementRef: ElementRef) { }
+    constructor(private api: ApiService, private inforService: InforService, private elementRef: ElementRef) { }
 
     ngOnInit() {
         this.refreshClubToggles();
+        this.update();
     }
 
     ngOnDestroy() {
+    }
+
+    ngOnChanges(changes: SimpleChanges) {
+        if (changes['action']) {
+            this.update();
+        }
+    }
+
+    update() {
+        if (this.action) {
+            this.name = this.action.role;
+            this.changeNotificationUrls = _.map(this.action.data.changeNotificationUrls, url => ({ url: url }));
+            this.statusCallbackUrls = this.action.token ? [{ url: this.action.token }] : [];
+            this.type = this.action.type;
+            this.actionConfig = this.action.data.config;
+        }
     }
 
     ngAfterViewInit() {
@@ -119,16 +138,45 @@ export class AddActionModal implements OnInit, OnDestroy, AfterViewInit {
             changeNotificationUrls: _.pluck(this.changeNotificationUrls, 'url')
         };
 
-        this.api.earthCreate({
-            kind: 'action',
-            role: this.name,
-            type: this.type,
-            token: this.statusCallbackUrls.length ? this.statusCallbackUrls[0].url : '',
-            data: JSON.stringify(data),
-            hidden: !this.isPublic,
-            clubs: JSON.stringify(this.clubs)
-        }).subscribe(form => {
-            $(this.elementRef.nativeElement.querySelector('.modal')).modal('close');
-        });
+        if (this.action) {
+            this.api.earthEdit(this.action.id, {
+                role: this.name,
+                type: this.type,
+                token: this.statusCallbackUrls.length ? this.statusCallbackUrls[0].url : '',
+                data: JSON.stringify(data),
+                hidden: !this.isPublic,
+                clubs: JSON.stringify(this.clubs)
+            }).subscribe(form => {
+                $(this.elementRef.nativeElement.querySelector('.modal')).modal('close');
+            });
+        } else {
+            this.api.earthCreate({
+                kind: 'action',
+                source: this.inforService.getId(),
+                target: this.thing.id,
+                role: this.name,
+                type: this.type,
+                token: this.statusCallbackUrls.length ? this.statusCallbackUrls[0].url : '',
+                data: JSON.stringify(data),
+                hidden: !this.isPublic,
+                clubs: JSON.stringify(this.clubs)
+            }).subscribe(form => {
+                $(this.elementRef.nativeElement.querySelector('.modal')).modal('close');
+            },
+            error => {
+                Materialize.toast('Save action failed', 4000);
+            });
+        }
+    }
+
+    remove() {
+        this.api.earthDelete(this.action.id)
+            .subscribe((res: any) => {
+                Materialize.toast('Action removed', 4000);
+                $(this.elementRef.nativeElement.querySelector('.modal')).modal('close');
+            },
+            error => {
+                Materialize.toast('Action remove failed', 4000);
+            });
     }
 }
