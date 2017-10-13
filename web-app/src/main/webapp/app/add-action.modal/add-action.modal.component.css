@@ -53,11 +53,23 @@
     justify-content: flex-start;
 }
 
+.form-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
 .form-row>div {
     display: flex;
 }
 
-.form-row>div:first-child {
+.form-row>div:not(:first-child) {
+    margin-left: 1rem;
+}
+
+.form-row-grow {
+    width: 100%;
     flex-grow: 1;
 }
 

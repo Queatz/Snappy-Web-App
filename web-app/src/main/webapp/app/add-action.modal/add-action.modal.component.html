@@ -89,16 +89,37 @@
             </div>
             <div class="input-field col s12" *ngFor="let n of changeNotificationUrls">
               <div class="form-row">
-                <div>
-                  <i class="material-icons prefix">link</i>
-                  <input id="url" type="text" required [(ngModel)]="n.url" [ngModelOptions]="{standalone: true}">
-                  <label class="active" for="url">Enter URL</label>
+                <div class="btn cyan white-text" (click)="toggleMethod(n)">{{ n.method }}</div>
+                <div class="form-row-grow form-col">
+                  <div class="input-field form-row-grow">
+                    <input id="url" type="text" required [(ngModel)]="n.url" [ngModelOptions]="{standalone: true}">
+                    <label class="active" for="url">Enter URL</label>
+                  </div>
                 </div>
                 <i class="form-tool material-icons grey-text" tabindex="0" (click)="deleteChangeNotificationUrl(n)">delete</i>
               </div>
+              <div *ngIf="n.method === 'POST'" class="form-row">
+                <div class="form-col form-row-grow">
+                  <div class="form-row-grow" *ngFor="let p of n.params">
+                    <div class="form-row">
+                      <div class="grey-text">PARAM</div>
+                      <div class="input-field form-row-grow">
+                        <input id="key" type="text" required [(ngModel)]="p.key" [ngModelOptions]="{standalone: true}">
+                        <label class="active" for="key">Key</label>
+                      </div>
+                      <div class="input-field form-row-grow">
+                        <input id="value" type="text" required [(ngModel)]="p.value" [ngModelOptions]="{standalone: true}">
+                        <label class="active" for="value">Value</label>
+                      </div>
+                      <i class="form-tool material-icons grey-text" tabindex="0" (click)="deleteParam(n, p)">delete</i>
+                    </div>
+                  </div>
+                  <div class="btn-flat cyan-text" (click)="addParam(n)">+ Parameter</div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="btn pink" (click)="addChangeNotificationUrl({ url: 'http://example.com?command=\{\{value\}\}' })">Add Change Notification URL</div>
+          <div class="btn pink" (click)="addChangeNotificationUrl()">Add Change Notification URL</div>
         </div>
       </div>
       <div class="row">
@@ -110,8 +131,8 @@
             </div>
             <div class="input-field col s12" *ngFor="let n of statusCallbackUrls">
               <div class="form-row">
-                <div>
-                  <i class="material-icons prefix">link</i>
+                <div class="input-field form-row-grow">
+                  <i class="material-icons prefix">vpn_key</i>
                   <input id="url" type="text" required [(ngModel)]="n.url" [ngModelOptions]="{standalone: true}">
                   <label class="active" for="url">Enter token</label>
                 </div>

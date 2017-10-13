@@ -55,7 +55,7 @@ export class AddActionModal implements OnInit, OnDestroy, AfterViewInit {
     update() {
         if (this.action) {
             this.name = this.action.role;
-            this.changeNotificationUrls = _.map(this.action.data.changeNotificationUrls, url => ({ url: url }));
+            this.changeNotificationUrls = this.action.data.changeNotificationUrls;
             this.statusCallbackUrls = this.action.token ? [{ url: this.action.token }] : [];
             this.type = this.action.type;
             this.actionConfig = this.action.data.config;
@@ -98,8 +98,26 @@ export class AddActionModal implements OnInit, OnDestroy, AfterViewInit {
         this.statusCallbackUrls.push({ url: util.rndstr() });
     }
 
-    addChangeNotificationUrl(url: string) {
-        this.changeNotificationUrls.push(url);
+    addChangeNotificationUrl() {
+        this.changeNotificationUrls.push({ url: 'http://example.com?command=\{\{value\}\}', method: 'GET', params: [] });
+    }
+
+    toggleMethod(cn: any) {
+        cn.method = (cn.method === 'GET' ? 'POST' : 'GET');
+    }
+
+    addParam(cn: any) {
+        cn.params.push({ key: '', value: '' });
+    }
+
+    deleteParam(cn: any, param: any) {
+        let i = cn.params.indexOf(param);
+
+        if (i === -1) {
+            return;
+        }
+
+        cn.params.splice(i, 1);
     }
 
     deleteChangeNotificationUrl(url: any) {
@@ -135,7 +153,7 @@ export class AddActionModal implements OnInit, OnDestroy, AfterViewInit {
 
         let data = {
             config: this.actionConfig,
-            changeNotificationUrls: _.pluck(this.changeNotificationUrls, 'url')
+            changeNotificationUrls: this.changeNotificationUrls
         };
 
         if (this.action) {
