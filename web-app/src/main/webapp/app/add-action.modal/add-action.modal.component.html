@@ -129,7 +129,7 @@
             <div class="col s12 grey-text" *ngIf="!statusCallbackUrls.length">
               Adding a remote value token will allow you to report back the actual remote value of this action.
             </div>
-            <div class="input-field col s12" *ngFor="let n of statusCallbackUrls">
+            <div class="col s12" *ngFor="let n of statusCallbackUrls">
               <div class="form-row">
                 <div class="input-field form-row-grow">
                   <i class="material-icons prefix">vpn_key</i>
@@ -137,6 +137,9 @@
                   <label class="active" for="url">Enter token</label>
                 </div>
                 <i class="form-tool material-icons grey-text" tabindex="0" (click)="deleteStatusCallbackUrls(n)">delete</i>
+              </div>
+              <div class="form-row grey-text" *ngIf="action && statusCallbackUrls.length">
+                GET https://vlllage.com:8443/api/earth/11627070?token={{statusCallbackUrls[0].url}}&value=&lt;val&gt;
               </div>
             </div>
           </div>

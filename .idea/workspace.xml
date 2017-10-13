@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment="">
+    <list default="true" id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment="Support POST requests">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.css" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.ts" />
     </list>
     <ignored path="Snappy-Web-App.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,21 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="add-action.modal.component.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="add-action.modal.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="104" column="50" selection-start-line="104" selection-start-column="50" selection-end-line="104" selection-end-column="50" />
+            <state relative-caret-position="257">
+              <caret line="141" column="117" selection-start-line="141" selection-start-column="117" selection-end-line="141" selection-end-column="117" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add-action.modal.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="add-action.modal.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="165" column="49" selection-start-line="165" selection-start-column="49" selection-end-line="165" selection-end-column="49" />
+            <state relative-caret-position="512">
+              <caret line="71" column="21" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -860,13 +858,6 @@
       <option name="presentableId" value="Default" />
       <updated>1450799851331</updated>
     </task>
-    <task id="LOCAL-00043" summary="Ad cards">
-      <created>1502001825855</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1502001825855</updated>
-    </task>
     <task id="LOCAL-00044" summary="Adds chat service">
       <created>1502168366713</created>
       <option name="number" value="00044" />
@@ -1203,7 +1194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507788658229</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="Support POST requests">
+      <created>1507860962471</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1507860962471</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1282,7 +1280,6 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Cleanup + merge person-card into project-card" />
     <MESSAGE value="Show action icons on hover" />
     <MESSAGE value="Adds settings page + sign out button" />
     <MESSAGE value="Adds settings files" />
@@ -1307,7 +1304,8 @@
     <MESSAGE value="Adds &quot;Add Action&quot; UI modal" />
     <MESSAGE value="Action refinements" />
     <MESSAGE value="Adds action UI widgets" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds action UI widgets" />
+    <MESSAGE value="Support POST requests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Support POST requests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1693,18 +1691,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.html">
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="104" column="50" selection-start-line="104" selection-start-column="50" selection-end-line="104" selection-end-column="50" />
+        <state relative-caret-position="512">
+          <caret line="71" column="21" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.ts">
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="165" column="49" selection-start-line="165" selection-start-column="49" selection-end-line="165" selection-end-column="49" />
+        <state relative-caret-position="257">
+          <caret line="141" column="117" selection-start-line="141" selection-start-column="117" selection-end-line="141" selection-end-column="117" />
           <folding />
         </state>
       </provider>
