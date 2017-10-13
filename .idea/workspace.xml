@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment="Support POST requests">
+    <list default="true" id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment="Adds example value update request">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.html" />
     </list>
@@ -29,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="257">
-              <caret line="141" column="117" selection-start-line="141" selection-start-column="117" selection-end-line="141" selection-end-column="117" />
+              <caret line="141" column="58" selection-start-line="141" selection-start-column="58" selection-end-line="141" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -858,13 +858,6 @@
       <option name="presentableId" value="Default" />
       <updated>1450799851331</updated>
     </task>
-    <task id="LOCAL-00044" summary="Adds chat service">
-      <created>1502168366713</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1502168366713</updated>
-    </task>
     <task id="LOCAL-00045" summary="Chat working">
       <created>1502328501005</created>
       <option name="number" value="00045" />
@@ -1201,7 +1194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507860962471</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="Adds example value update request">
+      <created>1507864927725</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1507864927725</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1280,7 +1280,6 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Show action icons on hover" />
     <MESSAGE value="Adds settings page + sign out button" />
     <MESSAGE value="Adds settings files" />
     <MESSAGE value="Set clubs on create" />
@@ -1305,7 +1304,8 @@
     <MESSAGE value="Action refinements" />
     <MESSAGE value="Adds action UI widgets" />
     <MESSAGE value="Support POST requests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Support POST requests" />
+    <MESSAGE value="Adds example value update request" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds example value update request" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1702,7 +1702,7 @@
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
-          <caret line="141" column="117" selection-start-line="141" selection-start-column="117" selection-end-line="141" selection-end-column="117" />
+          <caret line="141" column="58" selection-start-line="141" selection-start-column="58" selection-end-line="141" selection-end-column="58" />
           <folding />
         </state>
       </provider>

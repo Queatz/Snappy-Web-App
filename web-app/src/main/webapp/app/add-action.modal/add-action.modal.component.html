@@ -139,7 +139,7 @@
                 <i class="form-tool material-icons grey-text" tabindex="0" (click)="deleteStatusCallbackUrls(n)">delete</i>
               </div>
               <div class="form-row grey-text" *ngIf="action && statusCallbackUrls.length">
-                GET https://vlllage.com:8443/api/earth/11627070?token={{statusCallbackUrls[0].url}}&value=&lt;val&gt;
+                GET https://vlllage.com:8443/api/earth/{{ action.id }}?token={{statusCallbackUrls[0].url}}&value=&lt;val&gt;
               </div>
             </div>
           </div>
