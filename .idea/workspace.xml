@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment="Adds example value update request">
+    <list default="true" id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment="Use real id">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/color-wheel/color-wheel.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/color-wheel/color-wheel.component.ts" />
     </list>
     <ignored path="Snappy-Web-App.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,10 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="add-action.modal.component.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="add-action.modal.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
+            <state relative-caret-position="2115">
               <caret line="141" column="58" selection-start-line="141" selection-start-column="58" selection-end-line="141" selection-end-column="58" />
               <folding />
             </state>
@@ -38,8 +39,8 @@
       <file leaf-file-name="add-action.modal.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="71" column="21" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
+            <state relative-caret-position="315">
+              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -48,7 +49,7 @@
       <file leaf-file-name="add-action.modal.component.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="657">
+            <state relative-caret-position="1065">
               <caret line="71" column="16" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
               <folding />
             </state>
@@ -58,7 +59,7 @@
       <file leaf-file-name="action-view.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/action-view/action-view.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
+            <state relative-caret-position="960">
               <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
               <folding />
             </state>
@@ -78,8 +79,8 @@
       <file leaf-file-name="color-wheel.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/color-wheel/color-wheel.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="360">
+              <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -88,18 +89,18 @@
       <file leaf-file-name="util.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/util.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="642">
+            <state relative-caret-position="2190">
               <caret line="146" column="6" selection-start-line="146" selection-start-column="6" selection-end-line="146" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api.service.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="api.service.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/api.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
+            <state relative-caret-position="570">
+              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -175,12 +176,12 @@
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/color-wheel/color-wheel.component.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/color-wheel/color-wheel.component.css" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/util.ts" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/color-wheel/color-wheel.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/action-view/action-view.component.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/action-view/action-view.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.css" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.html" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.ts" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/color-wheel/color-wheel.component.ts" />
       </list>
     </option>
   </component>
@@ -214,8 +215,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -438,17 +441,15 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WKWAuthors" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jacobchat" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="adac&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.css&#10;uti&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/util.ts&#10;addac&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.ts&#10;api&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/api.service.ts&#10;editde&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.html&#10;adda&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.html&#10;module&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.module.ts&#10;floa&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/floating.component.html&#10;float&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/floating.component.html&#10;pro&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project.component.ts&#10;actionv&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/action-view/action-view.component.css&#10;action&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.css&#10;util&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/util.ts&#10;formmodal&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/new-form.modal.ts&#10;form&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/form/form.component.html&#10;visibility&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/visibility-picker/visibility-picker.component.html&#10;mod&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.module.ts&#10;modalts&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.ts&#10;project&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project.component.html&#10;introca&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/intro-card/intro-card.component.html&#10;local&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/locality-card/locality-card.component.html&#10;profi&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.css&#10;index&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/index.html&#10;club&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/club-tag/club-tag.component.html&#10;thingupda&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/thing-update.component.ts&#10;thingup&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/thing-updates.component.ts&#10;apis&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/api.service.ts&#10;PRO&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project.component.html&#10;profcss&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.css&#10;setpho&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/set-photo.modal.ts&#10;sett&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/settings/settings.component.css&#10;ed&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.html&#10;modu&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.module.ts&#10;signin&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/signin-required.modal.html&#10;projects&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/projects.component.ts&#10;floathtml&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/floating.component.html&#10;signin-required&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/signin-required.modal.html&#10;rou&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.routes.ts&#10;prof&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.html&#10;procard&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project-card.component.html&#10;proje&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project.component.ts&#10;proj&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project-card.component.html&#10;setph&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/set-photo.modal.ts&#10;newof&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/new-offer.modal.html&#10;adadd&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/ad-add/ad-add.component.ts&#10;chatcom&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat/chat.component.ts&#10;chat&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat/chat.component.html&#10;appcss&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.component.css&#10;app&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.component.ts&#10;info&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/infor.service.ts" />
+    <property name="SearchEverywhereHistoryKey" value="pi&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/api.service.ts&#10;adac&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.css&#10;uti&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/util.ts&#10;addac&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.ts&#10;api&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/api.service.ts&#10;editde&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.html&#10;adda&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.html&#10;module&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.module.ts&#10;floa&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/floating.component.html&#10;float&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/floating.component.html&#10;pro&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project.component.ts&#10;actionv&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/action-view/action-view.component.css&#10;action&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.css&#10;util&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/util.ts&#10;formmodal&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/new-form.modal.ts&#10;form&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/form/form.component.html&#10;visibility&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/visibility-picker/visibility-picker.component.html&#10;mod&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.module.ts&#10;modalts&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.ts&#10;project&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project.component.html&#10;introca&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/intro-card/intro-card.component.html&#10;local&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/locality-card/locality-card.component.html&#10;profi&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.css&#10;index&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/index.html&#10;club&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/club-tag/club-tag.component.html&#10;thingupda&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/thing-update.component.ts&#10;thingup&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/thing-updates.component.ts&#10;apis&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/api.service.ts&#10;PRO&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project.component.html&#10;profcss&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.css&#10;setpho&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/set-photo.modal.ts&#10;sett&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/settings/settings.component.css&#10;ed&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.html&#10;modu&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.module.ts&#10;signin&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/signin-required.modal.html&#10;projects&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/projects.component.ts&#10;floathtml&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/floating.component.html&#10;signin-required&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/signin-required.modal.html&#10;rou&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.routes.ts&#10;prof&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.html&#10;procard&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project-card.component.html&#10;proje&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project.component.ts&#10;proj&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project-card.component.html&#10;setph&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/set-photo.modal.ts&#10;newof&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/new-offer.modal.html&#10;adadd&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/ad-add/ad-add.component.ts&#10;chatcom&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat/chat.component.ts&#10;chat&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat/chat.component.html&#10;appcss&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.component.css&#10;app&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.component.ts" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -858,13 +859,6 @@
       <option name="presentableId" value="Default" />
       <updated>1450799851331</updated>
     </task>
-    <task id="LOCAL-00045" summary="Chat working">
-      <created>1502328501005</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1502328501005</updated>
-    </task>
     <task id="LOCAL-00046" summary="Faster animation">
       <created>1502330517533</created>
       <option name="number" value="00046" />
@@ -1201,11 +1195,18 @@
       <option name="project" value="LOCAL" />
       <updated>1507864927725</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="Use real id">
+      <created>1507865414898</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1507865414899</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
+    <frame x="0" y="27" width="1920" height="1053" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1217,7 +1218,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11438279" sideWeight="0.47943038" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22890295" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22417583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1239,6 +1239,7 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22417583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21474358" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1280,7 +1281,6 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Adds settings page + sign out button" />
     <MESSAGE value="Adds settings files" />
     <MESSAGE value="Set clubs on create" />
     <MESSAGE value="Set visibility for offers and updates" />
@@ -1305,7 +1305,8 @@
     <MESSAGE value="Adds action UI widgets" />
     <MESSAGE value="Support POST requests" />
     <MESSAGE value="Adds example value update request" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds example value update request" />
+    <MESSAGE value="Use real id" />
+    <option name="LAST_COMMIT_MESSAGE" value="Use real id" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1345,7 +1346,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="401">
           <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1383,7 +1383,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-231">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1398,7 +1397,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1450,7 +1448,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="446">
           <caret line="84" column="1" selection-start-line="84" selection-start-column="1" selection-end-line="84" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1488,7 +1485,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1607">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1517,7 +1513,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1525,7 +1520,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="569">
           <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1533,7 +1527,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
           <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="54" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1541,7 +1534,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="477">
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="54" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1549,7 +1541,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1407">
           <caret line="238" column="11" selection-start-line="238" selection-start-column="11" selection-end-line="238" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1567,7 +1558,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
           <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1575,7 +1565,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
           <caret line="182" column="23" selection-start-line="182" selection-start-column="23" selection-end-line="182" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1599,7 +1588,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="108" selection-start-line="2" selection-start-column="108" selection-end-line="4" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1607,7 +1595,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="747">
           <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1623,7 +1610,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1631,7 +1617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1643,26 +1628,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/api.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="51" column="20" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/util.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="642">
+        <state relative-caret-position="2190">
           <caret line="146" column="6" selection-start-line="146" selection-start-column="6" selection-end-line="146" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/color-wheel/color-wheel.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1677,7 +1646,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/action-view/action-view.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
+        <state relative-caret-position="960">
           <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
           <folding />
         </state>
@@ -1685,24 +1654,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="657">
+        <state relative-caret-position="1065">
           <caret line="71" column="16" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="71" column="21" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
+        <state relative-caret-position="2115">
           <caret line="141" column="58" selection-start-line="141" selection-start-column="58" selection-end-line="141" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/color-wheel/color-wheel.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/api.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding />
         </state>
       </provider>

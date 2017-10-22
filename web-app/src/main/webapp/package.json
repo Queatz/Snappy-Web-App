@@ -25,14 +25,14 @@
     }
   ],
   "dependencies": {
-    "@angular/common": "4.4.0-RC.0",
-    "@angular/compiler": "4.4.0-RC.0",
-    "@angular/core": "4.4.0-RC.0",
-    "@angular/forms": "4.4.0-RC.0",
-    "@angular/http": "4.4.0-RC.0",
-    "@angular/platform-browser": "4.4.0-RC.0",
-    "@angular/platform-browser-dynamic": "4.4.0-RC.0",
-    "@angular/router": "4.4.0-RC.0",
+    "@angular/common": "4.4.3",
+    "@angular/compiler": "4.4.3",
+    "@angular/core": "4.4.3",
+    "@angular/forms": "4.4.3",
+    "@angular/http": "4.4.3",
+    "@angular/platform-browser": "4.4.3",
+    "@angular/platform-browser-dynamic": "4.4.3",
+    "@angular/router": "4.4.3",
     "systemjs": "0.20.18",
     "express": "4.15.4",
     "core-js": "^2.5.1",
@@ -47,8 +47,8 @@
     "masonry-layout": "4.2.0"
   },
   "devDependencies": {
-    "@angular/cli": "1.4.0",
-    "@angular/compiler-cli": "4.4.0-RC.0",
+    "@angular/cli": "1.4.5",
+    "@angular/compiler-cli": "4.4.3",
     "canonical-path": "0.0.2",
     "concurrently": "^3.5.0",
     "http-server": "^0.10.0",

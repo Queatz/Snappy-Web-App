@@ -19,7 +19,7 @@ export class AddActionModal implements OnInit, OnDestroy, AfterViewInit {
     @Input() thing;
     @Input() action;
 
-    private types = [
+    types = [
         { name: 'color', icon: 'color_lens', color: 'red', variables: 'Use {{value}} in URLs. Use {{person}} to get the id of the person using the action.', config: { format: 'r:g:b' }},
         { name: 'text', icon: 'mode_edit', color: 'green', variables: 'Use {{value}} in URLs. Use {{person}} to get the id of the person using the action.', config: {}},
         { name: 'switch', icon: 'brightness_6', color: 'orange', variables: 'Use {{value}} in URLs. Use {{person}} to get the id of the person using the action.', config: { onValue: 'on', offValue: 'off' }},
@@ -27,14 +27,14 @@ export class AddActionModal implements OnInit, OnDestroy, AfterViewInit {
         { name: 'trigger', icon: 'star', color: 'yellow', variables: 'Use {{value}} in URLs. Use {{person}} to get the id of the person using the action.', config: { value: '' }},
     ];
 
-    private name: string;
-    private clubs: any;
-    private isPublic: boolean;
+    name: string;
+    clubs: any;
+    isPublic: boolean;
 
-    private changeNotificationUrls = [];
-    private statusCallbackUrls = [];
-    private type: string = '';
-    private actionConfig: any;
+    changeNotificationUrls = [];
+    statusCallbackUrls = [];
+    type: string = '';
+    actionConfig: any;
 
     constructor(private api: ApiService, private inforService: InforService, private elementRef: ElementRef) { }
 

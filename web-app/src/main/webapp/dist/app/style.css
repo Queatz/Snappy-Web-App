@@ -1,0 +1,101 @@
+body {
+    background: #aaa;
+    background-image: url(/img/anastasia-village.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: screen;
+}
+
+html body h3 {
+    padding-top: 1.168rem;
+    margin-top: 0;
+}
+
+.bkg-green {
+    background-color: #629252 !important;
+}
+
+.bkg-purple {
+    background-color: #9848C5 !important;
+}
+
+.bkg-red {
+    background-color: #c54859 !important;
+}
+
+.txt-green {
+    color: #629252 !important;
+}
+
+.txt-purple {
+    color: #9848C5 !important;
+}
+
+.txt-red {
+    color: #c54859 !important;
+}
+
+.clear {
+    clear: both;
+}
+
+.side-nav a:hover {
+    background: transparent;
+}
+
+.tabs .indicator {
+    background-color: #9e9e9e !important;
+}
+
+.waves-effect.waves-blue .waves-ripple {
+    background-color: rgba(33, 150, 243, 0.65);
+}
+
+.waves-effect.waves-pink .waves-ripple {
+    background-color: rgba(233, 30, 99, 0.65);
+}
+
+.preloader-wrapper,
+.spinner-layer {
+    border-color: transparent !important;
+    background: url(/img/loader.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.btn-flat {
+    font-weight: 500;
+}
+
+/* Don't allow materialize labels to wrap */
+.input-field label {
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 75%;
+}
+
+.card .card-action a.secondary-content {
+    margin-right: 0 !important;
+}
+
+.card-image {
+    height: 60%;
+}
+
+.modal {
+    text-align: initial;
+}
+
+.project-label {
+    bprder-radius: 1rem;
+    background: limegreen;
+    color: white;
+    padding: 4px 10px;
+    display: inline-block;
+    line-height: normal;
+    font-size: .9rem;
+}

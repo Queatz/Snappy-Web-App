@@ -5,11 +5,11 @@
   },
   "apps": [
     {
-      "root": "",
+      "root": ".",
+      "sourceDir": ".",
       "outDir": "dist",
       "assets": [
         "img",
-        "./systemjs.config.js",
         "./node_modules/core-js/client/shim.min.js",
         "./node_modules/zone.js/dist/zone.js",
         "./node_modules/reflect-metadata/Reflect.js",

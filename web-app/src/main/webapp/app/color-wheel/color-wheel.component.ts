@@ -10,7 +10,7 @@ import util from '../util';
 export class ColorWheelComponent implements OnInit, AfterViewInit {
 
   private context: any;
-  private indicator: number[];
+  indicator: number[];
   private radius = 50;
 
   @Input() color: number[];
