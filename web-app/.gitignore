@@ -4,3 +4,5 @@ src/main/webapp/typings/
 src/main/webapp/app/*.js*
 src/main/webapp/app/*.d.ts
 .idea/
+dist/
+dist*
