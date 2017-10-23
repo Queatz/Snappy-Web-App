@@ -139,6 +139,8 @@ export class ChatService {
 
         if (this.activeTopic) {
             this.activeTopic = this.getTopicByName(this.activeTopic.name);
+        } else {
+            this.activeTopic = this.topics[0];
         }
 
         this.events.emit('zero');
