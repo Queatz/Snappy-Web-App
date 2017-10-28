@@ -37,6 +37,11 @@ export class ThingInComponent implements OnInit {
     }
 
     public isSameKindBounded(thing: any) {
-        return !this.sameKind || thing && thing.target && thing.target.kind === this.thing.kind;
+        // Preconditions
+        if (!thing || !thing.target || thing.target.kind === 'update') {
+            return false;
+        }
+
+        return !this.sameKind || thing.target.kind === this.thing.kind;
     }
 }

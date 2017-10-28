@@ -4,9 +4,18 @@
     display: inline-block;
     width: 1rem;
     height: 1rem;
-    vertical-align: text-top;
+    vertical-align: middle;
 }
 
 .in-thing-wrapper:last-child {
     margin-bottom: .5rem;
+}
+
+.in-thing-name {
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 12rem;
+    display: inline-block;
+    vertical-align: middle;
 }
