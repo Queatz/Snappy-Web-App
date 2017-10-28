@@ -12,6 +12,7 @@
         <div class="blox">
             <span class="title offer-type" [ngClass]="{'purple-text': isRequest()}">{{ getOfferTypeText() }}</span>
             <span class="title grey-text">{{ time() }}</span>
+            <thing-in [thing]="offer"></thing-in>
             <p class="flow-text">
                 {{ offer.about }}
             </p>
