@@ -45,6 +45,10 @@ export default class Util {
         return url ? url.split('=')[0] + '=' + sz : '';
     }
 
+    public static thingName(thing: any) {
+        return thing.name ? thing.name : thing.firstName ? thing.firstName + ' ' + thing.lastName : 'Unknown';
+    }
+
     public static setBodyBackground(url: string) {
         $('body').css({
             'background-image': 'url(\'' + url + '\')'

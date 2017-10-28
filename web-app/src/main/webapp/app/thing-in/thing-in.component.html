@@ -2,6 +2,6 @@
   <div class="in-thing-wrapper" *ngFor="let in of thing.in | filter:isSameKind">
     <span class="grey-text">in</span>
     <div class="in-thing-img" [style.background-image]="'url(' + getPhotoUrlFor(in.target, 16) + ')'"></div>
-    <a [routerLink]="goUrlFor(in.target)">{{ in.target.name }}</a>
+    <a [routerLink]="goUrlFor(in.target)">{{ thingName(in.target) }}</a>
   </div>
 </div>

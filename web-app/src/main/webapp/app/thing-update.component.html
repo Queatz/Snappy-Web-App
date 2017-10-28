@@ -21,6 +21,7 @@
                     <a [routerLink]="'/hubs/' + atWith().at[0].hub.id">{{ atWith().at[0].hub.name }}</a>
                 </span>
             </span>
+            <thing-in [thing]="update"></thing-in>
             <p class="flow-text" [innerHtml]="update.about | parseLinks"></p>
         </div>
     </div>

@@ -20,6 +20,10 @@ export class ThingInComponent implements OnInit {
     ngOnInit() {
     }
 
+    public thingName(thing: any) {
+        return util.thingName(thing);
+    }
+
     public goUrlFor(thing: any) {
         if (!thing) {
             return;
