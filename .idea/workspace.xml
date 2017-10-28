@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.ts" />
     </list>
     <ignored path="Snappy-Web-App.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,41 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="offer-card.component.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.css">
+      <file leaf-file-name="edit-details.modal.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="202">
+              <caret line="117" column="58" selection-start-line="117" selection-start-column="46" selection-end-line="117" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="offer-card.component.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.html">
+      <file leaf-file-name="edit-details.modal.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="thing-in.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-in/thing-in.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="offer-card.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="420">
+              <caret line="111" column="9" selection-start-line="111" selection-start-column="9" selection-end-line="111" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -100,7 +80,6 @@
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/ad-add/ad-add.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/new-offer.modal.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/new-form.modal.ts" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.css" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/app.routes.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/signin-required.modal.html" />
@@ -141,6 +120,7 @@
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/thing-in/thing-in.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/thing-in/thing-in.component.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.html" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.ts" />
       </list>
     </option>
   </component>
@@ -851,13 +831,6 @@
       <option name="presentableId" value="Default" />
       <updated>1450799851331</updated>
     </task>
-    <task id="LOCAL-00050" summary="Persist chat data">
-      <created>1502350182478</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1502350182479</updated>
-    </task>
     <task id="LOCAL-00051" summary="Show ads count">
       <created>1502351176324</created>
       <option name="number" value="00051" />
@@ -1194,7 +1167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1509211962810</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="Show where offers were posted">
+      <created>1509212156831</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1509212156831</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1273,7 +1253,6 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Show clubs on updates and offers" />
     <MESSAGE value="Remove double posting" />
     <MESSAGE value="Use app token service" />
     <MESSAGE value="Only call token service once" />
@@ -1298,7 +1277,8 @@
     <MESSAGE value="Start with first chat topic selected" />
     <MESSAGE value="Adds thing-in" />
     <MESSAGE value="Show where updates were posted" />
-    <option name="LAST_COMMIT_MESSAGE" value="Show where updates were posted" />
+    <MESSAGE value="Show where offers were posted" />
+    <option name="LAST_COMMIT_MESSAGE" value="Show where offers were posted" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1424,13 +1404,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1407">
-          <caret line="238" column="11" selection-start-line="238" selection-start-column="11" selection-end-line="238" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/floating.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1449,14 +1422,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
           <caret line="182" column="23" selection-start-line="182" selection-start-column="23" selection-end-line="182" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="166" column="0" selection-start-line="166" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1646,15 +1611,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.css">
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="315">
+          <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.ts">
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1670,10 +1635,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.html">
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="117" column="58" selection-start-line="117" selection-start-column="46" selection-end-line="117" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="111" column="9" selection-start-line="111" selection-start-column="9" selection-end-line="111" selection-end-column="9" />
           <folding />
         </state>
       </provider>

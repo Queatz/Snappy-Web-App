@@ -96,7 +96,7 @@ export class EditDetailsModal implements OnInit, OnDestroy, AfterViewInit {
     }
 
     canEditClubs() {
-        return this.thing.kind !== 'club';
+        return true;
     }
 
     save() {
