@@ -13,13 +13,7 @@
     </div>
     <div class="card-content position-relative">
         <club-tag [clubs]="thing.clubs" [isPublic]="!thing.hidden" class="small"></club-tag>
-        <div *ngIf="thing && thing.in && thing.in.length">
-            <div class="in-thing-wrapper" *ngFor="let in of thing.in | filter:isSameKind" [routerLink]="goUrl()">
-                <span class="grey-text">in</span>
-                <div class="in-thing-img" [style.background-image]="'url(' + getPhotoUrlFor(in.target, 16) + ')'"></div>
-                <a [routerLink]="goUrlFor(in.target)">{{ in.target.name }}</a>
-            </div>
-        </div>
+        <thing-in [thing]="thing" [sameKind]="true"></thing-in>
         <p *ngIf="presence()" class="grey-text sec">{{ presence() }}</p>
         <p>{{ thing.about }}</p>
         <i *ngIf="!thing.about" class="grey-text">No description provided.</i>

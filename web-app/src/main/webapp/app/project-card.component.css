@@ -79,16 +79,3 @@ a {
 .sec {
     padding-bottom: 1rem;
 }
-
-.in-thing-img {
-    border-radius: 100%;
-    background-size: 100%;
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    vertical-align: text-top;
-}
-
-.in-thing-wrapper:last-child {
-    margin-bottom: .5rem;
-}

@@ -78,6 +78,7 @@ import { VisibilityPickerComponent } from './visibility-picker/visibility-picker
 import { AddActionModal } from './add-action.modal/add-action.modal.component';
 import { ActionViewComponent } from './action-view/action-view.component';
 import { ColorWheelComponent } from './color-wheel/color-wheel.component';
+import { ThingInComponent } from './thing-in/thing-in.component';
 
 enableProdMode();
 
@@ -164,6 +165,7 @@ export class MyOptions extends BaseRequestOptions {
         AddActionModal,
         ActionViewComponent,
         ColorWheelComponent,
+        ThingInComponent,
     ],
     entryComponents: [
         FeedbackModal,

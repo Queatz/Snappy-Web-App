@@ -107,6 +107,23 @@ export class ApiService {
         return this._apiBaseUrl + 'earth/' + id + '/photo?s=' + sz + '&auth=' + this.token();
     }
 
+    public getPhotoUrlFor(thing: any, sz: number) {
+        if (!thing) {
+            return 'img/night.png';
+        }
+
+        switch (thing.kind) {
+            case 'person':
+                return thing.imageUrl.split('=')[0] + '=' + sz;
+            default:
+                if (thing.photo) {
+                    return this.earthPhotoUrlForSize(thing.id, sz);
+                } else {
+                    return 'img/night.png';
+                }
+        }
+    }
+
     // XXX currently returns a promise, so must use .then()
     public earthPutPhoto(id: string, photoFile: File) {
         var formData = new FormData();

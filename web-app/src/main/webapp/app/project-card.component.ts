@@ -18,16 +18,12 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() public deleteCallback;
     @Input() public thing;
 
-    public isSameKind: any;
-
     constructor(
         private api: ApiService,
         private router: Router,
         private inforService: InforService,
         private elementRef: ElementRef
-    ) {
-        this.isSameKind = this.isSameKindBounded.bind(this);
-    }
+    ) { }
 
     ngOnInit() {
         if (this.thing.kind === 'member') {
@@ -81,10 +77,6 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
         $(this.elementRef.nativeElement.querySelector('#editRoleModal')).modal('open');
     }
 
-    public isSameKindBounded(thing: any) {
-        return thing && thing.target && thing.target.kind === this.thing.kind;
-    }
-
     public numberOfSameKindMembers() {
         if (!this.thing || !this.thing.members) {
             return;
@@ -97,24 +89,7 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     public getPhotoUrl() {
-        return this.getPhotoUrlFor(this.thing, 480);
-    }
-
-    public getPhotoUrlFor(thing: any, sz: number) {
-        if (!thing) {
-            return 'img/night.png';
-        }
-
-        switch (thing.kind) {
-            case 'person':
-                return thing.imageUrl.split('=')[0] + '=' + sz;
-            default:
-                if (thing.photo) {
-                    return this.api.earthPhotoUrlForSize(thing.id, sz);
-                } else {
-                    return 'img/night.png';
-                }
-        }
+        return this.api.getPhotoUrlFor(this.thing, 480);
     }
 
     public go() {
@@ -131,14 +106,6 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
         return util.thingUrl(this.thing);
-    }
-
-    public goUrlFor(thing: any) {
-        if (!thing) {
-            return;
-        }
-
-        return util.thingUrl(thing);
     }
 
     public goText() {
