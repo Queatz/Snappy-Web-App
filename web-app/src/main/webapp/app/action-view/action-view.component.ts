@@ -87,11 +87,11 @@ export class ActionViewComponent implements OnInit, AfterViewInit {
     }
 
     getColor(color: any) {
-        return JSON.stringify(color); // TODO obey config'd format
+        return JSON.stringify(color);
     }
 
     makeColor(color: any) {
-        return color ? JSON.parse(color) : [0, 0, 0]; // TODO obey config'd format
+        return color ? JSON.parse(color) : [0, 0, 0];
     }
 
     canEdit() {

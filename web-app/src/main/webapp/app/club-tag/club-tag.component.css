@@ -39,6 +39,10 @@ a {
 
 .club-link {
     display: block;
+    text-overflow: ellipsis;
+    max-width: 8rem;
+    overflow-x: hidden;
+    white-space: nowrap;
 }
 
 :host.small a {

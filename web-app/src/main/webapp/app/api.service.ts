@@ -100,11 +100,7 @@ export class ApiService {
     }
 
     public earthPhotoUrl(id: string): string {
-        return this.earthPhotoUrlForSize(id, 1200);
-    }
-
-    public earthPhotoUrlForSize(id: string, sz: number): string {
-        return this._apiBaseUrl + 'earth/' + id + '/photo?s=' + sz + '&auth=' + this.token();
+        return this.earthImageUrl(id, 1200);
     }
 
     public getPhotoUrlFor(thing: any, sz: number) {
@@ -117,7 +113,7 @@ export class ApiService {
                 return thing.imageUrl.split('=')[0] + '=' + sz;
             default:
                 if (thing.photo) {
-                    return this.earthPhotoUrlForSize(thing.id, sz);
+                    return this.earthImageUrl(thing.id, sz);
                 } else {
                     return 'img/night.png';
                 }

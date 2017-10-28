@@ -31,6 +31,11 @@
                     <a *ngIf="isMyProfile()" class="modal-trigger tooltipped" href="#edit-about" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit your about description'"><i class="material-icons small">edit</i></a>
                 </h3>
                 <div class="grey-text">{{ presence() }}</div>
+                <div *ngIf="thing.modes && thing.modes.length">
+                    <h6 class="metadata grey-text">MODES</h6>
+                    <mode-view *ngFor="let mode of thing.modes" [mode]="mode.source"></mode-view>
+                </div>
+                <h6 class="metadata grey-text">ABOUT</h6>
                 <div class="about flow-text" [innerHtml]="thing.about | parseLinks"></div>
                 <br />
                 <div>

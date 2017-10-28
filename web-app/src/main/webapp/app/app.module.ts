@@ -79,6 +79,7 @@ import { AddActionModal } from './add-action.modal/add-action.modal.component';
 import { ActionViewComponent } from './action-view/action-view.component';
 import { ColorWheelComponent } from './color-wheel/color-wheel.component';
 import { ThingInComponent } from './thing-in/thing-in.component';
+import { ModeViewComponent } from './mode-view/mode-view.component';
 
 enableProdMode();
 
@@ -166,6 +167,7 @@ export class MyOptions extends BaseRequestOptions {
         ActionViewComponent,
         ColorWheelComponent,
         ThingInComponent,
+        ModeViewComponent,
     ],
     entryComponents: [
         FeedbackModal,

@@ -60,7 +60,7 @@
 .about {
     white-space: pre-wrap;
     display: block;
-    padding-top: 1rem;
+    padding-right: 1rem;
 }
 
 .followers {
@@ -92,4 +92,10 @@ a {
 
 .hover-edit:hover+i.material-icons {
     display: inline;
+}
+
+.metadata {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
 }

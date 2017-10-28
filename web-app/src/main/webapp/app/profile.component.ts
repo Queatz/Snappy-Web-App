@@ -98,6 +98,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
                 this.thing.contacts = _.filter(this.thing.members, m => m.source && m.source.kind === 'contact');
                 this.thing.updates = _.filter(this.thing.members, m => m.source && m.source.kind === 'update');
                 this.thing.forms = _.filter(this.thing.members, m => m.source && m.source.kind === 'form');
+                this.thing.modes = _.filter(this.thing.members, m => m.source && m.source.kind === 'mode');
 
                 this.thing.updates = _.sortBy(this.thing.updates, m => -moment(m.source && m.source.date));
                 this.thing.offers = _.sortBy(this.thing.offers, 'price');
