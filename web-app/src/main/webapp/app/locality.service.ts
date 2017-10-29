@@ -2,6 +2,7 @@ declare var google;
 declare var _;
 
 import { Injectable } from '@angular/core';
+import { InforService } from './infor.service';
 
 @Injectable()
 export class LocalityService {
@@ -9,7 +10,7 @@ export class LocalityService {
     private callbacks = [];
     private position: any;
 
-    constructor() { }
+    constructor(private inforService: InforService) { }
 
     public get(callback: any) {
         this.callbacks.push(callback);
@@ -25,7 +26,7 @@ export class LocalityService {
             callback(lastKnownLocality);
         }
 
-        navigator.geolocation.getCurrentPosition(this.onLocationFound.bind(this));
+        this.inforService.getLocation(this.onLocationFound.bind(this));
     }
 
     private onLocationFound(position: any) {

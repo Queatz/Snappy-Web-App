@@ -16,6 +16,7 @@ export class InforService {
     private overrideLocation: any;
     private errorShown: boolean = false;
     private locateModal: ComponentRef<SetLocationModalComponent>;
+    private locationCallbacks: Set<any> = new Set();
 
     constructor(private ui: UiService) {}
 
@@ -53,11 +54,21 @@ export class InforService {
             return;
         }
 
-        navigator.geolocation.getCurrentPosition(callback, err !== null ? err : this.noLocation.bind(this));
+        this.locationCallbacks.add(callback);
+
+        navigator.geolocation.getCurrentPosition(location => this.locationFound(callback, location), err !== null ? err : this.noLocation.bind(this));
+    }
+
+    private locationFound(callback: any, location: any) {
+        this.locationCallbacks.delete(callback);
+        callback(location);
     }
 
     setLocation(location: any) {
         this.overrideLocation = location;
+
+        this.locationCallbacks.forEach(c => c(this.overrideLocation));
+        this.locationCallbacks.clear();
     }
 
     clearLocation() {

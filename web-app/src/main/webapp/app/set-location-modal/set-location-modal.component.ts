@@ -1,5 +1,6 @@
 declare var $: any;
 declare var Waves: any;
+declare var Materialize: any;
 declare var google: any;
 
 import { Component, AfterViewInit, ElementRef, ViewContainerRef, ComponentRef, EventEmitter } from '@angular/core';
@@ -38,6 +39,15 @@ export class SetLocationModalComponent implements AfterViewInit {
 
     confirm() {
         if (this.place) {
+            let toast = $('<span>')
+                .text('Location set to ' + this.place.name)
+                .add($('<button class="btn-flat toast-action">Undo</button>').click(() => {
+                    toast.parent()[0].M_Toast.remove();
+                    this.onLocationSelected.emit(null);
+                }));
+
+            Materialize.toast(toast, 4000);
+
             this.onLocationSelected.emit({
                 coords: {
                     latitude: this.place.geometry.location.lat(),

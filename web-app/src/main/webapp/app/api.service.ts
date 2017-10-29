@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class ApiService {
     private _token = '';
-    private beta = true;
+    private beta = false;
     private _apiDomain = this.beta ? '127.0.0.1:8080' : 'vlllage.com:8443';
     private _apiBase = this.beta ? 'http://' + this._apiDomain : 'https://' + this._apiDomain;
     private _apiBaseUrl = this._apiBase + '/api/';

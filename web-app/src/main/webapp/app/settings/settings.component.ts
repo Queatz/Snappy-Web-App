@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InforService } from '../infor.service';
+import { LocalityService } from '../locality.service';
 
 @Component({
   selector: 'settings',
@@ -9,13 +10,21 @@ import { InforService } from '../infor.service';
 })
 export class SettingsComponent implements OnInit {
 
-    constructor(private inforService: InforService, private router: Router) { }
+    currentLocation: string;
+
+    constructor(private inforService: InforService, private locality: LocalityService, private router: Router) { }
 
     ngOnInit() {
+        this.locality.get(locality => this.currentLocation = locality);
     }
 
     signOut() {
         this.inforService.signOut();
         this.router.navigate(['/']);
+    }
+
+    changeLocation() {
+        this.inforService.clearLocation();
+        this.inforService.getLocation(() => this.ngOnInit());
     }
 }

@@ -1,7 +1,15 @@
 <div class="settings-page container">
-  <div class="row s12">
-    <div class="col s12 card">
+  <div class="row card">
+    <div class="col s12">
       <div class="card-content">
+        <h4 class="grey-text">{{ currentLocation }}</h4>
+        <button (click)="changeLocation()" class="btn waves-effect waves-light"><b>Change your location</b></button>
+      </div>
+    </div>
+
+    <div class="col s12">
+      <div class="card-content">
+        <h4 class="grey-text">Account</h4>
         <div (click)="signOut()" class="btn waves-effect waves-light"><b>Sign out</b></div>
       </div>
     </div>
