@@ -10,6 +10,7 @@ import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import { TutorialService } from './tutorial.service';
 import { LocalityService } from './locality.service';
+import { UiService } from './ui.service';
 import { ChatService } from './chat.service';
 import { AppRoutingModule } from './app.routes';
 
@@ -80,6 +81,7 @@ import { ActionViewComponent } from './action-view/action-view.component';
 import { ColorWheelComponent } from './color-wheel/color-wheel.component';
 import { ThingInComponent } from './thing-in/thing-in.component';
 import { ModeViewComponent } from './mode-view/mode-view.component';
+import { SetLocationModalComponent } from './set-location-modal/set-location-modal.component';
 
 enableProdMode();
 
@@ -168,6 +170,7 @@ export class MyOptions extends BaseRequestOptions {
         ColorWheelComponent,
         ThingInComponent,
         ModeViewComponent,
+        SetLocationModalComponent,
     ],
     entryComponents: [
         FeedbackModal,
@@ -187,6 +190,7 @@ export class MyOptions extends BaseRequestOptions {
         InviteModal,
         NewClubModalComponent,
         AddActionModal,
+        SetLocationModalComponent,
     ],
     providers: [
         InforService,
@@ -195,6 +199,7 @@ export class MyOptions extends BaseRequestOptions {
         WebTitleService,
         LocalityService,
         ChatService,
+        UiService,
         {
             provide: RequestOptions,
             useClass: MyOptions

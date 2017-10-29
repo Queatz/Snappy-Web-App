@@ -1,6 +1,10 @@
 declare var gapi;
+declare var $;
 
-import { Injectable } from '@angular/core';
+import { Injectable, ComponentRef } from '@angular/core';
+import { InviteModal } from './invite.modal';
+import { UiService } from './ui.service';
+import { SetLocationModalComponent } from './set-location-modal/set-location-modal.component';
 
 @Injectable()
 export class InforService {
@@ -9,7 +13,11 @@ export class InforService {
 
     private inforUser;
     private localData;
+    private overrideLocation: any;
     private errorShown: boolean = false;
+    private locateModal: ComponentRef<SetLocationModalComponent>;
+
+    constructor(private ui: UiService) {}
 
     getInforUser() {
         if (this.inforUser === undefined) {
@@ -39,15 +47,35 @@ export class InforService {
         return null;
     }
 
-    getLocation(callback: any) {
-        navigator.geolocation.getCurrentPosition(callback, this.noLocation.bind(this));
+    getLocation(callback: any, err: any = null) {
+        if (this.overrideLocation) {
+            callback(this.overrideLocation);
+            return;
+        }
+
+        navigator.geolocation.getCurrentPosition(callback, err !== null ? err : this.noLocation.bind(this));
+    }
+
+    setLocation(location: any) {
+        this.overrideLocation = location;
+    }
+
+    clearLocation() {
+        this.overrideLocation = null;
     }
 
     noLocation(err: PositionError) {
-        if (err.code === 1 && !this.errorShown) { // PositionError.PERMISSION_DENIED
-            this.errorShown = true;
-            alert('Village was unable to access your current location.  Some things may not work properly.');
+        if (this.locateModal && !this.locateModal.hostView.destroyed) {
+            return;
         }
+
+        this.locateModal = this.ui.show(SetLocationModalComponent);
+        (this.locateModal.instance as SetLocationModalComponent).componentRef = this.locateModal;
+        (this.locateModal.instance as SetLocationModalComponent).onLocationSelected.subscribe(
+            location => this.setLocation(location)
+        );
+
+        setTimeout(() => $(this.locateModal.location.nativeElement.querySelector('.modal')).modal('open'));
     }
 
     addClub(club: any) {

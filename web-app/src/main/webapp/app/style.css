@@ -99,3 +99,7 @@ html body h3 {
     line-height: normal;
     font-size: .9rem;
 }
+
+.pac-container {
+    z-index: 10001;
+}

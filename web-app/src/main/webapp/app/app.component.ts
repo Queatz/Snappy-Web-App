@@ -1,11 +1,12 @@
 declare var $;
 declare var _;
 
-import { Component, ElementRef, AfterViewInit, OnInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, ViewContainerRef, AfterViewInit, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { InforService } from './infor.service';
 import { TutorialService } from './tutorial.service';
+import { UiService } from './ui.service';
 
 @Component({
 	selector: 'app',
@@ -15,11 +16,14 @@ import { TutorialService } from './tutorial.service';
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 	constructor(private inforService: InforService,
             element: ElementRef,
+            public view: ViewContainerRef,
             private router: Router,
             private route: ActivatedRoute,
             public tutorial: TutorialService,
-            private title: Title) {
+            private title: Title,
+            private ui: UiService) {
     	this.element = element.nativeElement;
+    	this.ui.registerAppComponent(this);
     }
 
     public isSolo = false;
