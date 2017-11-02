@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment="">
+    <list default="true" id="32598d2a-f9bc-4210-9a75-ce504ce4d77d" name="Default" comment="Show modes in horizontal list">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/api.service.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/api.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/infor.service.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/infor.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/locality.service.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/locality.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/set-location-modal/set-location-modal.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/set-location-modal/set-location-modal.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/set-location-modal/set-location-modal.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/set-location-modal/set-location-modal.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/settings/settings.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/settings/settings.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/settings/settings.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/settings/settings.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/people.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/people.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/searchbox/searchbox.component.html" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/searchbox/searchbox.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/searchbox/searchbox.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/searchbox/searchbox.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/src/main/webapp/app/thing-in/thing-in.component.ts" afterPath="$PROJECT_DIR$/web-app/src/main/webapp/app/thing-in/thing-in.component.ts" />
     </list>
     <ignored path="Snappy-Web-App.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,31 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/settings/settings.component.html">
+      <file leaf-file-name="project.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/settings/settings.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="locality.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/locality.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+            <state relative-caret-position="298">
+              <caret line="45" column="23" lean-forward="false" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -72,13 +51,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>padding-</find>
-      <find>fin</find>
-      <find>findin</find>
-      <find>finding</find>
-      <find>UiSer</find>
-      <find>InviteModal</find>
-      <find>.modal</find>
       <find>modal-content</find>
       <find>C</find>
       <find>Comp</find>
@@ -97,11 +69,18 @@
       <find>private S</find>
       <find>private Set</find>
       <find>Set</find>
-      <find>Set</find>
       <find>Set&lt;</find>
       <find>locationfound</find>
       <find>listeners</find>
       <find>earthsea</find>
+      <find>thing-in</find>
+      <find>send</find>
+      <find>sendmes</find>
+      <find>formdata</find>
+      <find>encodeURIComponent</find>
+      <find>Subject</find>
+      <find>pagetitl</find>
+      <find>start</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -120,10 +99,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/form/form.component.ts" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.ts" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/club-tag/club-tag.component.html" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/intro-card/intro-card.component.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.css" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.html" />
@@ -151,9 +126,6 @@
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/action-view/action-view.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/mode-view/mode-view.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/mode-view/mode-view.component.html" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.html" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.css" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/thing-in/thing-in.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/thing-in/thing-in.component.css" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/thing-in/thing-in.component.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/mode-view/mode-view.component.css" />
@@ -165,12 +137,19 @@
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/index.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/style.css" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/set-location-modal/set-location-modal.component.html" />
-        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/api.service.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/infor.service.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/set-location-modal/set-location-modal.component.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/locality.service.ts" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/settings/settings.component.html" />
         <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/settings/settings.component.ts" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.html" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.css" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/thing-in/thing-in.component.ts" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/searchbox/searchbox.component.html" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/searchbox/searchbox.component.ts" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/people.component.ts" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.html" />
+        <option value="$PROJECT_DIR$/web-app/src/main/webapp/app/api.service.ts" />
       </list>
     </option>
   </component>
@@ -181,9 +160,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="67" />
-    <option name="y" value="27" />
+    <option name="y" value="-2" />
     <option name="width" value="1853" />
-    <option name="height" value="1053" />
+    <option name="height" value="1082" />
   </component>
   <component name="ProjectLevelVcsManager">
     <OptionsSetting value="false" id="Update" />
@@ -205,8 +184,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -525,7 +504,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -534,7 +513,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Inception Todo" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="infors&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/infor.service.ts&#10;sett&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/settings/settings.component.ts&#10;setting&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/settings/settings.component.html&#10;loca&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/locality.service.ts&#10;api&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/api.service.ts&#10;location&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/set-location-modal/set-location-modal.component.html&#10;apise&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/api.service.ts&#10;searchbo&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/searchbox/searchbox.component.html&#10;sear&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/search.component.html&#10;uiser&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/ui.service.ts&#10;app&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.module.ts&#10;invi&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/invite.modal.ts&#10;locality&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/locality.service.ts&#10;newres&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/new-resource.modal.html&#10;inforser&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/infor.service.ts&#10;res&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/resources.component.ts&#10;thingup&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/thing-updates.component.html&#10;mode&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/mode-view/mode-view.component.css&#10;profi&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.css&#10;profile&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.html&#10;person&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/person-link.component.ts&#10;personl&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/person-link.component.css&#10;projectcss&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project.component.css&#10;pro&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project.component.html&#10;club&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/club-tag/club-tag.component.css&#10;app.com&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.component.html&#10;editde&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.ts&#10;thingin&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/thing-in/thing-in.component.html&#10;uti&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/util.ts&#10;chatser&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat.service.ts&#10;pi&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/api.service.ts&#10;adac&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.css&#10;addac&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.ts&#10;adda&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.html&#10;module&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.module.ts&#10;floa&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/floating.component.html&#10;float&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/floating.component.html&#10;actionv&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/action-view/action-view.component.css&#10;action&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.css&#10;util&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/util.ts&#10;formmodal&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/new-form.modal.ts&#10;form&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/form/form.component.html&#10;visibility&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/visibility-picker/visibility-picker.component.html&#10;mod&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.module.ts&#10;modalts&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.ts&#10;project&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project.component.html&#10;introca&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/intro-card/intro-card.component.html&#10;local&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/locality-card/locality-card.component.html&#10;index&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/index.html&#10;thingupda&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/thing-update.component.ts" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project.component.ts&#10;pro&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.html&#10;api&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/api.service.ts&#10;people&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/people.component.html&#10;mod&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.module.ts&#10;messages&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/messages.component.ts&#10;searchbo&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/searchbox/searchbox.component.html&#10;prof&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.css&#10;profile&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.html&#10;infors&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/infor.service.ts&#10;sett&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/settings/settings.component.ts&#10;setting&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/settings/settings.component.html&#10;loca&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/locality.service.ts&#10;location&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/set-location-modal/set-location-modal.component.html&#10;apise&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/api.service.ts&#10;sear&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/search.component.html&#10;uiser&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/ui.service.ts&#10;app&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.module.ts&#10;invi&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/invite.modal.ts&#10;locality&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/locality.service.ts&#10;newres&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/new-resource.modal.html&#10;inforser&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/infor.service.ts&#10;res&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/resources.component.ts&#10;thingup&#9;FILE&#9;file:///media/jacob/e64dd512-2202-4120-9347-75c7ac632711/home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/thing-updates.component.html&#10;mode&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/mode-view/mode-view.component.css&#10;profi&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/profile.component.css&#10;person&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/person-link.component.ts&#10;personl&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/person-link.component.css&#10;projectcss&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project.component.css&#10;club&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/club-tag/club-tag.component.css&#10;app.com&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.component.html&#10;editde&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.ts&#10;thingin&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/thing-in/thing-in.component.html&#10;uti&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/util.ts&#10;chatser&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/chat.service.ts&#10;pi&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/api.service.ts&#10;adac&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.css&#10;addac&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.ts&#10;adda&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.html&#10;module&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/app.module.ts&#10;floa&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/floating.component.html&#10;float&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/floating.component.html&#10;actionv&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/action-view/action-view.component.css&#10;action&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/add-action.modal/add-action.modal.component.css&#10;util&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/util.ts&#10;formmodal&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/new-form.modal.ts&#10;form&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/form/form.component.html&#10;visibility&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/visibility-picker/visibility-picker.component.html&#10;modalts&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/edit-details.modal.ts&#10;project&#9;FILE&#9;file:///home/jacob/Jacob/Snappy-Web-App/web-app/src/main/webapp/app/project.component.html" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -646,7 +625,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1509310164454" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1509580932072" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -694,7 +673,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1509310164454" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1509580932072" />
       </method>
     </configuration>
     <configuration default="true" type="AppEngineRunConfiguration" factoryName="App Engine DevAppServer">
@@ -948,20 +927,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1450799851331</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Avatars on images">
-      <created>1502662794226</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1502662794226</updated>
-    </task>
-    <task id="LOCAL-00056" summary="* Forms&#10;* Go back to single word tabs (now that there's 6 of them)">
-      <created>1502922727959</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1502922727961</updated>
     </task>
     <task id="LOCAL-00057" summary="Link directly to chat topic">
       <created>1503179665306</created>
@@ -1292,11 +1257,25 @@
       <option name="project" value="LOCAL" />
       <updated>1509304912643</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="Allow resetting and changing overridden location">
+      <created>1509310186150</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1509310186150</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Show modes in horizontal list">
+      <created>1509316963490</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1509316963490</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="27" width="1853" height="1053" extended-state="0" />
+    <frame x="67" y="-2" width="1853" height="1082" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1306,11 +1285,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50109893" sideWeight="0.5205696" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15824915" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19365798" sideWeight="0.4939378" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23299888" sideWeight="0.47943038" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22570194" sideWeight="0.47943038" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21202186" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22417583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1330,6 +1308,7 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22417583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21474358" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1370,8 +1349,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Show at/with" />
-    <MESSAGE value="Add comma" />
     <MESSAGE value="Show which projects a project is in" />
     <MESSAGE value="Show number of sub-projects" />
     <MESSAGE value="Change my url" />
@@ -1395,105 +1372,15 @@
     <MESSAGE value="Show modes on profiles" />
     <MESSAGE value="Limit length of thing in names" />
     <MESSAGE value="Adds fallback location chooser when the browser is unable to determine the user's location" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds fallback location chooser when the browser is unable to determine the user's location" />
+    <MESSAGE value="Allow resetting and changing overridden location" />
+    <MESSAGE value="Show modes in horizontal list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Show modes in horizontal list" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offer-card.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="117" column="58" lean-forward="false" selection-start-line="117" selection-start-column="46" selection-end-line="117" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/edit-details.modal.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="265" column="0" lean-forward="false" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="43" column="32" lean-forward="false" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/offers.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/tutorial.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/club-tag/club-tag.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="1" lean-forward="false" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="38" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="46" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="747">
-          <caret line="147" column="0" lean-forward="false" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/action-view/action-view.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="1" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/action-view/action-view.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="10" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="39" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/action-view/action-view.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-535">
@@ -1536,34 +1423,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="39" column="22" lean-forward="false" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-in/thing-in.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="22" lean-forward="false" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-in/thing-in.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-in/thing-in.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1589,7 +1448,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1597,7 +1455,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="24" column="6" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1605,7 +1462,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="26" column="6" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1613,7 +1469,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1621,7 +1476,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1629,7 +1483,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
           <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1637,7 +1490,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="48" lean-forward="false" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1645,7 +1497,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1653,7 +1504,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="20" column="6" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1661,23 +1511,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="17" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/searchbox/searchbox.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="32" lean-forward="false" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/search.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1685,7 +1518,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="33" column="61" lean-forward="true" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1693,7 +1525,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="574">
           <caret line="103" column="19" lean-forward="false" selection-start-line="103" selection-start-column="19" selection-end-line="103" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1701,7 +1532,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1709,15 +1539,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="192" column="34" lean-forward="false" selection-start-line="192" selection-start-column="34" selection-end-line="192" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1725,7 +1546,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
           <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1733,7 +1553,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="10" lean-forward="false" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1741,15 +1560,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="232" column="43" lean-forward="true" selection-start-line="232" selection-start-column="8" selection-end-line="232" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/api.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1757,15 +1567,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1260">
           <caret line="70" column="39" lean-forward="false" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/locality.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1773,14 +1574,182 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="37" lean-forward="false" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="112" column="1" lean-forward="true" selection-start-line="112" selection-start-column="1" selection-end-line="112" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/settings/settings.component.ts">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-update.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/locality.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-in/thing-in.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-in/thing-in.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/searchbox/searchbox.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="85" lean-forward="false" selection-start-line="5" selection-start-column="85" selection-end-line="5" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/searchbox/searchbox.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <caret line="31" column="76" lean-forward="false" selection-start-line="31" selection-start-column="76" selection-end-line="31" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/messages.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="34" column="16" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2106">
+          <caret line="192" column="34" lean-forward="false" selection-start-line="192" selection-start-column="34" selection-end-line="192" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/search.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/search.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/people.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="23" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/people.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/main.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/api.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="165" column="28" lean-forward="true" selection-start-line="165" selection-start-column="28" selection-end-line="165" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-tabs.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-tabs.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/profile.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="34" column="38" lean-forward="false" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/thing-tabs.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-app/src/main/webapp/app/project.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="45" column="23" lean-forward="false" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
           <folding />
         </state>
       </provider>

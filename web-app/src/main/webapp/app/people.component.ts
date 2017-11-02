@@ -7,6 +7,7 @@ import { WebTitleProvider } from './extra';
 import { Observable } from 'rxjs';
 
 @Component({
+    selector: 'people-list',
     templateUrl: './people.component.html',
     styleUrls: ['./people.component.css'],
 })

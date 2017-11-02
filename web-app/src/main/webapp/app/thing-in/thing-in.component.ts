@@ -42,6 +42,10 @@ export class ThingInComponent implements OnInit {
             return false;
         }
 
+        if (this.thing.source && this.thing.source.id === thing.target.id) {
+            return false;
+        }
+
         return !this.sameKind || thing.target.kind === this.thing.kind;
     }
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+declare var $: any;
+
+import { Component, OnInit, AfterViewInit, Output, EventEmitter, ElementRef } from '@angular/core';
 import { ApiService } from '../api.service';
 import { InforService } from '../infor.service';
 
@@ -7,7 +9,7 @@ import { InforService } from '../infor.service';
   templateUrl: './searchbox.component.html',
   styleUrls: ['./searchbox.component.css']
 })
-export class SearchboxComponent implements OnInit {
+export class SearchboxComponent implements OnInit, AfterViewInit {
 
     @Output() onSearchResults = new EventEmitter<any>();
     @Output() onSearchResultClicked = new EventEmitter<any>();
@@ -18,12 +20,16 @@ export class SearchboxComponent implements OnInit {
     public text: string;
     public searching;
 
-    constructor(private api: ApiService, private inforService: InforService) {
+    constructor(private api: ApiService, private inforService: InforService, private elementRef: ElementRef) {
         this.results = [];
         this.search();
     }
 
     ngOnInit() {
+    }
+
+    ngAfterViewInit() {
+        $(this.elementRef.nativeElement.querySelector('#searchbox')).focus();
     }
 
     search() {

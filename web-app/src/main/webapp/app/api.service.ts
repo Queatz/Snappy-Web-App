@@ -1,7 +1,7 @@
 declare var Promise;
 
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { InforService } from './infor.service';
 import { Observable } from 'rxjs';
 
@@ -370,10 +370,10 @@ export class ApiService {
 
     private formHeaders() {
         var headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 
-        return {
+        return new RequestOptions({
             headers: headers
-        };
+        });
     }
 }
