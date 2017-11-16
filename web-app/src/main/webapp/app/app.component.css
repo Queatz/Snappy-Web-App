@@ -1,5 +1,5 @@
 .skylike {
-    background: linear-gradient(rgba(255,255,255,0.125), transparent, rgba(0,0,0,.125));
+    background: linear-gradient(to bottom, rgba(255,255,255,0.125), transparent, rgba(0,0,0,.125));
     background-blend-mode: color-burn;
     position: absolute;
     top: 0;

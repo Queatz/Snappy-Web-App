@@ -67,8 +67,7 @@ a {
     position: absolute;
     pointer-events: none;
     bottom: 0;
-    background: linear-gradient(0deg, black, transparent);
-    background: -moz-linear-gradient(0deg, black, transparent);
+    background: linear-gradient(to top, black, transparent);
 }
 
 .thing-role {
