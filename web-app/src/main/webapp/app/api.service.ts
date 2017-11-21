@@ -190,7 +190,7 @@ export class ApiService {
     }
 
     public earthSearch(coords, q: string, kind: string) {
-        return this._http.get(this._apiBaseUrl + 'earth/search' + (kind ? '/' + kind : '')
+        return this._http.get(this._apiBaseUrl + 'earth/search' + (kind ? '/' + encodeURIComponent(kind) : '')
                                 + '?latitude=' + coords.latitude
                                 + '&longitude=' + coords.longitude
                                 + '&q=' + encodeURIComponent(q)
