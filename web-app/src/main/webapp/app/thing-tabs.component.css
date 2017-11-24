@@ -1,3 +1,7 @@
+.spacing-above {
+    margin-top: 1rem;
+}
+
 .start-hidden {
     display: none;
 }
