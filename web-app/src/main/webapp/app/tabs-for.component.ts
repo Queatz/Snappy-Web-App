@@ -38,7 +38,5 @@ export class TabsForComponent implements AfterViewInit, OnDestroy {
     }
 
     selectTab(tab: string) {
-        // Masonry
-        window.dispatchEvent(new Event('resize'));
     }
 }

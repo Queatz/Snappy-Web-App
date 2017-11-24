@@ -15,7 +15,6 @@ export class ProjectsComponent implements AfterViewInit, WebTitleProvider {
     public projects;
     public newProjectModal;
     private element;
-    private masonry;
 
     constructor(private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;
@@ -37,10 +36,6 @@ export class ProjectsComponent implements AfterViewInit, WebTitleProvider {
 
     private loaded(projects) {
         this.projects = projects;
-
-        setTimeout(() => {
-            this.masonry = util.masonry(this.element.querySelector('.grid'));
-        });
     }
 
     ngAfterViewInit() {

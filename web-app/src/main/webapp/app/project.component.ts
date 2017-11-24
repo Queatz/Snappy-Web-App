@@ -105,8 +105,6 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
 
     selectTab(tab: string) {
         this.selectedTab = tab;
-        // Masonry
-        window.dispatchEvent(new Event('resize'));
     }
 
     public isSignedIn() {
@@ -213,5 +211,9 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     public getWebTitle() {
         this.pageTitle = new Subject<string>();
         return this.pageTitle;
+    }
+
+    public presence() {
+        return util.presence(this.thing);
     }
 }

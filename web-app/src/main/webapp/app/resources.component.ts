@@ -14,7 +14,6 @@ import { Observable } from 'rxjs';
 export class ResourcesComponent implements AfterViewInit, WebTitleProvider {
     public resources;
 
-    private masonry;
     private element;
     public newResourceModal;
 
@@ -39,10 +38,6 @@ export class ResourcesComponent implements AfterViewInit, WebTitleProvider {
 
     private loaded(resources) {
         this.resources = resources;
-
-        setTimeout(() => {
-            this.masonry = util.masonry(this.element.querySelector('.grid'));
-        });
     }
 
     ngAfterViewInit() {

@@ -1,7 +1,6 @@
 declare var require: any;
 declare var moment: any;
 declare var $: any;
-var Masonry = require('masonry-layout');
 
 export default class Util {
 
@@ -12,15 +11,6 @@ export default class Util {
             default:
                 return ['/' + thing.kind + 's/' + thing.id];
         }
-    }
-
-    public static masonry(element: any) {
-        return new Masonry(element, {
-            itemSelector: '.item',
-            gutter: 24,
-            fitWidth: true,
-            transitionDuration: 0
-        });
     }
 
     public static typeClassOf(kind: string) {

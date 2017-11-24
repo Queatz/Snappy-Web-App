@@ -182,7 +182,7 @@ export class ApiService {
     }
 
     public earthHere(coords, kind: string) {
-        return this._http.get(this._apiBaseUrl + 'earth/here/' + kind
+        return this._http.get(this._apiBaseUrl + 'earth/here/' + encodeURIComponent(kind)
                                 + '?latitude=' + coords.latitude
                                 + '&longitude=' + coords.longitude
                                 + '&auth='+ this.token())

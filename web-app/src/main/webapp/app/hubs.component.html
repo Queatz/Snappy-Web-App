@@ -18,8 +18,8 @@
     </div>
     <div *ngIf="hubs && !hubs.length" class="waiting">Nowhere to go around here.</div>
 
-    <div class="grid center-align">
-        <div class="item" *ngFor="let hub of hubs">
+    <div class="thing-cards">
+        <div class="thing-card" *ngFor="let hub of hubs">
             <project-card class="left-align" [typeClass]="'blue'" [thing]="hub"></project-card>
         </div>
     </div>

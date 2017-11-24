@@ -13,7 +13,6 @@ import { NewClubModalComponent } from './new-club-modal/new-club-modal.component
 export class ClubsComponent implements AfterViewInit, WebTitleProvider {
     public clubs: Array<Object>;
     private element: HTMLElement;
-    private masonry;
     public modal;
 
     constructor(private api: ApiService, private inforService: InforService, element: ElementRef) {
@@ -41,10 +40,6 @@ export class ClubsComponent implements AfterViewInit, WebTitleProvider {
         });
 
         this.clubs = clubs;
-
-        setTimeout(() => {
-            this.masonry = util.masonry(this.element.querySelector('.grid'));
-        });
     }
 
     ngAfterViewInit() {

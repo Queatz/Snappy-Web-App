@@ -33,6 +33,7 @@
                     <!--<a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Move to club'" href="#moveToClubModal"><i class="material-icons small">arrow_forward</i></a>-->
                 </span>
             </h3>
+            <div class="grey-text">{{ presence() }}</div>
             <div *ngIf="thing.actions && thing.actions.length">
                 <h6 class="metadata grey-text">ACTIONS</h6>
                 <action-view *ngFor="let action of thing.actions" [action]="action.source"></action-view>
@@ -64,7 +65,6 @@
         </div>
         <tabs-for [thing]="thing"></tabs-for>
     </div>
-    <br />
     <thing-tabs [thing]="thing"></thing-tabs>
     <add-action-modal *ngIf="canEdit()" [thing]="thing"></add-action-modal>
     <edit-details-modal *ngIf="canEdit()" [thing]="thing"></edit-details-modal>

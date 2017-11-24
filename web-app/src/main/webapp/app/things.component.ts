@@ -13,8 +13,6 @@ import util from './util';
 export class ThingsComponent implements AfterViewInit, OnDestroy {
     @Input() public things;
     private element: HTMLElement;
-    private masonry;
-    private mutationObserver;
     private boundRemoveCallback;
 
     constructor(private inforService: InforService, private api: ApiService, element: ElementRef) {
@@ -25,21 +23,7 @@ export class ThingsComponent implements AfterViewInit, OnDestroy {
     ngAfterViewInit() {
         var self = this;
 
-        this.mutationObserver = new MutationObserver((mutations) => {
-          if (self.masonry) {
-            setTimeout(() => {
-                self.masonry.reloadItems();
-                self.masonry.layout();
-            }, 100);
-          }
-        });
-
         var config = { childList: true };
-        this.mutationObserver.observe(this.element.querySelector('.grid'), config);
-
-        setTimeout(() => {
-            this.masonry = util.masonry(this.element.querySelector('.grid'));
-        });
     }
 
     removed(thing) {
@@ -47,6 +31,5 @@ export class ThingsComponent implements AfterViewInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.mutationObserver.disconnect();
     }
 }

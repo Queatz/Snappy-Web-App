@@ -17,8 +17,8 @@
         <span><br /><br />Loading...</span>
     </div>
 
-    <div class="grid center-align">
-        <div class="item" *ngFor="let thing of things">
+    <div class="thing-cards">
+        <div class="thing-card" *ngFor="let thing of things">
             <project-card class="left-align" [thing]="thing" [deleteCallback]="boundRemoveCallback"></project-card>
         </div>
     </div>

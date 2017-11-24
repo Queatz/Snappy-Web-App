@@ -18,8 +18,8 @@
     </div>
     <div *ngIf="resources && !resources.length" class="waiting">Nothing to use around here.</div>
 
-    <div class="grid center-align">
-        <div class="item" *ngFor="let resource of resources">
+    <div class="thing-cards">
+        <div class="thing-card" *ngFor="let resource of resources">
             <project-card class="left-align" [typeClass]="'brown'" [thing]="resource"></project-card>
         </div>
     </div>

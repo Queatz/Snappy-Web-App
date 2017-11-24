@@ -15,7 +15,6 @@ export class PeopleComponent implements AfterViewInit, WebTitleProvider {
     public people;
     private element;
     public inviteModal;
-    private masonry;
 
     constructor(private inforService: InforService, element: ElementRef, private api: ApiService) {
         this.element = element.nativeElement;
@@ -40,10 +39,6 @@ export class PeopleComponent implements AfterViewInit, WebTitleProvider {
 
     private loaded(people) {
         this.people = people;
-
-        setTimeout(() => {
-            this.masonry = util.masonry(this.element.querySelector('.grid'));
-        });
     }
 
     public getWebTitle() {

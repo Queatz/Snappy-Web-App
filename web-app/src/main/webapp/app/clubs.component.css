@@ -1,16 +1,4 @@
-.grid {
-    margin: 15px auto;
-}
-
-.grid > div {
-    width: 400px;
-}
-
-@media only screen and (max-width: 400px) {
-    .grid > div {
-        width: 98vw;
-    }
-}
+@import '../css/thing-cards.css';
 
 .profile-wrapper {
     margin-top: 2rem;

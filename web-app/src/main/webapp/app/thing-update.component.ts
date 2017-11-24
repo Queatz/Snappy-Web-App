@@ -2,7 +2,6 @@ declare var require: any;
 declare var $: any;
 declare var Waves: any;
 var moment = require('moment');
-var Masonry = require('masonry-layout');
 
 import { Component, ComponentFactoryResolver, ViewContainerRef, OnInit, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';

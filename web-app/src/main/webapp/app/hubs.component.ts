@@ -16,7 +16,6 @@ export class HubsComponent implements AfterViewInit, WebTitleProvider {
 
     private element;
     public newHubModal;
-    private masonry;
 
     constructor(private api: ApiService, private inforService: InforService, element: ElementRef) {
         this.element = element.nativeElement;
@@ -37,10 +36,6 @@ export class HubsComponent implements AfterViewInit, WebTitleProvider {
 
     private loaded(hubs) {
         this.hubs = hubs;
-
-        setTimeout(() => {
-            this.masonry = util.masonry(this.element.querySelector('.grid'));
-        });
     }
 
     ngAfterViewInit() {

@@ -7,8 +7,6 @@ import util from './util';
     styleUrls: ['./thing-updates.component.css'],
 })
 export class ThingUpdatesComponent implements OnInit, OnChanges, OnDestroy {
-    private masonry;
-    private mutationObserver;
     @Input() public updates;
 
     private element: HTMLElement;
@@ -30,17 +28,7 @@ export class ThingUpdatesComponent implements OnInit, OnChanges, OnDestroy {
         this.loaded(this.updates);
         var self = this;
 
-        this.mutationObserver = new MutationObserver((mutations) => {
-          if (self.masonry) {
-            setTimeout(() => {
-                self.masonry.reloadItems();
-                self.masonry.layout();
-            }, 100);
-          }
-        });
-
         var config = { childList: true };
-        this.mutationObserver.observe(this.element.querySelector('.grid'), config);
 
     }
 
@@ -50,21 +38,11 @@ export class ThingUpdatesComponent implements OnInit, OnChanges, OnDestroy {
 
     public loaded(updates) {
         this.previousArraySize = updates.length;
-
-        setTimeout(() => {
-            this.masonry = util.masonry(this.element.querySelector('.grid'));
-        });
     }
 
     resizeCallback() {
-        setTimeout(() => {
-            if (this.masonry) {
-                this.masonry.layout();
-            }
-        }, 100);
     }
 
     ngOnDestroy() {
-        this.mutationObserver.disconnect();
     }
 }
