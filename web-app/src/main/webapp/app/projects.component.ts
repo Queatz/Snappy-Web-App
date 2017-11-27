@@ -25,7 +25,7 @@ export class ProjectsComponent implements AfterViewInit, WebTitleProvider {
     }
 
     private loadNearby(position) {
-        this.api.earthHere(position.coords, 'project')
+        this.api.earthHere(position.coords, 'project', 'name,about,photo,in(target(name)),clubs(name)')
             .subscribe(projects => {
                 this.loaded(projects);
             },

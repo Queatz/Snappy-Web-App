@@ -1,21 +1,7 @@
 <div class="profile-wrapper">
-    <div *ngIf="!thing && !notFound" class="waiting">
-        <br />
-        <div class="preloader-wrapper active">
-            <div class="spinner-layer">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div>
-                <div class="gap-patch">
-                    <div class="circle"></div>
-                </div>
-                <div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
-            </div>
-        </div>
-        <span><br /><br />Loading...</span>
-    </div>
+    <spinner [show]="!thing && !notFound">
+        Still loading...
+    </spinner>
 
     <h4 class="grey-text center-align" *ngIf="notFound">
         <br />You see nothing.
@@ -30,7 +16,6 @@
                     <a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Change photo'" href="#setPhotoModal"><i class="material-icons small">aspect_ratio</i></a>
                     <a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Add someone as a contact'" href="#addContactModal"><i class="material-icons small">person_add</i></a>
                     <a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Add an action'" href="#addActionModal"><i class="material-icons small">stars</i></a>
-                    <!--<a class="modal-trigger tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Move to club'" href="#moveToClubModal"><i class="material-icons small">arrow_forward</i></a>-->
                 </span>
             </h3>
             <div class="grey-text">{{ presence() }}</div>

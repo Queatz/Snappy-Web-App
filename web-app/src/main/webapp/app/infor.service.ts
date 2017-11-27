@@ -60,6 +60,7 @@ export class InforService {
     }
 
     private locationFound(callback: any, location: any) {
+        this.overrideLocation = location;
         this.locationCallbacks.delete(callback);
         callback(location);
     }

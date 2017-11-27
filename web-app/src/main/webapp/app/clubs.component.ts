@@ -22,7 +22,7 @@ export class ClubsComponent implements AfterViewInit, WebTitleProvider {
     }
 
     ngOnInit() {
-        this.api.clubs()
+        this.api.clubs('name,about,photo')
             .subscribe(clubs => {
                 this.loaded(clubs);
             },

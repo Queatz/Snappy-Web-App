@@ -29,7 +29,6 @@ export class ThingUpdatesComponent implements OnInit, OnChanges, OnDestroy {
         var self = this;
 
         var config = { childList: true };
-
     }
 
     ngOnChanges() {

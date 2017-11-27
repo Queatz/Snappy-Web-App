@@ -1,21 +1,7 @@
 <div class="profile-wrapper">
-    <div *ngIf="!thing && !notFound" class="waiting">
-        <br />
-        <div class="preloader-wrapper active">
-            <div class="spinner-layer">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div>
-                <div class="gap-patch">
-                    <div class="circle"></div>
-                </div>
-                <div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
-            </div>
-        </div>
-        <span><br /><br />Loading...</span>
-    </div>
+    <spinner [show]="!thing && !notFound">
+        Still loading...
+    </spinner>
 
     <h4 class="grey-text center-align" *ngIf="notFound">
         <br />Something's coming. Ruuuuun!

@@ -15,13 +15,6 @@
     }
 }
 
-.waiting {
-    font-size: 1.5rem;
-    padding: .5em;
-    margin-top: 1rem;
-    text-align: center;
-}
-
 .photo {
     display: inline-block;
     vertical-align: top;

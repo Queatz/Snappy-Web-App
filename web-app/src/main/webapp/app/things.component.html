@@ -1,21 +1,7 @@
 <div>
-    <div *ngIf="!things" class="waiting">
-        <br />
-        <div class="preloader-wrapper active">
-            <div class="spinner-layer">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div>
-                <div class="gap-patch">
-                    <div class="circle"></div>
-                </div>
-                <div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
-            </div>
-        </div>
-        <span><br /><br />Loading...</span>
-    </div>
+    <spinner [show]="!things">
+        Still loading...
+    </spinner>
 
     <div class="thing-cards">
         <div class="thing-card" *ngFor="let thing of things">

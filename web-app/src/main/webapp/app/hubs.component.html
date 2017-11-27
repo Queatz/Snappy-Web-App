@@ -1,27 +1,12 @@
 <div>
-    <div *ngIf="!hubs" class="waiting">
-        <br />
-        <div class="preloader-wrapper active">
-            <div class="spinner-layer">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div>
-                <div class="gap-patch">
-                    <div class="circle"></div>
-                </div>
-                <div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
-            </div>
-        </div>
-        <span><br /><br />Finding hubs near you...</span>
-    </div>
-    <div *ngIf="hubs && !hubs.length" class="waiting">Nowhere to go around here.</div>
-
+    <spinner [show]="!hubs">
+        Finding hubs near you...
+    </spinner>
     <div class="thing-cards">
         <div class="thing-card" *ngFor="let hub of hubs">
             <project-card class="left-align" [typeClass]="'blue'" [thing]="hub"></project-card>
         </div>
     </div>
+    <div *ngIf="hubs && !hubs.length" class="waiting">Nowhere to go around here.</div>
     <floating [tooltip]="'Add a hub'" [color]="'blue'" [modal]="newHubModal"></floating>
 </div>

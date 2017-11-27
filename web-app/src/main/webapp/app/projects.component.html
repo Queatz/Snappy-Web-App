@@ -1,21 +1,7 @@
 <div>
-    <div *ngIf="!projects" class="waiting">
-        <br />
-        <div class="preloader-wrapper active">
-            <div class="spinner-layer">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div>
-                <div class="gap-patch">
-                    <div class="circle"></div>
-                </div>
-                <div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
-            </div>
-        </div>
-        <span><br /><br />Finding projects near you...</span>
-    </div>
+    <spinner [show]="!projects">
+        Finding projects near you...
+    </spinner>
     <div *ngIf="projects && !projects.length" class="waiting">Nothing to work on around here.</div>
 
     <div class="thing-cards">

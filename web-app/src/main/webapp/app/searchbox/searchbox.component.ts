@@ -64,7 +64,7 @@ export class SearchboxComponent implements OnInit, AfterViewInit {
             this.searchRequest.unsubscribe();
         }
 
-        this.searchRequest = this.api.earthSearch(position.coords, this.text || '', 'person|resource|project|offer|club|hub|form|party').subscribe(results => {
+        this.searchRequest = this.api.earthSearch(position.coords, this.text || '', 'person|resource|project|offer|club|hub|form|party', 'name,about,firstName,lastName,googleUrl').subscribe(results => {
             this.results = results;
             this.searching = false;
             this.searchRequest = null;

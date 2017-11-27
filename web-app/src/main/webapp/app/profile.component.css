@@ -60,14 +60,6 @@
     margin-left: 1em;
 }
 
-.waiting {
-    font-size: 1.5rem;
-    color: #777;
-    padding: .5em;
-    margin-top: 1rem;
-    text-align: center;
-}
-
 a {
     cursor: pointer;
 }

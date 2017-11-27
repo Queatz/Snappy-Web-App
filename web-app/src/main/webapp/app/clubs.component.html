@@ -1,21 +1,7 @@
 <div>
-    <div *ngIf="!clubs" class="waiting">
-        <br />
-        <div class="preloader-wrapper active">
-            <div class="spinner-layer">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div>
-                <div class="gap-patch">
-                    <div class="circle"></div>
-                </div>
-                <div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
-            </div>
-        </div>
-        <span><br /><br />Loading your clubs...</span>
-    </div>
+    <spinner [show]="!clubs">
+        Loading your clubs...
+    </spinner>
     <div *ngIf="clubs && !clubs.length" class="waiting">Find Club Invites to join clubs.</div>
 
     <div class="thing-cards">

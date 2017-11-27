@@ -1,9 +1,1 @@
 @import '../css/thing-cards.css';
-
-.waiting {
-    font-size: 1.5rem;
-    color: #777;
-    padding: .5em;
-    margin-top: 1rem;
-    text-align: center;
-}

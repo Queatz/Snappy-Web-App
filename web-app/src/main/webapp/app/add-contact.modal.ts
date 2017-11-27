@@ -76,7 +76,7 @@ export class AddContactModal implements AfterViewInit {
 
     private doSearch(position) {
         this.position = position;
-        this.api.earthSearch(position.coords, this.text, 'person').subscribe(results => {
+        this.api.earthSearch(position.coords, this.text, 'person', 'firstName,lastName').subscribe(results => {
             this.results = results;
             this.searching = false;
 

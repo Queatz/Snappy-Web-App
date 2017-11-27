@@ -1,22 +1,7 @@
 <div>
-    <div *ngIf="!people" class="waiting">
-        <br />
-        <div class="preloader-wrapper active">
-            <div class="spinner-layer">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div>
-                <div class="gap-patch">
-                    <div class="circle"></div>
-                </div>
-                <div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
-            </div>
-        </div>
-        <span *ngIf="list !== null"><br /><br />Finding people near you...</span>
-    </div>
-
+    <spinner [show]="!people">
+        Finding cool people near you...
+    </spinner>
     <div class="thing-cards">
         <div class="thing-card" *ngFor="let person of people">
             <project-card class="left-align" [thing]="person"></project-card>

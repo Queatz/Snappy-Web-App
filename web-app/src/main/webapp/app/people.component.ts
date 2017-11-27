@@ -28,7 +28,7 @@ export class PeopleComponent implements AfterViewInit, WebTitleProvider {
     }
 
     private loadNearby(position) {
-        this.api.earthHere(position.coords, 'person')
+        this.api.earthHere(position.coords, 'person', 'googleUrl,imageUrl,infoDistance,firstName,lastName,about,clubs(name)')
             .subscribe(people => {
                 this.loaded(people);
             },

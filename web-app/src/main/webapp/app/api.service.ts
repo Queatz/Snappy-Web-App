@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class ApiService {
     private _token = '';
-    private beta = false;
+    private beta = true;
     private _apiDomain = this.beta ? '127.0.0.1:8080' : 'vlllage.com:8443';
     private _apiBase = this.beta ? 'http://' + this._apiDomain : 'https://' + this._apiDomain;
     private _apiBaseUrl = this._apiBase + '/api/';
@@ -43,8 +43,8 @@ export class ApiService {
                 .map((res: Response) => res.json());
     }
 
-    public earthThing(id: string) {
-        return this._http.get(this._apiBaseUrl + 'earth/' + id + '?auth='+ this.token())
+    public earthThing(id: string, select: string = null) {
+        return this._http.get(this._apiBaseUrl + 'earth/' + id + '?' + (select ? 'select=' + select + '&' : '') + 'auth='+ this.token())
                            .map((res: Response) => res.json());
     }
 
@@ -181,18 +181,20 @@ export class ApiService {
         return this.makeFilePostRequest(this._apiBaseUrl + 'earth/' + updateId + '?auth=' + this.token(), formData);
     }
 
-    public earthHere(coords, kind: string) {
+    public earthHere(coords, kind: string, select: string = null) {
         return this._http.get(this._apiBaseUrl + 'earth/here/' + encodeURIComponent(kind)
                                 + '?latitude=' + coords.latitude
                                 + '&longitude=' + coords.longitude
+                                + (select ? '&select=' + select : '')
                                 + '&auth='+ this.token())
                             .map((res: Response) => res.json());
     }
 
-    public earthSearch(coords, q: string, kind: string) {
+    public earthSearch(coords, q: string, kind: string, select: string = null) {
         return this._http.get(this._apiBaseUrl + 'earth/search' + (kind ? '/' + encodeURIComponent(kind) : '')
                                 + '?latitude=' + coords.latitude
                                 + '&longitude=' + coords.longitude
+                                + (select ? '&select=' + select : '')
                                 + '&q=' + encodeURIComponent(q)
                                 + '&auth='+ this.token())
                             .map((res: Response) => res.json());
@@ -204,24 +206,18 @@ export class ApiService {
                            .map((res: Response) => res.json());
     }
 
-    public getPerson(personId) {
-        return this._http.get(this._apiBaseUrl + 'earth/' + personId
-                              + '?auth=' + this.token())
-                           .map((res: Response) => res.json());
-    }
-
-    public getPersonByName(personName) {
-        return this._http.get(this._apiBaseUrl + 'earth/by-name/' + personName + '?auth=' + this.token())
+    public getPersonByName(personName: string, select: string = null) {
+        return this._http.get(this._apiBaseUrl + 'earth/by-name/' + personName + '?' + (select ? 'select=' + select + '&' : '') + 'auth=' + this.token())
             .map(res => res.json());
     }
 
-    public messages() {
-        return this._http.get(this._apiBaseUrl + 'earth/me/messages?auth=' + this.token())
+    public messages(select: string = null) {
+        return this._http.get(this._apiBaseUrl + 'earth/me/messages?' + (select ? 'select=' + select + '&' : '') + 'auth=' + this.token())
                            .map((res: Response) => res.json());
     }
 
-    public clubs() {
-        return this._http.get(this._apiBaseUrl + 'earth/me/clubs?auth=' + this.token())
+    public clubs(select: string = null) {
+        return this._http.get(this._apiBaseUrl + 'earth/me/clubs?' + (select ? 'select=' + select + '&' : '') + 'auth=' + this.token())
                            .map((res: Response) => res.json());
     }
 
@@ -240,9 +236,9 @@ export class ApiService {
                            .map((res: Response) => res.json());
     }
 
-    public personMessages(personId) {
+    public personMessages(personId: string, select: string = null) {
         return this._http.get(this._apiBaseUrl + 'earth/' + personId
-                              + '/messages?auth=' + this.token())
+                              + '/messages?' + (select ? 'select=' + select + '&' : '') + 'auth=' + this.token())
                            .map((res: Response) => res.json());
     }
 

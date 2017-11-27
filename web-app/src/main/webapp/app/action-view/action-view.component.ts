@@ -28,10 +28,10 @@ export class ActionViewComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         switch(this.action.type) {
             case 'color':
-                this.value = this.makeColor(this.action.value);
+                this.value = this.makeColor(this.action.message);
                 break;
             default:
-                this.value = this.action.value;
+                this.value = this.action.message;
         }
     }
 

@@ -1,0 +1,14 @@
+.waiting {
+    font-size: 1.5rem;
+    color: #777;
+    padding: .5em;
+    margin-top: 1rem;
+    text-align: center;
+
+    animation: fade-in 500ms;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}

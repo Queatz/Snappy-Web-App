@@ -1,21 +1,7 @@
 <div>
-    <div *ngIf="!resources" class="waiting">
-        <br />
-        <div class="preloader-wrapper active">
-            <div class="spinner-layer">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div>
-                <div class="gap-patch">
-                    <div class="circle"></div>
-                </div>
-                <div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
-            </div>
-        </div>
-        <span><br /><br />Finding resources near you...</span>
-    </div>
+    <spinner [show]="!resources">
+        Finding resources near you...
+    </spinner>
     <div *ngIf="resources && !resources.length" class="waiting">Nothing to use around here.</div>
 
     <div class="thing-cards">

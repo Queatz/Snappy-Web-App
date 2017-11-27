@@ -1,21 +1,7 @@
 <div>
-    <div *ngIf="!offersLoaded" class="waiting">
-        <br />
-        <div>
-            <div class="preloader-wrapper active">
-                <div class="spinner-layer">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div><div class="gap-patch">
-                    <div class="circle"></div>
-                </div><div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
-                </div>
-            </div>
-        </div>
-        <span *ngIf="list !== null"><br />Finding things to do near you...</span>
-    </div>
+    <spinner [show]="!offersLoaded">
+        <span *ngIf="list !== null">Finding things to do near you...</span>
+    </spinner>
     <div class="thing-feed">
         <div *ngIf="offersLoaded && !offers.length" class="waiting">
             <span *ngIf="list === undefined">Nothing to do around here.</span>

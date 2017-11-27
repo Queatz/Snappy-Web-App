@@ -71,7 +71,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
             return;
         }
 
-        this.api.getPerson(personId)
+        this.api.earthThing(personId, 'firstName,lastName,imageUrl')
             .subscribe(person => {
                 if (person) {
                     this.messagesWith = person;
@@ -81,7 +81,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
     }
 
     loadMessages() {
-        this.api.messages()
+        this.api.messages('latest,seen,updated,firstName,lastName,message,source(firstName,lastName,googleUrl,imageUrl,message),target(firstName,lastName,googleUrl,imageUrl,message)')
             .subscribe(messagesAndContacts => {
                 this.showMessages(messagesAndContacts);
             });
@@ -136,7 +136,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
             this.messagesTimeout = null;
         }
 
-        this.api.personMessages(this.idCurrentContact)
+        this.api.personMessages(this.idCurrentContact, 'date,message,source(firstName,lastName,googleUrl,imageUrl,message),target(firstName,lastName,googleUrl,imageUrl,message)')
             .subscribe(messages => {
                 if (messages.error) {
                     this.messageWithSomeone = null;
@@ -147,7 +147,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
                     if (!messages.length) {
                         this.messageWithSomeone = messages;
                     } else {
-                        if (this.idCurrentContact == messages[0].from.id || this.idCurrentContact == messages[0].to.id) {
+                        if (this.idCurrentContact == messages[0].source.id || this.idCurrentContact == messages[0].target.id) {
                             if (!this.messageWithSomeone) {
                                 this.endMessage = false;
                                 this.messageWithSomeone = messages;
@@ -259,7 +259,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
     }
 
     checkIsLeft(message) {
-        return message.from.id !== this.myId;
+        return message.source.id !== this.myId;
     }
 
     showContentMessage(message, mode) {
@@ -272,9 +272,9 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
             case 0: //show message
                 return message.message;
             case 1: //show image
-                return message.from.imageUrl;
+                return message.source.imageUrl;
             case 2:
-                return message.from.googleUrl;
+                return message.source.googleUrl;
             default:
                 return '';
         }

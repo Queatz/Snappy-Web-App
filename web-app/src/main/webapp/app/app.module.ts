@@ -82,6 +82,7 @@ import { ColorWheelComponent } from './color-wheel/color-wheel.component';
 import { ThingInComponent } from './thing-in/thing-in.component';
 import { ModeViewComponent } from './mode-view/mode-view.component';
 import { SetLocationModalComponent } from './set-location-modal/set-location-modal.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 enableProdMode();
 
@@ -171,6 +172,7 @@ export class MyOptions extends BaseRequestOptions {
         ThingInComponent,
         ModeViewComponent,
         SetLocationModalComponent,
+        SpinnerComponent,
     ],
     entryComponents: [
         FeedbackModal,

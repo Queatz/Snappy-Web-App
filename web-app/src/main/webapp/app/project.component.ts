@@ -36,7 +36,7 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
         });
         this.element = elementRef.nativeElement;
 
-        api.earthThing(this.id).subscribe(thing => {
+        api.earthThing(this.id, 'name,photo,about,geo,members(source(token,data,type,role,date,firstName,lastName,googleUrl,imageUrl,name,photo,about,target(firstName,lastName,googleUrl,imageUrl),source(imageUrl,googleUrl,firstName,lastName),clubs(name)),target(name,imageUrl,googleUrl,photo,firstName,lastName,about)),clubs(name)').subscribe(thing => {
                     this.thing = thing;
 
                     if (this.thing.photo) {
