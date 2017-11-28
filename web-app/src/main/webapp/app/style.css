@@ -1,10 +1,5 @@
 body {
-    background: #aaa;
-    background-image: url(/img/anastasia-village.jpg);
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: screen;
+    background: #fafafa;
 }
 
 html body h3 {

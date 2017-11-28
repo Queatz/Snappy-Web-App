@@ -40,9 +40,11 @@ export default class Util {
     }
 
     public static setBodyBackground(url: string) {
-        $('body').css({
-            'background-image': 'url(\'' + url + '\')'
-        });
+        if (!'solid background') {
+            $('body').css({
+                'background-image': 'url(\'' + url + '\')'
+            });
+        }
     }
 
     public static getDistanceText(distance: number) {
