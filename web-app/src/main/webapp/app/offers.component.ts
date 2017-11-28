@@ -4,7 +4,6 @@ declare var moment;
 
 import { Component, Input, OnInit, ElementRef, AfterViewInit, OnChanges, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import 'rxjs/add/operator/map';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import util from './util';

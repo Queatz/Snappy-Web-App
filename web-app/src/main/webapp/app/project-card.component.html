@@ -22,15 +22,15 @@
         <span *ngIf="thing.backers">
             {{ thing.backers }}
             <span class="grey-text" [ngPlural]="thing.backers">
-                <template ngPluralCase="=1">backer</template>
-                <template ngPluralCase="other">backers</template>
+                <ng-template ngPluralCase="=1">backer</ng-template>
+                <ng-template ngPluralCase="other">backers</ng-template>
             </span>
         </span>
         <span *ngIf="!thing.backers && numberOfSameKindMembers()">
             {{ numberOfSameKindMembers() }}
             <span class="grey-text" [ngPlural]="numberOfSameKindMembers()">
-                <template ngPluralCase="=1">{{ thing.kind }}</template>
-                <template ngPluralCase="other">{{ thing.kind }}s</template>
+                <ng-template ngPluralCase="=1">{{ thing.kind }}</ng-template>
+                <ng-template ngPluralCase="other">{{ thing.kind }}s</ng-template>
             </span>
         </span>
 

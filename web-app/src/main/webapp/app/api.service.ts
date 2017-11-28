@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { InforService } from './infor.service';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ApiService {
@@ -40,12 +41,12 @@ export class ApiService {
         var creds = 'email=' + gemail + '&auth=' + gtoken;
 
         return this._http.get(this._apiBaseUrl + 'earth/me?' + creds)
-                .map((res: Response) => res.json());
+                .pipe(map((res: Response) => res.json()));
     }
 
     public earthThing(id: string, select: string = null) {
         return this._http.get(this._apiBaseUrl + 'earth/' + id + '?' + (select ? 'select=' + select + '&' : '') + 'auth='+ this.token())
-                           .map((res: Response) => res.json());
+                           .pipe(map((res: Response) => res.json()));
     }
 
     public earthCreate(params, asPromise = false): any {
@@ -82,7 +83,7 @@ export class ApiService {
 
         if (!asPromise) {
             return this._http.post(this._apiBaseUrl + 'earth', data, this.formHeaders())
-                .map((res: Response) => res.json());
+                .pipe(map((res: Response) => res.json()));
         } else {
             return this.makeFilePostRequest(this._apiBaseUrl + 'earth?' + data, formData);
         }
@@ -96,7 +97,7 @@ export class ApiService {
         }
 
         return this._http.post(this._apiBaseUrl + 'earth/' + id, data, this.formHeaders())
-            .map((res: Response) => res.json());
+            .pipe(map((res: Response) => res.json()));
     }
 
     public earthPhotoUrl(id: string): string {
@@ -187,7 +188,7 @@ export class ApiService {
                                 + '&longitude=' + coords.longitude
                                 + (select ? '&select=' + select : '')
                                 + '&auth='+ this.token())
-                            .map((res: Response) => res.json());
+                            .pipe(map((res: Response) => res.json()));
     }
 
     public earthSearch(coords, q: string, kind: string, select: string = null) {
@@ -197,49 +198,49 @@ export class ApiService {
                                 + (select ? '&select=' + select : '')
                                 + '&q=' + encodeURIComponent(q)
                                 + '&auth='+ this.token())
-                            .map((res: Response) => res.json());
+                            .pipe(map((res: Response) => res.json()));
     }
 
     public setSeen(personId) {
         return this._http.get(this._apiBaseUrl + 'earth/' + personId + '?seen=true'
                               + '&auth='+ this.token())
-                           .map((res: Response) => res.json());
+                           .pipe(map((res: Response) => res.json()));
     }
 
     public getPersonByName(personName: string, select: string = null) {
         return this._http.get(this._apiBaseUrl + 'earth/by-name/' + personName + '?' + (select ? 'select=' + select + '&' : '') + 'auth=' + this.token())
-            .map(res => res.json());
+            .pipe(map(res => res.json()));
     }
 
     public messages(select: string = null) {
         return this._http.get(this._apiBaseUrl + 'earth/me/messages?' + (select ? 'select=' + select + '&' : '') + 'auth=' + this.token())
-                           .map((res: Response) => res.json());
+                           .pipe(map((res: Response) => res.json()));
     }
 
     public clubs(select: string = null) {
         return this._http.get(this._apiBaseUrl + 'earth/me/clubs?' + (select ? 'select=' + select + '&' : '') + 'auth=' + this.token())
-                           .map((res: Response) => res.json());
+                           .pipe(map((res: Response) => res.json()));
     }
 
     public saveAbout(about: string) {
         return this._http.post(this._apiBaseUrl + 'earth/me/?about=' + encodeURIComponent(about) + '&auth=' + this.token(), '')
-                           .map((res: Response) => res.json());
+                           .pipe(map((res: Response) => res.json()));
     }
 
     public saveMyLink(myLink: string) {
         return this._http.post(this._apiBaseUrl + 'earth/me/?link=' + encodeURIComponent(myLink) + '&auth=' + this.token(), '')
-                           .map((res: Response) => res.json());
+                           .pipe(map((res: Response) => res.json()));
     }
 
     public saveMyLinkPrecheck(myLink: string) {
         return this._http.post(this._apiBaseUrl + 'earth/me/?link_precheck=' + encodeURIComponent(myLink) + '&auth=' + this.token(), '')
-                           .map((res: Response) => res.json());
+                           .pipe(map((res: Response) => res.json()));
     }
 
     public personMessages(personId: string, select: string = null) {
         return this._http.get(this._apiBaseUrl + 'earth/' + personId
                               + '/messages?' + (select ? 'select=' + select + '&' : '') + 'auth=' + this.token())
-                           .map((res: Response) => res.json());
+                           .pipe(map((res: Response) => res.json()));
     }
 
     public newOffer(details, price, unit, asMemberOf = null, want = false, visibility = null) {
@@ -253,7 +254,7 @@ export class ApiService {
         "&want=" + encodeURIComponent(want.toString()) +
         "&kind=offer" +
         (asMemberOf ? "&in=" + encodeURIComponent(asMemberOf.id) : "");
-        return this._http.post(this._apiBaseUrl + 'earth', creds, this.formHeaders()).map((res: Response) => res.json());
+        return this._http.post(this._apiBaseUrl + 'earth', creds, this.formHeaders()).pipe(map((res: Response) => res.json()));
     }
 
     public editOffer(offerId, details, price, unit, want, visibility) {
@@ -265,7 +266,7 @@ export class ApiService {
                 visibility ? "&hidden=" + visibility.hidden + "&clubs=" + encodeURIComponent(visibility.clubs) : ""
             ) +
             "&want=" + encodeURIComponent(want);
-        return this._http.post(this._apiBaseUrl + 'earth/' + offerId, creds, this.formHeaders()).map((res: Response) => res.json());
+        return this._http.post(this._apiBaseUrl + 'earth/' + offerId, creds, this.formHeaders()).pipe(map((res: Response) => res.json()));
     }
 
     public earthDelete(id: string) {
@@ -284,14 +285,14 @@ export class ApiService {
         var creds = "auth=" + this.token() + "&message=" + encodeURIComponent(message);
 
         return this._http.post(this._apiBaseUrl + 'earth/' + personId, creds, this.formHeaders())
-            .map(res => res.json());
+            .pipe(map(res => res.json()));
     }
 
     public sendFeedback(feedback) {
         var creds = "auth=" + this.token() + "&feedback=" + encodeURIComponent(feedback);
 
         return this._http.post(this._apiBaseUrl + 'earth/feedback', creds, this.formHeaders())
-            .map(res => res.json());
+            .pipe(map(res => res.json()));
     }
 
     public subscribeToLocality(coords: any, locality: string, email: string) {
@@ -301,21 +302,21 @@ export class ApiService {
                    '&email=' + encodeURIComponent(email);
 
         return this._http.post(this._apiBaseUrl + 'earth/geo-subscribe', data, this.formHeaders())
-            .map(res => res.json());
+            .pipe(map(res => res.json()));
     }
 
     public follow(personId: string, follow: boolean) {
         var creds = "auth=" + this.token() + "&follow=" + follow;
 
         return this._http.post(this._apiBaseUrl + 'earth/' + personId, creds, this.formHeaders())
-            .map(res => res.json());
+            .pipe(map(res => res.json()));
     }
 
     public getAppToken(domain: string) {
         var creds = "auth=" + this.token() + "&domain=" + encodeURIComponent(domain);
 
         return this._http.get(this._apiBaseUrl + 'earth/app/token?' + creds)
-            .map(res => res.json());
+            .pipe(map(res => res.json()));
     }
 
     public submitForm(formId: string, files: Map<string, File>, photos: Map<string, File>, data: any) {

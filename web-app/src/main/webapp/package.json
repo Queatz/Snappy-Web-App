@@ -1,9 +1,9 @@
 {
   "name": "snappy-webapp",
   "version": "1.0.0",
-  "description": "https://village.city",
+  "description": "https://vlllage.com",
   "scripts": {
-    "start": "ng serve -prod -p 3000 ",
+    "start": "ng serve -prod -p 3000",
     "docker-build": "docker build -t ng2-quickstart .",
     "docker": "npm run docker-build && docker run -it --rm -p 3000:3000 -p 3001:3001 ng2-quickstart",
     "pree2e": "npm run webdriver:update",
@@ -25,30 +25,29 @@
     }
   ],
   "dependencies": {
-    "@angular/common": "4.4.3",
-    "@angular/compiler": "4.4.3",
-    "@angular/core": "4.4.3",
-    "@angular/forms": "4.4.3",
-    "@angular/http": "4.4.3",
-    "@angular/platform-browser": "4.4.3",
-    "@angular/platform-browser-dynamic": "4.4.3",
-    "@angular/router": "4.4.3",
+    "@angular/common": "5.0.3",
+    "@angular/compiler": "5.0.3",
+    "@angular/core": "5.0.3",
+    "@angular/forms": "5.0.3",
+    "@angular/http": "5.0.3",
+    "@angular/platform-browser": "5.0.3",
+    "@angular/platform-browser-dynamic": "5.0.3",
+    "@angular/router": "5.0.3",
     "systemjs": "0.20.18",
-    "express": "4.15.4",
+    "express": "4.16.2",
     "core-js": "^2.5.1",
     "reflect-metadata": "^0.1.10",
-    "rxjs": "5.4.3",
-    "zone.js": "^0.8.17",
-    "moment": "^2.18.1",
-    "jquery": "^3.1.0",
+    "rxjs": "5.5.2",
+    "zone.js": "^0.8.18",
+    "moment": "^2.19.2",
+    "jquery": "^3.2.1",
     "lodash": "^4.17.4",
     "normalize.css": "7.0.0",
-    "materialize-css": "^0.100.2",
-    "masonry-layout": "4.2.0"
+    "materialize-css": "^0.100.2"
   },
   "devDependencies": {
-    "@angular/cli": "1.4.5",
-    "@angular/compiler-cli": "4.4.3",
+    "@angular/cli": "1.5.4",
+    "@angular/compiler-cli": "5.0.3",
     "canonical-path": "0.0.2",
     "concurrently": "^3.5.0",
     "http-server": "^0.10.0",
@@ -61,9 +60,9 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "lite-server": "^2.3.0",
     "protractor": "^4.0.9",
-    "rimraf": "^2.5.4",
-    "tslint": "^3.15.1",
-    "typescript": "^2.5.2"
+    "rimraf": "^2.6.2",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.2"
   },
   "repository": {}
 }

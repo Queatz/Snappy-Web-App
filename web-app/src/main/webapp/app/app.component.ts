@@ -8,6 +8,9 @@ import { InforService } from './infor.service';
 import { TutorialService } from './tutorial.service';
 import { UiService } from './ui.service';
 
+import { Observable } from 'rxjs/Observable';
+import { map, filter, mergeMap } from 'rxjs/operators';
+
 @Component({
 	selector: 'app',
 	templateUrl: './app.component.html',
@@ -30,15 +33,15 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private element;
 
     ngOnInit() {
-    	this.router.events
-                .filter(event => event instanceof NavigationEnd)
-                .map(() => this.route)
-                .map(route => {
+    	this.router.events.pipe(
+                filter(event => event instanceof NavigationEnd),
+                map(() => this.route),
+                map(route => {
                     while (route.firstChild) route = route.firstChild;
                     return route;
-                  })
-                .mergeMap(route => route.data)
-                .subscribe(data => this.isSolo = data.solo);
+                  }),
+                mergeMap(route => route.data)
+        ).subscribe(data => this.isSolo = data.solo);
     }
 
     ngAfterViewInit() {
