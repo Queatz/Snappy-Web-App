@@ -124,7 +124,7 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
     public deleteOffer() {
         if (this.offer.member) {
             this.api.earthDelete(this.offer.member.id)
-                .map(res => {
+                .subscribe(res => {
                     if (res.status == 200) {
                         Materialize.toast('Offer removed', 4000);
 
@@ -134,15 +134,14 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
                     } else {
                         Materialize.toast('Failed to remove offer', 4000);
                     }
-                })
-                .subscribe();
+                });
 
             return;
         }
 
         if (this.offer) {
             this.api.earthDelete(this.offer.id)
-                .map(res => {
+                .subscribe(res => {
                     if (res.status == 200) {
                         Materialize.toast('Offer deleted', 4000);
                         if (this.removeCallback) {
@@ -151,8 +150,7 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
                     } else {
                         Materialize.toast('Offer delete failed', 4000);
                     }
-                })
-                .subscribe();
+                });
         }
     }
     public uploadPhoto() {
@@ -201,7 +199,7 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
     deleteImage() {
         if (this.offer) {
             this.api.earthDeletePhoto(this.offer.id)
-                .map(res => {
+                .subscribe(res => {
                     if (res.status == 200) {
                         Materialize.toast('Photo removed', 4000);
                         this.offerImage = '';
@@ -214,8 +212,7 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
                     } else {
                         Materialize.toast('Photo remove failed', 4000);
                     }
-                })
-                .subscribe();
+                });
         }
     }
 

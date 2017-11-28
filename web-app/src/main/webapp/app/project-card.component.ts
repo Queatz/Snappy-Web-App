@@ -56,7 +56,7 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
     public remove() {
         if (this.thing.member) {
             this.api.earthDelete(this.thing.member.id)
-                .map(res => {
+                .subscribe(res => {
                     if (res.status == 200) {
                         Materialize.toast('Removed ' + this.thing.name, 4000);
 
@@ -66,8 +66,7 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
                     } else {
                         Materialize.toast('Remove failed', 4000);
                     }
-                })
-                .subscribe();
+                });
 
             return;
         }
