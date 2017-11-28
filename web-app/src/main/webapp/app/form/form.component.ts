@@ -38,7 +38,7 @@ export class FormComponent implements OnInit {
     }
 
     load(id: string) {
-        this.api.earthThing(id).subscribe(form => {
+        this.api.earthThing(id, 'name,about,data,photo').subscribe(form => {
             this.thing = form;
             this.formItems = JSON.parse(form.data);
             this.formItems.forEach(i => i.__id = util.rndstr());
