@@ -124,13 +124,12 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
             return;
         }
 
-        var asMemberOf = this.asMemberOf;
+        let asMemberOf = this.asMemberOf;
 
         this.api.newOffer(edetails, enumber, emessage, this.asMemberOf, this.isWant, {
             hidden: !this.isPublic,
             clubs: JSON.stringify(this.clubs)
-        })
-            .subscribe(member => {
+        }).subscribe(member => {
                 if (member.id) {
                     Materialize.toast('Offer added', 4000);
                     this.edetails = '';

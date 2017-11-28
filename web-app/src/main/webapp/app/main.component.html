@@ -2,5 +2,5 @@
     <intro-card></intro-card>
     <locality-card></locality-card>
     <offers></offers>
-    <floating [tooltip]="'Add an offer'" *ngIf="!newUser()" [modal]="newOfferModal"></floating>
+    <floating [tooltip]="'Add an offer'" *ngIf="!newUser()" [modal]="newOfferModal" (onModalOpened)="onModalOpened($event)"></floating>
 </div>

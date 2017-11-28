@@ -1,6 +1,20 @@
 declare var $;
 
-import { Component, ComponentFactoryResolver, ViewContainerRef, Injector, ElementRef, Input, OnChanges, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import {
+    Component,
+    ComponentFactoryResolver,
+    ViewContainerRef,
+    Injector,
+    ElementRef,
+    Input,
+    Output,
+    EventEmitter,
+    OnChanges,
+    OnInit,
+    AfterViewInit,
+    ComponentRef,
+    OnDestroy
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Http, Headers } from '@angular/http';
 import { InforService } from './infor.service';
@@ -19,12 +33,15 @@ export class FloatingComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() public params;
     @Input() public tooltip;
 
+    @Output() onModalOpened: EventEmitter<ComponentRef<any>> = new EventEmitter<ComponentRef<any>>();
+
     private inforService;
     private http;
     private element;
     private edetails;
     private emessage;
     private currentUrl;
+    private ref: ComponentRef<any>;
 
     constructor(injector: Injector,
             private resolver: ComponentFactoryResolver,
@@ -56,7 +73,7 @@ export class FloatingComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
         if (this.modal) {
-            this.view.createComponent(this.resolver.resolveComponentFactory(this.modal));
+            this.ref = this.view.createComponent(this.resolver.resolveComponentFactory(this.modal));
         }
     }
 
@@ -66,6 +83,10 @@ export class FloatingComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngOnDestroy() {
         $(this.element).find('.tooltipped').tooltip('remove');
+    }
+
+    opened() {
+        this.onModalOpened.emit(this.ref);
     }
 
     userSignined() {

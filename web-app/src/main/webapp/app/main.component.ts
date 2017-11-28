@@ -1,6 +1,6 @@
 declare var $;
 
-import { Component, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ElementRef, ComponentRef } from '@angular/core';
 import { InforService } from './infor.service';
 import { TutorialService } from './tutorial.service';
 import { NewOfferModal } from './new-offer.modal';
@@ -16,6 +16,10 @@ export class MainComponent implements AfterViewInit, OnDestroy {
     constructor(inforService: InforService, private elementRef: ElementRef, public tutorial: TutorialService) {
         this.inforService = inforService;
         this.newOfferModal = NewOfferModal;
+    }
+
+    onModalOpened(modal: ComponentRef<any>) {
+        (modal.instance as NewOfferModal).asMemberOf = this.inforService.getInforUser();
     }
 
     newUser() {
