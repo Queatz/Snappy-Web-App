@@ -2,7 +2,7 @@
     <spinner [show]="!resources">
         Finding resources near you...
     </spinner>
-    <div *ngIf="resources && !resources.length" class="waiting">Nothing to use around here.</div>
+    <div *ngIf="resources && !resources.length" class="no-cards">Nothing to use around here.</div>
 
     <div class="thing-cards">
         <div class="thing-card" *ngFor="let resource of resources">

@@ -2,7 +2,7 @@
     <spinner [show]="!clubs">
         Loading your clubs...
     </spinner>
-    <div *ngIf="clubs && !clubs.length" class="waiting">Find Club Invites to join clubs.</div>
+    <div *ngIf="clubs && !clubs.length" class="no-cards">Find Club Invites to join clubs.</div>
 
     <div class="thing-cards">
         <div class="thing-card" *ngFor="let club of clubs">

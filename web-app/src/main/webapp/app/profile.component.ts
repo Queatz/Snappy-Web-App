@@ -83,7 +83,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     }
 
     loadPerson(personName) {
-        this.api.getPersonByName(personName, 'firstName,lastName,imageUrl,googleUrl,photo,about,members(source(date,name,photo,about,source(imageUrl,googleUrl,photo,firstName,lastName),clubs(name)),target(name,imageUrl,googleUrl,photo,firstName,lastName,about)),clubs(name)')
+        this.api.getPersonByName(personName, 'firstName,lastName,imageUrl,googleUrl,infoDistance,around,photo,about,members(role,source(date,name,photo,about,owner,source(imageUrl,googleUrl,photo,firstName,lastName),clubs(name)),target(name,owner,imageUrl,googleUrl,photo,firstName,lastName,about)),clubs(name)')
         .subscribe(person => {
             this.thing = person;
                 util.setBodyBackground(util.imageUrl(this.thing.imageUrl, 640));

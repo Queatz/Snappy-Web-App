@@ -3,7 +3,7 @@
         <span *ngIf="list !== null">Finding things to do near you...</span>
     </spinner>
     <div class="thing-feed">
-        <div *ngIf="offersLoaded && !offers.length" class="waiting">
+        <div *ngIf="offersLoaded && !offers.length" class="no-cards">
             <span *ngIf="list === undefined">Nothing to do around here.</span>
             <span *ngIf="list !== undefined">Nothing to do here yet.</span>
             <a routerLink="/">Goooooo exploring!</a>

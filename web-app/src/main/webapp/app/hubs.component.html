@@ -7,6 +7,6 @@
             <project-card class="left-align" [typeClass]="'blue'" [thing]="hub"></project-card>
         </div>
     </div>
-    <div *ngIf="hubs && !hubs.length" class="waiting">Nowhere to go around here.</div>
+    <div *ngIf="hubs && !hubs.length" class="no-cards">Nowhere to go around here.</div>
     <floating [tooltip]="'Add a hub'" [color]="'blue'" [modal]="newHubModal"></floating>
 </div>
