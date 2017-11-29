@@ -3,11 +3,6 @@
         Loading your clubs...
     </spinner>
     <div *ngIf="clubs && !clubs.length" class="no-cards">Find Club Invites to join clubs.</div>
-
-    <div class="thing-cards">
-        <div class="thing-card" *ngFor="let club of clubs">
-            <project-card class="left-align" [typeClass]="'deep-orange'" [thing]="club"></project-card>
-        </div>
-    </div>
+    <thing-cards [things]="clubs"></thing-cards>
     <floating [tooltip]="'Add a club'" [color]="'yellow darken-2'" [modal]="modal"></floating>
 </div>

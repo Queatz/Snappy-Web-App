@@ -14,9 +14,10 @@ import util from './util';
     styleUrls: ['./project-card.component.css']
 })
 export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
-    @Input() public typeClass;
     @Input() public deleteCallback;
     @Input() public thing;
+
+    public typeClass: string;
 
     constructor(
         private api: ApiService,

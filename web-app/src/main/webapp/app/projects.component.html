@@ -3,11 +3,6 @@
         Finding projects near you...
     </spinner>
     <div *ngIf="projects && !projects.length" class="no-cards">Nothing to work on around here.</div>
-
-    <div class="thing-cards">
-        <div class="thing-card" *ngFor="let project of projects">
-            <project-card class="left-align" [typeClass]="'deep-orange'" [thing]="project"></project-card>
-        </div>
-    </div>
+    <thing-cards [things]="projects"></thing-cards>
     <floating [tooltip]="'Add a project'" [color]="'deep-orange'" [modal]="newProjectModal"></floating>
 </div>

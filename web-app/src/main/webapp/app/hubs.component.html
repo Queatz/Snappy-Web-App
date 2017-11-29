@@ -2,11 +2,7 @@
     <spinner [show]="!hubs">
         Finding hubs near you...
     </spinner>
-    <div class="thing-cards">
-        <div class="thing-card" *ngFor="let hub of hubs">
-            <project-card class="left-align" [typeClass]="'blue'" [thing]="hub"></project-card>
-        </div>
-    </div>
+    <thing-cards [things]="hubs"></thing-cards>
     <div *ngIf="hubs && !hubs.length" class="no-cards">Nowhere to go around here.</div>
     <floating [tooltip]="'Add a hub'" [color]="'blue'" [modal]="newHubModal"></floating>
 </div>

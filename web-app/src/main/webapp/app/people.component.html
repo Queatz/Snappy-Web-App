@@ -2,11 +2,7 @@
     <spinner [show]="!people">
         Finding cool people near you...
     </spinner>
-    <div class="thing-cards">
-        <div class="thing-card" *ngFor="let person of people">
-            <project-card class="left-align" [thing]="person"></project-card>
-        </div>
-    </div>
+    <thing-cards [things]="people"></thing-cards>
     <div *ngIf="people && !people.length" class="center-align">
         <h5 class="grey-text"><br />No one around here.</h5>
     </div>

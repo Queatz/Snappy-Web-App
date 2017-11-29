@@ -15,9 +15,19 @@ export class ThingsComponent implements AfterViewInit, OnDestroy {
     private element: HTMLElement;
     private boundRemoveCallback;
 
+    public amount: number = 20;
+
     constructor(private inforService: InforService, private api: ApiService, element: ElementRef) {
         this.element = element.nativeElement;
         this.boundRemoveCallback = this.removed.bind(this);
+    }
+    
+    onBottomReached() {
+        this.amount += 10;
+    }
+    
+    byId(thing: any) {
+        return thing.id;
     }
 
     ngAfterViewInit() {

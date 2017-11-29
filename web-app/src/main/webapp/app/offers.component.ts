@@ -26,10 +26,16 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
     private token;
     private signed;
 
+    public amount: number = 20;
+
     constructor(private router: Router, private inforService: InforService, private api: ApiService, element: ElementRef) {
         this.element = element.nativeElement;
         this.boundResizeCallback = this.resizeCallback.bind(this);
         this.boundRemoveCallback = this.removeCallback.bind(this);
+    }
+
+    public onBottomReached() {
+        this.amount += 10;
     }
 
     ngOnInit() {
@@ -111,5 +117,9 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
         return thing.kind === kind;
+    }
+
+    byId(thing: any) {
+        return thing.id;
     }
 }

@@ -13,9 +13,19 @@ export class ThingUpdatesComponent implements OnInit, OnChanges, OnDestroy {
     private boundResizeCallback;
     private previousArraySize;
 
+    public amount: number = 20;
+    
     constructor(element: ElementRef) {
         this.element = element.nativeElement;
         this.boundResizeCallback = this.resizeCallback.bind(this);
+    }
+
+    onBottomReached() {
+        this.amount += 10;
+    }
+    
+    byId(thing: any) {
+        return thing.id;
     }
 
     ngDoCheck() {

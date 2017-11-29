@@ -1,10 +1,10 @@
-<div>
-<div *ngIf="!updates || !updates.length" class="no-cards">
+<window-scroll (onBottomReached)="onBottomReached()">
+    <div *ngIf="!updates || !updates.length" class="no-cards">
         Nothing happening here yet
     </div>
     <div class="thing-feed">
-        <div class="item" *ngFor="let update of updates">
+        <div class="item" *ngFor="let update of updates | slice:0:amount; trackBy: byId">
             <thing-update class="left-align" [resizeCallback]="boundResizeCallback" [update]="update"></thing-update>
         </div>
     </div>
-</div>
+</window-scroll>

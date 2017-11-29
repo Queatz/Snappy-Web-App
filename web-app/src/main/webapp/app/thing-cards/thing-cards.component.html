@@ -1,0 +1,5 @@
+<window-scroll (onBottomReached)="onBottomReached()" class="thing-cards">
+  <div class="thing-card" *ngFor="let thing of things | slice:0:amount; trackBy: byId">
+      <project-card [thing]="thing"></project-card>
+  </div>
+</window-scroll>

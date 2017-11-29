@@ -3,11 +3,6 @@
         Finding resources near you...
     </spinner>
     <div *ngIf="resources && !resources.length" class="no-cards">Nothing to use around here.</div>
-
-    <div class="thing-cards">
-        <div class="thing-card" *ngFor="let resource of resources">
-            <project-card class="left-align" [typeClass]="'brown'" [thing]="resource"></project-card>
-        </div>
-    </div>
+    <thing-cards [things]="resources"></thing-cards>
     <floating [tooltip]="'Add a resource'" [color]="'brown'" [modal]="newResourceModal"></floating>
 </div>

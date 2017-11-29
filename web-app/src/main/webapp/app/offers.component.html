@@ -1,4 +1,4 @@
-<div>
+<window-scroll (onBottomReached)="onBottomReached()">
     <spinner [show]="!offersLoaded">
         <span *ngIf="list !== null">Finding things to do near you...</span>
     </spinner>
@@ -8,9 +8,9 @@
             <span *ngIf="list !== undefined">Nothing to do here yet.</span>
             <a routerLink="/">Goooooo exploring!</a>
         </div>
-        <div class="item" *ngFor="let offer of offers">
+        <div class="item" *ngFor="let offer of offers | slice:0:amount; trackBy: byId">
             <offer-card *ngIf="isKind(offer, 'offer')" class="left-align" [resizeCallback]="boundResizeCallback" [removeCallback]="boundRemoveCallback" [offer]="offer"></offer-card>
             <thing-update *ngIf="isKind(offer, 'update')"class="left-align" [resizeCallback]="boundResizeCallback" [update]="offer"></thing-update>
         </div>
     </div>
-</div>
+</window-scroll>

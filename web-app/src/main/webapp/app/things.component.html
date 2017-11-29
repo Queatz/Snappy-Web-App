@@ -1,11 +1,11 @@
-<div>
+<window-scroll (onBottomReached)="onBottomReached()">
     <spinner [show]="!things">
         Still loading...
     </spinner>
 
     <div class="thing-cards">
-        <div class="thing-card" *ngFor="let thing of things">
+        <div class="thing-card" *ngFor="let thing of things | slice:0:amount; trackBy: byId">
             <project-card class="left-align" [thing]="thing" [deleteCallback]="boundRemoveCallback"></project-card>
         </div>
     </div>
-</div>
+</window-scroll>
