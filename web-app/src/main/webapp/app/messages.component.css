@@ -1,7 +1,6 @@
+@import '../css/animations.css';
+
 .name {
-    position: absolute;
-    top: 40%;
-    left: 65px;
     color: initial;
 }
 
@@ -11,14 +10,13 @@
 }
 
 .imageprofile {
-    position: absolute;
-    top: 18%;
+    margin-right: .5rem;
 }
 
 .message {
-    display: block;
+    display: flex;
+    align-items: center;
     min-height: 70px;
-    position: relative;
     cursor: pointer;
 }
 
@@ -41,6 +39,20 @@
 .message-item img.avatar {
     position: absolute;
     top: 0;
+
+    animation: scale-in;
+    animation-duration: 250ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(1, -0.46, 0.09, 1.44);
+}
+
+.message-item .emessage {
+    opacity: 0;
+    animation: fade-in;
+    animation-duration: 190ms;
+    animation-delay: 190ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
 }
 
 .rightto .avatar {
@@ -77,7 +89,7 @@
 
     background-size: cover;
     background-position: center;
-    background-color: #f2f2f2;
+    background-color: #fafafa;
     background-blend-mode: screen;
     box-shadow: 0 0 24px rgba(0, 0, 0, .1) inset;
 }

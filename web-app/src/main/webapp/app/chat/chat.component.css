@@ -1,3 +1,5 @@
+@import '../../css/animations.css';
+
 .chat-container {
     display: flex;
     position: fixed;
@@ -127,15 +129,6 @@
     padding: .5rem 1rem;
     flex-shrink: 0;
     min-height: 0;
-}
-
-@keyframes scale-in {
-    0% { transform: scale(0); }
-    100% { transform: scale(1); }
-}
-@keyframes fade-in {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
 }
 
 .chat-item-message {

@@ -15,11 +15,11 @@
             </span>
             <span *ngIf="atWith()" class="title grey-text">
                 <span *ngIf="atWith().with.length">with</span>
-                <span *ngFor="let with of atWith().with"><a [routerLink]="'/' + with.person.googleUrl">{{ with.person.firstName }} {{ with.person.lastName }}</a><span *ngIf="!with.isLast">, </span></span>
+                <span *ngFor="let with of atWith().with"><thing-link [thing]="with.person"></thing-link><span *ngIf="!with.isLast">, </span></span>
                 <span *ngIf="atWith().at.length">
                     <span *ngIf="!atWith().at[0].going">at</span>
                     <span *ngIf="atWith().at[0].going">going to</span>
-                    <a [routerLink]="'/hubs/' + atWith().at[0].hub.id">{{ atWith().at[0].hub.name }}</a>
+                    <thing-link [thing]="atWith().at[0].hub"></thing-link>
                 </span>
             </span>
             <time [date]="update.date"></time>

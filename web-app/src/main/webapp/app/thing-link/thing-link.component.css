@@ -1,0 +1,17 @@
+.in-thing-img {
+    border-radius: 100%;
+    background-size: 100%;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: middle;
+}
+
+.in-thing-name {
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 12rem;
+    display: inline-block;
+    vertical-align: middle;
+}

@@ -87,6 +87,7 @@ import { WindowScrollComponent } from './window-scroll/window-scroll.component';
 import { ThingCardsComponent } from './thing-cards/thing-cards.component';
 import { ThingListComponent } from './thing-list/thing-list.component';
 import { TimeComponent } from './time/time.component';
+import { ThingLinkComponent } from './thing-link/thing-link.component';
 
 enableProdMode();
 
@@ -181,6 +182,7 @@ export class MyOptions extends BaseRequestOptions {
         ThingCardsComponent,
         ThingListComponent,
         TimeComponent,
+        ThingLinkComponent,
     ],
     entryComponents: [
         FeedbackModal,

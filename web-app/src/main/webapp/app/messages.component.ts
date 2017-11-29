@@ -176,13 +176,14 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
     }
 
     private setBkg(person: any) {
-        let img = util.imageUrl(this.messagesWith.imageUrl, 640);
-        $(this.element).find('.content').css({
-            'background-image': 'url(\'' + img + '\')',
-            'background-color': '#bbbbbb'
-        });
-        util.setBodyBackground(img);
-
+        if (!'solid backgorund') {
+            let img = util.imageUrl(this.messagesWith.imageUrl, 640);
+            $(this.element).find('.content').css({
+                'background-image': 'url(\'' + img + '\')',
+                'background-color': '#bbbbbb'
+            });
+            util.setBodyBackground(img);
+        }
     }
 
     public enterPressed(event) {
@@ -230,7 +231,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
         this.resetTimeInterval();
 
         if (this.idCurrentContact && message) {
-            this.api.sendMessage(this.idCurrentContact, message)
+            this.api.sendMessage(this.idCurrentContact, message, 'date,message,source(firstName,lastName,googleUrl,imageUrl,message),target(firstName,lastName,googleUrl,imageUrl,message)')
                 .subscribe(newMessage => {
                     if (newMessage.message === message) {
                         this.endMessage = false;
@@ -290,5 +291,9 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
 
     public getWebTitle() {
         return Observable.of('Messages');
+    }
+
+    byId(thing: any) {
+        return thing.id;
     }
 }

@@ -34,9 +34,9 @@
                     You haven't started any conversations yet.
                 </div>
                 <div class="item" [ngClass]="{'current-contact': contact.target.id === idCurrentContact}" *ngFor="let contact of contacts">
-                    <a class="message clear" [ngClass]="{'not-seen': !contact.seen}" (click)="getMessagesById(contact)">
+                    <a class="message" [ngClass]="{'not-seen': !contact.seen}" (click)="getMessagesById(contact)">
                         <a [routerLink]="['/' + contact.target.googleUrl]" >
-                            <img class="circle resize imageprofile" src="{{showContactImage(contact, 0)}}"/>
+                            <img class="circle resize imageprofile z-depth-1" src="{{showContactImage(contact, 0)}}"/>
                         </a>
                         <div class="name">
                             {{ showContactImage(contact, 1) }}
@@ -72,12 +72,12 @@
                         Start your conversation with {{ messagesWith.firstName || 'someone' }} below.
                     </div>
                     <div class="scrollpanel">
-                        <div class="message-item clear scrollspy" *ngFor="let message of messageWithSomeone">
+                        <div class="message-item clear scrollspy" *ngFor="let message of messageWithSomeone; trackBy: byId">
                             <div class="message-name">
                                 <div class="clear" [ngClass]="{rightto: !checkIsLeft(message), leftto: checkIsLeft(message)}">
                                     <span class="emessage"> {{showContentMessage(message, 0)}} </span>
                                     <a [routerLink]="['/' + showContentMessage(message, 2)]" >
-                                        <img class="circle resize avatar" src="{{showContentMessage(message, 1)}}" />
+                                        <img class="circle resize avatar z-depth-1" src="{{showContentMessage(message, 1)}}" />
                                     </a>
                                 </div>
                             </div>

@@ -289,8 +289,8 @@ export class ApiService {
         return this._apiBaseUrl + 'earth/' + id + '/photo?s=' + size + '&auth=' + this.token();
     }
 
-    public sendMessage(personId, message) {
-        var creds = 'auth=' + this.token() + '&message=' + encodeURIComponent(message);
+    public sendMessage(personId, message, select: string = null) {
+        var creds = 'auth=' + this.token() + '&message=' + encodeURIComponent(message) + (select ? '&select=' + select : '');
 
         return this._http.post(this._apiBaseUrl + 'earth/' + personId, creds, this.formHeaders())
             .pipe(map(res => res.json()));

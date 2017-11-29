@@ -1,7 +1,6 @@
 <div *ngIf="thing && thing.in && thing.in.length">
   <div class="in-thing-wrapper" *ngFor="let in of thing.in | filter:isSameKind">
     <span class="grey-text">in</span>
-    <div class="in-thing-img" [style.background-image]="'url(' + getPhotoUrlFor(in.target, 16) + ')'"></div>
-    <a [routerLink]="goUrlFor(in.target)" class="in-thing-name">{{ thingName(in.target) }}</a>
+    <thing-link [thing]="in.target"></thing-link>
   </div>
 </div>
