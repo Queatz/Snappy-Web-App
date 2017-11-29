@@ -1,0 +1,7 @@
+<div class="waves-effect choice" *ngFor="let thing of things; let i = index; trackBy: byId" (click)="select(i)">
+  <div class="image" [style.background-image]="url(thing) ? 'url(' + url(thing) + ')' : 'url(/img/night.png)'"></div>
+  {{ thing.name ? thing.name : thing.firstName ? thing.firstName + ' ' + thing.lastName : thing.about }}
+  <span class="grey-text text-lighten-1">
+      {{ thing.kind }}
+  </span>
+</div>

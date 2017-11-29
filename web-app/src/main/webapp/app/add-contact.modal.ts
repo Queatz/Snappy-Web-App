@@ -55,37 +55,14 @@ export class AddContactModal implements AfterViewInit {
         });
     }
 
-    search() {
-        this.searching = true;
-        if (!this.position) {
-            this.inforService.getLocation(this.doSearch.bind(this));
-        } else {
-            this.doSearch(this.position);
-        }
-    }
-
-    select(index) {
-        this.results = [this.results[index]];
+    onSearchResults(results: any) {
+        this.results = results;
 
         if (this.results.length) {
-            this.newContactName = this.results[0].firstName;
+            this.newContactName = this.results[0].name || this.results[0].firstName || this.results[0].about;
         } else {
             this.newContactName = undefined;
         }
-    }
-
-    private doSearch(position) {
-        this.position = position;
-        this.api.earthSearch(position.coords, this.text, 'person', 'firstName,lastName').subscribe(results => {
-            this.results = results;
-            this.searching = false;
-
-            if (results.length) {
-                this.newContactName = results[0].firstName;
-            } else {
-                this.newContactName = undefined;
-            }
-        });
     }
 
     public canEdit() {

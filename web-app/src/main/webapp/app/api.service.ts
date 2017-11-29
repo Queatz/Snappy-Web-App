@@ -133,7 +133,7 @@ export class ApiService {
     }
 
     // XXX currently returns a promise, so must use .then()
-    public earthPostUpdate(thingId: string, message: string, photoFile: File, visibility: any) {
+    public earthPostUpdate(thingId: string, message: string, photoFile: File, visibility: any, withAt: any[] = null) {
         var formData = new FormData();
 
         if (photoFile) {
@@ -153,6 +153,10 @@ export class ApiService {
             formData.append('clubs', visibility.clubs);
         }
 
+        if (withAt) {
+            formData.append('with', JSON.stringify(withAt));
+        }
+
         var headers = new Headers();
         headers.append('Content-Type', undefined);
 
@@ -160,7 +164,7 @@ export class ApiService {
     }
 
     // XXX currently returns a promise, so must use .then()
-    public earthSaveUpdate(updateId: string, message: string, photoFile: File, visibility: any) {
+    public earthSaveUpdate(updateId: string, message: string, photoFile: File, visibility: any, withAt: any[] = null) {
         var formData = new FormData();
 
         if (photoFile) {
@@ -174,6 +178,10 @@ export class ApiService {
         if (visibility) {
             formData.append('hidden', visibility.hidden);
             formData.append('clubs', visibility.clubs);
+        }
+
+        if (withAt) {
+            formData.append('with', JSON.stringify(withAt));
         }
 
         var headers = new Headers();

@@ -103,3 +103,7 @@ a {
     }
 
 }
+
+.vertically-spaced {
+    line-height: 3rem;
+}

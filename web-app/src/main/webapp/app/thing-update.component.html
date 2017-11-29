@@ -5,15 +5,14 @@
     </div>
     <div class="card-content">
         <club-tag [clubs]="update.clubs" [isPublic]="!update.hidden" class="small in-card"></club-tag>
-        <a *ngIf="isMine()" (click)="edit()" class="thing-action-icon right grey-text text-lighten-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit'"><i class="material-icons small">edit</i></a>
+        <a *ngIf="isMine()" (click)="edit()" class="thing-action-icon grey-text text-lighten-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit'"><i class="material-icons small">edit</i></a>
         <div class="blox">
             <a [routerLink]="['/' + update.source.googleUrl]" class="tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="update.source.firstName + ' ' + update.source.lastName"> <img src="{{ update.source.imageUrl }}" alt="Profile picture" class="circle" /> </a>
         </div>
         <div class="blox">
             <span class="title update-type blue-text">{{ update.source.firstName }}
-                <span *ngIf="!isComment">posted</span>
+                <span *ngIf="!isComment && !atWith()">posted</span>
             </span>
-            <span class="title grey-text">{{ time() }}</span>
             <span *ngIf="atWith()" class="title grey-text">
                 <span *ngIf="atWith().with.length">with</span>
                 <span *ngFor="let with of atWith().with"><a [routerLink]="'/' + with.person.googleUrl">{{ with.person.firstName }} {{ with.person.lastName }}</a><span *ngIf="!with.isLast">, </span></span>
@@ -23,6 +22,7 @@
                     <a [routerLink]="'/hubs/' + atWith().at[0].hub.id">{{ atWith().at[0].hub.name }}</a>
                 </span>
             </span>
+            <span class="title grey-text">{{ time() }}</span>
             <thing-in [thing]="update"></thing-in>
             <p class="flow-text" [innerHtml]="update.about | parseLinks"></p>
         </div>

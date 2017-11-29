@@ -13,13 +13,24 @@
             <div class="row">
                 <div class="file-field input-field s12">
                     <div class="btn">
-                        <span>File</span>
+                        <span *ngIf="update">Change photo</span>
+                        <span *ngIf="!update">Add photo</span>
                         <input type="file" accept="image/*" (change)="fileChangeEvent($event)">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" [(ngModel)]="efile" name="efile">
                     </div>
                 </div>
+            </div>
+            <div class="row" *ngIf="!update">
+                <thing-list [things]="checkingInWithAt" (onThingClicked)="removeCheckin($event)"></thing-list>
+                <br *ngIf="checkingInWithAt.length" />
+                <br *ngIf="checkingInWithAt.length" />
+                <button class="btn-flat teal-text" (click)="checkingIn = !checkingIn">
+                        <b *ngIf="!checkingIn">Check-in...</b>
+                        <b *ngIf="checkingIn">Cancel</b>
+                </button>
+                <searchbox *ngIf="checkingIn" (onSearchResultClicked)="checkin($event)" [maxResults]="3" kinds="person|hub"></searchbox>
             </div>
             <div class="row">
                 <visibility-picker [clubs]="clubs" [(public)]="isPublic"></visibility-picker>

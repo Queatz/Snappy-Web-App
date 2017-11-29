@@ -6,3 +6,14 @@
 a {
     cursor: pointer;
 }
+
+.flexable {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flexable-text {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}

@@ -11,13 +11,7 @@
 </form>
 
 <div>
-  <div class="waves-effect choice" *ngFor="let thing of results; let i = index" (click)="select(i)">
-    <div class="image" [style.background-image]="url(thing) ? 'url(' + url(thing) + ')' : 'url(/img/night.png)'"></div>
-    {{ thing.name ? thing.name : thing.firstName ? thing.firstName + ' ' + thing.lastName : thing.about }}
-    <span class="grey-text text-lighten-1">
-        {{ thing.kind }}
-    </span>
-  </div>
+  <thing-list [things]="results" (onThingClicked)="select($event)"></thing-list>
   <div *ngIf="!results.length" class="null grey-text">
     <span *ngIf="text && searching">Searching...</span>
     <span *ngIf="text && !searching">Nothing was found</span>

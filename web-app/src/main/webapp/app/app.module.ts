@@ -85,6 +85,7 @@ import { SetLocationModalComponent } from './set-location-modal/set-location-mod
 import { SpinnerComponent } from './spinner/spinner.component';
 import { WindowScrollComponent } from './window-scroll/window-scroll.component';
 import { ThingCardsComponent } from './thing-cards/thing-cards.component';
+import { ThingListComponent } from './thing-list/thing-list.component';
 
 enableProdMode();
 
@@ -177,6 +178,7 @@ export class MyOptions extends BaseRequestOptions {
         SpinnerComponent,
         WindowScrollComponent,
         ThingCardsComponent,
+        ThingListComponent,
     ],
     entryComponents: [
         FeedbackModal,

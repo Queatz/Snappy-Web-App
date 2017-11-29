@@ -1,6 +1,6 @@
 declare var $: any;
 
-import { Component, OnInit, AfterViewInit, Output, EventEmitter, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Output, EventEmitter, ElementRef, Input } from '@angular/core';
 import { ApiService } from '../api.service';
 import { InforService } from '../infor.service';
 
@@ -14,6 +14,9 @@ export class SearchboxComponent implements OnInit, AfterViewInit {
     @Output() onSearchResults = new EventEmitter<any>();
     @Output() onSearchResultClicked = new EventEmitter<any>();
 
+    @Input() kinds: string;
+    @Input() maxResults: number;
+
     public results;
     private position;
     private searchRequest = null;
@@ -22,10 +25,10 @@ export class SearchboxComponent implements OnInit, AfterViewInit {
 
     constructor(private api: ApiService, private inforService: InforService, private elementRef: ElementRef) {
         this.results = [];
-        this.search();
     }
 
     ngOnInit() {
+        this.search();
     }
 
     ngAfterViewInit() {
@@ -41,20 +44,10 @@ export class SearchboxComponent implements OnInit, AfterViewInit {
         }
     }
 
-    select(index) {
-        this.results = [this.results[index]];
+    select(thing: any) {
+        this.results = [thing];
         this.onSearchResults.emit(this.results);
         this.onSearchResultClicked.emit(this.results[0]);
-    }
-
-    url(thing: any) {
-        if (thing.kind === 'person') {
-            return thing.imageUrl;
-        }
-
-        if (thing.photo) {
-            return this.api.earthImageUrl(thing.id, 64);
-        }
     }
 
     private doSearch(position) {
@@ -64,8 +57,13 @@ export class SearchboxComponent implements OnInit, AfterViewInit {
             this.searchRequest.unsubscribe();
         }
 
-        this.searchRequest = this.api.earthSearch(position.coords, this.text || '', 'person|resource|project|offer|club|hub|form|party', 'name,about,firstName,lastName,googleUrl,source(googleUrl)').subscribe(results => {
+        this.searchRequest = this.api.earthSearch(position.coords, this.text || '', this.kinds || 'person|resource|project|offer|club|hub|form|party', 'name,about,photo,imageUrl,firstName,lastName,googleUrl,source(googleUrl)').subscribe(results => {
             this.results = results;
+
+            if (this.maxResults && this.results.length > this.maxResults) {
+                this.results.length = this.maxResults;
+            }
+
             this.searching = false;
             this.searchRequest = null;
             this.onSearchResults.emit(this.results);

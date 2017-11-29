@@ -10,10 +10,18 @@
 
 .thing-action-icon {
     display: none;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    cursor: pointer;
 }
 
 .card:hover .thing-action-icon {
     display: block;
+}
+
+.card-content {
+    position: relative;
 }
 
 .card .card-image img {

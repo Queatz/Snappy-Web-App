@@ -21,6 +21,9 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
     private element;
     public efile;
 
+    public checkingIn: boolean;
+    public checkingInWithAt: any[] = [];
+
     public isPublic: any;
     public clubs: any;
 
@@ -53,6 +56,19 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
         $(this.element.querySelector('.modal')).modal();
     }
 
+    public checkin(thing: any) {
+        if (_.any(this.checkingInWithAt, t => thing.id === t.id)){
+            return;
+        }
+
+        this.checkingInWithAt.push(thing);
+        this.checkingIn = !this.checkingIn;
+    }
+
+    public removeCheckin(thing: any) {
+        _.pull(this.checkingInWithAt, thing);
+    }
+
     public remove() {
         this.api.earthDelete(this.update.id)
             .subscribe((res: any) => {
@@ -83,7 +99,7 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
                 this.api.earthSaveUpdate(this.update.id, this.message, isFile ? this.filesToUpload[0] : null, {
                     hidden: !this.isPublic,
                     clubs: JSON.stringify(this.clubs)
-                })
+                }, this.checkingInWithAt.map(t => t.id))
                     .then(result => {
                         var updated: Object = JSON.parse(result);
 
@@ -107,7 +123,7 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
             this.api.earthPostUpdate(this.thing.id, this.message, isFile ? this.filesToUpload[0] : null, {
                 hidden: !this.isPublic,
                 clubs: JSON.stringify(this.clubs)
-            })
+            }, this.checkingInWithAt.map(t => t.id))
                 .then(result => {
                     if (_.isArray(updates)) {
                         updates.unshift(JSON.parse(result));

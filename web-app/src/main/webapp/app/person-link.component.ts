@@ -41,13 +41,13 @@ export class PersonLinkComponent implements OnInit, AfterViewInit, OnDestroy {
         return 'inline-block';
     }
 
-    getName() {
+    getName(full: boolean = false) {
         if (!this.person) {
             return;
         }
 
         if (this.person.firstName) {
-            return this.person.firstName + ' ' + this.person.lastName;
+            return this.person.firstName + (full ? ' ' + this.person.lastName : '');
         }
 
         return this.person.name;

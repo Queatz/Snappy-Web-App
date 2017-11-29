@@ -11,15 +11,17 @@
       </div>
     </form>
   </div>
-  <div class="card-action">
-    <a (click)="subscribe()" [hidden]="isSubscribed()">
-      <div class="waves-effect secondary-content waves-light btn white-text amber darken-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'You\'ll get emails when things happen around here'">
+  <div class="card-action flexable">
+    <div class="green-text flexable-text">
+      <span *ngIf="!isSubscribed()">
+        Get notifed when things happen in {{ locality }}
+      </span>
+    </div>
+    <a (click)="subscribe()" *ngIf="!isSubscribed()"  class="waves-effect waves-light btn white-text amber darken-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'You\'ll get emails when things happen around here'">
         <b>Subscribe to {{ locality }}</b>
-      </div>
     </a>
-    <a (click)="resubscribe()" [hidden]="!isSubscribed()">
-      <a class="secondary-content amber-text text-darken-1">Re-subscribe</a>
+    <a (click)="resubscribe()" *ngIf="isSubscribed()"  class="amber-text text-darken-1">
+      Re-subscribe
     </a>
-    <div class="clear"></div>
   </div>
 </div>
