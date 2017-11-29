@@ -1,13 +1,13 @@
 declare var $: any;
 
-import { Component, OnInit, AfterViewInit, OnDestroy, Input, ElementRef, HostBinding } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, OnChanges, Input, ElementRef, HostBinding, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'club-tag',
   templateUrl: './club-tag.component.html',
   styleUrls: ['./club-tag.component.css']
 })
-export class ClubTagComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ClubTagComponent implements OnInit, AfterViewInit, OnDestroy, OnChanges {
 
     @Input() isPublic: boolean;
     @Input() clubs: any;
@@ -15,6 +15,12 @@ export class ClubTagComponent implements OnInit, AfterViewInit, OnDestroy {
     constructor(private elementRef: ElementRef) { }
 
     ngOnInit() {
+        if (!this.clubs) {
+            this.clubs = [];
+        }
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
         if (!this.clubs) {
             this.clubs = [];
         }

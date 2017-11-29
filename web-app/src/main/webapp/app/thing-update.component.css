@@ -39,3 +39,7 @@
 p {
     white-space: pre-wrap;
 }
+
+.is-comment {
+    margin: 0;
+}

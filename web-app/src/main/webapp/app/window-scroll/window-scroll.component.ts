@@ -4,7 +4,8 @@ import { Component, HostListener, Output, EventEmitter, ElementRef } from '@angu
 
 @Component({
   selector: 'window-scroll',
-  template: `<ng-content></ng-content>`
+  template: '<ng-content></ng-content>',
+  styles: [':host { display: block; }']
 })
 export class WindowScrollComponent {
   

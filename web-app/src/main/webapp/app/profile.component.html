@@ -34,7 +34,7 @@
                         <b *ngIf="!thing.backing">Back them</b>
                         <i *ngIf="thing.backing" class="material-icons">check</i>
                     </div>
-                    <div *ngIf="thing.infoFollowers" class="followers grey-text text-darken-2">{{ thing.infoFollowers }} {{ thing.infoFollowers === 1 ? 'backer' : 'backers' }}</div>
+                    <div *ngIf="thing.backers" class="followers grey-text text-darken-2">{{ thing.backers }} {{ thing.backers === 1 ? 'backer' : 'backers' }}</div>
                 </div>
             </div>
             <tabs-for [thing]="thing"></tabs-for>

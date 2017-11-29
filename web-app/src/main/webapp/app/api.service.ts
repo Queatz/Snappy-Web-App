@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class ApiService {
     private _token = '';
-    private beta = true;
+    private beta = false;
     private _apiDomain = this.beta ? '127.0.0.1:8080' : 'vlllage.com:8443';
     private _apiBase = this.beta ? 'http://' + this._apiDomain : 'https://' + this._apiDomain;
     private _apiBaseUrl = this._apiBase + '/api/';
@@ -244,28 +244,28 @@ export class ApiService {
     }
 
     public newOffer(details, price, unit, asMemberOf = null, want = false, visibility = null) {
-        var creds = "auth=" + this.token() +
-        "&details=" + encodeURIComponent(details) +
-        "&price=" + encodeURIComponent(price) +
-        "&unit=" + encodeURIComponent(unit) +
+        var creds = 'auth=' + this.token() +
+        '&details=' + encodeURIComponent(details) +
+        '&price=' + encodeURIComponent(price) +
+        '&unit=' + encodeURIComponent(unit) +
         (
-            visibility ? "&hidden=" + visibility.hidden + "&clubs=" + encodeURIComponent(visibility.clubs) : ""
+            visibility ? '&hidden=' + visibility.hidden + '&clubs=' + encodeURIComponent(visibility.clubs) : ''
         ) +
-        "&want=" + encodeURIComponent(want.toString()) +
-        "&kind=offer" +
-        (asMemberOf ? "&in=" + encodeURIComponent(asMemberOf.id) : "");
+        '&want=' + encodeURIComponent(want.toString()) +
+        '&kind=offer' +
+        (asMemberOf ? '&in=' + encodeURIComponent(asMemberOf.id) : '');
         return this._http.post(this._apiBaseUrl + 'earth', creds, this.formHeaders()).pipe(map((res: Response) => res.json()));
     }
 
     public editOffer(offerId, details, price, unit, want, visibility) {
-        var creds = "auth=" + this.token() +
-            "&details=" + encodeURIComponent(details) +
-            "&price=" + encodeURIComponent(price) +
-            "&unit=" + encodeURIComponent(unit) +
+        var creds = 'auth=' + this.token() +
+            '&details=' + encodeURIComponent(details) +
+            '&price=' + encodeURIComponent(price) +
+            '&unit=' + encodeURIComponent(unit) +
             (
-                visibility ? "&hidden=" + visibility.hidden + "&clubs=" + encodeURIComponent(visibility.clubs) : ""
+                visibility ? '&hidden=' + visibility.hidden + '&clubs=' + encodeURIComponent(visibility.clubs) : ''
             ) +
-            "&want=" + encodeURIComponent(want);
+            '&want=' + encodeURIComponent(want);
         return this._http.post(this._apiBaseUrl + 'earth/' + offerId, creds, this.formHeaders()).pipe(map((res: Response) => res.json()));
     }
 
@@ -282,14 +282,14 @@ export class ApiService {
     }
 
     public sendMessage(personId, message) {
-        var creds = "auth=" + this.token() + "&message=" + encodeURIComponent(message);
+        var creds = 'auth=' + this.token() + '&message=' + encodeURIComponent(message);
 
         return this._http.post(this._apiBaseUrl + 'earth/' + personId, creds, this.formHeaders())
             .pipe(map(res => res.json()));
     }
 
     public sendFeedback(feedback) {
-        var creds = "auth=" + this.token() + "&feedback=" + encodeURIComponent(feedback);
+        var creds = 'auth=' + this.token() + '&feedback=' + encodeURIComponent(feedback);
 
         return this._http.post(this._apiBaseUrl + 'earth/feedback', creds, this.formHeaders())
             .pipe(map(res => res.json()));
@@ -306,14 +306,14 @@ export class ApiService {
     }
 
     public follow(personId: string, follow: boolean) {
-        var creds = "auth=" + this.token() + "&follow=" + follow;
+        var creds = 'auth=' + this.token() + '&follow=' + follow + '&select=backing,backers,target(backing,backers)';
 
         return this._http.post(this._apiBaseUrl + 'earth/' + personId, creds, this.formHeaders())
             .pipe(map(res => res.json()));
     }
 
     public getAppToken(domain: string) {
-        var creds = "auth=" + this.token() + "&domain=" + encodeURIComponent(domain);
+        var creds = 'auth=' + this.token() + '&domain=' + encodeURIComponent(domain);
 
         return this._http.get(this._apiBaseUrl + 'earth/app/token?' + creds)
             .pipe(map(res => res.json()));

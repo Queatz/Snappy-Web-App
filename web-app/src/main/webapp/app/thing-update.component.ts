@@ -19,6 +19,7 @@ var checkFirst = true;
 export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() public update;
     @Input() public resizeCallback;
+    @Input() public isComment;
 
     private element: HTMLElement;
     private modal;
@@ -26,6 +27,8 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
     private updateImage;
     private member;
     private __atWith;
+
+    comments: any[] = null;
 
     constructor(private inforService: InforService,
             private api: ApiService,
@@ -39,6 +42,10 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.update.kind === 'member') {
             this.member = this.update;
             this.update = this.update.source;
+        }
+
+        if (this.update.members) {
+            this.comments = this.update.members.map(c => c.source).filter(c => c.kind === 'update');
         }
     }
 
@@ -115,5 +122,9 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
         this.__atWith = result;
 
         return result;
+    }
+
+    byId(update: any) {
+        return update.id;
     }
 }

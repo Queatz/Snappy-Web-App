@@ -1,3 +1,5 @@
+declare var _: any;
+
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { InviteModal } from './invite.modal';
 import { InforService } from './infor.service';
@@ -39,6 +41,7 @@ export class PeopleComponent implements AfterViewInit, WebTitleProvider {
 
     private loaded(people) {
         this.people = people;
+        this.people.sort(p => p.infoDistance);
     }
 
     public getWebTitle() {

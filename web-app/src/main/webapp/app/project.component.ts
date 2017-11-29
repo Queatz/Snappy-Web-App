@@ -135,11 +135,11 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
                 switch (thing.kind) {
                     case 'person':
                         this.thing.backing = thing.backing;
-                        this.thing.infoFollowers = thing.infoFollowers;
+                        this.thing.backers = thing.backers;
                         break;
                     case 'follower':
                         this.thing.backing = true;
-                        this.thing.infoFollowers = thing.target.infoFollowers;
+                        this.thing.backers = thing.target.backers;
                 }
             });
     }
