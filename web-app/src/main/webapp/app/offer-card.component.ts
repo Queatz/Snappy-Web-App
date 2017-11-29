@@ -2,7 +2,6 @@ declare var $;
 declare var Waves;
 declare var Materialize;
 declare var Promise;
-declare var moment;
 
 import { Component, ComponentFactoryResolver, ViewContainerRef, Input, OnInit, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
@@ -229,9 +228,5 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
         ref.instance.resizeCallback = self.resizeCallback;
         self.modal = $(ref.location.nativeElement).find('.modal');
         setTimeout(() => self.modal.modal('open'));
-    }
-
-    public time() {
-        return moment(this.offer.date).fromNow();
     }
 }

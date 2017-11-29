@@ -1,7 +1,6 @@
 declare var require: any;
 declare var $: any;
 declare var Waves: any;
-var moment = require('moment');
 
 import { Component, ComponentFactoryResolver, ViewContainerRef, OnInit, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
@@ -80,10 +79,6 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
 
     public loaded() {
         this.resizeCallback();
-    }
-
-    public time() {
-        return moment(this.update.date).fromNow();
     }
 
     public atWith() {
