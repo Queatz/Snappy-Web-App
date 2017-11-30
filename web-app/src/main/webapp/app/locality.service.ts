@@ -16,11 +16,6 @@ export class LocalityService {
         this.callbacks.push(callback);
 
         let lastKnownLocality = localStorage.getItem('lastKnownLocality');
-        let lastKnownPosition = localStorage.getItem('lastKnownPosition');
-
-        if (lastKnownPosition) {
-            this.position = JSON.parse(lastKnownPosition);
-        }
 
         if (lastKnownLocality) {
             callback(lastKnownLocality);
@@ -31,13 +26,6 @@ export class LocalityService {
 
     private onLocationFound(position: any) {
         this.position = position;
-
-        localStorage.setItem('lastKnownPosition', JSON.stringify({
-            coords: {
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude
-            }
-        }));
 
         new google.maps.Geocoder().geocode({
             location: new google.maps.LatLng(

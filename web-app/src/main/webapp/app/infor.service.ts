@@ -62,11 +62,26 @@ export class InforService {
     private locationFound(callback: any, location: any) {
         this.overrideLocation = location;
         this.locationCallbacks.delete(callback);
+
+        localStorage.setItem('lastKnownPosition', JSON.stringify({
+            coords: {
+                latitude: location.coords.latitude,
+                longitude: location.coords.longitude
+            }
+        }));
+
         callback(location);
     }
 
     setLocation(location: any) {
         this.overrideLocation = location;
+
+        localStorage.setItem('lastKnownPosition', JSON.stringify({
+            coords: {
+                latitude: location.coords.latitude,
+                longitude: location.coords.longitude
+            }
+        }));
 
         this.locationCallbacks.forEach(c => c(this.overrideLocation));
         this.locationCallbacks.clear();
@@ -74,10 +89,18 @@ export class InforService {
 
     clearLocation() {
         this.overrideLocation = null;
+        localStorage.removeItem('lastKnownPosition');
     }
 
     noLocation(err: PositionError) {
         if (this.locateModal && !this.locateModal.hostView.destroyed) {
+            return;
+        }
+
+        let lastKnownPosition = localStorage.getItem('lastKnownPosition');
+
+        if (lastKnownPosition) {
+            this.setLocation(JSON.parse(lastKnownPosition));
             return;
         }
 

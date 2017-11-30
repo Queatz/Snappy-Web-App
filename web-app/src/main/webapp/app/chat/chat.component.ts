@@ -157,9 +157,11 @@ export class ChatComponent implements OnInit, AfterViewInit {
     }
 
     scrollChat() {
-        $(this.elementRef.nativeElement).find('.room-main').stop().animate({
-            scrollTop: $(this.elementRef.nativeElement).find('.room-main-chats').height()
-        }, 0);
+        setTimeout(() => {
+            $(this.elementRef.nativeElement).find('.room-main').stop().animate({
+                scrollTop: $(this.elementRef.nativeElement).find('.room-main-chats').height()
+            }, 0);
+        }, 125);
     }
 
     ngAfterViewInit() {
