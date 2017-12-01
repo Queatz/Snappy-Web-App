@@ -2,5 +2,6 @@
     <div [style.background-image]="'url(' + getImageUrl() + ')'" class="circle img z-depth-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="getName(true)"></div>
     <br />
     <div class="person-name">{{ getName() }}</div>
+    <div *ngIf="presence()" class="grey-text sec">{{ presence() }}</div>
     <i class="remove-person waves-effect material-icons grey-text tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Remove'" *ngIf="remove" (click)="remove($event)">clear</i>
 </a>

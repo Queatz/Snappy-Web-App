@@ -81,4 +81,8 @@ export class PersonLinkComponent implements OnInit, AfterViewInit, OnDestroy {
                 return ['/' + this.person.kind + 's/' + this.person.id];
         }
     }
+
+    public presence() {
+        return util.presence(this.person);
+    }
 }
