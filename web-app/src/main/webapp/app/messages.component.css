@@ -92,6 +92,7 @@
     background-color: #fafafa;
     background-blend-mode: screen;
     box-shadow: 0 0 24px rgba(0, 0, 0, .1) inset;
+    border-radius: 8px;
 }
 
 .sendmessage textarea {

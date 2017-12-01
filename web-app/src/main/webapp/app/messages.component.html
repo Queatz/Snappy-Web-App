@@ -8,7 +8,7 @@
             <signin-required-modal></signin-required-modal>
         </div>
     </div>
-    <div class="row mainmessage white z-depth-1 ms-toogle" [ngClass]="{'ms-toogle-on': msToggleOn}" *ngIf="haveUserInfor()">
+    <div class="row mainmessage card ms-toogle" [ngClass]="{'ms-toogle-on': msToggleOn}" *ngIf="haveUserInfor()">
         <div class="col s12 m4 l3 scroll msrecent" style="position: relative;">
             <div *ngIf="!contacts" class="fill valign-wrapper">
                 <div style="margin: auto;" class="valign">
