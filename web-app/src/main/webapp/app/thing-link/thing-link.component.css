@@ -4,7 +4,6 @@
     display: inline-block;
     width: 1rem;
     height: 1rem;
-    vertical-align: middle;
 }
 
 .in-thing-name {
@@ -13,5 +12,5 @@
     text-overflow: ellipsis;
     max-width: 12rem;
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: bottom;
 }
