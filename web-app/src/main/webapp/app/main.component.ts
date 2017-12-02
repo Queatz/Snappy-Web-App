@@ -14,7 +14,7 @@ import { ApiService } from './api.service';
 export class MainComponent implements AfterViewInit, OnInit, OnDestroy {
     private inforService;
     private newOfferModal;
-    private people;
+    people: any[];
 
     constructor(private api: ApiService, inforService: InforService, private elementRef: ElementRef, public tutorial: TutorialService) {
         this.inforService = inforService;

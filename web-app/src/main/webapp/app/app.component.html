@@ -19,7 +19,7 @@
 
                 <div class="right right-actions actions-bar">
                     <a class="feedback hide-on-med-and-down modal-trigger right tooltipped" *ngIf="userSignined()" href="#feedbackModal" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Send feedback about Village to the development team'">Feedback</a>
-                    <a class="settings hide-on-med-and-down right tooltipped" *ngIf="userSignined()" routerLink="/settings" [attr.data-position]="'bottom'" [attr.data-tooltip]="'View settings'"><i class="material-icons">settings</i></a>
+                    <a class="settings hide-on-med-and-down right tooltipped" routerLink="/settings" [attr.data-position]="'bottom'" [attr.data-tooltip]="'View settings'"><i class="material-icons">settings</i></a>
                     <a class="feedback lime-text hide-on-med-and-down right tooltipped" href="https://play.google.com/store/apps/details?id=com.queatz.snappy" target="_blank" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Get the app'"><i class="material-icons">android</i></a>
                     <a class="chat right tooltipped" *ngIf="userSignined()" routerLink="/messages" [attr.data-position]="'bottom'" [attr.data-tooltip]="'View your messages'"><i class="material-icons">chat_bubble</i></a>
                     <div class="signin right tooltipped right-actions" [attr.data-position]="'left'" [attr.data-tooltip]="'View your profile'">

@@ -18,6 +18,10 @@ export class SettingsComponent implements OnInit {
         this.locality.get(locality => this.currentLocation = locality);
     }
 
+    signedIn() {
+        return !!this.inforService.getInforUser();
+    }
+
     signOut() {
         this.inforService.signOut();
         this.router.navigate(['/']);

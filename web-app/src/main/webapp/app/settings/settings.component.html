@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <div class="col s12">
+    <div class="col s12" *ngIf="signedIn()">
       <div class="card-content">
         <h4 class="grey-text">Account</h4>
         <div (click)="signOut()" class="btn waves-effect waves-light"><b>Sign out</b></div>
