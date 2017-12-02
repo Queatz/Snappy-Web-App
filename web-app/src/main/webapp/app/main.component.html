@@ -3,8 +3,8 @@
     <locality-card></locality-card>
     <div *ngIf="people" class="people">
         <person-link *ngFor="let person of people | slice:0:6" [person]="person"></person-link>
-        <div class="center-algin waves-effect">
-            <a class="btn-flat blue-text" [routerLink]="'/people'"><b>See all people nearby</b></a>
+        <div class="center-align">
+            <a class="btn-flat blue-text waves-effect" [routerLink]="'/people'"><b>See all people nearby</b></a>
         </div>
     </div>
     <offers></offers>

@@ -2,6 +2,7 @@
     <div class="card-image">
         <div *ngIf="!isComment" class="card-tabbing blue"></div>
         <img (load)="loaded()" *ngIf="update.photo" src="{{updateImage}}" />
+        <i class="thing-action card-hover waves-effect material-icons white-text small waves-light tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Use as cover photo'" *ngIf="update.photo" (click)="useAsCoverPhoto($event)">vertical_align_top</i>
     </div>
     <div class="card-content">
         <club-tag [clubs]="update.clubs" [isPublic]="!update.hidden" class="small in-card"></club-tag>

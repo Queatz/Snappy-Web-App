@@ -14,16 +14,13 @@ import { InforService } from './infor.service';
 import util from './util';
 import { WebTitleProvider } from './extra';
 import { Observable, Subject, Subscription } from 'rxjs';
+import { WorldService } from './world.service';
 
 
 @Component({
     templateUrl: './profile.component.html',
     styleUrls: ['./profile.component.css'],
 })
-//@RouteConfig([
-//  { path: '/',       component: OffersTabComponent, useAsDefault: true },
-//  { path: '/updates', component: UpdatesTabComponent },
-//])
 export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTitleProvider {
     public notFound = false;
     private myProfile;
@@ -33,7 +30,6 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     public showLink;
 
     private editLinkPrecheckSubscription: Subscription;
-    private inforService: InforService;
     private element;
     public thing;
     private newOfferModal;
@@ -44,15 +40,16 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     private tab;
     private preselect: string = null;
     private pageTitle: Subject<string>;
+    private on: Subscription;
 
     constructor(
-        inforService: InforService,
+        private inforService: InforService,
+        private world: WorldService,
         private api: ApiService,
         private router: Router,
         private route: ActivatedRoute,
         element: ElementRef
     ) {
-        this.inforService = inforService;
         this.element = element.nativeElement;
         this.thing = null;
 
@@ -64,7 +61,12 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     }
 
     ngOnInit() {
-         this.route.params.subscribe(this.subFunc.bind(this));
+        this.route.params.subscribe(this.subFunc.bind(this));
+        this.on = this.world.on(e => {
+            if (this.thing) {
+                this.loadPerson(this.thing.googleUrl);
+            }
+        });
     }
 
     subFunc(params: any) {
@@ -83,10 +85,12 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     }
 
     loadPerson(personName) {
-        this.api.getPersonByName(personName, 'firstName,lastName,imageUrl,googleUrl,infoDistance,around,backing,backers,photo,about,members(role,source(date,name,photo,about,owner,going,joins(source(name,firstName,lastName,photo,imageUrl,googleUrl)),source(imageUrl,googleUrl,photo,firstName,lastName),clubs(name)),target(name,owner,imageUrl,googleUrl,photo,firstName,lastName,about)),clubs(name)')
+        this.thing = null;
+
+        this.api.getPersonByName(personName, 'firstName,lastName,imageUrl,googleUrl,infoDistance,around,backing,backers,photo,cover,about,members(role,source(date,name,photo,about,owner,going,joins(source(name,firstName,lastName,photo,imageUrl,googleUrl)),source(imageUrl,googleUrl,photo,firstName,lastName),clubs(name)),target(name,owner,imageUrl,googleUrl,photo,firstName,lastName,about)),clubs(name)')
         .subscribe(person => {
             this.thing = person;
-                util.setBodyBackground(util.imageUrl(this.thing.imageUrl, 640));
+            util.setBodyBackground(util.imageUrl(this.thing.imageUrl, 640));
 
             if (this.thing.members) {
                 this.thing.people = _.filter(this.thing.members, m => m.source && m.source.kind === 'person');
@@ -123,6 +127,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     }
 
     ngOnDestroy() {
+        this.on.unsubscribe();
         $(this.element).find('.tooltipped').tooltip('remove');
     }
 
@@ -184,5 +189,17 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
 
     public presence() {
         return util.presence(this.thing);
+    }
+
+    public getCoverUrl() {
+        if (this.thing) {
+            if (!this.thing.cover) {
+                return 'url(/img/feature.jpg\')';
+            }
+
+            return 'url(' + this.api.earthPhotoUrl(this.thing.cover.id) + ')';
+        }
+
+        return '';
     }
 }

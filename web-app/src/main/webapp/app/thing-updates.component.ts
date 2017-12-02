@@ -48,7 +48,7 @@ export class ThingUpdatesComponent implements OnInit, OnChanges, OnDestroy {
     public loaded(updates) {
         this.previousArraySize = updates.length;
     }
-
+ 
     resizeCallback() {
     }
 

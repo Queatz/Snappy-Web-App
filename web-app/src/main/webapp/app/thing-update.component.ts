@@ -2,9 +2,10 @@ declare var require: any;
 declare var $: any;
 declare var Waves: any;
 
-import { Component, ComponentFactoryResolver, ViewContainerRef, OnInit, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
+import { Component, ComponentFactoryResolver, ViewContainerRef, OnInit, Input, Output, AfterViewInit, EventEmitter, ElementRef, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from './api.service';
+import { WorldService } from './world.service';
 import { InforService } from './infor.service';
 import { PostUpdateModal } from './post-update.modal';
 
@@ -30,6 +31,7 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
     comments: any[] = null;
 
     constructor(private inforService: InforService,
+            private world: WorldService,
             private api: ApiService,
             private elementRef: ElementRef,
             private resolver: ComponentFactoryResolver,
@@ -60,6 +62,19 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
         ref.instance.update = self.update;
         self.modal = $(ref.location.nativeElement).find('.modal');
         setTimeout(() => self.modal.modal('open'));
+    }
+
+    useAsCoverPhoto() {
+        const me = this.inforService.getInforUser();
+
+        if (!me) {
+            return;
+        }
+
+        this.api.changeCoverPhoto(this.update.id).subscribe(() => this.world.emit({
+            thing: me.id,
+            cover: this.update
+        }));
     }
 
     ngAfterViewInit() {

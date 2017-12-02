@@ -1,3 +1,4 @@
+<div class="cover-photo" [style.background-image]="getCoverUrl()"></div>
 <div class="profile-wrapper">
     <spinner [show]="!thing && !notFound">
         Still loading...
@@ -8,34 +9,35 @@
     </h4>
     <div class="info-wrapper" *ngIf="thing">
         <div class="image-wrapper">
-            <div class="photo z-depth-1" [style.background-image]="'url(' + thing.imageUrl.split('=')[0] + '=480)'"></div>
+            <div class="photo z-depth-1" [style.background-image]="thing ? 'url(' + thing.imageUrl.split('=')[0] + '=160)' : ''"></div>
+            <h3 *ngIf="thing">
+                {{ thing.firstName }} {{ thing.lastName }}
+                <a *ngIf="isMyProfile()" class="modal-trigger tooltipped" href="#edit-about" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit your about description'"><i class="material-icons small">edit</i></a>
+            </h3>
+            <div class="vertically-spaced" *ngIf="thing">
+                <a [routerLink]="['/messages/' + thing.id]">
+                    <div class="price waves-effect waves-light btn white-text bkg-red tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Open your conversation with ' + thing.firstName" *ngIf="!isMyProfile()">
+                        <b>Talk with {{ thing.firstName }}</b>
+                    </div>
+                </a>
+                <div class="waves-effect waves-light btn white-text light-blue tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'You\'ll get updates from ' + thing.firstName + ' ' + thing.lastName" *ngIf="!isMyProfile()" (click)="toggleBacking()">
+                    <b *ngIf="!thing.backing">Back them</b>
+                    <i *ngIf="thing.backing" class="material-icons">check</i>
+                </div>
+                <div *ngIf="thing.backers" class="followers grey-text text-darken-2">{{ thing.backers }} {{ thing.backers === 1 ? 'backer' : 'backers' }}</div>
+            </div>
+            <div class="grey-text vertically-spaced" *ngIf="thing">{{ presence() }}</div>
         </div>
-        <div class="infobox bkg-white z-depth-1">
+        <div class="infobox bkg-white z-depth-1" *ngIf="thing">
             <div class="info">
-                <h3>
-                    {{ thing.firstName }} {{ thing.lastName }}
-                    <a *ngIf="isMyProfile()" class="modal-trigger tooltipped" href="#edit-about" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit your about description'"><i class="material-icons small">edit</i></a>
-                </h3>
-                <div class="grey-text">{{ presence() }}</div>
                 <h6 *ngIf="thing.modes && thing.modes.length" class="metadata pink-text">{{ thing.firstName }} is a...</h6>
-                <div class="modes-view" *ngIf="thing.modes && thing.modes.length">
-                    <mode-view *ngFor="let mode of thing.modes" [mode]="mode.source"></mode-view>
+                <div class="modes-view-container" *ngIf="thing.modes && thing.modes.length">
+                    <div class="modes-view">
+                        <mode-view *ngFor="let mode of thing.modes" [mode]="mode.source"></mode-view>
+                    </div>
                 </div>
                 <h6 class="metadata grey-text">ABOUT</h6>
                 <div class="about flow-text" [innerHtml]="thing.about | parseLinks"></div>
-                <br />
-                <div class="vertically-spaced">
-                    <a [routerLink]="['/messages/' + thing.id]">
-                        <div class="price waves-effect waves-light btn white-text bkg-red tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Open your conversation with ' + thing.firstName" *ngIf="!isMyProfile()">
-                            <b>Talk with {{ thing.firstName }}</b>
-                        </div>
-                    </a>
-                    <div class="waves-effect waves-light btn white-text light-blue tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'You\'ll get updates from ' + thing.firstName + ' ' + thing.lastName" *ngIf="!isMyProfile()" (click)="toggleBacking()">
-                        <b *ngIf="!thing.backing">Back them</b>
-                        <i *ngIf="thing.backing" class="material-icons">check</i>
-                    </div>
-                    <div *ngIf="thing.backers" class="followers grey-text text-darken-2">{{ thing.backers }} {{ thing.backers === 1 ? 'backer' : 'backers' }}</div>
-                </div>
             </div>
             <tabs-for [thing]="thing"></tabs-for>
         </div>

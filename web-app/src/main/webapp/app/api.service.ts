@@ -121,6 +121,17 @@ export class ApiService {
         }
     }
 
+    public changeCoverPhoto(thingId: string) {
+        const me = this.inforService.getInforUser();
+
+        if (!me) {
+            return Promise.reject('No user');
+        }
+
+        return this._http.post(this._apiBaseUrl + 'earth/' + me.id, 'auth='+ this.token() + '&cover=' + thingId, this.formHeaders())
+            .pipe(map((res: Response) => res.json()));
+    }
+
     // XXX currently returns a promise, so must use .then()
     public earthPutPhoto(id: string, photoFile: File) {
         var formData = new FormData();

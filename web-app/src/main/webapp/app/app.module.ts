@@ -12,6 +12,7 @@ import { TutorialService } from './tutorial.service';
 import { LocalityService } from './locality.service';
 import { UiService } from './ui.service';
 import { ChatService } from './chat.service';
+import { WorldService } from './world.service';
 import { AppRoutingModule } from './app.routes';
 
 import { FloatingComponent } from './floating.component';
@@ -212,6 +213,7 @@ export class MyOptions extends BaseRequestOptions {
         LocalityService,
         ChatService,
         UiService,
+        WorldService,
         {
             provide: RequestOptions,
             useClass: MyOptions

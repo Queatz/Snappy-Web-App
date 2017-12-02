@@ -53,6 +53,7 @@ a {
 .card:hover .card-hover {
     display: inline-block;
 }
+
 .card-content-hover {
     display: none;
 }
