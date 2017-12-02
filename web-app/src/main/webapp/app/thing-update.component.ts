@@ -1,6 +1,7 @@
 declare var require: any;
 declare var $: any;
 declare var Waves: any;
+declare var Materialize: any;
 
 import { Component, ComponentFactoryResolver, ViewContainerRef, OnInit, Input, Output, AfterViewInit, EventEmitter, ElementRef, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
@@ -71,10 +72,14 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
             return;
         }
 
-        this.api.changeCoverPhoto(this.update.id).subscribe(() => this.world.emit({
-            thing: me.id,
-            cover: this.update
-        }));
+        this.api.changeCoverPhoto(this.update.id).subscribe(() => {
+            Materialize.toast('Cover photo updated', 4000);
+
+            this.world.emit({
+                thing: me.id,
+                cover: this.update
+            })
+        });
     }
 
     ngAfterViewInit() {
