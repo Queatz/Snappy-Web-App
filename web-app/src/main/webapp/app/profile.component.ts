@@ -194,7 +194,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     public getCoverUrl() {
         if (this.thing) {
             if (!this.thing.cover) {
-                return 'url(/img/feature.jpg\')';
+                return 'url(/img/feature.jpg)';
             }
 
             return 'url(' + this.api.earthPhotoUrl(this.thing.cover.id) + ')';
