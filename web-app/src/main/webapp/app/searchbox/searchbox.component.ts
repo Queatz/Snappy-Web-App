@@ -44,6 +44,12 @@ export class SearchboxComponent implements OnInit, AfterViewInit {
         }
     }
 
+    enter() {
+        if (this.results.length) {
+            this.onSearchResultClicked.emit(this.results[0]);
+        }
+    }
+
     select(thing: any) {
         this.results = [thing];
         this.onSearchResults.emit(this.results);

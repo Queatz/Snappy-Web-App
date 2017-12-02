@@ -1,4 +1,5 @@
-declare var $;
+declare var $: any;
+declare var Waves: any;
 
 import { Component, AfterViewInit, OnInit, OnDestroy, ElementRef, ComponentRef } from '@angular/core';
 import { InforService } from './infor.service';
@@ -37,6 +38,7 @@ export class MainComponent implements AfterViewInit, OnInit, OnDestroy {
 
     ngAfterViewInit() {
         $(this.elementRef.nativeElement).find('.tooltipped').tooltip({delay: 50});
+        Waves.displayEffect();
     }
 
     ngOnDestroy() {

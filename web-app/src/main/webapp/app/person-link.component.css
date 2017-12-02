@@ -1,7 +1,12 @@
 @import '../css/animations.css';
 
 :host {
-    vertical-align: top;    
+    vertical-align: top;
+    transition: transform 190ms;
+}
+
+:host:hover {
+    transform: scale(1.125);
 }
 
 .person-link {
