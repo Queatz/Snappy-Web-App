@@ -1,6 +1,9 @@
 <div>
     <intro-card></intro-card>
     <locality-card></locality-card>
+    <div *ngIf="people" class="people">
+        <person-link *ngFor="let person of people" [person]="person"></person-link>
+    </div>
     <offers></offers>
     <floating [tooltip]="'Add an offer'" *ngIf="!newUser()" [modal]="newOfferModal" (onModalOpened)="onModalOpened($event)"></floating>
 </div>

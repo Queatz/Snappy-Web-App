@@ -1,3 +1,5 @@
+@import '../css/animations.css';
+
 :host {
     vertical-align: top;    
 }
@@ -18,6 +20,12 @@ img {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    opacity: 0;
+    animation: fade-in;
+    animation-duration: 190ms;
+    animation-delay: 190ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
 }
 
 .remove-person {
@@ -40,9 +48,19 @@ img {
     background-position: 0 0;
     background-size: cover;
     display: inline-block;
+    animation-name: scale-in;
+    animation-duration: 250ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(1, -0.46, 0.09, 1.44);
 }
 
 .sec {
     font-size: 80%;
     padding: .5rem;
+    opacity: 0;
+    animation: fade-in;
+    animation-duration: 190ms;
+    animation-delay: 190ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
 }

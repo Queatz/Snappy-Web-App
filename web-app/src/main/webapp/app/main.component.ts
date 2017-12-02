@@ -1,21 +1,30 @@
 declare var $;
 
-import { Component, AfterViewInit, OnDestroy, ElementRef, ComponentRef } from '@angular/core';
+import { Component, AfterViewInit, OnInit, OnDestroy, ElementRef, ComponentRef } from '@angular/core';
 import { InforService } from './infor.service';
 import { TutorialService } from './tutorial.service';
 import { NewOfferModal } from './new-offer.modal';
+import { ApiService } from './api.service';
 
 @Component({
     templateUrl: './main.component.html',
     styleUrls: ['./main.component.css'],
 })
-export class MainComponent implements AfterViewInit, OnDestroy {
+export class MainComponent implements AfterViewInit, OnInit, OnDestroy {
     private inforService;
     private newOfferModal;
+    private people;
 
-    constructor(inforService: InforService, private elementRef: ElementRef, public tutorial: TutorialService) {
+    constructor(private api: ApiService, inforService: InforService, private elementRef: ElementRef, public tutorial: TutorialService) {
         this.inforService = inforService;
         this.newOfferModal = NewOfferModal;
+    }
+
+    ngOnInit() {
+        this.inforService.getLocation(position => {
+            this.api.earthHere(position.coords, 'person', 'name,firstName,lastName,imageUrl,googleUrl,around,infoDistance')
+                .subscribe(people => this.people = people.sort(p => p.infoDistance));
+        });
     }
 
     onModalOpened(modal: ComponentRef<any>) {
