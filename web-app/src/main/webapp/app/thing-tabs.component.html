@@ -1,7 +1,7 @@
 <div id="tab-updates">
     <div class="spacing-above center-align" *ngIf="thing && isSignedIn()">
         <a href="#postUpdateModal" class="modal-trigger price waves-effect waves-light btn white-text bkg-red tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Post a new update' + (thing.name ? ' on ' + thing.name : '')">
-            <b><i class="material-icons left">edit</i>New Update</b>
+            <b><i class="material-icons left">edit</i>Post Update</b>
         </a>
     </div>
     <thing-updates *ngIf="thing && thing.updates" [updates]="thing.updates"></thing-updates>
