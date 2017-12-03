@@ -1,6 +1,9 @@
 <div>
     <intro-card></intro-card>
     <locality-card></locality-card>
+    <div *ngIf="!newUser()" class="post-update">
+        <a class="btn bkg-red waves-effect waves-light" (click)="postUpdate()"><b>Post Update</b></a>
+    </div>
     <div *ngIf="people" class="people">
         <person-link *ngFor="let person of people | slice:0:6" [person]="person"></person-link>
         <div class="center-align">

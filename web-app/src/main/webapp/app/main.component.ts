@@ -6,6 +6,9 @@ import { InforService } from './infor.service';
 import { TutorialService } from './tutorial.service';
 import { NewOfferModal } from './new-offer.modal';
 import { ApiService } from './api.service';
+import { UiService } from './ui.service';
+import { PostUpdateModal } from './post-update.modal';
+import { Router } from '@angular/router';
 
 @Component({
     templateUrl: './main.component.html',
@@ -14,9 +17,10 @@ import { ApiService } from './api.service';
 export class MainComponent implements AfterViewInit, OnInit, OnDestroy {
     private inforService;
     private newOfferModal;
+    private modal: ComponentRef<PostUpdateModal>;
     people: any[];
 
-    constructor(private api: ApiService, inforService: InforService, private elementRef: ElementRef, public tutorial: TutorialService) {
+    constructor(private router: Router, private ui: UiService, private api: ApiService, inforService: InforService, private elementRef: ElementRef, public tutorial: TutorialService) {
         this.inforService = inforService;
         this.newOfferModal = NewOfferModal;
     }
@@ -26,6 +30,18 @@ export class MainComponent implements AfterViewInit, OnInit, OnDestroy {
             this.api.earthHere(position.coords, 'person', 'name,firstName,lastName,imageUrl,googleUrl,around,infoDistance')
                 .subscribe(people => this.people = people.sort(p => p.infoDistance));
         });
+    }
+    
+    postUpdate() {
+        if (!this.modal) {
+            this.modal = this.ui.show(PostUpdateModal);
+            this.modal.instance.thing = this.inforService.getInforUser();
+            this.modal.instance.onUpdatePosted.subscribe(() => {
+                this.router.navigate(['/', this.inforService.getInforUser().googleUrl]);
+            });
+        }
+        
+        setTimeout(() => $(this.modal.location.nativeElement.querySelector('.modal')).modal('open'));
     }
 
     onModalOpened(modal: ComponentRef<any>) {
@@ -42,6 +58,10 @@ export class MainComponent implements AfterViewInit, OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
+        if (this.modal) {
+            this.modal.hostView.destroy();
+        }
+
         $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
     }
 }

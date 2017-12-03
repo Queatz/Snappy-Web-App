@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class ApiService {
     private _token = '';
-    private beta = false;
+    private beta = !false;
     private _apiDomain = this.beta ? '127.0.0.1:8080' : 'vlllage.com:8443';
     private _apiBase = this.beta ? 'http://' + this._apiDomain : 'https://' + this._apiDomain;
     private _apiBaseUrl = this._apiBase + '/api/';
@@ -144,7 +144,7 @@ export class ApiService {
     }
 
     // XXX currently returns a promise, so must use .then()
-    public earthPostUpdate(thingId: string, message: string, photoFile: File, visibility: any, withAt: any[] = null) {
+    public earthPostUpdate(thingId: string, message: string, photoFile: File, visibility: any, withAt: any[] = null, going: boolean = null) {
         var formData = new FormData();
 
         if (photoFile) {
@@ -166,6 +166,10 @@ export class ApiService {
 
         if (withAt) {
             formData.append('with', JSON.stringify(withAt));
+        }
+
+        if (going !== null) {
+            formData.append('going', going.toString());
         }
 
         var headers = new Headers();

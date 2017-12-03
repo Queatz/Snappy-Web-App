@@ -2,7 +2,7 @@ declare var Materialize;
 declare var $;
 declare var _;
 
-import { Component, ElementRef, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from './api.service';
 import { InforService } from './infor.service';
 
@@ -15,6 +15,8 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
     @Input() thing;
     @Input() update;
 
+    @Output() onUpdatePosted = new EventEmitter();
+
     private filesToUpload: Array<File>;
     public message;
 
@@ -22,7 +24,9 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
     public efile;
 
     public checkingIn: boolean;
+    public isGoing: boolean;
     public checkingInWithAt: any[] = [];
+    private going: any;
 
     public isPublic: any;
     public clubs: any;
@@ -63,10 +67,35 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
 
         this.checkingInWithAt.push(thing);
         this.checkingIn = !this.checkingIn;
+
+        if (thing.kind === 'hub') {
+            if (this.isGoing) {
+                this.going = thing;
+            } else {
+                this.going = null;
+            }
+        }
     }
 
     public removeCheckin(thing: any) {
+        if (this.going && thing.id === this.going.id) {
+            this.going = false;
+        }
+
         _.pull(this.checkingInWithAt, thing);
+    }
+
+    public checkingInToHub() {
+        return _.any(this.checkingInWithAt, h => h.kind === 'hub');
+    }
+
+    public kinds() {
+        switch (this.isGoing) {
+            case true:
+                return 'hub';
+            default:
+                return 'person|hub';
+        }
     }
 
     public remove() {
@@ -123,11 +152,14 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
             this.api.earthPostUpdate(this.thing.id, this.message, isFile ? this.filesToUpload[0] : null, {
                 hidden: !this.isPublic,
                 clubs: JSON.stringify(this.clubs)
-            }, this.checkingInWithAt.map(t => t.id))
+            }, this.checkingInWithAt.map(t => t.id), this.going !== null)
                 .then(result => {
+                    const u = JSON.parse(result);
                     if (_.isArray(updates)) {
-                        updates.unshift(JSON.parse(result));
+                        updates.unshift(u);
                     }
+
+                    this.onUpdatePosted.emit(u);
 
                     Materialize.toast('Update posted', 4000);
                 },
