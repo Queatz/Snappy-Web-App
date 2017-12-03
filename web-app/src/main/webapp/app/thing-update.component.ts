@@ -1,5 +1,6 @@
 declare var require: any;
 declare var $: any;
+declare var _: any;
 declare var Waves: any;
 declare var Materialize: any;
 
@@ -91,6 +92,20 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
     isMine() {
         return this.inforService.getInforUser() &&
             this.update.source.id === this.inforService.getInforUser().id;
+    }
+
+    like() {
+        if (!this.inforService.getInforUser()) {
+            Materialize.toast('Sign in', 4000);
+            return;
+        }
+
+        this.api.like(this.update.id).subscribe(u => {
+            if (u.success) {
+                this.update.liked = true;
+                this.update.likers += 1;
+            }
+        });
     }
 
     ngOnDestroy() {

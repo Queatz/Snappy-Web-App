@@ -67,3 +67,17 @@ p {
 .card:hover .card-hover {
     display: inline-block;
 }
+
+.favorite-icon {
+    padding: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+.favorite-icon span {
+    margin-left: .5rem;
+}
+
+.bottom-pad-0 {
+    padding-bottom: 0;
+}

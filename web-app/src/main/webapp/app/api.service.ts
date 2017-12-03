@@ -335,6 +335,13 @@ export class ApiService {
             .pipe(map(res => res.json()));
     }
 
+    public like(id: string) {
+        var creds = 'auth=' + this.token();
+
+        return this._http.post(this._apiBaseUrl + 'earth/' + id + '/like', creds, this.formHeaders())
+            .pipe(map(res => res.json()));
+    }
+
     public getAppToken(domain: string) {
         var creds = 'auth=' + this.token() + '&domain=' + encodeURIComponent(domain);
 

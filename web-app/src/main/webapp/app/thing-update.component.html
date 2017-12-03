@@ -4,7 +4,7 @@
         <img (load)="loaded()" *ngIf="update.photo" src="{{updateImage}}" />
         <i class="thing-action card-hover waves-effect material-icons white-text small waves-light tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Use as cover photo'" *ngIf="update.photo" (click)="useAsCoverPhoto($event)">vertical_align_top</i>
     </div>
-    <div class="card-content">
+    <div class="card-content bottom-pad-0">
         <club-tag [clubs]="update.clubs" [isPublic]="!update.hidden" class="small in-card"></club-tag>
         <a *ngIf="isMine()" (click)="edit()" class="thing-action-icon grey-text text-lighten-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit'"><i class="material-icons small">edit</i></a>
         <div class="blox">
@@ -28,7 +28,12 @@
             <p class="flow-text" [innerHtml]="update.about | parseLinks"></p>
         </div>
     </div>
-    <div class="card-footer" *ngIf="comments && comments.length">
-        <thing-update *ngFor="let comment of comments; trackBy: byId" [update]="comment" [isComment]="true"></thing-update>
+    <div class="card-footer">
+        <div class="red-text waves-effect favorite-icon" (click)="like()">
+            <i class="material-icons small">{{ update.liked ? 'favorite' : 'favorite_border' }}</i><span><b>{{ update.likers ? update.likers : '' }}</b></span>
+        </div>
+        <div *ngIf="comments && comments.length">
+            <thing-update *ngFor="let comment of comments; trackBy: byId" [update]="comment" [isComment]="true"></thing-update>
+        </div>
     </div>
 </div>

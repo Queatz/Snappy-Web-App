@@ -48,7 +48,7 @@ export default class Util {
     }
 
     public static getDistanceText(distance: number) {
-        if (!distance) {
+        if (distance === undefined) {
             return 'Around here';
         }
 
@@ -71,10 +71,6 @@ export default class Util {
     }
 
     public static presence(person) {
-        if (!person.infoDistance) {
-            return;
-        }
-
         return Util.getDistanceText(person.infoDistance) + (person.around ? ' ' + moment(person.around).fromNow() : '');
     }
 
