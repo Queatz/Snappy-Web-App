@@ -9,7 +9,7 @@
     </h4>
     <div class="info-wrapper" *ngIf="thing">
         <div class="image-wrapper">
-            <div class="photo z-depth-1" [style.background-image]="thing ? 'url(' + thing.imageUrl.split('=')[0] + '=160)' : ''"></div>
+            <div class="photo z-depth-1 hoverable" [style.background-image]="thing ? 'url(' + thing.imageUrl.split('=')[0] + '=160)' : ''"></div>
             <h3 *ngIf="thing">
                 {{ thing.firstName }} {{ thing.lastName }}
                 <a *ngIf="isMyProfile()" class="modal-trigger tooltipped" href="#edit-about" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit your about description'"><i class="material-icons small">edit</i></a>

@@ -71,11 +71,11 @@ export default class Util {
     }
 
     public static presence(person) {
-        if (!person.around) {
+        if (!person.infoDistance) {
             return;
         }
 
-        return Util.getDistanceText(person.infoDistance) + ' ' + moment(person.around).fromNow();
+        return Util.getDistanceText(person.infoDistance) + (person.around ? ' ' + moment(person.around).fromNow() : '');
     }
 
     public static validateEmail(email: string) {

@@ -40,8 +40,7 @@ export class PeopleComponent implements AfterViewInit, WebTitleProvider {
     }
 
     private loaded(people) {
-        this.people = people;
-        this.people.sort(p => p.infoDistance);
+        this.people = _.sortBy(people, p => p.infoDistance);
     }
 
     public getWebTitle() {

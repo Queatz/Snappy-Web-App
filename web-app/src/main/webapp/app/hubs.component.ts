@@ -1,3 +1,5 @@
+declare var _: any;
+
 import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
@@ -25,7 +27,7 @@ export class HubsComponent implements AfterViewInit, WebTitleProvider {
     }
 
     private loadNearby(position) {
-        this.api.earthHere(position.coords, 'hub', 'name,about,hidden,photo,joins(source(name,firstName,lastName,imageUrl,googleUrl)),in(target(name,photo,imageUrl,firstName,lastName)),clubs(name)')
+        this.api.earthHere(position.coords, 'hub', 'name,about,hidden,photo,infoDistance,joins(source(name,firstName,lastName,imageUrl,googleUrl)),in(target(name,photo,imageUrl,firstName,lastName)),clubs(name)')
             .subscribe(hubs => {
                 this.loaded(hubs);
             },
@@ -35,7 +37,7 @@ export class HubsComponent implements AfterViewInit, WebTitleProvider {
     }
 
     private loaded(hubs) {
-        this.hubs = hubs;
+        this.hubs = _.sortBy(hubs, h => h.infoDistance);
     }
 
     ngAfterViewInit() {

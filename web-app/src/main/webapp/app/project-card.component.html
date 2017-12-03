@@ -13,8 +13,8 @@
     </div>
     <div class="card-content position-relative">
         <club-tag [clubs]="thing.clubs" [isPublic]="!thing.hidden" class="small"></club-tag>
-        <thing-in [thing]="thing" [sameKind]="true"></thing-in>
         <p *ngIf="presence()" class="grey-text sec">{{ presence() }}</p>
+        <thing-in [thing]="thing" [sameKind]="true"></thing-in>
         <p>{{ thing.about }}</p>
         <i *ngIf="!thing.about" class="grey-text">No description provided.</i>
     </div>
