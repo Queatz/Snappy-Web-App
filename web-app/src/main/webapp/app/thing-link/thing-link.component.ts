@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+declare var $: any;
+
+import { Component, OnInit, Input, ElementRef, AfterViewInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import util from '../util';
 
@@ -7,24 +9,32 @@ import util from '../util';
   templateUrl: './thing-link.component.html',
   styleUrls: ['./thing-link.component.css']
 })
-export class ThingLinkComponent implements OnInit {
+export class ThingLinkComponent implements OnInit, AfterViewInit {
 
-  @Input() thing: any;
+    @Input() thing: any;
+    @Input() small: boolean;
 
-  constructor(private api: ApiService) { }
+  constructor(private elementRef: ElementRef, private api: ApiService) { }
 
   ngOnInit() {
   }
 
+  ngAfterViewInit() {
+      $(this.elementRef.nativeElement).find('.tooltipped').tooltip({delay: 50});
+  }
+
+  ngOnDestroy() {
+      $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
+  }
 
   public thingName(thing: any) {
       return util.thingName(thing);
   }
 
   public goUrlFor(thing: any) {
-      if (!thing) {
-          return;
-      }
+    if (!thing) {
+       return;
+    }
 
       return util.thingUrl(thing);
   }

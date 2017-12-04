@@ -1,2 +1,2 @@
-<a [routerLink]="goUrlFor(thing)" class="in-thing-img" [style.background-image]="'url(' + getPhotoUrlFor(thing, 16) + ')'"></a>
-<a [routerLink]="goUrlFor(thing)" class="in-thing-name">{{ thingName(thing) }}</a>
+<a [routerLink]="goUrlFor(thing)" class="in-thing-img tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="thingName(thing)" [style.background-image]="'url(' + getPhotoUrlFor(thing, 16) + ')'"></a>
+<a [routerLink]="goUrlFor(thing)" *ngIf="!small" class="in-thing-name">{{ thingName(thing) }}</a>

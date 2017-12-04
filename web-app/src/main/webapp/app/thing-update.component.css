@@ -70,6 +70,7 @@ p {
 
 .favorite-icon {
     padding: 1.5rem;
+    padding-right: 1rem;
     display: inline-flex;
     align-items: center;
 }
@@ -80,4 +81,17 @@ p {
 
 .bottom-pad-0 {
     padding-bottom: 0;
+}
+
+.like-box {
+    display: flex;
+}
+
+.likes-list {
+    padding-bottom: 1.5rem;
+    padding-top: 1.9rem;
+}
+
+thing-link + thing-link {
+    margin-left: .5rem;
 }
