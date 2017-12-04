@@ -32,7 +32,7 @@
     <div class="card-footer">
         <div class="like-box">
             <div class="red-text waves-effect favorite-icon" (click)="like()">
-                <i class="material-icons small tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Like it'">{{ update.liked ? 'favorite' : 'favorite_border' }}</i><span><b>{{ update.likers ? update.likers : '' }}</b></span>
+                <i class="material-icons small tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="update.liked ? 'You like it' : 'Like it'">{{ update.liked ? 'favorite' : 'favorite_border' }}</i><span><b>{{ update.likers ? update.likers : '' }}</b></span>
             </div>
             <div class="likes-list" *ngIf="update.likes && update.likes.length">
                 <thing-link [thing]="like.source" [small]="true" *ngFor="let like of update.likes | slice:0:6"></thing-link>

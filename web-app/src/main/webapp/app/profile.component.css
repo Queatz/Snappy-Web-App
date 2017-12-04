@@ -54,11 +54,6 @@
     padding-right: 1rem;
 }
 
-.followers {
-    display: inline-block;
-    margin-left: 1em;
-}
-
 a {
     cursor: pointer;
 }
@@ -97,6 +92,11 @@ a {
 .vertically-spaced {
     line-height: 3rem;
     margin-bottom: 1rem;
+}
+
+.followers {
+    margin-top: 1rem;
+    line-height: 2rem;
 }
 
 .cover-photo {
