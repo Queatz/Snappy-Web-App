@@ -97,6 +97,10 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
         component: UpdateComponent
       },
       {
+        path: 'offers/:id',
+        component: UpdateComponent
+      },
+      {
         path: 'search',
         component: SearchComponent
       },

@@ -8,8 +8,21 @@
     margin: 1rem;
 }
 
+
 .thing-action-icon {
     display: none;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+}
+
+.thing-action-icon.thing-edit-icon {
+    right: 4.5rem;
+}
+
+.card-content {
+    position: relative;
 }
 
 .card:hover .thing-action-icon {
