@@ -6,7 +6,8 @@
     </div>
     <div class="card-content bottom-pad-0">
         <club-tag [clubs]="update.clubs" [isPublic]="!update.hidden" class="small in-card"></club-tag>
-        <a *ngIf="isMine()" (click)="edit()" class="thing-action-icon grey-text text-lighten-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit'"><i class="material-icons small">edit</i></a>
+        <a *ngIf="isMine()" (click)="edit()" class="thing-action-icon grey-text thing-edit-icon text-lighten-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit'"><i class="material-icons small">edit</i></a>
+        <a [routerLink]="['/', 'updates', update.id]" class="thing-action-icon grey-text text-lighten-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Link'"><i class="material-icons small">link</i></a>
         <div class="blox">
             <a [routerLink]="['/' + update.source.googleUrl]" class="tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="update.source.firstName + ' ' + update.source.lastName"> <img src="{{ update.source.imageUrl }}" alt="Profile picture" class="circle" /> </a>
         </div>

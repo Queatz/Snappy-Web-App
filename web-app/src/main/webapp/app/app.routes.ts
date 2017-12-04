@@ -12,6 +12,7 @@ import { SearchComponent } from './search.component';
 import { ProjectComponent } from './project.component';
 import { ChatComponent } from './chat/chat.component';
 import { FormComponent } from './form/form.component';
+import { UpdateComponent } from './update/update.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 
@@ -90,6 +91,10 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
         data: {
             solo: true
         }
+      },
+      {
+        path: 'updates/:id',
+        component: UpdateComponent
       },
       {
         path: 'search',

@@ -16,6 +16,10 @@
     cursor: pointer;
 }
 
+.thing-action-icon.thing-edit-icon {
+    right: 4.5rem;
+}
+
 .card:hover .thing-action-icon {
     display: block;
 }

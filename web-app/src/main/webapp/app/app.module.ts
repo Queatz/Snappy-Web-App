@@ -89,6 +89,7 @@ import { ThingCardsComponent } from './thing-cards/thing-cards.component';
 import { ThingListComponent } from './thing-list/thing-list.component';
 import { TimeComponent } from './time/time.component';
 import { ThingLinkComponent } from './thing-link/thing-link.component';
+import { UpdateComponent } from './update/update.component';
 
 enableProdMode();
 
@@ -184,6 +185,7 @@ export class MyOptions extends BaseRequestOptions {
         ThingListComponent,
         TimeComponent,
         ThingLinkComponent,
+        UpdateComponent,
     ],
     entryComponents: [
         FeedbackModal,

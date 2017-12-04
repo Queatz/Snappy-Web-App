@@ -1,0 +1,9 @@
+<div class="wrapper">
+    <spinner [show]="!thing && !notFound">
+        Still loading...
+    </spinner>
+    <h4 class="grey-text center-align" *ngIf="notFound">
+        <br />You see nothing.
+    </h4>
+    <thing-update *ngIf="thing" [update]="thing"></thing-update>
+</div>
