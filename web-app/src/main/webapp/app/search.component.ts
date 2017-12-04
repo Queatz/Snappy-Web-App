@@ -11,13 +11,6 @@ export class SearchComponent {
     constructor(private inforService: InforService, private router: Router) {}
 
     onSearchResultClicked(thing: any) {
-        if (thing.kind === 'offer') {
-            let url = util.thingUrl(thing.source);
-            url.push('offers');
-            this.router.navigate(url);
-            return;
-        }
-
         this.router.navigate(util.thingUrl(thing));
     }
 }
