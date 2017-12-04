@@ -90,11 +90,12 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
     }
 
     public kinds() {
-        switch (this.isGoing) {
-            case true:
-                return 'hub';
-            default:
-                return 'person|hub';
+        if (this.isGoing) {
+            return 'hub';
+        } else if (this.checkingInToHub()) {
+            return 'person';
+        } else {
+            return 'person|hub';
         }
     }
 

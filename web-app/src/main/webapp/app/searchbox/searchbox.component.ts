@@ -1,15 +1,17 @@
 declare var $: any;
+declare var _: any;
 
-import { Component, OnInit, AfterViewInit, Output, EventEmitter, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Output, EventEmitter, ElementRef, Input, OnChanges } from '@angular/core';
 import { ApiService } from '../api.service';
 import { InforService } from '../infor.service';
+import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'searchbox',
   templateUrl: './searchbox.component.html',
   styleUrls: ['./searchbox.component.css']
 })
-export class SearchboxComponent implements OnInit, AfterViewInit {
+export class SearchboxComponent implements OnInit, AfterViewInit, OnChanges {
 
     @Output() onSearchResults = new EventEmitter<any>();
     @Output() onSearchResultClicked = new EventEmitter<any>();
@@ -33,6 +35,10 @@ export class SearchboxComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         $(this.elementRef.nativeElement.querySelector('#searchbox')).focus();
+    }
+
+    ngOnChanges(changes: SimpleChanges) {
+        this.search();
     }
 
     search() {
@@ -63,9 +69,11 @@ export class SearchboxComponent implements OnInit, AfterViewInit {
             this.searchRequest.unsubscribe();
         }
 
-        this.searchRequest = this.api.earthSearch(position.coords, this.text || '', this.kinds || 'person|resource|project|offer|club|hub|form|party', 'name,about,photo,imageUrl,firstName,lastName,googleUrl,source(googleUrl)').subscribe(results => {
-            this.results = results;
+        this.searchRequest = this.api.earthSearch(position.coords, this.text || '', this.kinds || 'person|resource|project|offer|club|hub|form|party', 'name,about,photo,imageUrl,firstName,lastName,googleUrl,infoDistance,source(googleUrl)').subscribe(results => {
+            const me = this.inforService.getInforUser() ? this.inforService.getInforUser().id : undefined;
 
+            this.results = _.sortBy(_.filter(results, r => r.id !== me), r => r.infoDistance);
+            
             if (this.maxResults && this.results.length > this.maxResults) {
                 this.results.length = this.maxResults;
             }

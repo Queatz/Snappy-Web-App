@@ -27,10 +27,10 @@
                 <br *ngIf="checkingInWithAt.length" />
                 <br *ngIf="checkingInWithAt.length" />
                 <button class="btn-flat teal-text" (click)="isGoing = false; checkingIn = !checkingIn">
-                        <b *ngIf="!checkingIn">Check in...</b>
+                        <b *ngIf="!checkingIn">Check in {{ checkingInToHub() ? 'with' : '' }}...</b>
                         <b *ngIf="checkingIn">Cancel</b>
                 </button>
-                <button *ngIf="!checkingIn" class="btn-flat teal-text" (click)="isGoing = true; checkingIn = !checkingIn">
+                <button *ngIf="!checkingIn && !checkingInToHub()" class="btn-flat teal-text" (click)="isGoing = true; checkingIn = !checkingIn">
                         <b>Going to...</b>
                 </button>
                 <searchbox *ngIf="checkingIn" (onSearchResultClicked)="checkin($event)" [maxResults]="3" [kinds]="kinds()"></searchbox>
