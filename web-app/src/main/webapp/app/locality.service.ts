@@ -27,6 +27,11 @@ export class LocalityService {
     private onLocationFound(position: any) {
         this.position = position;
 
+        if (!google) {
+            setTimeout(() => this.onLocalityFound(position), 1000);
+            return;
+        }
+
         new google.maps.Geocoder().geocode({
             location: new google.maps.LatLng(
                 position.coords.latitude,

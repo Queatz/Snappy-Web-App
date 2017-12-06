@@ -91,7 +91,9 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     public loaded() {
-        this.resizeCallback();
+        if (this.resizeCallback) {
+            this.resizeCallback();
+        }
     }
 
     public isProfile() {

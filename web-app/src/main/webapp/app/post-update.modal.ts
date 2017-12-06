@@ -119,7 +119,7 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
         var isFile = this.filesToUpload && this.filesToUpload.length > 0 && this.filesToUpload[0].type.match(/image/);
 
         if (this.update) {
-            if (this.message || isFile) {
+            if (this.message || isFile || this.checkingInWithAt.length) {
                 var previousPhoto = this.update.photo;
 
                 if (isFile) {
@@ -149,7 +149,7 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
 
         var updates = this.thing.updates;
 
-        if (this.message || isFile) {
+        if (this.message || isFile || this.checkingInWithAt.length) {
             this.api.earthPostUpdate(this.thing.id, this.message, isFile ? this.filesToUpload[0] : null, {
                 hidden: !this.isPublic,
                 clubs: JSON.stringify(this.clubs)
@@ -168,7 +168,7 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
                     Materialize.toast('Post update failed', 4000);
                 });
         } else {
-            Materialize.toast('Image or message required', 4000);
+            Materialize.toast('Update is empty', 4000);
         }
     }
 

@@ -35,6 +35,7 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
     constructor(private inforService: InforService,
             private world: WorldService,
             private api: ApiService,
+            private router: Router,
             private elementRef: ElementRef,
             private resolver: ComponentFactoryResolver,
             private view: ViewContainerRef) {
@@ -79,7 +80,9 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
             this.world.emit({
                 thing: me.id,
                 cover: this.update
-            })
+            });
+
+            this.router.navigate(['/', me.googleUrl]);
         });
     }
 
@@ -113,7 +116,9 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     public loaded() {
-        this.resizeCallback();
+        if (this.resizeCallback) {
+            this.resizeCallback();
+        }
     }
 
     public atWith() {
