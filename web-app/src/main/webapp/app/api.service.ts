@@ -311,6 +311,23 @@ export class ApiService {
             .pipe(map(res => res.json()));
     }
 
+    public sendPhotoMessage(personId: string, message: string, photoFile: File) {
+        var formData = new FormData();
+
+        if (photoFile) {
+            formData.append('photo', photoFile, photoFile.name);
+        }
+
+        if (message) {
+            formData.append('message', message);
+        }
+
+        var headers = new Headers();
+        headers.append('Content-Type', undefined);
+
+        return this.makeFilePostRequest(this._apiBaseUrl + 'earth/' + personId + '/message?auth=' + this.token(), formData);
+    }
+
     public sendFeedback(feedback) {
         var creds = 'auth=' + this.token() + '&feedback=' + encodeURIComponent(feedback);
 

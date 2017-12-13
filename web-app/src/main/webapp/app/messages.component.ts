@@ -81,7 +81,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
     }
 
     loadMessages() {
-        this.api.messages('latest,seen,updated,firstName,lastName,message,source(firstName,lastName,googleUrl,imageUrl,message),target(firstName,lastName,googleUrl,imageUrl,message)')
+        this.api.messages('latest,seen,updated,firstName,lastName,photo,message,source(firstName,lastName,googleUrl,imageUrl),target(firstName,lastName,googleUrl,imageUrl)')
             .subscribe(messagesAndContacts => {
                 this.showMessages(messagesAndContacts);
             });
@@ -136,7 +136,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
             this.messagesTimeout = null;
         }
 
-        this.api.personMessages(this.idCurrentContact, 'date,message,source(firstName,lastName,googleUrl,imageUrl,message),target(firstName,lastName,googleUrl,imageUrl,message)')
+        this.api.personMessages(this.idCurrentContact, 'date,photo,message,source(firstName,lastName,googleUrl,imageUrl),target(firstName,lastName,googleUrl,imageUrl)')
             .subscribe(messages => {
                 if (messages.error) {
                     this.messageWithSomeone = null;
@@ -231,7 +231,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
         this.resetTimeInterval();
 
         if (this.idCurrentContact && message) {
-            this.api.sendMessage(this.idCurrentContact, message, 'date,message,source(firstName,lastName,googleUrl,imageUrl,message),target(firstName,lastName,googleUrl,imageUrl,message)')
+            this.api.sendMessage(this.idCurrentContact, message, 'date,photo,message,source(firstName,lastName,googleUrl,imageUrl),target(firstName,lastName,googleUrl,imageUrl)')
                 .subscribe(newMessage => {
                     if (newMessage.message === message) {
                         this.endMessage = false;
@@ -281,6 +281,18 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
         }
     }
 
+    onClickPhotoUpload() {
+        $(this.element).find('#photoUploadInput').click();
+    }
+
+    onFileUpload(event: Event) {
+        let file = (event.target as HTMLInputElement).files[0];
+        
+        if (file) {
+            this.api.sendPhotoMessage(this.idCurrentContact, '', file).subscribe();
+        }
+    }
+
     showChat() {
         this.msToggleOn = true;
     }
@@ -291,6 +303,10 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
 
     public getWebTitle() {
         return Observable.of('Messages');
+    }
+
+    photoUrl(thing: any) {
+        return this.api.earthImageUrl(thing.id, 480);
     }
 
     byId(thing: any) {

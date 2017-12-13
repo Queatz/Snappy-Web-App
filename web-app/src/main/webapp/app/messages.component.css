@@ -55,6 +55,11 @@
     animation-timing-function: linear;
 }
 
+.message-photo {
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
 .rightto .avatar {
     right: 10px;
 }
@@ -124,7 +129,7 @@
     left: 20px;
     right: 20px;
     top: 75px;
-    bottom: 10rem;
+    bottom: 7rem;
     margin: 0;
 }
 
@@ -141,6 +146,13 @@
     bottom: 0;
     left: 20px;
     right: 20px;
+    height: 4rem;
+    display: flex;
+}
+
+.sendmessage .input-field {
+    flex-grow: 1;
+    margin-top: 0;
 }
 
 h3.mstitle {
@@ -201,6 +213,14 @@ h3.mstitle {
 
 .not-seen {
     font-weight: bold;
+}
+
+.action-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 100%;
 }
 
 @media screen and (min-width: 830px) {

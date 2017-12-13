@@ -36,7 +36,7 @@
                 <div class="item" [ngClass]="{'current-contact': contact.target.id === idCurrentContact}" *ngFor="let contact of contacts">
                     <a class="message" [ngClass]="{'not-seen': !contact.seen}" (click)="getMessagesById(contact)">
                         <a [routerLink]="['/' + contact.target.googleUrl]" >
-                            <img class="circle resize imageprofile z-depth-1" src="{{showContactImage(contact, 0)}}"/>
+                            <img class="circle resize imageprofile z-depth-1" [attr.src]="showContactImage(contact, 0)"/>
                         </a>
                         <div class="name">
                             {{ showContactImage(contact, 1) }}
@@ -75,9 +75,10 @@
                         <div class="message-item clear scrollspy" *ngFor="let message of messageWithSomeone; trackBy: byId">
                             <div class="message-name">
                                 <div class="clear" [ngClass]="{rightto: !checkIsLeft(message), leftto: checkIsLeft(message)}">
-                                    <span class="emessage"> {{showContentMessage(message, 0)}} </span>
+                                    <img *ngIf="message.photo" class="z-depth-1 hoverable message-photo" [attr.src]="photoUrl(message)" />
+                                    <span class="emessage"> {{ showContentMessage(message, 0) }} </span>
                                     <a [routerLink]="['/' + showContentMessage(message, 2)]" >
-                                        <img class="circle resize avatar z-depth-1" src="{{showContentMessage(message, 1)}}" />
+                                        <img class="circle resize avatar z-depth-1" [attr.src]="showContentMessage(message, 1)" />
                                     </a>
                                 </div>
                             </div>
@@ -87,11 +88,15 @@
             </div>
 
             <div class="row s9 sendmessage">
-                <div class="input-field col s12">
+                <div class="action-upload waves-effect tooltipped" [attr.data-position]="'top'" [attr.data-tooltip]="'Send a photo'" (click)="onClickPhotoUpload()">
+                    <input id="photoUploadInput" type="file" style="display: none" (change)="onFileUpload($event)" />
+                    <i class="material-icons grey-text">add_a_photo</i>
+                </div>
+                <div class="input-field">
                     <textarea id="icon_prefix2" class="validate materialize-textarea" [(ngModel)]="strMessage" name="strMessage" (keydown.enter)="enterPressed($event)"></textarea>
                     <label class="active" for="icon_prefix2">Message {{ messagesWith.firstName }}...</label>
-                    <a class="waves-effect waves-light btn" (click)="sendMessages(strMessage)"><b><i class="material-icons right">done</i>Send</b></a>
                 </div>
+                <a class="waves-effect action-upload blue-text" (click)="sendMessages(strMessage)"><i class="material-icons">send</i></a>
             </div>
         </div>
     </div>
