@@ -36,7 +36,7 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
         });
         this.element = elementRef.nativeElement;
 
-        api.earthThing(this.id, 'name,photo,about,address,hidden,geo,infoDistance,members(role,source(message,token,data,type,role,date,firstName,hidden,lastName,googleUrl,imageUrl,name,photo,going,want,liked,likers,likes(source(firstName,lastName,imageUrl,googleUrl)),about,target(firstName,lastName,googleUrl,imageUrl,around,infoDistance),source(imageUrl,googleUrl,firstName,lastName),clubs(name)),target(name,owner,imageUrl,googleUrl,photo,firstName,lastName,about)),clubs(name)').subscribe(thing => {
+        api.earthThing(this.id, 'name,photo,about,address,hidden,geo,infoDistance,members(role,source(message,token,data,type,role,date,firstName,hidden,lastName,googleUrl,imageUrl,name,photo,going,want,liked,likers,likes(source(firstName,lastName,imageUrl,googleUrl)),about,in(target(name,photo,firstName,lastName,imageUrl,googleUrl)),target(firstName,lastName,googleUrl,imageUrl,around,infoDistance),source(imageUrl,googleUrl,firstName,lastName),clubs(name)),target(name,owner,imageUrl,googleUrl,photo,firstName,lastName,about)),clubs(name)').subscribe(thing => {
                     this.thing = thing;
 
                     if (this.thing.photo) {
@@ -54,6 +54,7 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
                         this.thing.updates = _.filter(this.thing.members, m => m.source && m.source.kind === 'update');
                         this.thing.forms = _.filter(this.thing.members, m => m.source && m.source.kind === 'form');
                         this.thing.actions = _.filter(this.thing.members, m => m.source && m.source.kind === 'action');
+                        this.thing.goals = _.filter(this.thing.members, m => m.source && m.source.kind === 'goal');
                         this.thing.updates = _.sortBy(this.thing.updates, m => -moment(m.source && m.source.date));
                     }
 

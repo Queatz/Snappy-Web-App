@@ -1,7 +1,12 @@
-.card-tabbing {
-    height: 4px;
-    width: 100%;
-    border-radius: 2px 2px 0 0;
+.card {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
+
+.card.rounded {
+    border-radius: .5rem;    
 }
 
 .thing-kind {
@@ -9,11 +14,27 @@
     text-transform: uppercase;
 }
 
+.goal-name {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.thing-action-icon {
+    font-size: initial;
+    vertical-align: text-top;
+}
+
 .action-button {
     width: 100%;
     box-shadow: none;
+    border-radius: 0 0 .5rem .5rem;
 }
 
 .join-list {
     margin-top: 1rem;
+}
+
+.join-list>thing-link:not(:first-child) {
+    margin-left: .5rem;
 }

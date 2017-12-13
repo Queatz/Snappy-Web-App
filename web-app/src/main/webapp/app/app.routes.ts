@@ -80,7 +80,7 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
       },
       {
         path: 'goals/:id',
-        component: ProjectComponent
+        component: UpdateComponent
       },
       {
         path: 'projects/:id',

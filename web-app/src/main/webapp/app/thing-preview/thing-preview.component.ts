@@ -1,7 +1,9 @@
 declare var Waves: any;
 declare var _: any;
+declare var $: any;
+declare var Materialize: any;
 
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, Input, ElementRef } from '@angular/core';
 import { ApiService } from '../api.service';
 import { InforService } from '../infor.service';
 
@@ -10,25 +12,50 @@ import { InforService } from '../infor.service';
   templateUrl: './thing-preview.component.html',
   styleUrls: ['./thing-preview.component.css']
 })
-export class ThingPreviewComponent implements OnInit, AfterViewInit {
+export class ThingPreviewComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() thing: any;
 
-  constructor(private api: ApiService, private info: InforService) { }
+  constructor(private api: ApiService, private info: InforService, private elementRef: ElementRef) { }
 
   ngOnInit() {
+    if (this.thing.kind === 'member') {
+      this.thing.member = this.thing;
+      this.thing = this.thing.source;
+    }
   }
 
   ngAfterViewInit() {
     Waves.displayEffect();
+    $(this.elementRef.nativeElement).find('.tooltipped').tooltip({delay: 50});
+  }
+
+  ngOnDestroy() {
+    $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
   }
 
   action() {
-    this.api.join(this.thing.id, true).subscribe(() => {});
+    if (!this.info.getInforUser()) {
+      Materialize.toast('Sign in', 4000);
+    }
+
+    if (this.joined()) {
+      // TODO delete member
+      return;
+    }
+
+    this.api.earthCreate({
+      kind: 'member',
+      source: this.thing.id,
+      target: this.info.getInforUser().id,
+      select: 'role'
+    }).subscribe(() => {
+      Materialize.toast('Joined goal', 4000);
+    });
   }
 
   joined() {
-    return this.info.getInforUser() && _.any(this.thing.joins, j => j.source.id === this.info.getInforUser().id);
+    return this.info.getInforUser() && _.any(this.thing.in, j => j.target.id === this.info.getInforUser().id);
   }
 
 }

@@ -1,3 +1,5 @@
-<window-scroll (onBottomReached)="onBottomReached()">
-  <thing-preview [thing]="thing" *ngFor="let thing of things | slice:0:amount; trackBy: byId"></thing-preview>
-</window-scroll>
+<div class="thing-preview-list">
+  <window-scroll (onBottomReached)="onBottomReached()">
+    <thing-preview [thing]="thing" *ngFor="let thing of things | slice:0:amount; trackBy: byId"></thing-preview>
+  </window-scroll>
+</div>

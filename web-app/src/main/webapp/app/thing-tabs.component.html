@@ -27,4 +27,7 @@
 <div class="start-hidden" id="tab-forms">
     <things *ngIf="thing" [things]="thing.forms"></things>
 </div>
+<div class="start-hidden" id="tab-goals">
+    <thing-preview-list *ngIf="thing" [things]="thing.goals"></thing-preview-list>
+</div>
 <post-update-modal *ngIf="thing" [thing]="thing"></post-update-modal>

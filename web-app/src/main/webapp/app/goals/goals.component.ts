@@ -31,15 +31,21 @@ export class GoalsComponent implements AfterViewInit, WebTitleProvider {
     }
 
     addGoal() {
+        if (!this.inforService.getInforUser()) {
+            Materialize.toast('Sign in', 4000);
+            return;
+        }
+
         if (!this.newGoal.trim()) {
             Materialize.toast('Enter goal', 4000);
-            return
+            return;
         }
 
         this.api.earthCreate({
             kind: 'goal',
             name: this.newGoal,
             hidden: !this.isPublic,
+            in: this.inforService.getInforUser().id,
             clubs: JSON.stringify(this.clubs),
             select: 'id,name',
         }).subscribe(goal => {
@@ -48,7 +54,7 @@ export class GoalsComponent implements AfterViewInit, WebTitleProvider {
     }
   
     private loadNearby(position) {
-        this.api.earthHere(position.coords, 'goal', 'name,about,hidden,photo,joins(source(name,photo,googleUrl,imageUrl,firstName,lastName)),clubs(name)')
+        this.api.earthHere(position.coords, 'goal', 'name,about,hidden,photo,in(target(name,photo,googleUrl,imageUrl,firstName,lastName)),clubs(name)')
             .subscribe(goals => {
                 this.loaded(goals);
             },

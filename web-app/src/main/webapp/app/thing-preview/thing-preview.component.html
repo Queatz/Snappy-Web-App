@@ -1,19 +1,19 @@
-<div class="card" *ngIf="thing">
-  <div class="card-image">
-    <div class="card-tabbing pink"></div>
-  </div>
+<div class="card rounded hoverable" *ngIf="thing">
   <div class="card-content">
     <club-tag [clubs]="thing.clubs" [isPublic]="!thing.hidden" class="inline"></club-tag>
-    <div class="thing-kind pink-text">{{ thing.kind }}</div>
-    <div class="flow-text">{{ thing.name }}</div>
-    <div class="join-list" *ngIf="thing.joins && thing.joins.length">
-        <thing-link [thing]="join.source" [large]="true" *ngFor="let join of thing.joins | slice:0:6"></thing-link>
+    <div class="thing-kind pink-text">
+      {{ thing.kind }}
+      <a [routerLink]="['/', thing.kind + 's', thing.id]" class="grey-text text-lighten-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Link'"><i class="material-icons thing-action-icon">link</i></a>
+    </div>
+    <div class="goal-name">{{ thing.name }}</div>
+    <div class="join-list" *ngIf="thing.in && thing.in.length">
+      <thing-link [thing]="join.target" [large]="true" *ngFor="let join of thing.in | slice:0:6"></thing-link>
     </div>
   </div>
   <div>
-    <button class="btn btn-large pink white-text waves-effect waves-light flow-text action-button" (click)="action()">
+    <button [ngClass]="{ 'pink waves-light white-text': !joined(), 'pink-text grey lighten-4': joined() }" class="btn btn-large waves-effect action-button" (click)="action()">
         <b *ngIf="!joined()">Me too</b>
-        <b *ngIf="joined()">Complete goal</b>
+        <b *ngIf="joined()">Complete Goal</b>
     </button>
   </div>
 </div>

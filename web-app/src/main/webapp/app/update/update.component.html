@@ -5,6 +5,7 @@
     <h4 class="grey-text center-align" *ngIf="notFound">
         <br />You see nothing.
     </h4>
-    <offer-card *ngIf="thing && thing.kind === 'offer'" [offer]="thing"></offer-card>    
+    <offer-card *ngIf="thing && thing.kind === 'offer'" [offer]="thing"></offer-card>
     <thing-update *ngIf="thing && thing.kind === 'update'" [update]="thing"></thing-update>
+    <thing-preview *ngIf="thing && thing.kind === 'goal'" [thing]="thing"></thing-preview>
 </div>
