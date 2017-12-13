@@ -1,0 +1,21 @@
+<section *ngIf="thing">
+  <header class="complete-header">
+    <div>
+      <i class="material-icons small">grade</i> COMPLETE! <i class="material-icons small">grade</i>
+    </div>
+    <br />
+    <div>
+      {{ thing.name }}
+    </div>
+  </header>
+  <section class="flex-section">
+    <div class="upload-box"><i class="material-icons medium">add_a_photo</i>Upload Proof</div>
+    <thing-list></thing-list>
+    <div class="flexd">
+      <button class="btn-flat blue-text waves-effect waves-blue">I did this with...</button>
+    </div>
+    <div class="flexd">
+      <button class="flex-btn btn btn-large pink white-text waves-effect waves-light">Submit proof</button>
+    </div>
+  </section>
+</section>

@@ -2,6 +2,7 @@
 
 .card.rounded {
     border-radius: .5rem;
+    margin: .5rem;
 }
 
 .feed {

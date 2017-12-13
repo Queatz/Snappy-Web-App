@@ -93,6 +93,7 @@ import { UpdateComponent } from './update/update.component';
 import { GoalsComponent } from './goals/goals.component';
 import { ThingPreviewComponent } from './thing-preview/thing-preview.component';
 import { ThingPreviewListComponent } from './thing-preview-list/thing-preview-list.component';
+import { CompleteGoalComponent } from './complete-goal/complete-goal.component';
 
 enableProdMode();
 
@@ -192,6 +193,7 @@ export class MyOptions extends BaseRequestOptions {
         GoalsComponent,
         ThingPreviewComponent,
         ThingPreviewListComponent,
+        CompleteGoalComponent,
     ],
     entryComponents: [
         FeedbackModal,

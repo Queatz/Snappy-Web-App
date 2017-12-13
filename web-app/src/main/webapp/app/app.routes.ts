@@ -16,6 +16,7 @@ import { FormComponent } from './form/form.component';
 import { UpdateComponent } from './update/update.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { CompleteGoalComponent } from './complete-goal/complete-goal.component';
 
 @NgModule({
   imports: [
@@ -81,6 +82,10 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
       {
         path: 'goals/:id',
         component: UpdateComponent
+      },
+      {
+        path: 'goals/:id/complete',
+        component: CompleteGoalComponent
       },
       {
         path: 'projects/:id',

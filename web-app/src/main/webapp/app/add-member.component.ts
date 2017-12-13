@@ -23,6 +23,6 @@ export class AddMemberComponent implements AfterViewInit, OnDestroy {
     }
 
     isMe() {
-        return this.info.getInforUser() && this.info.getInforUser().id === this.thing.id;
+        return this.thing && this.info.getInforUser() && this.info.getInforUser().id === this.thing.id;
     }
 }

@@ -4,6 +4,7 @@ declare var $: any;
 declare var Materialize: any;
 
 import { Component, OnInit, OnDestroy, AfterViewInit, Input, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { InforService } from '../infor.service';
 
@@ -16,7 +17,11 @@ export class ThingPreviewComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() thing: any;
 
-  constructor(private api: ApiService, private info: InforService, private elementRef: ElementRef) { }
+  constructor(
+    private api: ApiService,
+    private info: InforService,
+    private elementRef: ElementRef,
+    private router: Router) { }
 
   ngOnInit() {
     if (this.thing.kind === 'member') {
@@ -40,7 +45,7 @@ export class ThingPreviewComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     if (this.joined()) {
-      // TODO delete member
+      this.router.navigate(['/', 'goals', this.thing.id, 'complete']);
       return;
     }
 

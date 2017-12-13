@@ -60,7 +60,7 @@ html body h3 {
     background-position: 50%;
 }
 
-.btn-flat {
+.btn-flat, .btn {
     font-weight: 500;
 }
 
@@ -86,7 +86,7 @@ html body h3 {
 }
 
 .project-label {
-    bprder-radius: 1rem;
+    border-radius: 1rem;
     background: limegreen;
     color: white;
     padding: 4px 10px;
