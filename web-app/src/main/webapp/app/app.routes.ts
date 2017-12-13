@@ -6,6 +6,7 @@ import { MessagesComponent } from './messages.component';
 import { ProjectsComponent } from './projects.component';
 import { HubsComponent } from './hubs.component';
 import { ClubsComponent } from './clubs.component';
+import { GoalsComponent } from './goals/goals.component';
 import { ResourcesComponent } from './resources.component';
 import { PeopleComponent } from './people.component';
 import { SearchComponent } from './search.component';
@@ -40,6 +41,10 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
         component: ClubsComponent
       },
       {
+        path: 'goals',
+        component: GoalsComponent
+      },
+      {
         path: 'projects',
         component: ProjectsComponent
       },
@@ -71,6 +76,10 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
       },
       {
         path: 'clubs/:id',
+        component: ProjectComponent
+      },
+      {
+        path: 'goals/:id',
         component: ProjectComponent
       },
       {

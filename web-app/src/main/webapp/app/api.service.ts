@@ -342,6 +342,13 @@ export class ApiService {
             .pipe(map(res => res.json()));
     }
 
+    public join(thingId: string, join: boolean) {
+        var creds = 'auth=' + this.token() + '&join=' + join + '&select=joins(source)';
+
+        return this._http.post(this._apiBaseUrl + 'earth/' + thingId, creds, this.formHeaders())
+            .pipe(map(res => res.json()));
+    }
+
     public getAppToken(domain: string) {
         var creds = 'auth=' + this.token() + '&domain=' + encodeURIComponent(domain);
 

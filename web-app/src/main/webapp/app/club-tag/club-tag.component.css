@@ -24,6 +24,15 @@
     padding: .5rem 1rem .5rem 1.5rem;
 }
 
+:host.inline {
+    font-size: 80%;
+    margin-top: initial;
+    margin-right: initial;
+    padding: .5rem 1rem;
+    clip-path: initial;
+    border-radius: 1rem;
+}
+
 :host.small.in-card {
     margin-top: -24px;
     margin-right: -24px;

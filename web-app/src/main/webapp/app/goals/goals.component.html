@@ -1,0 +1,22 @@
+<div class="feed">
+    <div class="card">
+        <div class="card-content">
+            <form>
+                <div class="input-field">
+                    <textarea autofocus id="newGoal" placeholder="Make a goal" class="materialize-textarea" type="text" [(ngModel)]="newGoal" name="newGoal"></textarea>
+                </div>
+            </form>
+            <div>
+                <visibility-picker [clubs]="clubs" [(public)]="isPublic"></visibility-picker>
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-large pink waves-effect waves-light action-button" (click)="addGoal()"><b>Add goal</b></button>
+        </div>
+    </div>
+    <spinner [show]="!goals">
+        Still loading...
+    </spinner>
+    <thing-preview-list [things]="goals"></thing-preview-list>
+    <div *ngIf="goals && !goals.length" class="no-cards">No one has any goals around here.</div>
+</div>

@@ -1,0 +1,31 @@
+@import '../../css/thing-cards.css';
+
+.feed {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1.5rem;
+}
+
+.action-button {
+    width: 100%;    
+}
+
+.input-field {
+    margin-top: initial;
+}
+
+.input-field textarea {
+    font-size: 2rem;
+    border-bottom-color: #e91e63 !important; /* pink */
+}
+
+.input-field textarea:focus {
+    box-shadow: 0 1px 0 0 #e91e63 !important;
+}
+
+@media only screen and (max-width: 960px) {
+    .feed {
+        padding-top: 0;
+    }
+}

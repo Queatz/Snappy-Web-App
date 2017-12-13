@@ -90,6 +90,9 @@ import { ThingListComponent } from './thing-list/thing-list.component';
 import { TimeComponent } from './time/time.component';
 import { ThingLinkComponent } from './thing-link/thing-link.component';
 import { UpdateComponent } from './update/update.component';
+import { GoalsComponent } from './goals/goals.component';
+import { ThingPreviewComponent } from './thing-preview/thing-preview.component';
+import { ThingPreviewListComponent } from './thing-preview-list/thing-preview-list.component';
 
 enableProdMode();
 
@@ -186,6 +189,9 @@ export class MyOptions extends BaseRequestOptions {
         TimeComponent,
         ThingLinkComponent,
         UpdateComponent,
+        GoalsComponent,
+        ThingPreviewComponent,
+        ThingPreviewListComponent,
     ],
     entryComponents: [
         FeedbackModal,

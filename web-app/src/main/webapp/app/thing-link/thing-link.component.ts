@@ -12,6 +12,7 @@ import util from '../util';
 export class ThingLinkComponent implements OnInit, AfterViewInit {
 
     @Input() thing: any;
+    @Input() large: boolean;
     @Input() small: boolean;
 
   constructor(private elementRef: ElementRef, private api: ApiService) { }
