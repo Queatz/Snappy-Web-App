@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <div *ngIf="!public">
+  <div *ngIf="!public && clubs !== undefined">
     <div class="row" *ngFor="let club of clubsList()">
       <div class="switch">
         <label [ngClass]="{'green-text': clubs[club.id], 'grey-text': !clubs[club.id]}">

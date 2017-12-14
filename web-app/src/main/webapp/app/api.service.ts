@@ -677,6 +677,7 @@ export class ApiService {
         googleUrl,
         infoDistance,
         around,
+        hidden,
         backing,
         backers,
         backs(

@@ -1,6 +1,7 @@
 declare var $;
 declare var _;
 declare var moment;
+declare var Materialize;
 
 import { Component, OnInit, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -33,7 +34,6 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
 
     private editLinkPrecheckSubscription: Subscription;
     private element;
-    public thing;
     private newOfferModal;
     private newResourceModal;
     private newProjectModal;
@@ -43,6 +43,9 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     private preselect: string = null;
     private pageTitle: Subject<string>;
     private on: Subscription;
+
+    public thing;
+    public isPublic;
 
     constructor(
         private inforService: InforService,
@@ -93,6 +96,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
         this.api.getPersonByName(personName, ApiService.SELECT_PERSON)
         .subscribe(person => {
             this.thing = person;
+            this.isPublic = !this.thing.hidden;
             util.setBodyBackground(util.imageUrl(this.thing.imageUrl, 640));
 
             if (this.thing.members) {
@@ -133,6 +137,21 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     ngOnDestroy() {
         this.on.unsubscribe();
         $(this.element).find('.tooltipped').tooltip('remove');
+    }
+
+    onPublicChange(isPublic: any) {
+        this.api.earthEdit(this.thing.id, {
+            hidden: !isPublic,
+            select: 'hidden'
+        }).subscribe(
+            () => {
+                if (isPublic) {
+                    Materialize.toast('Profile visible to everyone');
+                } else {
+                    Materialize.toast('Profile only visible to your clubs');
+                }
+            }
+        );
     }
 
     saveEdit() {

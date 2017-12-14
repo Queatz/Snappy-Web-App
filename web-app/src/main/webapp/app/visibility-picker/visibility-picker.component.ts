@@ -10,8 +10,8 @@ import { InforService } from '../infor.service';
 export class VisibilityPickerComponent implements OnInit {
 
     @Input() public: boolean;
-    @Output() publicChange = new EventEmitter<boolean>();
     @Input() clubs: any;
+    @Output() publicChange = new EventEmitter<boolean>();
 
     public description: string;
     public name: string;

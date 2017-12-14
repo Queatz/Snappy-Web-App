@@ -15,6 +15,7 @@
                 <a *ngIf="isMyProfile()" class="modal-trigger tooltipped" href="#edit-about" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit your about description'"><i class="material-icons small">edit</i></a>
             </h3>
             <div class="vertically-spaced" *ngIf="thing">
+                <visibility-picker *ngIf="isMyProfile()" [(public)]="isPublic" (publicChange)="onPublicChange($event)"></visibility-picker>
                 <a [routerLink]="['/messages/' + thing.id]">
                     <div class="price waves-effect waves-light btn white-text bkg-red tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Open your conversation with ' + thing.firstName" *ngIf="!isMyProfile()">
                         <b>Talk with {{ thing.firstName }}</b>

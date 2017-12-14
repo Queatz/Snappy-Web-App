@@ -151,6 +151,10 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
         };
 
         this.update.joins.forEach(join => {
+            if (!join.source) {
+                return;
+            }
+
             switch (join.source.kind) {
                 case 'person':
                     result.with.push({ person: join.source, isLast: false });

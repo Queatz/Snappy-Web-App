@@ -4,15 +4,6 @@
     <div class="sec">
         <a class="btn-flat orange-text waves-effect" routerLink="/chat"><b>Open chat</b></a>
     </div>
-    <div class="sec">
-        <div class="switch">
-            <label [ngClass]="{'green-text': showPublic, 'grey-text': !showPublic}">
-                <input name="showPublic" [(ngModel)]="showPublic" type="checkbox" />
-                <span class="lever"></span>
-                Show Public
-            </label>
-        </div>
-    </div>
     <div *ngIf="!newUser()" class="post-update">
         <a class="btn bkg-red waves-effect waves-light" (click)="postUpdate()"><b><i class="material-icons left">edit</i>Post Update</b></a>
     </div>
