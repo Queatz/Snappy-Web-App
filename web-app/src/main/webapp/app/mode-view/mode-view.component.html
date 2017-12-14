@@ -1,7 +1,18 @@
 <div class="mode-view card hoverable">
-  <div [style.background-image]="'url(' + getPhoto() + ')'" class="circle img"></div>
+  <input id="photoUploadInput" type="file" style="display: none" (change)="onPhotoUpload($event)" />
+  <div [style.background-image]="'url(' + getPhoto() + ')'" class="circle img" (click)="setPhoto()"></div>
   <div class="mode-name flow-text pink-text">
     {{ mode.name }}
+  </div>
+  <div *ngIf="me()" class="mode-action">
+    <div *ngIf="!isOn()" class="btn-flat green-text waves-effect waves-green" (click)="turnOn()">
+      <img [attr.src]="mePhoto(16)" />
+      Turn On
+    </div>
+    <div *ngIf="isOn()" class="btn-flat grey-text waves-effect" (click)="turnOff()">
+      <img [attr.src]="mePhoto(16)" />
+      Turn Off
+    </div>
   </div>
   <div class="grey-text text-darken-2">
     {{ mode.about }}

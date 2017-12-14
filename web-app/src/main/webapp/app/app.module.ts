@@ -94,6 +94,7 @@ import { GoalsComponent } from './goals/goals.component';
 import { ThingPreviewComponent } from './thing-preview/thing-preview.component';
 import { ThingPreviewListComponent } from './thing-preview-list/thing-preview-list.component';
 import { CompleteGoalComponent } from './complete-goal/complete-goal.component';
+import { AddModeModalComponent } from './add-mode-modal/add-mode-modal.component';
 
 enableProdMode();
 
@@ -194,6 +195,7 @@ export class MyOptions extends BaseRequestOptions {
         ThingPreviewComponent,
         ThingPreviewListComponent,
         CompleteGoalComponent,
+        AddModeModalComponent,
     ],
     entryComponents: [
         FeedbackModal,
@@ -214,6 +216,7 @@ export class MyOptions extends BaseRequestOptions {
         NewClubModalComponent,
         AddActionModal,
         SetLocationModalComponent,
+        AddModeModalComponent
     ],
     providers: [
         InforService,

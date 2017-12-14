@@ -40,8 +40,6 @@ export class MainComponent implements AfterViewInit, OnInit, OnDestroy {
                 this.router.navigate(['/', this.inforService.getInforUser().googleUrl]);
             });
         }
-        
-        setTimeout(() => $(this.modal.location.nativeElement.querySelector('.modal')).modal('open'));
     }
 
     onModalOpened(modal: ComponentRef<any>) {

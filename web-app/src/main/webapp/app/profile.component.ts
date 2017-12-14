@@ -9,12 +9,14 @@ import { NewProjectModal } from './new-project.modal';
 import { NewResourceModal } from './new-resource.modal';
 import { NewHubModal } from './new-hub.modal';
 import { PostUpdateModal } from './post-update.modal';
+import { AddModeModalComponent } from './add-mode-modal/add-mode-modal.component';
 import { ApiService } from './api.service';
 import { InforService } from './infor.service';
 import util from './util';
 import { WebTitleProvider } from './extra';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { WorldService } from './world.service';
+import { UiService } from './ui.service';
 
 
 @Component({
@@ -45,6 +47,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     constructor(
         private inforService: InforService,
         private world: WorldService,
+        private ui: UiService,
         private api: ApiService,
         private router: Router,
         private route: ActivatedRoute,
@@ -146,6 +149,10 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
                 }
             });
         }
+    }
+
+    addMode() {
+        let modal = this.ui.show(AddModeModalComponent);
     }
 
     onLinkChange() {

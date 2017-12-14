@@ -35,10 +35,14 @@
         </div>
         <div class="infobox bkg-white z-depth-1" *ngIf="thing">
             <div class="info">
-                <h6 *ngIf="thing.modes && thing.modes.length" class="metadata pink-text">{{ thing.firstName }} is a...</h6>
-                <div class="modes-view-container" *ngIf="thing.modes && thing.modes.length">
+                <h6 *ngIf="thing.modes && (isMyProfile() || thing.modes.length)" class="metadata pink-text">{{ thing.firstName }} is a...</h6>
+                <div class="modes-view-container" *ngIf="thing.modes && (isMyProfile() || thing.modes.length)">
                     <div class="modes-view">
                         <mode-view *ngFor="let mode of thing.modes" [mode]="mode.source"></mode-view>
+                        <div *ngIf="isMyProfile()" class="btn-flat grey-text add-button waves-effect" (click)="addMode()">
+                            <div><i class="material-icons medium">add</i></div>
+                            <div>Add Mode</div>
+                        </div>
                     </div>
                 </div>
                 <h6 class="metadata grey-text">ABOUT</h6>

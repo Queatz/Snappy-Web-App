@@ -48,6 +48,14 @@ export class InforService {
         return null;
     }
 
+    myModes() {
+        if (this.inforUser) {
+            return this.inforUser.modes;
+        }
+
+        return null;
+    }
+
     getLocation(callback: any, err: any = null) {
         if (this.overrideLocation) {
             callback(this.overrideLocation);
@@ -105,12 +113,9 @@ export class InforService {
         }
 
         this.locateModal = this.ui.show(SetLocationModalComponent);
-        (this.locateModal.instance as SetLocationModalComponent).componentRef = this.locateModal;
         (this.locateModal.instance as SetLocationModalComponent).onLocationSelected.subscribe(
             location => this.setLocation(location)
         );
-
-        setTimeout(() => $(this.locateModal.location.nativeElement.querySelector('.modal')).modal('open'));
     }
 
     addClub(club: any) {

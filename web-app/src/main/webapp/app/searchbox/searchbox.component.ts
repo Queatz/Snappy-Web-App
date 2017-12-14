@@ -69,7 +69,7 @@ export class SearchboxComponent implements OnInit, AfterViewInit, OnChanges {
             this.searchRequest.unsubscribe();
         }
 
-        this.searchRequest = this.api.earthSearch(position.coords, this.text || '', this.kinds || 'person|resource|project|offer|club|hub|form|party|goal', ApiService.SELECT_SEARCH).subscribe(results => {
+        this.searchRequest = this.api.earthSearch(position.coords, this.text || '', this.kinds || 'person|resource|project|offer|club|hub|form|party|mode|goal', ApiService.SELECT_SEARCH).subscribe(results => {
             const me = this.inforService.getInforUser() ? this.inforService.getInforUser().id : undefined;
 
             this.results = _.sortBy(_.filter(results, r => r.id !== me), r => r.infoDistance);

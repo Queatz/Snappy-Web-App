@@ -3,7 +3,7 @@ declare var Waves: any;
 declare var Materialize: any;
 declare var google: any;
 
-import { Component, AfterViewInit, ElementRef, ViewContainerRef, ComponentRef, EventEmitter } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewContainerRef, ComponentRef, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'set-location-modal',
@@ -12,7 +12,8 @@ import { Component, AfterViewInit, ElementRef, ViewContainerRef, ComponentRef, E
 })
 export class SetLocationModalComponent implements AfterViewInit {
 
-    componentRef: ComponentRef<SetLocationModalComponent>;
+    @Output() public onComplete = new EventEmitter<any>();
+    
     onLocationSelected: EventEmitter<any> = new EventEmitter<any>();
     autocomplete: any;
     private place: any;
@@ -21,16 +22,17 @@ export class SetLocationModalComponent implements AfterViewInit {
 
     ngAfterViewInit() {
         Waves.displayEffect();
-       $(this.elementRef.nativeElement.querySelector('.modal')).modal({
-           complete: this.close.bind(this)
-       });
 
-       this.autocomplete = new google.maps.places.Autocomplete(
-           this.elementRef.nativeElement.querySelector('#locateme'),
-           {types: ['geocode']}
-       );
+        $(this.elementRef.nativeElement.querySelector('.modal')).modal({
+            complete: () => this.onComplete.emit()
+        });
 
-       this.autocomplete.addListener('place_changed', this.choose.bind(this));
+        this.autocomplete = new google.maps.places.Autocomplete(
+            this.elementRef.nativeElement.querySelector('#locateme'),
+            {types: ['geocode']}
+        );
+
+        this.autocomplete.addListener('place_changed', this.choose.bind(this));
     }
 
     choose() {
@@ -55,9 +57,5 @@ export class SetLocationModalComponent implements AfterViewInit {
                 }
             });
         }
-    }
-
-    close() {
-        this.componentRef.hostView.destroy();
     }
 }

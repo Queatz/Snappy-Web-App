@@ -1,0 +1,29 @@
+<div class="modal">
+    <div class="modal-content">
+        <h4>Add a mode</h4>
+        <form>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">label</i>
+              <input id="name" type="text" required [(ngModel)]="name" name="name">
+              <label class="active" for="name">Enter name</label>
+            </div>
+
+            <div class="input-field col s12">
+              <i class="material-icons prefix">edit</i>
+              <textarea class="materialize-textarea" id="about" type="text" [(ngModel)]="about" name="about"></textarea>
+              <label class="active" for="about">Enter description</label>
+            </div>
+
+            <visibility-picker [clubs]="clubs" [(public)]="isPublic"></visibility-picker>
+          </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect btn-flat grey-text">Nope</a>
+        <a class="btn-flat waves-effect waves-blue modal-action pink-text" (click)="add()">
+            Turn on mode
+        </a>
+    </div>
+
+</div>

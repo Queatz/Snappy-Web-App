@@ -38,7 +38,7 @@ export class ApiService {
     }
 
     public getMe(gemail: string, gtoken: string) {
-        var creds = 'email=' + gemail + '&auth=' + gtoken;
+        var creds = 'email=' + gemail + '&auth=' + gtoken + '&select=' + ApiService.SELECT_ME;
 
         return this._http.get(this._apiBaseUrl + 'earth/me?' + creds)
                 .pipe(map((res: Response) => res.json()));
@@ -785,6 +785,8 @@ export class ApiService {
     public static SELECT_PEOPLE = 'googleUrl,imageUrl,infoDistance,around,firstName,lastName,about,clubs(name)';
     public static SELECT_PEOPLE_MINIMAL = 'firstName,lastName,imageUrl,googleUrl,around,infoDistance';
     public static SELECT_PERSON_MINIMAL = 'firstName,lastName,imageUrl';
+
+    public static SELECT_ME = 'auth,googleUrl,imageUrl,firstName,lastName,modes(source),clubs(name)';
     
     public static SELECT_SEARCH = 'name,about,photo,imageUrl,firstName,lastName,googleUrl,infoDistance';
     public static SELECT_MESSAGES = 'latest,seen,updated,firstName,lastName,photo,message,source(firstName,lastName,googleUrl,imageUrl),target(firstName,lastName,googleUrl,imageUrl)';

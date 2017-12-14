@@ -108,3 +108,15 @@ a {
     height: calc(120px + 20vw);
 }
 
+.add-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    border-radius: 100%;
+    height: 10rem;
+    width: 10rem;
+    border: 4px dashed #f0f0f0;
+    margin: 1rem;
+}
