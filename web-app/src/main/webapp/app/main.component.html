@@ -1,9 +1,10 @@
 <div>
     <intro-card></intro-card>
     <locality-card></locality-card>
-    <div *ngIf="!newUser()" class="post-update">
-        <a class="btn bkg-red waves-effect waves-light" (click)="postUpdate()"><b><i class="material-icons left">edit</i>Post Update</b></a>
-        <br /><br />
+    <div class="sec">
+        <a class="btn-flat orange-text waves-effect" routerLink="/chat"><b>Open chat</b></a>
+    </div>
+    <div class="sec">
         <div class="switch">
             <label [ngClass]="{'green-text': showPublic, 'grey-text': !showPublic}">
                 <input name="showPublic" [(ngModel)]="showPublic" type="checkbox" />
@@ -11,8 +12,9 @@
                 Show Public
             </label>
         </div>
-        <br />
-        <a class="btn-flat orange-text waves-effect" routerLink="/chat"><b>Open chat</b></a>
+    </div>
+    <div *ngIf="!newUser()" class="post-update">
+        <a class="btn bkg-red waves-effect waves-light" (click)="postUpdate()"><b><i class="material-icons left">edit</i>Post Update</b></a>
     </div>
     <div *ngIf="people" class="people">
         <person-link *ngFor="let person of people | slice:0:6" [person]="person"></person-link>

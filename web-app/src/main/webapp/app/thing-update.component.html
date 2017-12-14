@@ -26,11 +26,11 @@
             </span>
             <time [date]="update.date"></time>
             <thing-in [thing]="update"></thing-in>
-            <p class="flow-text" [innerHtml]="update.about | parseLinks"></p>
+            <p [ngClass]="{ 'flow-text': !isComment }" [innerHtml]="update.about | parseLinks"></p>
         </div>
     </div>
     <div class="card-footer">
-        <div class="like-box">
+        <div class="like-box" [ngClass]="{ 'like-box-comment': isComment }">
             <div class="red-text waves-effect favorite-icon" (click)="like()">
                 <i [ngClass]="{ 'small': !isComment }" class="material-icons tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="update.liked ? 'You like it' : 'Like it'">{{ update.liked ? 'favorite' : 'favorite_border' }}</i><span><b>{{ update.likers ? update.likers : '' }}</b></span>
             </div>

@@ -20,7 +20,7 @@
     right: 4.5rem;
 }
 
-.card:hover .thing-action-icon {
+.card:hover>.card-content>.thing-action-icon {
     display: block;
 }
 
@@ -115,4 +115,18 @@ thing-link + thing-link {
 
 .input-field input:focus {
     box-shadow: 0 2px 0 0 #2196F3 !important; /* blue */
+}
+
+.like-box-comment {
+    padding-left: 2.5rem;
+}
+
+.like-box-comment .favorite-icon {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+.like-box-comment .likes-list {
+    padding-top: .9rem;
+    padding-bottom: .5rem;
 }

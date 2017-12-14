@@ -20,9 +20,14 @@
     font-size: 2rem;
 }
 
+:host:hover .thing-action-icon {
+    display: inline;
+}
+
 .thing-action-icon {
     font-size: initial;
     vertical-align: text-top;
+    display: none;
 }
 
 .action-button {
