@@ -60,7 +60,7 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
             this.token = this.inforService.getInforUser().auth;
         }
 
-        this.api.earthHere(position.coords, 'offer|update', 'date,photo,about,going,want,owner,likers,liked,likes(source(firstName,lastName,imageUrl,googleUrl)),members(source(about,date,source(name,firstName,lastName,imageUrl,googleUrl))),in(target(name,firstName,lastName,imageUrl,googleUrl)),joins(target(name,firstName,lastName,googleUrl,imageUrl,photo),source(name,firstName,imageUrl,photo,lastName,imageUrl,googleUrl)),source(imageUrl,googleUrl,firstName,lastName),clubs(name)')
+        this.api.earthHere(position.coords, 'offer|update', 'date,photo,about,going,want,owner,likers,liked,likes(source(firstName,lastName,imageUrl,googleUrl)),members(source(about,date,likers,liked,likes(source(firstName,lastName,imageUrl,googleUrl)),source(name,firstName,lastName,imageUrl,googleUrl))),in(target(name,firstName,lastName,imageUrl,googleUrl)),joins(target(name,firstName,lastName,googleUrl,imageUrl,photo),source(name,firstName,imageUrl,photo,lastName,imageUrl,googleUrl)),source(imageUrl,googleUrl,firstName,lastName),clubs(name)')
             .subscribe(offers => {
                 this.loaded(_.sortBy(offers, thing => -moment(thing.date)));
             }, error => {

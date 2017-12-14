@@ -76,9 +76,9 @@
                             <div class="message-name">
                                 <div class="clear" [ngClass]="{rightto: !checkIsLeft(message), leftto: checkIsLeft(message)}">
                                     <img *ngIf="message.photo" class="z-depth-1 hoverable message-photo" [attr.src]="photoUrl(message)" />
-                                    <span class="emessage"> {{ showContentMessage(message, 0) }} </span>
-                                    <a [routerLink]="['/' + showContentMessage(message, 2)]" >
-                                        <img class="circle resize avatar z-depth-1" [attr.src]="showContentMessage(message, 1)" />
+                                    <span class="emessage"> {{ message.message }} </span>
+                                    <a [routerLink]="['/' + message.source.googleUrl]" >
+                                        <img class="circle resize avatar z-depth-1" [attr.src]="message.source.imageUrl" />
                                     </a>
                                 </div>
                             </div>

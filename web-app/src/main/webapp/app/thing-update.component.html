@@ -1,7 +1,7 @@
-<div class="card" [ngClass]="{'white hoverable': !isComment, 'is-comment grey lighten-4 z-depth-0': isComment}">
+<div class="card" [ngClass]="{'hoverable': !isComment, 'is-comment z-depth-0': isComment}">
     <div class="card-image">
         <div *ngIf="!isComment" class="card-tabbing blue"></div>
-        <img (load)="loaded()" *ngIf="update.photo" src="{{updateImage}}" />
+        <img (load)="loaded()" *ngIf="update.photo" src="{{ updateImage }}" />
         <i class="thing-action card-hover waves-effect material-icons white-text small waves-light tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Use as your cover photo'" *ngIf="update.photo" (click)="useAsCoverPhoto($event)">vertical_align_top</i>
     </div>
     <div class="card-content bottom-pad-0">
@@ -9,7 +9,7 @@
         <a *ngIf="isMine()" (click)="edit()" class="thing-action-icon grey-text thing-edit-icon text-lighten-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Edit'"><i class="material-icons small">edit</i></a>
         <a [routerLink]="['/', 'updates', update.id]" class="thing-action-icon grey-text text-lighten-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Link'"><i class="material-icons small">link</i></a>
         <div class="blox">
-            <a [routerLink]="['/' + update.source.googleUrl]" class="tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="update.source.firstName + ' ' + update.source.lastName"> <img src="{{ update.source.imageUrl }}" alt="Profile picture" class="circle" /> </a>
+            <a [routerLink]="['/' + update.source.googleUrl]" class="tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="update.source.firstName + ' ' + update.source.lastName"> <img [attr.src]="personImg(update, isComment ? 24 : 48)" alt="Profile picture" class="circle" /> </a>
         </div>
         <div class="blox">
             <span class="title update-type blue-text">{{ update.source.firstName }}
@@ -32,7 +32,7 @@
     <div class="card-footer">
         <div class="like-box">
             <div class="red-text waves-effect favorite-icon" (click)="like()">
-                <i class="material-icons small tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="update.liked ? 'You like it' : 'Like it'">{{ update.liked ? 'favorite' : 'favorite_border' }}</i><span><b>{{ update.likers ? update.likers : '' }}</b></span>
+                <i [ngClass]="{ 'small': !isComment }" class="material-icons tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="update.liked ? 'You like it' : 'Like it'">{{ update.liked ? 'favorite' : 'favorite_border' }}</i><span><b>{{ update.likers ? update.likers : '' }}</b></span>
             </div>
             <div class="likes-list" *ngIf="update.likes && update.likes.length">
                 <thing-link [thing]="like.source" [small]="true" *ngFor="let like of update.likes | slice:0:6"></thing-link>
@@ -40,6 +40,11 @@
         </div>
         <div *ngIf="comments && comments.length">
             <thing-update *ngFor="let comment of comments; trackBy: byId" [update]="comment" [isComment]="true"></thing-update>
+        </div>
+        <div *ngIf="!isComment" class="commentbox">
+            <div class="input-field">
+                <input placeholder="Add a comment..." type="text" [(ngModel)]="postCommentMessage" (keydown.enter)="postComment()" [ngModelOptions]="{ standalone: true }" />
+            </div>
         </div>
     </div>
 </div>

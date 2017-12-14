@@ -144,7 +144,7 @@ export class ApiService {
     }
 
     // XXX currently returns a promise, so must use .then()
-    public earthPostUpdate(thingId: string, message: string, photoFile: File, visibility: any, withAt: any[] = null, going: boolean = null) {
+    public earthPostUpdate(thingId: string, message: string, photoFile: File = null, visibility: any = null, withAt: any[] = null, going: boolean = null) {
         var formData = new FormData();
 
         if (photoFile) {

@@ -95,6 +95,8 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
         this.currentMessages = this.sortedMessages(messagesAndContacts.messages);
         this.contacts = _.sortBy(messagesAndContacts.contacts, contact => -moment(contact.updated));
 
+        setTimeout(() => this.scrollToBottom());
+
         if (this.contacts.length > 0) {
             if (this.idCurrentContact) {
                 this.goToGetMessages();
@@ -171,8 +173,17 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
                     this.goToGetMessages();
                 }, this.time);
 
+                setTimeout(() => this.scrollToBottom());
+
                 this.time = Math.min(30000, this.time + 500);
             });
+    }
+
+    private scrollToBottom() {
+        if (!this.endMessage) {
+            $(this.element).find('.content').animate({ scrollTop: $(this.element).find('.scrollpanel').height() }, 0);
+            this.endMessage = true;
+        }
     }
 
     private setBkg(person: any) {
@@ -261,24 +272,6 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
 
     checkIsLeft(message) {
         return message.source.id !== this.myId;
-    }
-
-    showContentMessage(message, mode) {
-        if (this.messageWithSomeone && this.messageWithSomeone.indexOf(message) === (this.messageWithSomeone.length - 1) && !this.endMessage) {
-            $(this.element).find('.content').animate({ scrollTop: $(this.element).find('.scrollpanel').height() }, 0);
-            this.endMessage = true;
-        }
-
-        switch (mode) {
-            case 0: //show message
-                return message.message;
-            case 1: //show image
-                return message.source.imageUrl;
-            case 2:
-                return message.source.googleUrl;
-            default:
-                return '';
-        }
     }
 
     onClickPhotoUpload() {

@@ -99,3 +99,20 @@ p {
 thing-link + thing-link {
     margin-left: .5rem;
 }
+
+.commentbox {
+    padding: 1rem;
+}
+
+.input-field {
+    margin-top: 0;
+}
+
+.input-field input {
+    border-bottom: none !important;
+    margin-bottom: 0;
+}
+
+.input-field input:focus {
+    box-shadow: 0 2px 0 0 #2196F3 !important; /* blue */
+}

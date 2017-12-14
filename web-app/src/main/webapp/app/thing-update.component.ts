@@ -29,6 +29,7 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
     private updateImage;
     private member;
     private __atWith;
+    public postCommentMessage: string = '';
 
     comments: any[] = null;
 
@@ -111,6 +112,20 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
         });
     }
 
+    public postComment() {
+        if (!this.postCommentMessage.trim()) {
+            return;
+        }
+
+        this.api.earthPostUpdate(this.update.id, this.postCommentMessage)
+            .then(comment => {
+                Materialize.toast('Comment posted', 4000);
+                this.postCommentMessage = '';
+            }, () => {
+                Materialize.toast('Comment post failed', 4000);
+            });
+    }
+
     ngOnDestroy() {
         $(this.element).find('.tooltipped').tooltip('remove');
     }
@@ -157,6 +172,10 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
         this.__atWith = result;
 
         return result;
+    }
+
+    personImg(update: any, sz: number = 48) {
+        return this.api.getPhotoUrlFor(update.source, sz);
     }
 
     byId(update: any) {
