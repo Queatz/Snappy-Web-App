@@ -27,7 +27,7 @@ export class MainComponent implements AfterViewInit, OnInit, OnDestroy {
 
     ngOnInit() {
         this.inforService.getLocation(position => {
-            this.api.earthHere(position.coords, 'person', 'name,firstName,lastName,imageUrl,googleUrl,around,infoDistance')
+            this.api.earthHere(position.coords, 'person', ApiService.SELECT_PEOPLE_MINIMAL)
                 .subscribe(people => this.people = people.sort(p => p.infoDistance));
         });
     }

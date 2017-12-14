@@ -27,7 +27,7 @@ export class HubsComponent implements AfterViewInit, WebTitleProvider {
     }
 
     private loadNearby(position) {
-        this.api.earthHere(position.coords, 'hub', 'name,about,hidden,photo,infoDistance,joins(source(name,firstName,lastName,imageUrl,googleUrl)),in(target(name,photo,googleUrl,imageUrl,firstName,lastName)),clubs(name)')
+        this.api.earthHere(position.coords, 'hub', ApiService.SELECT_THINGS)
             .subscribe(hubs => {
                 this.loaded(hubs);
             },

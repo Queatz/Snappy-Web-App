@@ -71,7 +71,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
             return;
         }
 
-        this.api.earthThing(personId, 'firstName,lastName,imageUrl')
+        this.api.earthThing(personId, ApiService.SELECT_PERSON_MINIMAL)
             .subscribe(person => {
                 if (person) {
                     this.messagesWith = person;
@@ -81,7 +81,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
     }
 
     loadMessages() {
-        this.api.messages('latest,seen,updated,firstName,lastName,photo,message,source(firstName,lastName,googleUrl,imageUrl),target(firstName,lastName,googleUrl,imageUrl)')
+        this.api.messages(ApiService.SELECT_MESSAGES)
             .subscribe(messagesAndContacts => {
                 this.showMessages(messagesAndContacts);
             });
@@ -138,7 +138,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
             this.messagesTimeout = null;
         }
 
-        this.api.personMessages(this.idCurrentContact, 'date,photo,message,source(firstName,lastName,googleUrl,imageUrl),target(firstName,lastName,googleUrl,imageUrl)')
+        this.api.personMessages(this.idCurrentContact, ApiService.SELECT_PERSON_MESSAGES)
             .subscribe(messages => {
                 if (messages.error) {
                     this.messageWithSomeone = null;
@@ -242,7 +242,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
         this.resetTimeInterval();
 
         if (this.idCurrentContact && message) {
-            this.api.sendMessage(this.idCurrentContact, message, 'date,photo,message,source(firstName,lastName,googleUrl,imageUrl),target(firstName,lastName,googleUrl,imageUrl)')
+            this.api.sendMessage(this.idCurrentContact, message, ApiService.SELECT_PERSON_MESSAGES)
                 .subscribe(newMessage => {
                     if (newMessage.message === message) {
                         this.endMessage = false;

@@ -26,7 +26,7 @@ export class ResourcesComponent implements AfterViewInit, WebTitleProvider {
     }
 
     private loadNearby(position) {
-        this.api.earthHere(position.coords, 'resource', 'name,photo,about,hidden,in(target(name,photo,googleUrl,imageUrl,firstName,lastName)),clubs(name)')
+        this.api.earthHere(position.coords, 'resource', ApiService.SELECT_THINGS)
             .subscribe(resources => {
                 this.loaded(resources);
             },
