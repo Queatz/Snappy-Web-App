@@ -88,10 +88,9 @@
             </div>
 
             <div class="row s9 sendmessage">
-                <div class="action-upload waves-effect tooltipped" [attr.data-position]="'top'" [attr.data-tooltip]="'Send a photo'" (click)="onClickPhotoUpload()">
-                    <input id="photoUploadInput" type="file" style="display: none" (change)="onFileUpload($event)" />
+                <upload-file class="action-upload waves-effect tooltipped" [attr.data-position]="'top'" [attr.data-tooltip]="'Send a photo'" (onFile)="onFileUpload($event)">
                     <i class="material-icons grey-text">add_a_photo</i>
-                </div>
+                </upload-file>
                 <div class="input-field">
                     <textarea id="icon_prefix2" class="validate materialize-textarea" [(ngModel)]="strMessage" name="strMessage" (keydown.enter)="enterPressed($event)"></textarea>
                     <label class="active" for="icon_prefix2">Message {{ messagesWith.firstName }}...</label>

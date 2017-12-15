@@ -1,0 +1,13 @@
+<div class="modal">
+  <div class="modal-content">
+      <h4>{{ message }}</h4>
+  </div>
+  <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect btn-flat grey-text">
+        {{ negativeButton || 'Nope' }}
+      </a>
+      <a class="btn-flat waves-effect waves-{{ color || 'blue' }} modal-action {{ color || 'blue' }}-text" (click)="confirm()">
+          {{ positiveButton || 'Yup' }}
+      </a>
+  </div>
+</div>

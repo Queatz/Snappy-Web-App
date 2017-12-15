@@ -34,10 +34,9 @@
         <input id="message" type="text" required [(ngModel)]="message" name="message" (keydown.enter)="enterPressedInChat($event)">
         <label class="active" for="message">Chat in {{ active.name }}...</label>
       </div>
-      <div class="action-upload waves-effect tooltipped" [attr.data-position]="'top'" [attr.data-tooltip]="'Post a photo'" (click)="onClickPhotoUpload()">
-        <input id="photoUploadInput" type="file" style="display: none" (change)="onFileUpload($event)" />
+      <upload-file class="action-upload waves-effect tooltipped" [attr.data-position]="'top'" [attr.data-tooltip]="'Post a photo'" (onFile)="onFileUpload($event)">
         <i class="material-icons grey-text">add_a_photo</i>
-      </div>
+      </upload-file>
     </section>
   </section>
   <aside class="info" [ngClass]="{'is-showing-ads': isShowingAds}">

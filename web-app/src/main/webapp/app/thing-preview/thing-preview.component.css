@@ -43,3 +43,14 @@
 .join-list>thing-link:not(:first-child) {
     margin-left: .5rem;
 }
+
+.metadata {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.clickable {
+    cursor: pointer;
+}

@@ -9,13 +9,26 @@
     </div>
   </header>
   <section class="flex-section">
-    <div class="upload-box"><i class="material-icons medium">add_a_photo</i>Upload Proof</div>
-    <thing-list></thing-list>
-    <div class="flexd">
-      <button class="btn-flat blue-text waves-effect waves-blue">I did this with...</button>
+    <upload-file *ngIf="!proofUrl" class="upload-box" (onFile)="uploadProof($event)">
+      <i class="material-icons medium">add_a_photo</i>Upload Proof
+    </upload-file>
+    <div *ngIf="proofUrl" class="flexd">
+      <img class="proof-img z-depth-1" [attr.src]="proofUrl" />
     </div>
+    <section *ngIf="withPeople.length > 0" class="flexd">
+      <thing-list class="flex-btn" [things]="withPeople" (onThingClicked)="removeWith($event)"></thing-list>
+    </section>
     <div class="flexd">
-      <button class="flex-btn btn btn-large pink white-text waves-effect waves-light">Submit proof</button>
+      <button class="btn-flat blue-text waves-effect waves-blue" (click)="checkingIn = !checkingIn">
+        <span *ngIf="!checkingIn">I did this with...</span>
+        <span *ngIf="checkingIn">Cancel</span>
+      </button>
+    </div>
+    <section *ngIf="checkingIn" class="flexd">
+        <searchbox class="flex-btn" (onSearchResultClicked)="addWith($event)" [maxResults]="3" kinds="person"></searchbox>    
+    </section>
+    <div class="flexd">
+      <button class="flex-btn btn btn-large pink white-text waves-effect waves-light" (click)="submitProof()">Submit proof</button>
     </div>
   </section>
 </section>

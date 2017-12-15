@@ -95,6 +95,8 @@ import { ThingPreviewComponent } from './thing-preview/thing-preview.component';
 import { ThingPreviewListComponent } from './thing-preview-list/thing-preview-list.component';
 import { CompleteGoalComponent } from './complete-goal/complete-goal.component';
 import { AddModeModalComponent } from './add-mode-modal/add-mode-modal.component';
+import { UploadFileComponent } from './upload-file/upload-file.component';
+import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 
 enableProdMode();
 
@@ -196,6 +198,8 @@ export class MyOptions extends BaseRequestOptions {
         ThingPreviewListComponent,
         CompleteGoalComponent,
         AddModeModalComponent,
+        UploadFileComponent,
+        ConfirmationModalComponent,
     ],
     entryComponents: [
         FeedbackModal,
@@ -216,7 +220,8 @@ export class MyOptions extends BaseRequestOptions {
         NewClubModalComponent,
         AddActionModal,
         SetLocationModalComponent,
-        AddModeModalComponent
+        AddModeModalComponent,
+        ConfirmationModalComponent,
     ],
     providers: [
         InforService,

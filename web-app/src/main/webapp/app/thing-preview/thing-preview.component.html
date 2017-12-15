@@ -4,16 +4,30 @@
     <div class="thing-kind pink-text">
       {{ thing.kind }}
       <a [routerLink]="['/', thing.kind + 's', thing.id]" class="grey-text text-lighten-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Link'"><i class="material-icons thing-action-icon">link</i></a>
+      <a *ngIf="isMember()" (click)="removeMember()" class="clickable grey-text text-lighten-1 tooltipped" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Leave ' + thing.kind"><i class="material-icons thing-action-icon">clear</i></a>
     </div>
     <div class="goal-name">{{ thing.name }}</div>
-    <div class="join-list" *ngIf="thing.in && thing.in.length">
-      <thing-link [thing]="join.target" [large]="true" *ngFor="let join of thing.in | slice:0:6"></thing-link>
+    <div>
+      <div class="metadata grey-text">Added by</div>
+      <div class="join-list" *ngIf="thing.in && thing.in.length">
+        <thing-link [thing]="join.target" [large]="true" *ngFor="let join of thing.in | slice:0:6"></thing-link>
+      </div>
+      <div class="grey-text" *ngIf="!(thing.in && thing.in.length)">
+          <i>No one wants to do this</i>
+      </div>
+    </div>
+    <div *ngIf="false">
+      <div class="metadata grey-text">Completed by</div>
+      <div class="join-list" *ngIf="thing.members && thing.members.length">
+        <thing-link [thing]="join.target" [large]="true" *ngFor="let join of thing.members | slice:0:6"></thing-link>
+      </div>
+      <div class="grey-text" *ngIf="!(thing.members && thing.members.length)">
+          <i>No one completed this yet</i>
+      </div>
     </div>
   </div>
-  <div>
-    <button [ngClass]="{ 'pink waves-light white-text': !joined(), 'pink-text grey lighten-4': joined() }" class="btn btn-large waves-effect action-button" (click)="action()">
-        <b *ngIf="!joined()">Me too</b>
-        <b *ngIf="joined()">Complete Goal</b>
-    </button>
-  </div>
+  <button [ngClass]="{ 'pink waves-light white-text': !joined(), 'pink-text grey lighten-4': joined() }" class="btn btn-large waves-effect action-button" (click)="action()">
+      <b *ngIf="!joined()">Me too</b>
+      <b *ngIf="joined()">Complete Goal</b>
+  </button>
 </div>

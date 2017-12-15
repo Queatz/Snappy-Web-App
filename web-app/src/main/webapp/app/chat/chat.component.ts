@@ -84,12 +84,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
         this.locality = locality;
     }
 
-    onClickPhotoUpload() {
-        $(this.elementRef.nativeElement).find('#photoUploadInput').click();
-    }
-
-    onFileUpload(event: Event) {
-        let file = (event.target as HTMLInputElement).files[0];
+    onFileUpload(file: File) {
         let fr = new FileReader();
         fr.onloadend = () => this.sendData(fr.result);
         fr.readAsArrayBuffer(file);

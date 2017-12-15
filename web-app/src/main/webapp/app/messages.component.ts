@@ -274,16 +274,8 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
         return message.source.id !== this.myId;
     }
 
-    onClickPhotoUpload() {
-        $(this.element).find('#photoUploadInput').click();
-    }
-
-    onFileUpload(event: Event) {
-        let file = (event.target as HTMLInputElement).files[0];
-        
-        if (file) {
-            this.api.sendPhotoMessage(this.idCurrentContact, '', file).subscribe();
-        }
+    onFileUpload(file: File) {
+        this.api.sendPhotoMessage(this.idCurrentContact, '', file).subscribe();
     }
 
     showChat() {

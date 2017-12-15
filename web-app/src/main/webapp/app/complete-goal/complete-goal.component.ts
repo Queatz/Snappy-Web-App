@@ -1,4 +1,5 @@
 declare var Waves: any;
+declare var Materialize: any;
 
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ApiService } from '../api.service';
@@ -11,9 +12,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./complete-goal.component.css']
 })
 export class CompleteGoalComponent implements OnInit, AfterViewInit {
-
+  
   notFound: boolean;
   thing: any;
+  withPeople: any[] = [];
+  checkingIn: boolean;
+  
+  proofFile: File;
+  proofUrl: any;
 
   constructor(
     private api: ApiService,
@@ -28,6 +34,34 @@ export class CompleteGoalComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     Waves.displayEffect();
+  }
+
+  uploadProof(file: File) {
+    this.proofFile = file;
+    let fr = new FileReader();
+    fr.onloadend = () => this.proofUrl = fr.result;
+    fr.readAsDataURL(file);
+  }
+
+  addWith(person: any) {
+    this.withPeople.push(person);
+    this.checkingIn = false;
+  }
+
+  removeWith(person: any) {
+    let i = this.withPeople.indexOf(person);
+
+    if (i === -1) {
+      return;
+    }
+
+    this.withPeople.splice(i, 1);
+  }
+
+  submitProof() {
+    if (!this.proofFile) {
+      Materialize.toast('Missing proof', 4000);
+    }
   }
 
   load(id: string) {
