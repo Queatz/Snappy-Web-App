@@ -1,0 +1,9 @@
+
+.in-thing-img {
+    border-radius: .25rem;
+    background-size: cover;
+    display: inline-block;
+    width: 4rem;
+    height: 4rem;
+    margin-right: .5rem;
+}

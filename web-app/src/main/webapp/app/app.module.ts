@@ -99,6 +99,7 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 import { HorizontalListComponent } from './horizontal-list/horizontal-list.component';
 import { ModesComponent } from './modes/modes.component';
+import { ThingUpdatePreviewComponent } from './thing-update-preview/thing-update-preview.component';
 
 enableProdMode();
 
@@ -204,6 +205,7 @@ export class MyOptions extends BaseRequestOptions {
         ConfirmationModalComponent,
         HorizontalListComponent,
         ModesComponent,
+        ThingUpdatePreviewComponent,
     ],
     entryComponents: [
         FeedbackModal,

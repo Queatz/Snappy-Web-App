@@ -13,7 +13,8 @@
         </div>
         <div class="blox">
             <span class="title update-type blue-text">{{ update.source.firstName }}
-                <span *ngIf="!isComment && !atWith()">posted</span>
+                <span *ngIf="update.action === 'upto' && !isComment && !atWith()">posted</span>
+                <span *ngIf="update.action === 'completed_goal'">completed a goal</span>
             </span>
             <span *ngIf="atWith()" class="title grey-text">
                 <span *ngIf="atWith().with.length">with</span>
@@ -26,6 +27,7 @@
             </span>
             <time [date]="update.date"></time>
             <thing-in [thing]="update"></thing-in>
+            <p *ngIf="update.action === 'completed_goal'" class="flow-text">{{ update.target.name }}</p>
             <p [ngClass]="{ 'flow-text': !isComment }" [innerHtml]="update.about | parseLinks"></p>
         </div>
     </div>

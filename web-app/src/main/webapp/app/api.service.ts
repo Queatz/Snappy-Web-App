@@ -69,7 +69,6 @@ export class ApiService {
 
             var headers = new Headers();
             headers.append('Content-Type', undefined);
-
         }
 
         // If nothing was specified to add this to, add it to the current user so that it doesn't
@@ -176,6 +175,27 @@ export class ApiService {
         headers.append('Content-Type', undefined);
 
         return this.makeFilePostRequest(this._apiBaseUrl + 'earth?kind=update&auth=' + this.token(), formData);
+    }
+
+    public completeGoal(goalId: string, params: any): any {
+        var formData = new FormData();
+
+        if (params.photo) {
+            formData.append('photo', params.photo, params.photo.name);
+        }
+
+        if (params.message) {
+            formData.append('message', params.message);
+        }
+
+        if (params.with) {
+            formData.append('with', JSON.stringify(params.with));
+        }
+
+        let options = new RequestOptions({ headers: new Headers() });
+
+        return this._http.post(this._apiBaseUrl + 'earth/' + goalId + '/complete?auth=' + this.token(), formData, options)
+            .pipe(map((res: Response) => res.json()));
     }
 
     // XXX currently returns a promise, so must use .then()
@@ -395,9 +415,6 @@ export class ApiService {
             formData.append('file---' + file, files[file]);
         }
 
-        var headers = new Headers();
-        headers.append('Content-Type', undefined);
-
         return this.makeFilePostRequest(this._apiBaseUrl + 'earth?kind=form-submission', formData);
     }
 
@@ -446,6 +463,8 @@ export class ApiService {
         googleUrl,
         imageUrl,
         name,
+        going,
+        action,
         photo,
         liked,
         likers,
@@ -479,6 +498,8 @@ export class ApiService {
         ),
         about,
         target(
+            name,
+            photo,
             firstName,
             lastName,
             googleUrl,
@@ -487,6 +508,8 @@ export class ApiService {
             infoDistance
         ),
         source(
+            photo,
+            name,
             imageUrl,
             googleUrl,
             firstName,
@@ -495,9 +518,12 @@ export class ApiService {
         members(
             source(
                 about,
+                name,
+                photo,
                 date,
                 source(
                     name,
+                    photo,
                     firstName,
                     lastName,
                     imageUrl,
@@ -535,6 +561,7 @@ export class ApiService {
                 name,
                 photo,
                 going,
+                action,
                 want,
                 liked,
                 likers,
@@ -595,6 +622,7 @@ export class ApiService {
         date,
         photo,
         about,
+        action,
         going,
         want,
         owner,
@@ -665,6 +693,14 @@ export class ApiService {
             firstName,
             lastName
         ),
+        target(
+            name,
+            photo,
+            firstName,
+            lastName,
+            imageUrl,
+            googleUrl
+        ),
         clubs(
             name
         )
@@ -704,6 +740,7 @@ export class ApiService {
                 hidden,
                 owner,
                 going,
+                action,
                 want,
                 liked,
                 likers,
@@ -769,6 +806,14 @@ export class ApiService {
                     firstName,
                     lastName
                 ),
+                target(
+                    name,
+                    photo,
+                    firstName,
+                    lastName,
+                    imageUrl,
+                    googleUrl
+                ),
                 clubs(
                     name
                 )
@@ -790,7 +835,7 @@ export class ApiService {
     `);
     
     public static SELECT_THINGS = 'name,about,hidden,photo,infoDistance,in(target(name,photo,googleUrl,imageUrl,firstName,lastName)),clubs(name)';
-    public static SELECT_THINGS_WITH_MEMBERS = 'name,about,hidden,photo,infoDistance,members(source(name,photo,googleUrl,imageUrl,firstName,lastName)),in(target(name,photo,googleUrl,imageUrl,firstName,lastName)),clubs(name)';
+    public static SELECT_THINGS_WITH_MEMBERS = 'name,about,hidden,photo,infoDistance,members(source(name,photo,googleUrl,imageUrl,firstName,lastName,source(name,photo,googleUrl,imageUrl,firstName,lastName),target(name,photo,googleUrl,imageUrl,firstName,lastName))),in(target(name,photo,googleUrl,imageUrl,firstName,lastName)),clubs(name)';
     public static SELECT_PEOPLE = 'googleUrl,imageUrl,infoDistance,around,firstName,lastName,about,clubs(name)';
     public static SELECT_PEOPLE_MINIMAL = 'name,about,firstName,lastName,imageUrl,googleUrl,around,infoDistance';
     public static SELECT_PERSON_MINIMAL = 'firstName,lastName,imageUrl';

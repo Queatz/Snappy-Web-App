@@ -33,7 +33,7 @@ export class ThingPreviewComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     if (this.thing.members) {
-      _.remove(this.thing.members, m => m.source.kind !== 'person');
+      _.remove(this.thing.members, m => m.source.kind !== 'update');
     }
   }
 

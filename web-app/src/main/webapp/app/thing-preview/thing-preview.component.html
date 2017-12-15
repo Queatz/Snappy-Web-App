@@ -16,7 +16,7 @@
     <div *ngIf="thing.members && thing.members.length">
       <div class="metadata grey-text">Completed by</div>
       <div class="join-list">
-        <thing-link [thing]="join.source" [large]="true" *ngFor="let join of thing.members"></thing-link>
+        <thing-update-preview [thing]="member.source" *ngFor="let member of thing.members"></thing-update-preview>
       </div>
     </div>
   </div>

@@ -70,6 +70,18 @@ export class CompleteGoalComponent implements OnInit, AfterViewInit {
       Materialize.toast('Missing proof', 4000);
       return;
     }
+
+    this.api.completeGoal(this.thing.id, {
+      photo: this.proofFile,
+      with: this.withPeople.map(t => t.id)
+    }).subscribe(
+      () => {
+        Materialize.toast('Completed ' + this.thing.name, 4000);
+      },
+      () => {
+        Materialize.toast('Nooo... there was an error', 4000);
+      }
+    );
   }
 
   load(id: string) {
