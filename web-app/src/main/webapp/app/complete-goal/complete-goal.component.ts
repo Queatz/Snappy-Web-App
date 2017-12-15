@@ -13,8 +13,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CompleteGoalComponent implements OnInit, AfterViewInit {
   
-  notFound: boolean;
   thing: any;
+  notFound: boolean;
   withPeople: any[] = [];
   checkingIn: boolean;
   
@@ -59,8 +59,16 @@ export class CompleteGoalComponent implements OnInit, AfterViewInit {
   }
 
   submitProof() {
+    if (!this.inforService.getInforUser()) {
+      Materialize.toast('Sign in', 4000);
+      return;
+    }
+    
+    let me = this.inforService.getInforUser().id;
+
     if (!this.proofFile) {
       Materialize.toast('Missing proof', 4000);
+      return;
     }
   }
 

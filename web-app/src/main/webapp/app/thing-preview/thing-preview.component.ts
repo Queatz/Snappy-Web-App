@@ -31,6 +31,10 @@ export class ThingPreviewComponent implements OnInit, AfterViewInit, OnDestroy {
       this.thing.source.member = this.thing;
       this.thing = this.thing.source;
     }
+
+    if (this.thing.members) {
+      _.remove(this.thing.members, m => m.source.kind !== 'person');
+    }
   }
 
   ngAfterViewInit() {

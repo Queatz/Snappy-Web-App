@@ -54,7 +54,7 @@ export class GoalsComponent implements AfterViewInit, WebTitleProvider {
     }
   
     private loadNearby(position) {
-        this.api.earthHere(position.coords, 'goal', ApiService.SELECT_THINGS)
+        this.api.earthHere(position.coords, 'goal', ApiService.SELECT_THINGS_WITH_MEMBERS)
             .subscribe(goals => {
                 this.loaded(goals);
             },

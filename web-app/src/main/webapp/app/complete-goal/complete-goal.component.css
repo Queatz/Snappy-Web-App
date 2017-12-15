@@ -45,6 +45,13 @@
     padding: 1rem;
 }
 
+.flexd.flexd-col {
+    flex-direction: column;
+    align-self: center;
+    width: 24rem;
+    padding: 0;
+}
+
 .flex-btn {
     flex: 1;
     display: flex;
