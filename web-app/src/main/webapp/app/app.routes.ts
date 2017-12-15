@@ -115,6 +115,10 @@ import { CompleteGoalComponent } from './complete-goal/complete-goal.component';
         component: UpdateComponent
       },
       {
+        path: 'modes/:id',
+        component: UpdateComponent
+      },
+      {
         path: 'search',
         component: SearchComponent
       },

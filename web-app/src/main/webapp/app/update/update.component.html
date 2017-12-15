@@ -8,4 +8,5 @@
     <offer-card *ngIf="thing && thing.kind === 'offer'" [offer]="thing"></offer-card>
     <thing-update *ngIf="thing && thing.kind === 'update'" [update]="thing"></thing-update>
     <thing-preview *ngIf="thing && thing.kind === 'goal'" [thing]="thing"></thing-preview>
+    <mode-view *ngIf="thing && thing.kind === 'mode'" [mode]="thing"></mode-view>
 </div>
