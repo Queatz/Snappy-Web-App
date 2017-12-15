@@ -1,0 +1,9 @@
+<div>
+    <spinner [show]="!things">
+        Finding modes near you...
+    </spinner>
+    <div *ngIf="things && !things.length" class="no-cards">No modes around here.</div>
+    <horizontal-list>
+      <mode-view [mode]="thing" *ngFor="let thing of things"></mode-view>
+    </horizontal-list>
+</div>

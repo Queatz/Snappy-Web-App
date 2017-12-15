@@ -792,7 +792,7 @@ export class ApiService {
     public static SELECT_THINGS = 'name,about,hidden,photo,infoDistance,in(target(name,photo,googleUrl,imageUrl,firstName,lastName)),clubs(name)';
     public static SELECT_THINGS_WITH_MEMBERS = 'name,about,hidden,photo,infoDistance,members(source(name,photo,googleUrl,imageUrl,firstName,lastName)),in(target(name,photo,googleUrl,imageUrl,firstName,lastName)),clubs(name)';
     public static SELECT_PEOPLE = 'googleUrl,imageUrl,infoDistance,around,firstName,lastName,about,clubs(name)';
-    public static SELECT_PEOPLE_MINIMAL = 'firstName,lastName,imageUrl,googleUrl,around,infoDistance';
+    public static SELECT_PEOPLE_MINIMAL = 'name,about,firstName,lastName,imageUrl,googleUrl,around,infoDistance';
     public static SELECT_PERSON_MINIMAL = 'firstName,lastName,imageUrl';
 
     public static SELECT_ME = 'auth,googleUrl,imageUrl,firstName,lastName,modes(source),clubs(name)';

@@ -1,3 +1,4 @@
+declare var _: any;
 declare var $: any;
 declare var Waves: any;
 
@@ -19,6 +20,7 @@ export class MainComponent implements AfterViewInit, OnInit, OnDestroy {
     private newOfferModal;
     private modal: ComponentRef<PostUpdateModal>;
     people: any[];
+    modes: any[];
 
     constructor(private router: Router, private ui: UiService, private api: ApiService, inforService: InforService, private elementRef: ElementRef, public tutorial: TutorialService) {
         this.inforService = inforService;
@@ -27,8 +29,11 @@ export class MainComponent implements AfterViewInit, OnInit, OnDestroy {
 
     ngOnInit() {
         this.inforService.getLocation(position => {
-            this.api.earthHere(position.coords, 'person', ApiService.SELECT_PEOPLE_MINIMAL)
-                .subscribe(people => this.people = people.sort(p => p.infoDistance));
+            this.api.earthHere(position.coords, 'person|mode', ApiService.SELECT_PEOPLE_MINIMAL)
+                .subscribe(things => {
+                    this.people = _.filter(things, t => t.kind === 'person').sort(p => p.infoDistance);
+                    this.modes = _.filter(things, t => t.kind === 'mode').sort(p => p.infoDistance);
+                });
         });
     }
     

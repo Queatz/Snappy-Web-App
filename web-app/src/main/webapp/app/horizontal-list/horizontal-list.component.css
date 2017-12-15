@@ -1,0 +1,10 @@
+:host {
+    display: block;
+    overflow-x: auto;
+    text-align: center;
+}
+
+.horizontal-list {
+    display: inline-flex;
+    justify-content: flex-start;
+}

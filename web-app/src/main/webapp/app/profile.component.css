@@ -79,16 +79,6 @@ a {
     text-transform: uppercase;
 }
 
-.modes-view-container {
-    overflow-x: auto;
-    text-align: center;
-}
-
-.modes-view {
-    display: inline-flex;
-    justify-content: flex-start;
-}
-
 .vertically-spaced {
     line-height: 3rem;
     margin-bottom: 1rem;

@@ -13,6 +13,14 @@
             <a class="btn-flat blue-text waves-effect" [routerLink]="'/people'"><b>See all people nearby</b></a>
         </div>
     </div>
+    <div *ngIf="modes" class="people">
+        <horizontal-list>
+            <mode-view *ngFor="let mode of modes | slice:0:6" [mode]="mode"></mode-view>
+        </horizontal-list>
+        <div class="center-align">
+            <a class="btn-flat pink-text waves-effect" [routerLink]="'/modes'"><b>See all modes nearby</b></a>
+        </div>
+    </div>
     <offers></offers>
     <floating [tooltip]="'Add an offer'" *ngIf="!newUser()" [modal]="newOfferModal" (onModalOpened)="onModalOpened($event)"></floating>
 </div>

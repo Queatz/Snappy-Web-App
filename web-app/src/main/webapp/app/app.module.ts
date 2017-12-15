@@ -97,6 +97,8 @@ import { CompleteGoalComponent } from './complete-goal/complete-goal.component';
 import { AddModeModalComponent } from './add-mode-modal/add-mode-modal.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
+import { HorizontalListComponent } from './horizontal-list/horizontal-list.component';
+import { ModesComponent } from './modes/modes.component';
 
 enableProdMode();
 
@@ -200,6 +202,8 @@ export class MyOptions extends BaseRequestOptions {
         AddModeModalComponent,
         UploadFileComponent,
         ConfirmationModalComponent,
+        HorizontalListComponent,
+        ModesComponent,
     ],
     entryComponents: [
         FeedbackModal,

@@ -17,6 +17,7 @@ import { UpdateComponent } from './update/update.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { CompleteGoalComponent } from './complete-goal/complete-goal.component';
+import { ModesComponent } from './modes/modes.component';
 
 @NgModule({
   imports: [
@@ -56,6 +57,10 @@ import { CompleteGoalComponent } from './complete-goal/complete-goal.component';
       {
         path: 'people',
         component: PeopleComponent
+      },
+      {
+        path: 'modes',
+        component: ModesComponent
       },
       {
         path: 'chat',
