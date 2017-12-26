@@ -662,6 +662,7 @@ export class ApiService {
         in(
             target(
                 name,
+                photo,
                 firstName,
                 lastName,
                 imageUrl,
