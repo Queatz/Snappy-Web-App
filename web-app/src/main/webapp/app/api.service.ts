@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class ApiService {
     private _token = '';
-    private beta = !false;
+    private beta = false;
     private _apiDomain = this.beta ? '127.0.0.1:8080' : 'vlllage.com:8443';
     private _apiBase = this.beta ? 'http://' + this._apiDomain : 'https://' + this._apiDomain;
     private _apiBaseUrl = this._apiBase + '/api/';
@@ -755,6 +755,7 @@ export class ApiService {
                 members(
                     source(
                         name,
+                        photo,
                         about,
                         firstName,
                         lastName,
@@ -772,6 +773,15 @@ export class ApiService {
                         ),
                         source(
                             name,
+                            photo,
+                            firstName,
+                            lastName,
+                            imageUrl,
+                            googleUrl
+                        ),
+                        target(
+                            name,
+                            photo,
                             firstName,
                             lastName,
                             imageUrl,
@@ -837,7 +847,7 @@ export class ApiService {
     public static SELECT_THINGS = 'name,about,hidden,photo,infoDistance,in(target(name,photo,googleUrl,imageUrl,firstName,lastName)),clubs(name)';
     public static SELECT_THINGS_WITH_MEMBERS = 'name,about,hidden,photo,infoDistance,members(source(name,photo,googleUrl,imageUrl,firstName,lastName,source(name,photo,googleUrl,imageUrl,firstName,lastName),target(name,photo,googleUrl,imageUrl,firstName,lastName))),in(target(name,photo,googleUrl,imageUrl,firstName,lastName)),clubs(name)';
     public static SELECT_PEOPLE = 'googleUrl,imageUrl,infoDistance,around,firstName,lastName,about,clubs(name)';
-    public static SELECT_PEOPLE_MINIMAL = 'name,about,firstName,lastName,imageUrl,googleUrl,around,infoDistance';
+    public static SELECT_PEOPLE_MINIMAL = 'name,photo,about,firstName,lastName,imageUrl,googleUrl,around,infoDistance';
     public static SELECT_PERSON_MINIMAL = 'firstName,lastName,imageUrl';
 
     public static SELECT_ME = 'auth,googleUrl,imageUrl,firstName,lastName,modes(source),clubs(name)';

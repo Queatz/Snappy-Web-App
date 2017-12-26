@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
 import { InforService } from '../infor.service';
 import { Observable } from 'rxjs';
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   templateUrl: './modes.component.html',
   styleUrls: ['./modes.component.css']
 })
-export class ModesComponent implements OnInit {
+export class ModesComponent {
 
   public things;
 
@@ -28,9 +28,6 @@ export class ModesComponent implements OnInit {
 
   private loaded(things) {
       this.things = things;
-  }
-
-  ngAfterViewInit() {
   }
 
   public getWebTitle() {

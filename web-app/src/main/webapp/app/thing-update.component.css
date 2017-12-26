@@ -130,3 +130,8 @@ thing-link + thing-link {
     padding-top: .9rem;
     padding-bottom: .5rem;
 }
+
+.goal-name {
+    font-size: 2rem;
+    padding-top: 2rem;
+}

@@ -26,8 +26,9 @@
                 </span>
             </span>
             <time [date]="update.date"></time>
-            <thing-in [thing]="update"></thing-in>
-            <p *ngIf="update.action === 'completed_goal'" class="flow-text">{{ update.target.name }}</p>
+            <thing-in *ngIf="update.action !== 'completed_goal'" [thing]="update"></thing-in>
+            <div *ngIf="update.action === 'completed_goal'" class="goal-name">{{ update.target.name }}</div>
+            <a *ngIf="update.action === 'completed_goal'" [routerLink]="thingUrl(update.target)" class="btn-flat waves-effect waves-pink pink-text" style="padding-left:0">Go to goal</a>
             <p [ngClass]="{ 'flow-text': !isComment }" [innerHtml]="update.about | parseLinks"></p>
         </div>
     </div>

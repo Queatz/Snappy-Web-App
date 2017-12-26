@@ -10,6 +10,7 @@ import { ApiService } from './api.service';
 import { WorldService } from './world.service';
 import { InforService } from './infor.service';
 import { PostUpdateModal } from './post-update.modal';
+import util from './util';
 
 var checkFirst = true;
 
@@ -180,6 +181,10 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
 
     personImg(update: any, sz: number = 48) {
         return this.api.getPhotoUrlFor(update.source, sz);
+    }
+
+    thingUrl(thing: any) {
+        return util.thingUrl(thing);
     }
 
     byId(update: any) {

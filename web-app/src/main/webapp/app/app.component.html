@@ -13,6 +13,7 @@
                     <li [ngClass]="{'active': isActive(['/goals'])}"><a routerLink="/goals"><i class="material-icons left">landscape</i>Goals</a></li>
                     <li [ngClass]="{'active': isActive(['/clubs'])}"><a routerLink="/clubs"><i class="material-icons left">supervisor_account</i>Clubs</a></li>
                     <li [ngClass]="{'active': isActive(['/search'])}"><a routerLink="/search"><i class="material-icons left">search</i>Search</a></li>
+                    <li [ngClass]="{'active': isActive(['/chat'])}"><a routerLink="/chat"><i class="material-icons left">sentiment_very_satisfied</i></a></li>
                 </ul>
 
                 <a data-activates="slide-out" class="button-collapse"><i class="material-icons" (click)="menuTapped()">menu</i></a>
@@ -202,6 +203,7 @@
     <li><a routerLink="/goals"><i class="material-icons left pink-text">landscape</i>Goals</a></li>
     <li><a routerLink="/clubs"><i class="material-icons left yellow-text text-darken-2">supervisor_account</i>Clubs</a></li>
     <li><a routerLink="/search"><i class="material-icons left">search</i>Search</a></li>
+    <li><a routerLink="/chat"><i class="material-icons left orange-text">sentiment_very_satisfied</i>Chat</a></li>
     <li><a routerLink="/settings"><i class="material-icons left">settings</i>Settings</a></li>
     <li><a class="modal-trigger" *ngIf="userSignined()" href="#feedbackModal"><i class="material-icons left">edit</i>Send Feedback</a></li>
     <li><a href="https://play.google.com/store/apps/details?id=com.queatz.snappy" target="_blank"><i class="material-icons left lime-text">android</i>Get the app</a></li>
