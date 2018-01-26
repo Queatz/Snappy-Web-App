@@ -80,6 +80,10 @@ export class ApiService {
             }
         }
 
+        if (!params.select) {
+            params.select = ApiService.SELECT_THING_2;
+        }
+
         if (!asPromise) {
             return this._http.post(this._apiBaseUrl + 'earth', data, this.formHeaders())
                 .pipe(map((res: Response) => res.json()));
@@ -474,7 +478,7 @@ export class ApiService {
                 lastName,
                 imageUrl,
                 googleUrl
-            )
+            )   
         ),
         in(
             target(
@@ -544,6 +548,7 @@ export class ApiService {
         hidden,
         geo,
         infoDistance,
+        data,
         members(
             role,
             source(

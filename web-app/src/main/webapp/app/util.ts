@@ -36,7 +36,7 @@ export default class Util {
     }
 
     public static thingName(thing: any) {
-        return thing.name ? thing.name : thing.firstName ? thing.firstName + ' ' + thing.lastName : 'Unknown';
+        return !thing ? 'Unknown' : thing.name ? thing.name : thing.firstName ? thing.firstName + ' ' + thing.lastName : 'Unknown';
     }
 
     public static setBodyBackground(url: string) {

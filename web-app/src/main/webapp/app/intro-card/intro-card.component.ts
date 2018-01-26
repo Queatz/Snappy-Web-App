@@ -10,6 +10,7 @@ import { LocalityService } from '../locality.service';
 export class IntroCardComponent implements OnInit {
 
     public locality: string;
+    public bkgPosition: number;
 
     constructor(private inforService: InforService,
         private localityService: LocalityService) { }
@@ -18,6 +19,8 @@ export class IntroCardComponent implements OnInit {
         this.localityService.get(locality => {
             this.locality = locality;
         });
+
+        this.bkgPosition = Math.round(Math.random() * 100);
     }
 
     public isAuthenticated() {

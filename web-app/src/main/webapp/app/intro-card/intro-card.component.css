@@ -8,22 +8,19 @@
     animation-timing-function: linear;
 }
 
-.lrg {
-    font-size: 150%;
-}
-
 a {
     cursor: pointer;
 }
 
 .icard3 {
     background-color: rgb(79, 41, 64);
-    background-image: url('/img/location.png');
+    background-image: url('/img/welcome.png');
     background-size: cover;
-    background-position: 0% 100%;
-    background-blend-mode: color-dodge;
+    background-position: 0% 50%;
     color: white;
     font-weight: bold;
+    font-weight: 900;
+    font-size: 2.5rem;
     padding: 3rem;
 }
 

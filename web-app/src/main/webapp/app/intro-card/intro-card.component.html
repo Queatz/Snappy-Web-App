@@ -1,9 +1,7 @@
 <div [hidden]="isAuthenticated()" class="intro-card card white z-depth-4">
-  <div class="card-content icard3">
-    <div class="flow-text">
-      <div class="lrg">
-        Welcome to {{ locality ? locality + '\'s' : 'your' }} Social Club!
-      </div>
+  <div class="card-content icard3" [style.background-position]="'50% ' + bkgPosition + '%'">
+    <div>
+      BE A PART OF EVERYTHING
     </div>
   </div>
 </div>
