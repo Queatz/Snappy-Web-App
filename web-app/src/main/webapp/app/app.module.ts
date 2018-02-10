@@ -1,7 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, enableProdMode } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { RouteReuseStrategy, Router, NavigationEnd } from '@angular/router';
+import { RouteReuseStrategy } from '@angular/router';
 import { HttpModule, Headers, BaseRequestOptions, RequestOptions } from '@angular/http';
 
 import { WebTitleService } from './extra';

@@ -38,6 +38,8 @@ export class AuthenticateComponent implements OnInit {
                     me: {
                         firstName: user.firstName,
                         id: user.id,
+                        googleUrl: user.googleUrl,
+                        imageUrl: user.imageUrl,
                         token: result.token
                     }
                 }, event.origin);

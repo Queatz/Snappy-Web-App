@@ -3,6 +3,7 @@ declare var $: any;
 declare var _: any;
 declare var Waves: any;
 declare var Materialize: any;
+declare var moment: any;
 
 import { Component, ComponentFactoryResolver, ViewContainerRef, OnInit, Input, Output, AfterViewInit, EventEmitter, ElementRef, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
@@ -51,7 +52,8 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
         if (this.update.members) {
-            this.comments = this.update.members.map(c => c.source).filter(c => c.kind === 'update');
+            this.comments = this.update.members.map(c => c.source).filter(c => c.kind === 'update')
+                .sort((a, b) => a.date == b.date ? 0 : moment(a.date) < moment(b.date) ? -1 : 1);
         }
     }
 
@@ -67,6 +69,10 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
         ref.instance.update = self.update;
         self.modal = $(ref.location.nativeElement).find('.modal');
         setTimeout(() => self.modal.modal('open'));
+    }
+
+    me() {
+        return this.inforService.getInforUser();
     }
 
     useAsCoverPhoto() {
