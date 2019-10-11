@@ -186,6 +186,10 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     }
 
     toggleBacking() {
+        if (!this.inforService.getInforUser()) {
+            Materialize.toast('Sign in', 400);
+        }
+
         this.api.follow(this.thing.id, !this.thing.backing)
             .subscribe(thing => {
                 switch (thing.kind) {

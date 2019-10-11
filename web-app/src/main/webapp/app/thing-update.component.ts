@@ -125,7 +125,7 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
         this.api.earthPostUpdate(this.update.id, this.postCommentMessage)
-            .then(comment => {
+            .subscribe(comment => {
                 Materialize.toast('Comment posted', 4000);
                 this.postCommentMessage = '';
             }, () => {

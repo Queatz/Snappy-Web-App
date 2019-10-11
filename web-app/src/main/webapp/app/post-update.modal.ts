@@ -130,7 +130,7 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
                     hidden: !this.isPublic,
                     clubs: JSON.stringify(this.clubs)
                 }, this.checkingInWithAt.map(t => t.id))
-                    .then(result => {
+                    .subscribe(result => {
                         var updated: Object = JSON.parse(result);
 
                         this.update.about = updated['about'];
@@ -154,7 +154,7 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
                 hidden: !this.isPublic,
                 clubs: JSON.stringify(this.clubs)
             }, this.checkingInWithAt.map(t => t.id), this.going !== null)
-                .then(result => {
+                .subscribe(result => {
                     const u = JSON.parse(result);
                     if (_.isArray(updates)) {
                         updates.unshift(u);

@@ -114,7 +114,7 @@ export class ApiService {
 
         switch (thing.kind) {
             case 'person':
-                return thing.imageUrl.split('=')[0] + '=' + sz;
+                return thing.imageUrl.split('=')[0] + '=s' + sz;
             default:
                 if (thing.photo) {
                     return this.earthImageUrl(thing.id, sz);
@@ -146,7 +146,6 @@ export class ApiService {
         return this.makeFilePostRequest(this.earthPhotoUrl(id), formData);
     }
 
-    // XXX currently returns a promise, so must use .then()
     public earthPostUpdate(thingId: string, message: string, photoFile: File = null, visibility: any = null, withAt: any[] = null, going: boolean = null) {
         var formData = new FormData();
 
@@ -178,7 +177,10 @@ export class ApiService {
         var headers = new Headers();
         headers.append('Content-Type', undefined);
 
-        return this.makeFilePostRequest(this._apiBaseUrl + 'earth?kind=update&auth=' + this.token(), formData);
+        let options = new RequestOptions({ headers: new Headers() });
+
+        return this._http.post(this._apiBaseUrl + 'earth?kind=update&auth=' + this.token(), formData, options)
+            .pipe(map((res: Response) => res.json()));
     }
 
     public completeGoal(goalId: string, params: any): any {
@@ -202,7 +204,6 @@ export class ApiService {
             .pipe(map((res: Response) => res.json()));
     }
 
-    // XXX currently returns a promise, so must use .then()
     public earthSaveUpdate(updateId: string, message: string, photoFile: File, visibility: any, withAt: any[] = null) {
         var formData = new FormData();
 
@@ -223,10 +224,10 @@ export class ApiService {
             formData.append('with', JSON.stringify(withAt));
         }
 
-        var headers = new Headers();
-        headers.append('Content-Type', undefined);
+        let options = new RequestOptions({ headers: new Headers() });
 
-        return this.makeFilePostRequest(this._apiBaseUrl + 'earth/' + updateId + '?auth=' + this.token(), formData);
+        return this._http.post(this._apiBaseUrl + 'earth/' + updateId + '?auth=' + this.token(), formData, options)
+            .pipe(map((res: Response) => res.json()));
     }
 
     public earthHere(coords, kind: string, select: string = null) {
