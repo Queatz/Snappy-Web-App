@@ -48,7 +48,7 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngAfterViewInit() {
         Waves.displayEffect();
-        $(this.element).find('.tooltipped').tooltip({delay: 50});
+        $(this.element).find('.tooltipped').tooltip({enterDelay: 50, exitDelay: 25});
         $(this.element.querySelectorAll('.modal')).modal();
         this.offerImage = this.api.earthImageUrl(this.offer.id);
 

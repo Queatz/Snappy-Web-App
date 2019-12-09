@@ -51,11 +51,9 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     ngAfterViewInit() {
     	let element = $(this.element);
 
-    	element.find('.button-collapse').sideNav({
-    	    closeOnClick: true
-    	});
+    	element.find('.sidenav').sideNav();
 
-    	element.find('.tooltipped').tooltip({delay: 50});
+    	element.find('.tooltipped').tooltip({enterDelay: 50, exitDelay: 25});
 
 // Uncomment to re-enable welcome modal
 //    	if (!this.userSignined()) {

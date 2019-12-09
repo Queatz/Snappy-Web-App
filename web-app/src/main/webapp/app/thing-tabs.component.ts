@@ -23,7 +23,7 @@ export class ThingTabsComponent implements AfterViewInit, OnDestroy {
 
     ngAfterViewInit() {
         Waves.displayEffect();
-        $(this.element).find('.tooltipped').tooltip({delay: 50});
+        $(this.element).find('.tooltipped').tooltip({enterDelay: 50, exitDelay: 25});
         $(this.element).find('.modal').modal();
 
     }

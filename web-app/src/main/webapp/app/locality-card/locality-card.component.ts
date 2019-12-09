@@ -24,7 +24,7 @@ export class LocalityCardComponent implements AfterViewInit, OnDestroy {
 
     ngAfterViewInit() {
         this.localityService.get(this.onLocalityFound.bind(this));
-        $(this.elementRef.nativeElement).find('.tooltipped').tooltip({delay: 50});
+        $(this.elementRef.nativeElement).find('.tooltipped').tooltip({enterDelay: 50, exitDelay: 25});
     }
 
     ngOnDestroy() {

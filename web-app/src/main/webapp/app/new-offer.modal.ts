@@ -54,7 +54,7 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
     }
 
     ngAfterViewInit() {
-        $(this.element).find('.tooltipped').tooltip({delay: 50});
+        $(this.element).find('.tooltipped').tooltip({enterDelay: 50, exitDelay: 25});
         $(this.element.querySelector('.modal')).modal();
     }
 

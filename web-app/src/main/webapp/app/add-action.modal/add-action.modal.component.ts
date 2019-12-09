@@ -65,7 +65,7 @@ export class AddActionModal implements OnInit, OnDestroy, AfterViewInit {
     ngAfterViewInit() {
         Waves.displayEffect();
         $(this.elementRef.nativeElement.querySelectorAll('.modal')).modal();
-        $(this.elementRef.nativeElement.querySelectorAll('select')).material_select();
+        $(this.elementRef.nativeElement.querySelectorAll('select')).formSelect();
     }
 
     refreshClubToggles() {

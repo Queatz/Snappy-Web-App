@@ -19,7 +19,7 @@ export class ThingUpdatePreviewComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    $(this.elementRef.nativeElement).find('.tooltipped').tooltip({delay: 50});
+    $(this.elementRef.nativeElement).find('.tooltipped').tooltip({enterDelay: 50, exitDelay: 25});
   }
 
   ngOnDestroy() {

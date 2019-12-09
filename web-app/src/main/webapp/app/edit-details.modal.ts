@@ -17,7 +17,7 @@ import { MapComponent } from './map.component';
 export class EditDetailsModal implements OnInit, OnDestroy, AfterViewInit {
     @Input() thing;
 
-    @ViewChild(MapComponent)
+    @ViewChild(MapComponent, { static: false })
     private map: MapComponent;
     private element;
     private name;
@@ -75,14 +75,14 @@ export class EditDetailsModal implements OnInit, OnDestroy, AfterViewInit {
     ngAfterViewInit() {
         Waves.displayEffect();
         $(this.element.querySelectorAll('.modal')).modal();
-        $(this.element.querySelectorAll('select')).material_select();
-        $(this.element.querySelectorAll('.dropdown-button')).dropdown({
+        $(this.element.querySelectorAll('select')).formSelect();
+        $(this.element.querySelectorAll('.dropdown-trigger')).dropdown({
             constrainWidth: false
         });
     }
 
     ngOnDestroy() {
-        $(this.element.querySelectorAll('select')).material_select('destroy');
+        $(this.element.querySelectorAll('select')).formSelect('destroy');
     }
 
     updateAddress() {

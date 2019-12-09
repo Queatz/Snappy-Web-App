@@ -39,7 +39,7 @@ export class ThingPreviewComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     Waves.displayEffect();
-    $(this.elementRef.nativeElement).find('.tooltipped').tooltip({delay: 50});
+    $(this.elementRef.nativeElement).find('.tooltipped').tooltip({enterDelay: 50, exitDelay: 25});
   }
 
   ngOnDestroy() {

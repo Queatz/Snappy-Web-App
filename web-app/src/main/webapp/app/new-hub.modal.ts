@@ -17,7 +17,7 @@ export class NewHubModal implements AfterViewInit {
     @Input() modalId;
     @Input() asMemberOf;
 
-    @ViewChild(MapComponent)
+    @ViewChild(MapComponent, { static: false })
     private map: MapComponent;
 
     private element;
@@ -47,7 +47,7 @@ export class NewHubModal implements AfterViewInit {
 
     ngAfterViewInit() {
         Waves.displayEffect();
-        $(this.element.querySelector('#hubVisibility')).material_select();
+        $(this.element.querySelector('#hubVisibility')).formSelect();
         $(this.element.querySelector('.modal')).modal();
     }
 

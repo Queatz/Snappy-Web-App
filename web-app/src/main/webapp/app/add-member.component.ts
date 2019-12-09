@@ -14,7 +14,7 @@ export class AddMemberComponent implements AfterViewInit, OnDestroy {
     constructor(private elementRef: ElementRef, private info: InforService) {}
 
     ngAfterViewInit() {
-        $(this.elementRef.nativeElement).find('.tooltipped').tooltip({delay: 50});
+        $(this.elementRef.nativeElement).find('.tooltipped').tooltip({enterDelay: 50, exitDelay: 25});
         $(this.elementRef.nativeElement).find('.modal').modal();
     }
 

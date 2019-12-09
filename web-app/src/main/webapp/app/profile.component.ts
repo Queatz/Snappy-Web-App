@@ -125,12 +125,12 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     }
 
     ngAfterViewInit() {
-        $(this.element).find('.tooltipped').tooltip({delay: 50});
+        $(this.element).find('.tooltipped').tooltip({enterDelay: 50, exitDelay: 25});
         $(this.element.querySelector('.modal')).modal();
 
         if (this.preselect) {
             let self = this;
-            setTimeout(() => $(self.element).find('ul.tabs').tabs('select_tab', 'tab-' + this.preselect));
+            setTimeout(() => $(self.element).find('ul.tabs').tabs('select', 'tab-' + this.preselect));
         }
     }
 

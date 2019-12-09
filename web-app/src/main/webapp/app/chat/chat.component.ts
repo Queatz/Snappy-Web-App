@@ -161,7 +161,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         Waves.displayEffect();
-        $(this.elementRef.nativeElement).find('.tooltipped').tooltip({delay: 50});
+        $(this.elementRef.nativeElement).find('.tooltipped').tooltip({enterDelay: 50, exitDelay: 25});
 
         let scrollChat = this.scrollChat.bind(this);
 

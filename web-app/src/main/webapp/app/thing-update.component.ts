@@ -96,7 +96,7 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngAfterViewInit() {
         Waves.displayEffect();
-        $(this.element).find('.tooltipped').tooltip({delay: 50});
+        $(this.element).find('.tooltipped').tooltip({enterDelay: 50, exitDelay: 25});
         this.updateImage = this.api.earthImageUrl(this.update.id);
     }
 

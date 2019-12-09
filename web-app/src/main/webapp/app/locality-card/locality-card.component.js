@@ -23,7 +23,7 @@ var LocalityCardComponent = (function () {
     }
     LocalityCardComponent.prototype.ngAfterViewInit = function () {
         this.localityService.get(this.onLocalityFound.bind(this));
-        $(this.elementRef.nativeElement).find('.tooltipped').tooltip({ delay: 50 });
+        $(this.elementRef.nativeElement).find('.tooltipped').tooltip({ enterDelay: 50, exitDelay: 25 });
     };
     LocalityCardComponent.prototype.ngOnDestroy = function () {
         $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');

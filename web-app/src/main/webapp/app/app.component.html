@@ -15,7 +15,7 @@
                     <li [ngClass]="{'active': isActive(['/search'])}"><a routerLink="/search"><i class="material-icons left grey-text">search</i>Search</a></li>
                 </ul>
 
-                <a data-activates="slide-out" class="button-collapse"><i class="material-icons" (click)="menuTapped()">menu</i></a>
+                <a data-target="slide-out" class="sidenav sidenav-close"><i class="material-icons" (click)="menuTapped()">menu</i></a>
 
                 <div class="right right-actions actions-bar">
                     <a class="feedback hide-on-med-and-down modal-trigger right tooltipped" *ngIf="userSignined()" href="#feedbackModal" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Send feedback about Village to the development team'">Feedback</a>

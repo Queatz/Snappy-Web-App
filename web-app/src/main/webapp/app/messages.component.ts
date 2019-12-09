@@ -227,7 +227,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
             signinModal.modal('open');
         }
 
-        $(this.element).find('.tooltipped').tooltip({delay: 50});
+        $(this.element).find('.tooltipped').tooltip({enterDelay: 50, exitDelay: 25});
     }
 
     ngOnDestroy() {

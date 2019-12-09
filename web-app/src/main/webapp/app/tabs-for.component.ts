@@ -22,7 +22,7 @@ export class TabsForComponent implements AfterViewInit, OnDestroy {
 
     ngAfterViewInit() {
         Waves.displayEffect();
-        $(this.element).find('.tooltipped').tooltip({delay: 50});
+        $(this.element).find('.tooltipped').tooltip({enterDelay: 50, exitDelay: 25});
         $(this.element).find('.modal').modal();
         $(this.element).find('ul.tabs').tabs({
             onShow: this.changed.bind(this)
