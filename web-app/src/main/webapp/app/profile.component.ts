@@ -129,7 +129,8 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
         M.textareaAutoResize($('#editAbout'));
         $(this.element).find('.tooltipped').tooltip({enterDelay: 50, exitDelay: 25});
         $(this.element.querySelector('.modal')).modal();
-
+        $(this.element).find('ul.tabs').tabs();
+        
         if (this.preselect) {
             let self = this;
             setTimeout(() => $(self.element).find('ul.tabs').tabs('select', 'tab-' + this.preselect));

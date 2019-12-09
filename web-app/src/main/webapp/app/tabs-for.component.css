@@ -11,6 +11,10 @@ ul.tabs {
     flex: 1;
 }
 
+.tabs .tab a:focus {
+    background: transparent;
+}
+
 .tabs .tab .material-icons {
     vertical-align: text-bottom;
 }

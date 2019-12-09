@@ -12,14 +12,14 @@
     "typeRoots": [
       "node_modules/@types/"
     ],
-    "angularCompilerOptions": {
-      "preserveWhitespaces": true
-    }
     "lib": [
       "es2017",
       "dom"
     ],
     "baseUrl": "./"
+  },
+  "angularCompilerOptions": {
+    "preserveWhitespaces": true
   },
   "exclude": [
     "node_modules/*"
