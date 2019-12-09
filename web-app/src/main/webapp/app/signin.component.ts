@@ -1,5 +1,5 @@
 declare var gapi;
-declare var $;
+declare var $: any;
 
 import {Component, AfterViewInit, ElementRef, Inject, OnInit, NgZone} from '@angular/core';
 import { Router } from '@angular/router';

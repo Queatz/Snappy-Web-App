@@ -1,5 +1,5 @@
-declare var Materialize;
-declare var $;
+declare var M: any;
+declare var $: any;
 
 import { Component, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 
@@ -28,7 +28,7 @@ export class LocalityCardComponent implements AfterViewInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
+        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('close');
     }
 
     private onLocalityFound(locality: string) {
@@ -37,7 +37,7 @@ export class LocalityCardComponent implements AfterViewInit, OnDestroy {
 
     public subscribe() {
         if (!util.validateEmail(this.subscribeEmail)) {
-            Materialize.toast('Enter an email address', 2000);
+            M.toast({ html: 'Enter an email address' });
             return;
         }
 
@@ -45,12 +45,12 @@ export class LocalityCardComponent implements AfterViewInit, OnDestroy {
             .subscribe(json => {
                 if (json.success) {
                     this.inforService.setSubscribedTo(this.locality, true);
-                    Materialize.toast('Subscribed!', 4000);
+                    M.toast({ html: 'Subscribed!' });
                 } else {
-                    Materialize.toast('That didn\'t work...', 4000);
+                    M.toast({ html: 'That didn\'t work...' });
                 }
             }, () => {
-                    Materialize.toast('That didn\'t work...', 4000);
+                    M.toast({ html: 'That didn\'t work...' });
             });
     }
 

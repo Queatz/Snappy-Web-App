@@ -3,9 +3,8 @@ import { NewResourceModal } from './new-resource.modal';
 import { SigninRequiredModal } from './signin-required.modal';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
-import util from './util';
 import { WebTitleProvider } from './extra';
-import { Observable } from 'rxjs';
+import { of } from 'rxjs';
 
 @Component({
     templateUrl: './resources.component.html',
@@ -44,6 +43,6 @@ export class ResourcesComponent implements AfterViewInit, WebTitleProvider {
     }
 
     public getWebTitle() {
-        return Observable.of('Resources');
+        return of('Resources');
     }
 }

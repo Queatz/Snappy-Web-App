@@ -1,6 +1,6 @@
-declare var $;
+declare var $: any;
 declare var moment;
-declare var _;
+declare var _: any;
 
 import { Component, OnInit, AfterViewInit, ElementRef, NgZone, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -73,7 +73,7 @@ export class ProjectComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     }
 
     ngOnDestroy() {
-        $(this.element).find('.tooltipped').tooltip('remove');
+        $(this.element).find('.tooltipped').tooltip('close');
     }
 
     public getUrl() {

@@ -23,7 +23,7 @@ export class ThingUpdatePreviewComponent implements OnInit {
   }
 
   ngOnDestroy() {
-      $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
+      $(this.elementRef.nativeElement).find('.tooltipped').tooltip('close');
   }
 
   public thingName(thing: any) {

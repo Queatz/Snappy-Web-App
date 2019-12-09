@@ -1,6 +1,6 @@
-declare var Materialize;
-declare var $;
-declare var _;
+declare var M: any;
+declare var $: any;
+declare var _: any;
 
 import { Component, ElementRef, OnInit, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from './api.service';
@@ -103,15 +103,15 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
         this.api.earthDelete(this.update.id)
             .subscribe((res: any) => {
                 if (res.status == 200) {
-                    Materialize.toast('Update removed', 4000);
+                    M.toast({ html: 'Update removed' });
                     this.update.about = '';
                     this.update.photo = false;
                 } else {
-                    Materialize.toast('Update remove failed', 4000);
+                    M.toast({ html: 'Update remove failed' });
                 }
             },
             error => {
-                Materialize.toast('Update remove failed', 4000);
+                M.toast({ html: 'Update remove failed' });
             });
     }
 
@@ -136,11 +136,11 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
                         this.update.about = updated['about'];
                         this.update.photo = updated['photo'];
 
-                        Materialize.toast('Update saved', 4000);
+                        M.toast({ html: 'Update saved' });
                     },
                     error => {
                         this.update.photo = previousPhoto;
-                        Materialize.toast('Post update failed', 4000);
+                        M.toast({ html: 'Post update failed' });
                     });
             }
 
@@ -162,13 +162,13 @@ export class PostUpdateModal implements OnInit, AfterViewInit {
 
                     this.onUpdatePosted.emit(u);
 
-                    Materialize.toast('Update posted', 4000);
+                    M.toast({ html: 'Update posted' });
                 },
                 error => {
-                    Materialize.toast('Post update failed', 4000);
+                    M.toast({ html: 'Post update failed' });
                 });
         } else {
-            Materialize.toast('Update is empty', 4000);
+            M.toast({ html: 'Update is empty' });
         }
     }
 

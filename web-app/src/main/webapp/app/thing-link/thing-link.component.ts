@@ -25,7 +25,7 @@ export class ThingLinkComponent implements OnInit, AfterViewInit {
   }
 
   ngOnDestroy() {
-      $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
+      $(this.elementRef.nativeElement).find('.tooltipped').tooltip('close');
   }
 
   public thingName(thing: any) {

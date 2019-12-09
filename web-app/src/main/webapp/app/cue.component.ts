@@ -1,4 +1,4 @@
-declare var $;
+declare var $: any;
 
 import { Component, ElementRef, OnChanges, Input, AfterViewInit } from '@angular/core';
 

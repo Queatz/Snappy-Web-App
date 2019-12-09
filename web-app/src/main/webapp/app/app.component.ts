@@ -1,5 +1,5 @@
-declare var $;
-declare var _;
+declare var $: any;
+declare var _: any;
 
 import { Component, ElementRef, ViewContainerRef, AfterViewInit, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
@@ -51,7 +51,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     ngAfterViewInit() {
     	let element = $(this.element);
 
-    	element.find('.sidenav').sideNav();
+    	element.find('.sidenav').sidenav();
 
     	element.find('.tooltipped').tooltip({enterDelay: 50, exitDelay: 25});
 
@@ -63,7 +63,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngOnDestroy() {
         let element = $(this.element);
-        element.find('.tooltipped').tooltip('remove');
+        element.find('.tooltipped').tooltip('close');
     }
 
     userSignined() {

@@ -1,4 +1,4 @@
-declare var $;
+declare var $: any;
 
 import { Component, ElementRef, Input, AfterViewInit, OnDestroy } from '@angular/core';
 import { InforService } from './infor.service';
@@ -19,7 +19,7 @@ export class AddMemberComponent implements AfterViewInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
+        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('close');
     }
 
     isMe() {

@@ -1,5 +1,5 @@
-declare var $;
-declare var _;
+declare var $: any;
+declare var _: any;
 declare var moment;
 
 import { Component, Input, OnInit, ElementRef, AfterViewInit, OnChanges, OnDestroy } from '@angular/core';
@@ -86,7 +86,7 @@ export class OffersComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        $(this.element).find('.tooltipped').tooltip('remove');
+        $(this.element).find('.tooltipped').tooltip('close');
     }
 
     resizeCallback() {

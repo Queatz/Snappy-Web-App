@@ -1,5 +1,5 @@
 declare var google;
-declare var _;
+declare var _: any;
 
 import { Injectable } from '@angular/core';
 import { InforService } from './infor.service';

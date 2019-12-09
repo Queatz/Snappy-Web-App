@@ -1,7 +1,7 @@
-declare var $;
-declare var _;
+declare var $: any;
+declare var _: any;
 declare var Waves;
-declare var Materialize;
+declare var M: any;
 
 import { Component, ElementRef, Input, AfterViewInit, OnInit, ViewChild } from '@angular/core';
 import { InforService } from './infor.service';

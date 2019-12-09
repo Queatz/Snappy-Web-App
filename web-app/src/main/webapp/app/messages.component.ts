@@ -1,6 +1,6 @@
-declare var _;
+declare var _: any;
 declare var moment;
-declare var $;
+declare var $: any;
 
 import { Component, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,8 +11,7 @@ import { ApiService } from './api.service';
 import util from './util';
 import { WebTitleProvider } from './extra';
 
-import { Observable } from 'rxjs';
-import 'rxjs/add/operator/share';
+import { of } from 'rxjs';
 
 var endMessage = false;
 var max_count = 10;
@@ -231,7 +230,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
     }
 
     ngOnDestroy() {
-        $(this.element).find('.tooltipped').tooltip('remove');
+        $(this.element).find('.tooltipped').tooltip('close');
 
         if (this.messagesTimeout) {
             clearTimeout(this.messagesTimeout);
@@ -287,7 +286,7 @@ export class MessagesComponent implements AfterViewInit, OnDestroy, WebTitleProv
     }
 
     public getWebTitle() {
-        return Observable.of('Messages');
+        return of('Messages');
     }
 
     photoUrl(thing: any) {

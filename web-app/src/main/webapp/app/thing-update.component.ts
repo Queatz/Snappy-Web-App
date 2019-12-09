@@ -2,7 +2,7 @@ declare var require: any;
 declare var $: any;
 declare var _: any;
 declare var Waves: any;
-declare var Materialize: any;
+declare var M: any;
 declare var moment: any;
 
 import { Component, ComponentFactoryResolver, ViewContainerRef, OnInit, Input, Output, AfterViewInit, EventEmitter, ElementRef, OnDestroy } from '@angular/core';
@@ -83,7 +83,7 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
         this.api.changeCoverPhoto(this.update.id).subscribe(() => {
-            Materialize.toast('Cover photo updated', 4000);
+            M.toast({ html: 'Cover photo updated' });
 
             this.world.emit({
                 thing: me.id,
@@ -107,7 +107,7 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
 
     like() {
         if (!this.inforService.getInforUser()) {
-            Materialize.toast('Sign in', 4000);
+            M.toast({ html: 'Sign in' });
             return;
         }
 
@@ -126,15 +126,15 @@ export class ThingUpdateComponent implements OnInit, AfterViewInit, OnDestroy {
 
         this.api.earthPostUpdate(this.update.id, this.postCommentMessage)
             .subscribe(comment => {
-                Materialize.toast('Comment posted', 4000);
+                M.toast({ html: 'Comment posted' });
                 this.postCommentMessage = '';
             }, () => {
-                Materialize.toast('Comment post failed', 4000);
+                M.toast({ html: 'Comment post failed' });
             });
     }
 
     ngOnDestroy() {
-        $(this.element).find('.tooltipped').tooltip('remove');
+        $(this.element).find('.tooltipped').tooltip('close');
     }
 
     public loaded() {

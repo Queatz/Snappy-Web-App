@@ -27,7 +27,6 @@
 
         <include path="node_modules/moment/min/moment.min.js" />
         <include path="node_modules/normalize.css/normalize.css" />
-        <include path="node_modules/materialize-css/dist/fonts/roboto/*.woff2" />
         <include path="node_modules/materialize-css/dist/css/materialize.min.css" />
         <include path="node_modules/materialize-css/dist/js/materialize.min.js" />
 
@@ -56,7 +55,6 @@
 
         <include path="node_modules/moment/min/moment.min.js" />
         <include path="node_modules/normalize.css/normalize.css" />
-        <include path="node_modules/materialize-css/dist/fonts/roboto/*.woff2" />
         <include path="node_modules/materialize-css/dist/css/materialize.min.css" />
         <include path="node_modules/materialize-css/dist/js/materialize.min.js" />
 

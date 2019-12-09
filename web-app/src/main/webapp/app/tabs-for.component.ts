@@ -1,4 +1,4 @@
-declare var $;
+declare var $: any;
 declare var Waves;
 
 import { Component, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
@@ -34,7 +34,7 @@ export class TabsForComponent implements AfterViewInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        $(this.element).find('.tooltipped').tooltip('remove');
+        $(this.element).find('.tooltipped').tooltip('close');
     }
 
     selectTab(tab: string) {

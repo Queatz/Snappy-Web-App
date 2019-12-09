@@ -65,6 +65,6 @@ export class MainComponent implements AfterViewInit, OnInit, OnDestroy {
             this.modal.hostView.destroy();
         }
 
-        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
+        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('close');
     }
 }

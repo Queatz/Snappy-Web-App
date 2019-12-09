@@ -22,7 +22,7 @@ export class AuthenticateComponent implements OnInit {
             let referrer = document.referrer.split('/')[2];
 
             if (!user || !referrer) {
-                event.source.postMessage({
+                (event.source as WindowProxy).postMessage({
                     me: null
                 }, event.origin);
 
@@ -34,7 +34,7 @@ export class AuthenticateComponent implements OnInit {
             }
 
             this.getAppTokenSubscription = this.api.getAppToken(referrer).subscribe(result => {
-                event.source.postMessage({
+                (event.source as WindowProxy).postMessage({
                     me: {
                         firstName: user.firstName,
                         id: user.id,

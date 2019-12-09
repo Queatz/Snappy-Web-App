@@ -4,9 +4,8 @@ import { Component, ElementRef, AfterViewInit } from '@angular/core';
 import { InviteModal } from './invite.modal';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
-import util from './util';
 import { WebTitleProvider } from './extra';
-import { Observable } from 'rxjs';
+import { of } from 'rxjs';
 
 @Component({
     selector: 'people-list',
@@ -44,6 +43,6 @@ export class PeopleComponent implements AfterViewInit, WebTitleProvider {
     }
 
     public getWebTitle() {
-        return Observable.of('People');
+        return of('People');
     }
 }

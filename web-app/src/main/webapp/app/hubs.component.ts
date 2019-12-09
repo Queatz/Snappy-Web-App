@@ -5,9 +5,8 @@ import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import { NewHubModal } from './new-hub.modal';
 import { SigninRequiredModal } from './signin-required.modal';
-import util from './util';
 import { WebTitleProvider } from './extra';
-import { Observable } from 'rxjs';
+import { of } from 'rxjs';
 
 @Component({
     templateUrl: './hubs.component.html',
@@ -44,6 +43,6 @@ export class HubsComponent implements AfterViewInit, WebTitleProvider {
     }
 
     public getWebTitle() {
-        return Observable.of('Hubs');
+        return of('Hubs');
     }
 }

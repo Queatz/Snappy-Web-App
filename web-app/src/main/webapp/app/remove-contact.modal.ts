@@ -1,6 +1,6 @@
-declare var $;
-declare var _;
-declare var Materialize;
+declare var $: any;
+declare var _: any;
+declare var M: any;
 declare var Waves;
 
 import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
@@ -37,7 +37,7 @@ export class RemoveContactModal implements AfterViewInit {
             $(this.element.querySelector('.modal')).modal('close');
             if (this.thing && this.thing.contacts) {
                 _.remove(this.thing.contacts, c => c.source && this.contact.id === c.source.id);
-                Materialize.toast(this.contact.target.firstName + ' removed', 4000);
+                M.toast({ html: this.contact.target.firstName + ' removed' });
             }
         });
     }

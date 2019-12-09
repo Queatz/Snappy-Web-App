@@ -8,6 +8,7 @@
     display: inline-block;
     width: 1rem;
     height: 1rem;
+    margin: 0 .25rem;
 }
 
 .in-thing-img.large {
@@ -22,4 +23,5 @@
     max-width: 12rem;
     display: inline-block;
     vertical-align: bottom;
+    margin: 0 .25rem;
 }

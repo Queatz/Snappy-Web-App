@@ -1,5 +1,5 @@
-declare var $;
-declare var Materialize;
+declare var $: any;
+declare var M: any;
 declare var Waves;
 
 import { Component, ElementRef, Input, AfterViewInit, OnInit, OnDestroy } from '@angular/core';
@@ -59,7 +59,7 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
     }
 
     ngOnDestroy() {
-        $(this.element).find('.tooltipped').tooltip('remove');
+        $(this.element).find('.tooltipped').tooltip('close');
     }
 
     isRequest() {
@@ -89,7 +89,7 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
         var enumber = this.enumber;
 
         if (!edetails) {
-            Materialize.toast('Describe your ' + (this.isRequest() ? 'request' : 'offer'), 4000);
+            M.toast({ html: 'Describe your ' + (this.isRequest() ? 'request' : 'offer') });
             return;
         }
 
@@ -113,7 +113,7 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
                         self.offer.unit = offer.unit;
                         self.offer.about = offer.about;
                         self.offer.want = offer.want;
-                        Materialize.toast('Offer updated', 4000);
+                        M.toast({ html: 'Offer updated' });
 
                         if (self.resizeCallback) {
                             self.resizeCallback();
@@ -131,7 +131,7 @@ export class NewOfferModal implements OnInit, AfterViewInit, OnDestroy{
             clubs: JSON.stringify(this.clubs)
         }).subscribe(member => {
                 if (member.id) {
-                    Materialize.toast('Offer added', 4000);
+                    M.toast({ html: 'Offer added' });
                     this.edetails = '';
                     this.emessage = '';
 

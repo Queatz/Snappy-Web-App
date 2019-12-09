@@ -3,9 +3,8 @@ import { NewProjectModal } from './new-project.modal';
 import { SigninRequiredModal } from './signin-required.modal';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
-import util from './util';
 import { WebTitleProvider } from './extra';
-import { Observable, Subject } from 'rxjs';
+import { of } from 'rxjs';
 
 @Component({
     templateUrl: './projects.component.html',
@@ -42,6 +41,6 @@ export class ProjectsComponent implements AfterViewInit, WebTitleProvider {
     }
 
     public getWebTitle() {
-        return Observable.of('Projects');
+        return of('Projects');
     }
 }

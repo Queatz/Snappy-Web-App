@@ -87,9 +87,8 @@
     background-repeat: no-repeat;
 }
 
-.sidenav {
-    padding-left: 1em;
-    cursor: pointer;
+.sidenav-trigger {
+    outline: none;
 }
 
 .mdi-navigation-menu:before {

@@ -1,11 +1,13 @@
+declare var M: any;
+declare var $: any;
 declare var Waves: any;
-declare var Materialize: any;
+declare var M: any;
 
 import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import { WebTitleProvider } from '../extra';
 import { ApiService } from '../api.service';
 import { InforService } from '../infor.service';
-import { Observable } from 'rxjs';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'goals',
@@ -28,16 +30,17 @@ export class GoalsComponent implements AfterViewInit, WebTitleProvider {
 
     ngAfterViewInit() {
         Waves.displayEffect();
+        M.textareaAutoResize($('#newGoal'));
     }
 
     addGoal() {
         if (!this.inforService.getInforUser()) {
-            Materialize.toast('Sign in', 4000);
+            M.toast({ html: 'Sign in' });
             return;
         }
 
         if (!this.newGoal.trim()) {
-            Materialize.toast('Enter goal', 4000);
+            M.toast({ html: 'Enter goal' });
             return;
         }
 
@@ -49,7 +52,7 @@ export class GoalsComponent implements AfterViewInit, WebTitleProvider {
             clubs: JSON.stringify(this.clubs),
             select: 'id,name',
         }).subscribe(goal => {
-            Materialize.toast('Goal added', 4000);
+            M.toast({ html: 'Goal added' });
         });
     }
   
@@ -68,6 +71,6 @@ export class GoalsComponent implements AfterViewInit, WebTitleProvider {
     }
 
     public getWebTitle() {
-        return Observable.of('Goals');
+        return of('Goals');
     }
 }

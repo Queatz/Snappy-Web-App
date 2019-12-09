@@ -1,7 +1,7 @@
-declare var $;
-declare var _;
+declare var $: any;
+declare var _: any;
 declare var Waves;
-declare var Materialize;
+declare var M: any;
 
 import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
 import { InforService } from './infor.service';
@@ -78,7 +78,7 @@ export class AddThingModal implements AfterViewInit {
             }
 
             $(this.element.querySelector('.modal')).modal('close');
-            Materialize.toast((member.source.name || member.source.firstName || member.source.about) + ' added', 4000);
+            M.toast({ html: (member.source.name || member.source.firstName || member.source.about) + ' added' });
         });
     }
 }

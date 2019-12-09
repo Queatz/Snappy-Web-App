@@ -4,8 +4,8 @@
   "newProjectRoot": "projects",
   "projects": {
     "snappy": {
-      "root": "..",
-      "sourceRoot": ".",
+      "root": "./",
+      "sourceRoot": "./",
       "projectType": "application",
       "architect": {
         "build": {
@@ -16,17 +16,16 @@
             "main": "./app/main.ts",
             "tsConfig": "./tsconfig.json",
             "assets": [
-              "img",
-              "node_modules/core-js/client/shim.min.js",
-              "node_modules/zone.js/dist/zone.js",
-              "node_modules/reflect-metadata/Reflect.js",
-              "node_modules/systemjs/dist/system.src.js",
-              "node_modules/moment/min/moment.min.js",
-              "node_modules/materialize-css/dist/js/materialize.min.js",
-              "app/style.css",
-              "node_modules/normalize.css/normalize.css",
-              "node_modules/materialize-css/dist/css/materialize.min.css",
-              "node_modules/materialize-css/dist/fonts/roboto"
+              "./img",
+              "./node_modules/core-js/client/shim.min.js",
+              "./node_modules/zone.js/dist/zone.js",
+              "./node_modules/reflect-metadata/Reflect.js",
+              "./node_modules/systemjs/dist/system.src.js",
+              "./node_modules/moment/min/moment.min.js",
+              "./node_modules/materialize-css/dist/js/materialize.min.js",
+              "./app/style.css",
+              "./node_modules/normalize.css/normalize.css",
+              "./node_modules/materialize-css/dist/css/materialize.min.css"
             ],
             "styles": [],
             "scripts": []
@@ -91,8 +90,7 @@
               "node_modules/materialize-css/dist/js/materialize.min.js",
               "app/style.css",
               "node_modules/normalize.css/normalize.css",
-              "node_modules/materialize-css/dist/css/materialize.min.css",
-              "node_modules/materialize-css/dist/fonts/roboto"
+              "node_modules/materialize-css/dist/css/materialize.min.css"
             ]
           }
         },

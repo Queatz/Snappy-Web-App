@@ -1,7 +1,7 @@
-declare var $;
-declare var _;
+declare var $: any;
+declare var _: any;
 declare var Waves;
-declare var Materialize;
+declare var M: any;
 
 import { Component, OnInit, AfterViewInit, Input, ElementRef } from '@angular/core';
 
@@ -55,7 +55,7 @@ export class ModeViewComponent implements OnInit, AfterViewInit {
             target: this.me().id,
             select: 'id'
         }).subscribe(() => {
-            Materialize.toast(this.mode.name + ' on');
+            M.toast(this.mode.name + ' on');
         });
     }
 
@@ -67,7 +67,7 @@ export class ModeViewComponent implements OnInit, AfterViewInit {
         }
 
         this.api.earthDelete(member[0].id).subscribe(() => {
-            Materialize.toast(this.mode.name + ' off');
+            M.toast(this.mode.name + ' off');
         });
     }
 

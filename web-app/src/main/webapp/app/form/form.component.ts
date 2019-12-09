@@ -1,4 +1,4 @@
-declare var Materialize: any;
+declare var M: any;
 
 import { ComponentFactoryResolver, ViewContainerRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -79,7 +79,7 @@ export class FormComponent implements OnInit {
                 this.isSubmitting = false;
             }, error => {
                 this.isSubmitting = false;
-                Materialize.toast('Something went wrong', 4000);
+                M.toast({ html: 'Something went wrong' });
             }
         );
     }

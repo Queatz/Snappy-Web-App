@@ -1,5 +1,5 @@
 declare var Waves: any;
-declare var Materialize: any;
+declare var M: any;
 
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ApiService } from '../api.service';
@@ -60,14 +60,14 @@ export class CompleteGoalComponent implements OnInit, AfterViewInit {
 
   submitProof() {
     if (!this.inforService.getInforUser()) {
-      Materialize.toast('Sign in', 4000);
+      M.toast({ html: 'Sign in' });
       return;
     }
     
     let me = this.inforService.getInforUser().id;
 
     if (!this.proofFile) {
-      Materialize.toast('Missing proof', 4000);
+      M.toast({ html: 'Missing proof' });
       return;
     }
 
@@ -76,10 +76,10 @@ export class CompleteGoalComponent implements OnInit, AfterViewInit {
       with: this.withPeople.map(t => t.id)
     }).subscribe(
       () => {
-        Materialize.toast('Completed ' + this.thing.name, 4000);
+        M.toast({ html: 'Completed ' + this.thing.name });
       },
       () => {
-        Materialize.toast('Nooo... there was an error', 4000);
+        M.toast({ html: 'Nooo... there was an error' });
       }
     );
   }

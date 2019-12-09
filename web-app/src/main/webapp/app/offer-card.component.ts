@@ -1,6 +1,6 @@
-declare var $;
+declare var $: any;
 declare var Waves;
-declare var Materialize;
+declare var M: any;
 declare var Promise;
 
 import { Component, ComponentFactoryResolver, ViewContainerRef, Input, OnInit, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
@@ -55,7 +55,7 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        $(this.element).find('.tooltipped').tooltip('remove');
+        $(this.element).find('.tooltipped').tooltip('close');
     }
 
     public getPrice() {
@@ -127,13 +127,13 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
             this.api.earthDelete(this.offer.member.id)
                 .subscribe(res => {
                     if (res.status == 200) {
-                        Materialize.toast('Offer removed', 4000);
+                        M.toast({ html: 'Offer removed' });
 
                         if (this.removeCallback) {
                             this.removeCallback(this.offer);
                         }
                     } else {
-                        Materialize.toast('Failed to remove offer', 4000);
+                        M.toast({ html: 'Failed to remove offer' });
                     }
                 });
 
@@ -144,12 +144,12 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
             this.api.earthDelete(this.offer.id)
                 .subscribe(res => {
                     if (res.status == 200) {
-                        Materialize.toast('Offer deleted', 4000);
+                        M.toast({ html: 'Offer deleted' });
                         if (this.removeCallback) {
                             this.removeCallback(this.offer);
                         }
                     } else {
-                        Materialize.toast('Offer delete failed', 4000);
+                        M.toast({ html: 'Offer delete failed' });
                     }
                 });
         }
@@ -160,17 +160,17 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
             this.makeFileRequest(this.api.earthImageUrl(this.offer.id), this.filesToUpload)
                 .then(result => {
                     if (result) {
-                        Materialize.toast('Photo updated', 4000);
+                        M.toast({ html: 'Photo updated' });
                         this.offer.photo = true;
                         this.offerImage = this.api.earthImageUrl(this.offer.id);
                     }
                     else
-                        Materialize.toast('Photo update failed', 4000);
+                        M.toast({ html: 'Photo update failed' });
                 }, (error) => {
                     console.error(error);
                 });
         } else {
-            Materialize.toast('No photo', 4000);
+            M.toast({ html: 'No photo' });
         }
     }
 
@@ -202,7 +202,7 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
             this.api.earthDeletePhoto(this.offer.id)
                 .subscribe(res => {
                     if (res.status == 200) {
-                        Materialize.toast('Photo removed', 4000);
+                        M.toast({ html: 'Photo removed' });
                         this.offerImage = '';
                         if (this.resizeCallback) {
                             this.resizeCallback(this.offer);
@@ -211,7 +211,7 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
                             this.offer.photo = false;
                         }, 50);
                     } else {
-                        Materialize.toast('Photo remove failed', 4000);
+                        M.toast({ html: 'Photo remove failed' });
                     }
                 });
         }

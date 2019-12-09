@@ -31,7 +31,7 @@ export class ClubTagComponent implements OnInit, AfterViewInit, OnDestroy, OnCha
     }
 
     ngOnDestroy() {
-        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
+        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('close');
     }
 
     @HostBinding('class.is-public')

@@ -1,7 +1,7 @@
-declare var $;
-declare var _;
+declare var $: any;
+declare var _: any;
 declare var Waves;
-declare var Materialize;
+declare var M: any;
 
 import { Component, OnInit, OnDestroy, Input, AfterViewInit, ElementRef, SimpleChanges } from '@angular/core';
 
@@ -142,12 +142,12 @@ export class AddActionModal implements OnInit, OnDestroy, AfterViewInit {
 
     add() {
         if (!this.name || !this.name.trim()) {
-            Materialize.toast('Enter action role', 4000);
+            M.toast({ html: 'Enter action role' });
             return;
         }
 
         if (!this.type) {
-            Materialize.toast('Choose action type', 4000);
+            M.toast({ html: 'Choose action type' });
             return;
         }
 
@@ -182,7 +182,7 @@ export class AddActionModal implements OnInit, OnDestroy, AfterViewInit {
                 $(this.elementRef.nativeElement.querySelector('.modal')).modal('close');
             },
             error => {
-                Materialize.toast('Save action failed', 4000);
+                M.toast({ html: 'Save action failed' });
             });
         }
     }
@@ -190,11 +190,11 @@ export class AddActionModal implements OnInit, OnDestroy, AfterViewInit {
     remove() {
         this.api.earthDelete(this.action.id)
             .subscribe((res: any) => {
-                Materialize.toast('Action removed', 4000);
+                M.toast({ html: 'Action removed' });
                 $(this.elementRef.nativeElement.querySelector('.modal')).modal('close');
             },
             error => {
-                Materialize.toast('Action remove failed', 4000);
+                M.toast({ html: 'Action remove failed' });
             });
     }
 }

@@ -1,4 +1,4 @@
-declare var $;
+declare var $: any;
 declare var moment;
 declare var Waves;
 declare var TextEncoder, Uint8Array;
@@ -170,7 +170,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
 
     ngOnDestroy() {
         this.chat.unregister(this.chatListener);
-        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
+        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('close');
     }
 
     topicImg(topic: any) {

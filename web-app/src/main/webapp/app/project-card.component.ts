@@ -1,4 +1,4 @@
-declare var Materialize: any;
+declare var M: any;
 declare var $: any;
 declare var _: any;
 
@@ -47,7 +47,7 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
+        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('close');
     }
 
     public removable() {
@@ -59,13 +59,13 @@ export class ProjectCardComponent implements OnInit, AfterViewInit, OnDestroy {
             this.api.earthDelete(this.thing.member.id)
                 .subscribe(res => {
                     if (res.status == 200) {
-                        Materialize.toast('Removed ' + this.thing.name, 4000);
+                        M.toast({ html: 'Removed ' + this.thing.name });
 
                         if (this.deleteCallback) {
                             this.deleteCallback(this.thing);
                         }
                     } else {
-                        Materialize.toast('Remove failed', 4000);
+                        M.toast({ html: 'Remove failed' });
                     }
                 });
 

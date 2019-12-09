@@ -1,4 +1,4 @@
-declare var $;
+declare var $: any;
 
 import { Component, Input, OnInit, AfterViewInit, OnDestroy, ElementRef, HostBinding } from '@angular/core';
 import { InforService } from './infor.service';
@@ -29,7 +29,7 @@ export class PersonLinkComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
+        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('close');
     }
 
     @HostBinding('style.display')

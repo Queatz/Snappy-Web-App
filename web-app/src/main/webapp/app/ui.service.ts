@@ -23,7 +23,7 @@ export class UiService {
     public show(component: any): ComponentRef<any> {
         let modal = this.appComponent.view.createComponent(this.resolver.resolveComponentFactory(component));
 
-        if ('onComplete' in modal.instance) {
+        if ('onComplete' in (modal.instance as any)) {
             ((modal.instance as any).onComplete as EventEmitter<any>).subscribe(
                 () => modal.hostView.destroy()
             );

@@ -1,10 +1,9 @@
 declare var $: any;
 declare var _: any;
 
-import { Component, OnInit, AfterViewInit, Output, EventEmitter, ElementRef, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Output, EventEmitter, ElementRef, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ApiService } from '../api.service';
 import { InforService } from '../infor.service';
-import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'searchbox',

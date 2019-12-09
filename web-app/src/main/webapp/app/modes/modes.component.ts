@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
 import { InforService } from '../infor.service';
-import { Observable } from 'rxjs';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'modes',
@@ -31,6 +31,6 @@ export class ModesComponent {
   }
 
   public getWebTitle() {
-      return Observable.of('Modes');
+      return of('Modes');
   }
 }

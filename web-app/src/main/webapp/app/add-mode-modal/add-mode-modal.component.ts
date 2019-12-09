@@ -1,9 +1,8 @@
 declare var $: any;
 declare var Waves: any;
-declare var Materialize: any;
+declare var M: any;
 
 import { Component, OnInit, AfterViewInit, ElementRef, EventEmitter, Output } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
 import { ApiService } from '../api.service';
 import { InforService } from '../infor.service';
 
@@ -37,7 +36,7 @@ export class AddModeModalComponent implements OnInit, AfterViewInit {
     let me = this.info.getInforUser() && this.info.getInforUser().id;
 
     if (!me) {
-      Materialize.toast('Sign in', 4000);
+      M.toast({ html: 'Sign in' });
       return;
     }
 
@@ -45,12 +44,12 @@ export class AddModeModalComponent implements OnInit, AfterViewInit {
     this.about = this.about.trim();
 
     if (!this.name.length) {
-      Materialize.toast('Enter name', 4000);
+      M.toast({ html: 'Enter name' });
       return;
     }
 
     if (!this.about.length) {
-      Materialize.toast('Enter description', 4000);
+      M.toast({ html: 'Enter description' });
       return;
     }
 
@@ -63,11 +62,11 @@ export class AddModeModalComponent implements OnInit, AfterViewInit {
       in: me
     }).subscribe(
       () => {
-        Materialize.toast(this.name + ' on', 4000);
+        M.toast({ html: this.name + ' on' });
         $(this.elementRef.nativeElement.querySelector('.modal')).modal('close');
       },
       () => {
-        Materialize.toast('That didn\'t work', 4000);
+        M.toast({ html: 'That didn\'t work' });
       }
     );
   }

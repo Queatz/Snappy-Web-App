@@ -1,7 +1,7 @@
-declare var $;
-declare var _;
+declare var $: any;
+declare var _: any;
 declare var Waves;
-declare var Materialize;
+declare var M: any;
 
 import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
 import { InforService } from './infor.service';
@@ -51,7 +51,7 @@ export class AddContactModal implements AfterViewInit {
                 this.thing.contacts.push({source: contact});
             }
             $(this.element.querySelector('.modal')).modal('close');
-            Materialize.toast(contact.target.firstName + ' added', 4000);
+            M.toast({ html: contact.target.firstName + ' added' });
         });
     }
 

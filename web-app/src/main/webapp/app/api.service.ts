@@ -1,10 +1,8 @@
 declare var Promise;
 
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response, RequestOptions } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { InforService } from './infor.service';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ApiService {
@@ -14,7 +12,7 @@ export class ApiService {
     private _apiBase = this.beta ? 'http://' + this._apiDomain : 'https://' + this._apiDomain;
     private _apiBaseUrl = this._apiBase + '/api/';
 
-    constructor(private _http: Http, private inforService: InforService) {
+    constructor(private _http: HttpClient, private inforService: InforService) {
     }
 
     public http() {
@@ -40,13 +38,12 @@ export class ApiService {
     public getMe(gemail: string, gtoken: string) {
         var creds = 'email=' + gemail + '&auth=' + gtoken + '&select=' + ApiService.SELECT_ME;
 
-        return this._http.get(this._apiBaseUrl + 'earth/me?' + creds)
-                .pipe(map((res: Response) => res.json()));
+        return this._http.get<any>(this._apiBaseUrl + 'earth/me?' + creds)
+                ;
     }
 
     public earthThing(id: string, select: string = null) {
-        return this._http.get(this._apiBaseUrl + 'earth/' + id + '?' + (select ? 'select=' + select + '&' : '') + 'auth='+ this.token())
-                           .pipe(map((res: Response) => res.json()));
+        return this._http.get<any>(this._apiBaseUrl + 'earth/' + id + '?' + (select ? 'select=' + select + '&' : '') + 'auth='+ this.token());
     }
 
     public earthCreate(params, asPromise = false): any {
@@ -66,9 +63,6 @@ export class ApiService {
             formData = new FormData();
 
             formData.append('photo', params.photo, params.photo.name);
-
-            var headers = new Headers();
-            headers.append('Content-Type', undefined);
         }
 
         // If nothing was specified to add this to, add it to the current user so that it doesn't
@@ -85,8 +79,8 @@ export class ApiService {
         }
 
         if (!asPromise) {
-            return this._http.post(this._apiBaseUrl + 'earth', data, this.formHeaders())
-                .pipe(map((res: Response) => res.json()));
+            return this._http.post<any>(this._apiBaseUrl + 'earth', data, this.formHeaders())
+                ;
         } else {
             return this.makeFilePostRequest(this._apiBaseUrl + 'earth?' + data, formData);
         }
@@ -99,8 +93,8 @@ export class ApiService {
             data += '&' + key + '=' + encodeURIComponent(params[key]);
         }
 
-        return this._http.post(this._apiBaseUrl + 'earth/' + id, data, this.formHeaders())
-            .pipe(map((res: Response) => res.json()));
+        return this._http.post<any>(this._apiBaseUrl + 'earth/' + id, data, this.formHeaders())
+            ;
     }
 
     public earthPhotoUrl(id: string): string {
@@ -131,8 +125,8 @@ export class ApiService {
             return Promise.reject('No user');
         }
 
-        return this._http.post(this._apiBaseUrl + 'earth/' + me.id, 'auth='+ this.token() + '&cover=' + thingId, this.formHeaders())
-            .pipe(map((res: Response) => res.json()));
+        return this._http.post<any>(this._apiBaseUrl + 'earth/' + me.id, 'auth='+ this.token() + '&cover=' + thingId, this.formHeaders())
+            ;
     }
 
     // XXX currently returns a promise, so must use .then()
@@ -174,13 +168,12 @@ export class ApiService {
             formData.append('going', going.toString());
         }
 
-        var headers = new Headers();
-        headers.append('Content-Type', undefined);
-
-        let options = new RequestOptions({ headers: new Headers() });
-
-        return this._http.post(this._apiBaseUrl + 'earth?kind=update&auth=' + this.token(), formData, options)
-            .pipe(map((res: Response) => res.json()));
+        return this._http.post<any>(this._apiBaseUrl + 'earth?kind=update&auth=' + this.token(), formData, {
+            headers: {
+                'Content-Type': undefined
+            }
+        })
+            ;
     }
 
     public completeGoal(goalId: string, params: any): any {
@@ -198,10 +191,9 @@ export class ApiService {
             formData.append('with', JSON.stringify(params.with));
         }
 
-        let options = new RequestOptions({ headers: new Headers() });
-
-        return this._http.post(this._apiBaseUrl + 'earth/' + goalId + '/complete?auth=' + this.token(), formData, options)
-            .pipe(map((res: Response) => res.json()));
+        return this._http.post<any>(this._apiBaseUrl + 'earth/' + goalId + '/complete?auth=' + this.token(), formData, {
+            headers: {}
+        });
     }
 
     public earthSaveUpdate(updateId: string, message: string, photoFile: File, visibility: any, withAt: any[] = null) {
@@ -224,71 +216,62 @@ export class ApiService {
             formData.append('with', JSON.stringify(withAt));
         }
 
-        let options = new RequestOptions({ headers: new Headers() });
-
-        return this._http.post(this._apiBaseUrl + 'earth/' + updateId + '?auth=' + this.token(), formData, options)
-            .pipe(map((res: Response) => res.json()));
+        return this._http.post<any>(this._apiBaseUrl + 'earth/' + updateId + '?auth=' + this.token(), formData, {
+            headers: {}
+        });
     }
 
     public earthHere(coords, kind: string, select: string = null) {
-        return this._http.get(this._apiBaseUrl + 'earth/here/' + encodeURIComponent(kind)
+        return this._http.get<any>(this._apiBaseUrl + 'earth/here/' + encodeURIComponent(kind)
                                 + '?latitude=' + coords.latitude
                                 + '&longitude=' + coords.longitude
                                 + (select ? '&select=' + select : '')
                                 + '&auth='+ this.token())
-                            .pipe(map((res: Response) => res.json()));
+                            ;
     }
 
     public earthSearch(coords, q: string, kind: string, select: string = null) {
-        return this._http.get(this._apiBaseUrl + 'earth/search' + (kind ? '/' + encodeURIComponent(kind) : '')
+        return this._http.get<any>(this._apiBaseUrl + 'earth/search' + (kind ? '/' + encodeURIComponent(kind) : '')
                                 + '?latitude=' + coords.latitude
                                 + '&longitude=' + coords.longitude
                                 + (select ? '&select=' + select : '')
                                 + '&q=' + encodeURIComponent(q)
                                 + '&auth='+ this.token())
-                            .pipe(map((res: Response) => res.json()));
+                            ;
     }
 
     public setSeen(personId) {
-        return this._http.get(this._apiBaseUrl + 'earth/' + personId + '?seen=true'
-                              + '&auth='+ this.token())
-                           .pipe(map((res: Response) => res.json()));
+        return this._http.get<any>(this._apiBaseUrl + 'earth/' + personId + '?seen=true'
+                              + '&auth='+ this.token());
     }
 
     public getPersonByName(personName: string, select: string = null) {
-        return this._http.get(this._apiBaseUrl + 'earth/by-name/' + personName + '?' + (select ? 'select=' + select + '&' : '') + 'auth=' + this.token())
-            .pipe(map(res => res.json()));
+        return this._http.get<any>(this._apiBaseUrl + 'earth/by-name/' + personName + '?' + (select ? 'select=' + select + '&' : '') + 'auth=' + this.token());
     }
 
     public messages(select: string = null) {
-        return this._http.get(this._apiBaseUrl + 'earth/me/messages?' + (select ? 'select=' + select + '&' : '') + 'auth=' + this.token())
-                           .pipe(map((res: Response) => res.json()));
+        return this._http.get<any>(this._apiBaseUrl + 'earth/me/messages?' + (select ? 'select=' + select + '&' : '') + 'auth=' + this.token());
     }
 
     public clubs(select: string = null) {
-        return this._http.get(this._apiBaseUrl + 'earth/me/clubs?' + (select ? 'select=' + select + '&' : '') + 'auth=' + this.token())
-                           .pipe(map((res: Response) => res.json()));
+        return this._http.get<any>(this._apiBaseUrl + 'earth/me/clubs?' + (select ? 'select=' + select + '&' : '') + 'auth=' + this.token());
     }
 
     public saveAbout(about: string) {
-        return this._http.post(this._apiBaseUrl + 'earth/me/?about=' + encodeURIComponent(about) + '&auth=' + this.token(), '')
-                           .pipe(map((res: Response) => res.json()));
+        return this._http.post<any>(this._apiBaseUrl + 'earth/me/?about=' + encodeURIComponent(about) + '&auth=' + this.token(), '');
     }
 
     public saveMyLink(myLink: string) {
-        return this._http.post(this._apiBaseUrl + 'earth/me/?link=' + encodeURIComponent(myLink) + '&auth=' + this.token(), '')
-                           .pipe(map((res: Response) => res.json()));
+        return this._http.post<any>(this._apiBaseUrl + 'earth/me/?link=' + encodeURIComponent(myLink) + '&auth=' + this.token(), '');
     }
 
     public saveMyLinkPrecheck(myLink: string) {
-        return this._http.post(this._apiBaseUrl + 'earth/me/?link_precheck=' + encodeURIComponent(myLink) + '&auth=' + this.token(), '')
-                           .pipe(map((res: Response) => res.json()));
+        return this._http.post<any>(this._apiBaseUrl + 'earth/me/?link_precheck=' + encodeURIComponent(myLink) + '&auth=' + this.token(), '');
     }
 
     public personMessages(personId: string, select: string = null) {
-        return this._http.get(this._apiBaseUrl + 'earth/' + personId
-                              + '/messages?' + (select ? 'select=' + select + '&' : '') + 'auth=' + this.token())
-                           .pipe(map((res: Response) => res.json()));
+        return this._http.get<any>(this._apiBaseUrl + 'earth/' + personId
+                              + '/messages?' + (select ? 'select=' + select + '&' : '') + 'auth=' + this.token());
     }
 
     public newOffer(details, price, unit, asMemberOf = null, want = false, visibility = null) {
@@ -302,7 +285,7 @@ export class ApiService {
         '&want=' + encodeURIComponent(want.toString()) +
         '&kind=offer' +
         (asMemberOf ? '&in=' + encodeURIComponent(asMemberOf.id) : '');
-        return this._http.post(this._apiBaseUrl + 'earth', creds, this.formHeaders()).pipe(map((res: Response) => res.json()));
+        return this._http.post<any>(this._apiBaseUrl + 'earth', creds, this.formHeaders());
     }
 
     public editOffer(offerId, details, price, unit, want, visibility) {
@@ -314,15 +297,15 @@ export class ApiService {
                 visibility ? '&hidden=' + visibility.hidden + '&clubs=' + encodeURIComponent(visibility.clubs) : ''
             ) +
             '&want=' + encodeURIComponent(want);
-        return this._http.post(this._apiBaseUrl + 'earth/' + offerId, creds, this.formHeaders()).pipe(map((res: Response) => res.json()));
+        return this._http.post<any>(this._apiBaseUrl + 'earth/' + offerId, creds, this.formHeaders());
     }
 
     public earthDelete(id: string) {
-        return this._http.post(this._apiBaseUrl + 'earth/' + id + '/delete?auth=' + this.token(), '');
+        return this._http.post<any>(this._apiBaseUrl + 'earth/' + id + '/delete?auth=' + this.token(), '');
     }
 
     public earthDeletePhoto(id: string) {
-        return this._http.post(this._apiBaseUrl + 'earth/' + id + '/photo/delete?auth=' + this.token(), '');
+        return this._http.post<any>(this._apiBaseUrl + 'earth/' + id + '/photo/delete?auth=' + this.token(), '');
     }
 
     public earthImageUrl(id: string, size: Number = 800) {
@@ -332,8 +315,7 @@ export class ApiService {
     public sendMessage(personId, message, select: string = null) {
         var creds = 'auth=' + this.token() + '&message=' + encodeURIComponent(message) + (select ? '&select=' + select : '');
 
-        return this._http.post(this._apiBaseUrl + 'earth/' + personId, creds, this.formHeaders())
-            .pipe(map(res => res.json()));
+        return this._http.post<any>(this._apiBaseUrl + 'earth/' + personId, creds, this.formHeaders());
     }
 
     public sendPhotoMessage(personId: string, message: string, photoFile: File) {
@@ -356,8 +338,7 @@ export class ApiService {
     public sendFeedback(feedback) {
         var creds = 'auth=' + this.token() + '&feedback=' + encodeURIComponent(feedback);
 
-        return this._http.post(this._apiBaseUrl + 'earth/feedback', creds, this.formHeaders())
-            .pipe(map(res => res.json()));
+        return this._http.post<any>(this._apiBaseUrl + 'earth/feedback', creds, this.formHeaders());
     }
 
     public subscribeToLocality(coords: any, locality: string, email: string) {
@@ -366,36 +347,31 @@ export class ApiService {
                    '&name=' + encodeURIComponent(locality) +
                    '&email=' + encodeURIComponent(email);
 
-        return this._http.post(this._apiBaseUrl + 'earth/geo-subscribe', data, this.formHeaders())
-            .pipe(map(res => res.json()));
+        return this._http.post<any>(this._apiBaseUrl + 'earth/geo-subscribe', data, this.formHeaders());
     }
 
     public follow(personId: string, follow: boolean) {
         var creds = 'auth=' + this.token() + '&follow=' + follow + '&select=backing,backers,target(backing,backers)';
 
-        return this._http.post(this._apiBaseUrl + 'earth/' + personId, creds, this.formHeaders())
-            .pipe(map(res => res.json()));
+        return this._http.post<any>(this._apiBaseUrl + 'earth/' + personId, creds, this.formHeaders());
     }
 
     public like(id: string) {
         var creds = 'auth=' + this.token();
 
-        return this._http.post(this._apiBaseUrl + 'earth/' + id + '/like', creds, this.formHeaders())
-            .pipe(map(res => res.json()));
+        return this._http.post<any>(this._apiBaseUrl + 'earth/' + id + '/like', creds, this.formHeaders());
     }
 
     public join(thingId: string, join: boolean) {
         var creds = 'auth=' + this.token() + '&join=' + join + '&select=joins(source)';
 
-        return this._http.post(this._apiBaseUrl + 'earth/' + thingId, creds, this.formHeaders())
-            .pipe(map(res => res.json()));
+        return this._http.post<any>(this._apiBaseUrl + 'earth/' + thingId, creds, this.formHeaders());
     }
 
     public getAppToken(domain: string) {
         var creds = 'auth=' + this.token() + '&domain=' + encodeURIComponent(domain);
 
-        return this._http.get(this._apiBaseUrl + 'earth/app/token?' + creds)
-            .pipe(map(res => res.json()));
+        return this._http.get<any>(this._apiBaseUrl + 'earth/app/token?' + creds);
     }
 
     public submitForm(formId: string, files: Map<string, File>, photos: Map<string, File>, data: any) {
@@ -442,12 +418,11 @@ export class ApiService {
     }
 
     private formHeaders() {
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-
-        return new RequestOptions({
-            headers: headers
-        });
+        return {
+            headers: {
+                ['Content-Type']: 'application/x-www-form-urlencoded; charset=UTF-8'
+            }
+        };
     }
 
     /* Selection Queries */

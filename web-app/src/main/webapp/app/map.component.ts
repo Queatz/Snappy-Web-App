@@ -1,4 +1,4 @@
-declare var $;
+declare var $: any;
 declare var google;
 
 import { Component, ElementRef, Input, AfterViewInit } from '@angular/core';

@@ -1,4 +1,4 @@
-declare var $;
+declare var $: any;
 declare var Waves;
 
 import { Component, OnInit, AfterViewInit, Input, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';

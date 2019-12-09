@@ -1,8 +1,8 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, enableProdMode } from '@angular/core';
-import { BrowserModule, Title } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouteReuseStrategy } from '@angular/router';
-import { HttpModule, Headers, BaseRequestOptions, RequestOptions } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { WebTitleService } from './extra';
 import { AppComponent } from './app.component';
@@ -103,18 +103,11 @@ import { ThingUpdatePreviewComponent } from './thing-update-preview/thing-update
 
 enableProdMode();
 
-var firstHeaders = new Headers();
-firstHeaders.append('Content-Type', 'application/json;charset=UTF-8');
-
-export class MyOptions extends BaseRequestOptions {
-    headers: Headers = firstHeaders
-}
-
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
-        HttpModule,
+        HttpClientModule,
         AppRoutingModule,
     ],
     schemas: [
@@ -238,10 +231,6 @@ export class MyOptions extends BaseRequestOptions {
         ChatService,
         UiService,
         WorldService,
-        {
-            provide: RequestOptions,
-            useClass: MyOptions
-        },
         {provide: RouteReuseStrategy, useClass: ExactRouteReuseStrategy}
     ],
     bootstrap: [ AppComponent ]

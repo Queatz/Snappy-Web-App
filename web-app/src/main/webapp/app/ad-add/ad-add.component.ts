@@ -1,6 +1,6 @@
 declare var Waves: any;
 declare var $: any;
-declare var Materialize: any;
+declare var M: any;
 
 import { Component, OnInit, AfterViewInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 
@@ -27,17 +27,17 @@ export class AdAddComponent implements OnInit, AfterViewInit {
 
     add() {
         if (!this.inforService.getInforUser()) {
-            Materialize.toast('Sign into Village to post ads', 4000);
+            M.toast({ html: 'Sign into Village to post ads' });
             return;
         }
 
         if (!this.name) {
-            Materialize.toast('Add the ad title', 4000);
+            M.toast({ html: 'Add the ad title' });
             return;
         }
 
         if (!this.description) {
-            Materialize.toast('Add the ad details', 4000);
+            M.toast({ html: 'Add the ad details' });
             return;
         }
 

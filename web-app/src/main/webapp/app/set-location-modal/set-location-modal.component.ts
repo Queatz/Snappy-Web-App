@@ -1,6 +1,6 @@
 declare var $: any;
 declare var Waves: any;
-declare var Materialize: any;
+declare var M: any;
 declare var google: any;
 
 import { Component, AfterViewInit, ElementRef, ViewContainerRef, ComponentRef, EventEmitter, Output } from '@angular/core';
@@ -48,7 +48,7 @@ export class SetLocationModalComponent implements AfterViewInit {
                     this.onLocationSelected.emit(null);
                 }));
 
-            Materialize.toast(toast, 4000);
+            M.toast({ html: toast });
 
             this.onLocationSelected.emit({
                 coords: {

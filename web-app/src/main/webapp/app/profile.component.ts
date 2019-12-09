@@ -1,7 +1,8 @@
-declare var $;
-declare var _;
+declare var $: any;
+declare var _: any;
 declare var moment;
-declare var Materialize;
+declare var M: any;
+declare var M: any;
 
 import { Component, OnInit, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,7 +16,7 @@ import { ApiService } from './api.service';
 import { InforService } from './infor.service';
 import util from './util';
 import { WebTitleProvider } from './extra';
-import { Observable, Subject, Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { WorldService } from './world.service';
 import { UiService } from './ui.service';
 
@@ -125,6 +126,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
     }
 
     ngAfterViewInit() {
+        M.textareaAutoResize($('#editAbout'));
         $(this.element).find('.tooltipped').tooltip({enterDelay: 50, exitDelay: 25});
         $(this.element.querySelector('.modal')).modal();
 
@@ -136,7 +138,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
 
     ngOnDestroy() {
         this.on.unsubscribe();
-        $(this.element).find('.tooltipped').tooltip('remove');
+        $(this.element).find('.tooltipped').tooltip('close');
     }
 
     onPublicChange(isPublic: any) {
@@ -146,9 +148,9 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
         }).subscribe(
             () => {
                 if (isPublic) {
-                    Materialize.toast('Profile visible to everyone');
+                    M.toast({ html: 'Profile visible to everyone' });
                 } else {
-                    Materialize.toast('Profile only visible to your clubs');
+                    M.toast({ html: 'Profile only visible to your clubs' });
                 }
             }
         );
@@ -187,7 +189,7 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy, WebTi
 
     toggleBacking() {
         if (!this.inforService.getInforUser()) {
-            Materialize.toast('Sign in', 400);
+            M.toast({ html: 'Sign in' });
         }
 
         this.api.follow(this.thing.id, !this.thing.backing)

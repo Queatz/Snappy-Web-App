@@ -26,7 +26,7 @@ var LocalityCardComponent = (function () {
         $(this.elementRef.nativeElement).find('.tooltipped').tooltip({ enterDelay: 50, exitDelay: 25 });
     };
     LocalityCardComponent.prototype.ngOnDestroy = function () {
-        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
+        $(this.elementRef.nativeElement).find('.tooltipped').tooltip('close');
     };
     LocalityCardComponent.prototype.onLocalityFound = function (locality) {
         this.locality = locality;
@@ -34,20 +34,20 @@ var LocalityCardComponent = (function () {
     LocalityCardComponent.prototype.subscribe = function () {
         var _this = this;
         if (!util_1.default.validateEmail(this.subscribeEmail)) {
-            Materialize.toast('Enter an email address', 2000);
+            M.toast({ html: 'Enter an email address' });
             return;
         }
         this.api.subscribeToLocality(this.position.coords, this.locality, this.subscribeEmail)
             .subscribe(function (json) {
             if (json.success) {
                 _this.inforService.setSubscribedTo(_this.locality, true);
-                Materialize.toast('Subscribed!', 4000);
+                M.toast({ html: 'Subscribed!' });
             }
             else {
-                Materialize.toast('That didn\'t work...', 4000);
+                M.toast({ html: 'That didn\'t work...' });
             }
         }, function () {
-            Materialize.toast('That didn\'t work...', 4000);
+            M.toast({ html: 'That didn\'t work...' });
         });
     };
     LocalityCardComponent.prototype.resubscribe = function () {

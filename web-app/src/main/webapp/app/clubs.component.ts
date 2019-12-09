@@ -1,9 +1,8 @@
 import { Component, ElementRef, OnInit, AfterViewInit } from '@angular/core';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
-import util from './util';
 import { WebTitleProvider } from './extra';
-import { Observable } from 'rxjs';
+import { of } from 'rxjs';
 import { NewClubModalComponent } from './new-club-modal/new-club-modal.component';
 
 @Component({
@@ -46,6 +45,6 @@ export class ClubsComponent implements AfterViewInit, WebTitleProvider {
     }
 
     public getWebTitle() {
-        return Observable.of('Clubs');
+        return of('Clubs');
     }
 }

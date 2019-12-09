@@ -1,6 +1,6 @@
-declare var $;
+declare var $: any;
 declare var Waves;
-declare var Materialize;
+declare var M: any;
 
 import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
@@ -32,10 +32,10 @@ export class FeedbackModal implements AfterViewInit {
 
         this.api.sendFeedback(this.feedback).subscribe(() => {
             $(this.element).find('#feedbackModal').modal('close');
-            Materialize.toast('Thanks!', 4000);
+            M.toast({ html: 'Thanks!' });
             this.feedback = '';
         }, () => {
-            Materialize.toast('That didn\'t work...', 4000);
+            M.toast({ html: 'That didn\'t work...' });
         });
     }
 }

@@ -1,7 +1,7 @@
 declare var Waves: any;
 declare var _: any;
 declare var $: any;
-declare var Materialize: any;
+declare var M: any;
 
 import { Component, OnInit, OnDestroy, AfterViewInit, Input, ElementRef, ComponentRef } from '@angular/core';
 import { Router } from '@angular/router';
@@ -43,7 +43,7 @@ export class ThingPreviewComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    $(this.elementRef.nativeElement).find('.tooltipped').tooltip('remove');
+    $(this.elementRef.nativeElement).find('.tooltipped').tooltip('close');
   }
 
   isMember(): boolean {
@@ -64,7 +64,7 @@ export class ThingPreviewComponent implements OnInit, AfterViewInit, OnDestroy {
     modal.onConfirm.subscribe(() => {
       this.api.earthDelete(this.thing.member.id).subscribe(
         () => {
-          Materialize.toast('Left ' + this.thing.name);
+          M.toast({ html: 'Left ' + this.thing.name });
         }
       );
     });
@@ -72,7 +72,7 @@ export class ThingPreviewComponent implements OnInit, AfterViewInit, OnDestroy {
 
   action() {
     if (!this.info.getInforUser()) {
-      Materialize.toast('Sign in', 4000);
+      M.toast({ html: 'Sign in' });
     }
 
     if (this.joined()) {
@@ -86,7 +86,7 @@ export class ThingPreviewComponent implements OnInit, AfterViewInit, OnDestroy {
       target: this.info.getInforUser().id,
       select: 'role'
     }).subscribe(() => {
-      Materialize.toast('Joined ' + this.thing.name, 4000);
+      M.toast({ html: 'Joined ' + this.thing.name });
     });
   }
 

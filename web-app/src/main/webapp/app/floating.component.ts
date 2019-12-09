@@ -1,4 +1,4 @@
-declare var $;
+declare var $: any;
 
 import {
     Component,
@@ -16,7 +16,6 @@ import {
     OnDestroy
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Http, Headers } from '@angular/http';
 import { InforService } from './infor.service';
 
 var checkFirst = true;
@@ -49,10 +48,8 @@ export class FloatingComponent implements OnInit, AfterViewInit, OnDestroy {
             inforService: InforService,
             private router: Router,
             private route: ActivatedRoute,
-            http: Http,
             private elementRef: ElementRef) {
         this.inforService = inforService;
-        this.http = http;
         this.router = router;
         this.element = elementRef.nativeElement;
         this.edetails = '';
@@ -82,7 +79,7 @@ export class FloatingComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        $(this.element).find('.tooltipped').tooltip('remove');
+        $(this.element).find('.tooltipped').tooltip('close');
     }
 
     opened() {

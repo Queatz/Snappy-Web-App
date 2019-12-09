@@ -1,5 +1,5 @@
 declare var gapi;
-declare var $;
+declare var $: any;
 
 import { Injectable, ComponentRef } from '@angular/core';
 import { InviteModal } from './invite.modal';
