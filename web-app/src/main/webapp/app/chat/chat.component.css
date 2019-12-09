@@ -29,6 +29,7 @@
     width: 18rem;
     margin: .5rem;
     position: relative;
+    padding-bottom: 6rem; /* .fade height */
 }
 
 .scrollbox {

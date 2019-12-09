@@ -59,7 +59,7 @@ import { ModesComponent } from './modes/modes.component';
         component: PeopleComponent
       },
       {
-        path: 'modes',
+        path: 'lifestyles',
         component: ModesComponent
       },
       {

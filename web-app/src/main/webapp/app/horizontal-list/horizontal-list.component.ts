@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'horizontal-list',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./horizontal-list.component.css']
 })
 export class HorizontalListComponent implements OnInit {
+
+  @Input() wrap = false;
 
   constructor() { }
 

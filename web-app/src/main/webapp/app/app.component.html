@@ -1,19 +1,18 @@
 <div class="app">
     <div class="navbar-fixed">
         <nav>
-            <div class="nav-wrapper banner bkg-red">
-                <div class="skylike"></div>
+            <div class="nav-wrapper">
                 <a class="brand-logo center hide-on-large-only nav-tit">{{ pageTitle() }}</a>
 
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li class="nav-header"><a routerLink="/"><img src="img/vlllage.png" class="logo-icon left" />Home</a></li>
-                    <li [ngClass]="{'active': isActive(['/hubs'])}"><a routerLink="/hubs"><i class="material-icons left">room</i>Hubs</a></li>
-                    <li [ngClass]="{'active': isActive(['/projects'])}"><a routerLink="/projects"><i class="material-icons left">settings</i>Projects</a></li>
-                    <li [ngClass]="{'active': isActive(['/resources'])}"><a routerLink="/resources"><i class="material-icons left">language</i>Resources</a></li>
-                    <li [ngClass]="{'active': isActive(['/goals'])}"><a routerLink="/goals"><i class="material-icons left">landscape</i>Goals</a></li>
-                    <li [ngClass]="{'active': isActive(['/clubs'])}"><a routerLink="/clubs"><i class="material-icons left">supervisor_account</i>Clubs</a></li>
-                    <li [ngClass]="{'active': isActive(['/search'])}"><a routerLink="/search"><i class="material-icons left">search</i>Search</a></li>
-                    <li [ngClass]="{'active': isActive(['/chat'])}"><a routerLink="/chat"><i class="material-icons left">sentiment_very_satisfied</i></a></li>
+                    <li class="nav-header"><a routerLink="/"><img src="img/vlllage.png" class="logo-icon left" />Village{{ localityName ? ' ' + localityName + '' : '' }}</a></li>
+                    <li [ngClass]="{'active': isActive(['/hubs'])}"><a routerLink="/hubs"><i class="material-icons left blue-text">room</i>Hubs</a></li>
+                    <li [ngClass]="{'active': isActive(['/projects'])}"><a routerLink="/projects"><i class="material-icons left deep-orange-text">settings</i>Projects</a></li>
+                    <li [ngClass]="{'active': isActive(['/resources'])}"><a routerLink="/resources"><i class="material-icons left brown-text">language</i>Resources</a></li>
+                    <li [ngClass]="{'active': isActive(['/goals'])}"><a routerLink="/goals"><i class="material-icons left pink-text">landscape</i>Goals</a></li>
+                    <li [ngClass]="{'active': isActive(['/clubs'])}"><a routerLink="/clubs"><i class="material-icons left yellow-text text-darken-2">supervisor_account</i>Clubs</a></li>
+                    <li [ngClass]="{'active': isActive(['/chat'])}"><a routerLink="/chat"><i class="material-icons left orange-text">sentiment_very_satisfied</i>Chat</a></li>
+                    <li [ngClass]="{'active': isActive(['/search'])}"><a routerLink="/search"><i class="material-icons left grey-text">search</i>Search</a></li>
                 </ul>
 
                 <a data-activates="slide-out" class="button-collapse"><i class="material-icons" (click)="menuTapped()">menu</i></a>
@@ -22,7 +21,7 @@
                     <a class="feedback hide-on-med-and-down modal-trigger right tooltipped" *ngIf="userSignined()" href="#feedbackModal" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Send feedback about Village to the development team'">Feedback</a>
                     <a class="settings hide-on-med-and-down right tooltipped" routerLink="/settings" [attr.data-position]="'bottom'" [attr.data-tooltip]="'View settings'"><i class="material-icons">settings</i></a>
                     <a class="feedback lime-text hide-on-med-and-down right tooltipped" href="https://play.google.com/store/apps/details?id=com.queatz.snappy" target="_blank" [attr.data-position]="'bottom'" [attr.data-tooltip]="'Get the app'"><i class="material-icons">android</i></a>
-                    <a class="chat right tooltipped" *ngIf="userSignined()" routerLink="/messages" [attr.data-position]="'bottom'" [attr.data-tooltip]="'View your messages'"><i class="material-icons">chat_bubble</i></a>
+                    <a class="chat right tooltipped" *ngIf="userSignined()" routerLink="/messages" [attr.data-position]="'bottom'" [attr.data-tooltip]="'View your messages'"><i class="material-icons blue-text">chat_bubble</i></a>
                     <div class="signin right tooltipped right-actions" [attr.data-position]="'left'" [attr.data-tooltip]="'View your profile'">
                         <signin></signin>
                     </div>
@@ -196,14 +195,14 @@
 </div>
 
 <ul id="slide-out" class="side-nav" (click)="menuTapped()">
-    <li><a routerLink="/"><img src="img/vlllage.png" class="logo-icon left" />Home</a></li>
+    <li><a routerLink="/"><img src="img/vlllage.png" class="logo-icon left" />Village{{ localityName ? ' ' + localityName + '' : '' }}</a></li>
     <li><a routerLink="/hubs"><i class="material-icons left blue-text">room</i>Hubs</a></li>
     <li><a routerLink="/projects"><i class="material-icons left deep-orange-text">settings</i>Projects</a></li>
     <li><a routerLink="/resources"><i class="material-icons left brown-text">language</i>Resources</a></li>
     <li><a routerLink="/goals"><i class="material-icons left pink-text">landscape</i>Goals</a></li>
     <li><a routerLink="/clubs"><i class="material-icons left yellow-text text-darken-2">supervisor_account</i>Clubs</a></li>
-    <li><a routerLink="/search"><i class="material-icons left">search</i>Search</a></li>
     <li><a routerLink="/chat"><i class="material-icons left orange-text">sentiment_very_satisfied</i>Chat</a></li>
+    <li><a routerLink="/search"><i class="material-icons left">search</i>Search</a></li>
     <li><a routerLink="/settings"><i class="material-icons left">settings</i>Settings</a></li>
     <li><a class="modal-trigger" *ngIf="userSignined()" href="#feedbackModal"><i class="material-icons left">edit</i>Send Feedback</a></li>
     <li><a href="https://play.google.com/store/apps/details?id=com.queatz.snappy" target="_blank"><i class="material-icons left lime-text">android</i>Get the app</a></li>

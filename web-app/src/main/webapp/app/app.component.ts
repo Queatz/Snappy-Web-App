@@ -8,8 +8,8 @@ import { InforService } from './infor.service';
 import { TutorialService } from './tutorial.service';
 import { UiService } from './ui.service';
 
-import { Observable } from 'rxjs/Observable';
 import { map, filter, mergeMap } from 'rxjs/operators';
+import { LocalityService } from './locality.service';
 
 @Component({
 	selector: 'app',
@@ -20,6 +20,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 	constructor(private inforService: InforService,
             element: ElementRef,
             public view: ViewContainerRef,
+            public locality: LocalityService,
             private router: Router,
             private route: ActivatedRoute,
             public tutorial: TutorialService,
@@ -31,6 +32,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
     public isSolo = false;
     private element;
+    public localityName;
 
     ngOnInit() {
     	this.router.events.pipe(
@@ -42,6 +44,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                   }),
                 mergeMap(route => route.data)
         ).subscribe(data => this.isSolo = data.solo);
+
+        this.locality.get(result => this.localityName = result);
     }
 
     ngAfterViewInit() {

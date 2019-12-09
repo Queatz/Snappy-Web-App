@@ -32,7 +32,25 @@
 }
 
 .nav-wrapper {
+    display: flex;
     transition: background-color .5s ease-out;
+    background: #fff;
+    color: black;
+}
+
+.nav-wrapper a {
+    color: black;
+}
+
+.nav-wrapper #nav-mobile {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.nav-wrapper #nav-mobile>li {
+    display: inline-flex;
+    flex-shrink: 0;
 }
 
 .menu-header {
@@ -44,7 +62,7 @@
 }
 
 .menu-header a, .nav-header a {
-    color: white;
+    color: black;
     font-weight: bold;
 }
 
@@ -91,9 +109,10 @@
 }
 
 .actions-bar {
-    background: rgba(0, 0, 0, 0.25);
     padding-left: 1rem;
-    border-radius: 2rem 0 0 2rem;
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
 }
 
 @keyframes slide-down {

@@ -8,3 +8,8 @@
     display: inline-flex;
     justify-content: flex-start;
 }
+
+.horizontal-list-wrap {
+    flex-wrap: wrap;
+    justify-content: center;
+}
