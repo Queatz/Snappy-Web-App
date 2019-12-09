@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "https://vlllage.com",
   "scripts": {
-    "start": "ng serve -prod -p 3000",
+    "start": "ng serve --port 3000",
     "docker-build": "docker build -t ng2-quickstart .",
     "docker": "npm run docker-build && docker run -it --rm -p 3000:3000 -p 3001:3001 ng2-quickstart",
     "pree2e": "npm run webdriver:update",
@@ -16,8 +16,14 @@
     "tsc:w": "tsc -w",
     "webdriver:update": "webdriver-manager update"
   },
+  "browserslist": [
+    "> 0.5%",
+    "Firefox ESR",
+    "not IE 9-11",
+    "not dead"
+  ],
   "keywords": [],
-  "author": "",
+  "author": "Jacob Ferrero",
   "licenses": [
     {
       "type": "MIT",
@@ -37,7 +43,7 @@
     "core-js": "^3.4.8",
     "reflect-metadata": "^0.1.13",
     "rxjs": "6.5.3",
-    "zone.js": "^0.10.2",
+    "zone.js": "~0.9.1",
     "moment": "^2.24.0",
     "lodash": "^4.17.15",
     "normalize.css": "8.0.1",
@@ -45,8 +51,10 @@
     "materialize-css": "1.0.0"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~0.803.20",
     "@angular/cli": "8.3.20",
     "@angular/compiler-cli": "8.2.14",
+    "browserslist": "^4.8.2",
     "canonical-path": "1.0.0",
     "concurrently": "^5.0.0",
     "http-server": "^0.10.0",
@@ -60,7 +68,7 @@
     "lite-server": "^2.3.0",
     "protractor": "^4.0.9",
     "tslint": "^5.20.1",
-    "typescript": "^3.7.3"
+    "typescript": "3.5.3"
   },
   "repository": {}
 }
