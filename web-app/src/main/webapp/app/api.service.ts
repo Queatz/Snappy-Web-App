@@ -108,7 +108,7 @@ export class ApiService {
 
         switch (thing.kind) {
             case 'person':
-                return thing.imageUrl.split('=')[0] + '=s' + sz;
+                return thing.imageUrl.split('=')[0] + '=' + (thing.imageUrl.indexOf('?') === -1 ? 's' + sz : sz);
             default:
                 if (thing.photo) {
                     return this.earthImageUrl(thing.id, sz);
