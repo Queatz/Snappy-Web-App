@@ -10,6 +10,7 @@ import { UiService } from './ui.service';
 
 import { map, filter, mergeMap } from 'rxjs/operators';
 import { LocalityService } from './locality.service';
+import { WebTitleService } from './extra';
 
 @Component({
 	selector: 'app',
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
             private route: ActivatedRoute,
             public tutorial: TutorialService,
             private title: Title,
+            public webTitle: WebTitleService,
             private ui: UiService) {
     	this.element = element.nativeElement;
     	this.ui.registerAppComponent(this);
@@ -45,7 +47,9 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                 mergeMap(route => route.data)
         ).subscribe(data => this.isSolo = data.solo);
 
-        this.locality.get(result => this.localityName = result);
+        this.locality.get(result => {
+            this.localityName = result;
+        });
     }
 
     ngAfterViewInit() {
@@ -64,6 +68,10 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     ngOnDestroy() {
         let element = $(this.element);
         element.find('.tooltipped').tooltip('close');
+    }
+
+    onActivate(component: any) {
+        this.webTitle.setComponent(component);
     }
 
     userSignined() {

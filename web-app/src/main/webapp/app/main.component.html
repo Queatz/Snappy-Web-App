@@ -6,7 +6,7 @@
     </div>
     <div *ngIf="people" class="people">
         <person-link *ngFor="let person of people | slice:0:6" [person]="person"></person-link>
-        <div class="center-align">
+        <div class="center-align" *ngIf="modes.length">
             <a class="btn-flat blue-text waves-effect" [routerLink]="'/people'"><b>See all people nearby</b></a>
         </div>
     </div>
@@ -14,7 +14,7 @@
         <horizontal-list>
             <mode-view *ngFor="let mode of modes | slice:0:6" [mode]="mode"></mode-view>
         </horizontal-list>
-        <div class="center-align">
+        <div class="center-align" *ngIf="modes.length">
             <a class="btn-flat pink-text waves-effect" [routerLink]="'/lifestyles'"><b>See all lifestyles nearby</b></a>
         </div>
     </div>

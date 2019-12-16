@@ -2,7 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA, enableProdMode } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouteReuseStrategy } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { WebTitleService } from './extra';
 import { AppComponent } from './app.component';
@@ -100,6 +100,7 @@ import { ConfirmationModalComponent } from './confirmation-modal/confirmation-mo
 import { HorizontalListComponent } from './horizontal-list/horizontal-list.component';
 import { ModesComponent } from './modes/modes.component';
 import { ThingUpdatePreviewComponent } from './thing-update-preview/thing-update-preview.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 enableProdMode();
 
@@ -231,7 +232,12 @@ enableProdMode();
         ChatService,
         UiService,
         WorldService,
-        {provide: RouteReuseStrategy, useClass: ExactRouteReuseStrategy}
+        {provide: RouteReuseStrategy, useClass: ExactRouteReuseStrategy},
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi: true
+        }
     ],
     bootstrap: [ AppComponent ]
 })

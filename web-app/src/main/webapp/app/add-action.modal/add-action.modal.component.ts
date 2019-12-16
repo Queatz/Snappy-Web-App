@@ -1,6 +1,6 @@
 declare var $: any;
 declare var _: any;
-declare var Waves;
+declare var Waves: any;
 declare var M: any;
 
 import { Component, OnInit, OnDestroy, Input, AfterViewInit, ElementRef, SimpleChanges } from '@angular/core';

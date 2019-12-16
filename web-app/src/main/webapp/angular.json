@@ -17,10 +17,8 @@
             "tsConfig": "./tsconfig.json",
             "assets": [
               "./img",
-              "./node_modules/core-js/client/shim.min.js",
               "./node_modules/zone.js/dist/zone.js",
               "./node_modules/reflect-metadata/Reflect.js",
-              "./node_modules/systemjs/dist/system.src.js",
               "./node_modules/moment/min/moment.min.js",
               "./node_modules/materialize-css/dist/js/materialize.min.js",
               "./app/style.css",
@@ -82,10 +80,8 @@
             "styles": [],
             "assets": [
               "img",
-              "node_modules/core-js/client/shim.min.js",
               "node_modules/zone.js/dist/zone.js",
               "node_modules/reflect-metadata/Reflect.js",
-              "node_modules/systemjs/dist/system.src.js",
               "node_modules/moment/min/moment.min.js",
               "node_modules/materialize-css/dist/js/materialize.min.js",
               "app/style.css",

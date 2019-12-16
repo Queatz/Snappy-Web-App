@@ -1,6 +1,6 @@
 declare var $: any;
-declare var moment;
-declare var Waves;
+declare var moment: any;
+declare var Waves: any;
 declare var TextEncoder, Uint8Array;
 
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef } from '@angular/core';
@@ -8,13 +8,16 @@ import { ActivatedRoute } from '@angular/router';
 import { LocalityService } from '../locality.service';
 import { ChatService } from '../chat.service';
 import util from '../util';
+import { WebTitleProvider } from 'app/extra';
+import { of, BehaviorSubject } from 'rxjs';
+import { mergeMap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit, AfterViewInit {
+export class ChatComponent implements OnInit, AfterViewInit, WebTitleProvider {
 
     public topics: any;
     public chats: any;
@@ -23,6 +26,8 @@ export class ChatComponent implements OnInit, AfterViewInit {
     public locality: string = '';
     public isShowingAds: boolean = false;
     public avatar: string;
+    
+    private activeObservable = new BehaviorSubject<string>('');
 
     private avatars = [
         'girl1',
@@ -55,6 +60,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
         this.topics = this.chat.topics;
         this.chats = this.chat.chats;
         this.active = this.topics[0];
+        this.activeObservable.next(this.active.name);
 
         this.chatListener = this.gotChat.bind(this);
         this.chat.register(this.chatListener);
@@ -69,6 +75,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
 
         this.chat.events.subscribe(() => {
             this.active = this.chat.getTopicByName(this.active.name);
+            this.activeObservable.next(this.active.name);
         });
     }
 
@@ -92,6 +99,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
 
     chooseTopic(topic: any) {
         this.active = topic;
+        this.activeObservable.next(this.active.name);
         setTimeout(() => this.scrollChat(), 5);
         this.chat.setActiveTopic(topic);
     }
@@ -179,5 +187,11 @@ export class ChatComponent implements OnInit, AfterViewInit {
 
     ago(date: any) {
         return moment(date).fromNow();
+    }
+
+    getWebTitle() {
+        return this.activeObservable.pipe(
+            map(topic => `${topic} Chat`)
+        );
     }
 }

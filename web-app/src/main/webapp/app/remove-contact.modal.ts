@@ -1,7 +1,7 @@
 declare var $: any;
 declare var _: any;
 declare var M: any;
-declare var Waves;
+declare var Waves: any;
 
 import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
 import { InforService } from './infor.service';

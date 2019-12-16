@@ -1,6 +1,6 @@
 declare var $: any;
 declare var _: any;
-declare var moment;
+declare var moment: any;
 
 import { Component, Input, OnInit, ElementRef, AfterViewInit, OnChanges, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';

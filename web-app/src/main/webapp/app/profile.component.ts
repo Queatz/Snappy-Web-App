@@ -1,6 +1,6 @@
 declare var $: any;
 declare var _: any;
-declare var moment;
+declare var moment: any;
 declare var M: any;
 declare var M: any;
 

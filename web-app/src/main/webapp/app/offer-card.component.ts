@@ -1,5 +1,5 @@
 declare var $: any;
-declare var Waves;
+declare var Waves: any;
 declare var M: any;
 declare var Promise;
 
@@ -158,7 +158,7 @@ export class OfferCardComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.filesToUpload.length > 0 && this.filesToUpload[0].type.match(/image/)) {
             this.offerImage = "";
             this.makeFileRequest(this.api.earthImageUrl(this.offer.id), this.filesToUpload)
-                .then(result => {
+                .subscribe(result => {
                     if (result) {
                         M.toast({ html: 'Photo updated' });
                         this.offer.photo = true;

@@ -1,5 +1,5 @@
 declare var M: any;
-declare var Waves;
+declare var Waves: any;
 declare var $: any;
 
 import { Component, ElementRef, Input, AfterViewInit } from '@angular/core';
@@ -37,7 +37,7 @@ export class SetPhotoModal implements AfterViewInit {
         if (this.filesToUpload.length > 0 && this.filesToUpload[0].type.match(/image/)) {
            this.thing.photo = false;
             this.api.earthPutPhoto(this.thing.id, this.filesToUpload[0])
-                .then(result => {
+                .subscribe(result => {
                     M.toast({ html: 'Photo updated' });
                     this.thing.photo = true;
                 },

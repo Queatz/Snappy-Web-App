@@ -1,5 +1,6 @@
 declare var $: any;
-declare var Waves;
+declare var Waves: any;
+declare var M: any;
 declare var _: any;
 
 import { Component, ElementRef, Input, OnInit, OnDestroy, AfterViewInit, ViewChild } from '@angular/core';
@@ -74,6 +75,7 @@ export class EditDetailsModal implements OnInit, OnDestroy, AfterViewInit {
 
     ngAfterViewInit() {
         Waves.displayEffect();
+        M.textareaAutoResize($('#about'));
         $(this.element.querySelectorAll('.modal')).modal();
         $(this.element.querySelectorAll('select')).formSelect();
         $(this.element.querySelectorAll('.dropdown-trigger')).dropdown({

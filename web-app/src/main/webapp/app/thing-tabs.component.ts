@@ -1,5 +1,5 @@
 declare var $: any;
-declare var Waves;
+declare var Waves: any;
 
 import { Component, Input, AfterViewInit, ElementRef, OnDestroy } from '@angular/core';
 import { InforService } from './infor.service';

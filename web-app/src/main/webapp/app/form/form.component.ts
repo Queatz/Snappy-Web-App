@@ -73,7 +73,7 @@ export class FormComponent implements OnInit {
         }
 
         this.isSubmitting = true;
-        this.api.submitForm(this.id, this.files, this.photos, this.formItems).then(
+        this.api.submitForm(this.id, this.files, this.photos, this.formItems).subscribe(
             result => {
                 this.formCompleted = true;
                 this.isSubmitting = false;

@@ -7,7 +7,7 @@
         <li><a href="#new-hub-thing-modal" class="btn-floating blue modal-trigger tooltipped" [attr.data-position]="'left'" [attr.data-tooltip]="'Add a hub'"><i class="material-icons">room</i></a></li>
         <li><a href="#new-resource-thing-modal" class="btn-floating brown modal-trigger tooltipped" [attr.data-position]="'left'" [attr.data-tooltip]="'Add a resource'"><i class="material-icons">language</i></a></li>
         <li><a href="#new-project-thing-modal" class="btn-floating deep-orange modal-trigger tooltipped" [attr.data-position]="'left'" [attr.data-tooltip]="'Add a project'"><i class="material-icons">settings</i></a></li>
-        <li *ngIf="isMe()"><a routerLink="/goals" class="btn-floating pink tooltipped" [attr.data-position]="'left'" [attr.data-tooltip]="'Add a goal'"><i class="material-icons">landscape</i></a></li>
+        <li [hidden]="!isMe()"><a routerLink="/goals" class="btn-floating pink tooltipped" [attr.data-position]="'left'" [attr.data-tooltip]="'Add a goal'"><i class="material-icons">landscape</i></a></li>
         <li><a href="#new-offer-thing-modal" class="btn-floating bkg-green modal-trigger tooltipped" [attr.data-position]="'left'" [attr.data-tooltip]="'Add an offer'"><i class="material-icons">redeem</i></a></li>
     </ul>
 </div>

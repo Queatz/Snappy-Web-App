@@ -3,12 +3,13 @@ declare var _: any;
 
 import { Injectable } from '@angular/core';
 import { InforService } from './infor.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class LocalityService {
-
     private callbacks = [];
     private position: any;
+    private localityObservable = new BehaviorSubject<string>('');
 
     constructor(private inforService: InforService) { }
 
@@ -23,6 +24,13 @@ export class LocalityService {
 
         this.inforService.getLocation(this.onLocationFound.bind(this));
     }
+
+    public observe() {
+        this.inforService.getLocation(this.onLocationFound.bind(this));
+
+        return this.localityObservable;
+    }
+
 
     private onLocationFound(position: any) {
         this.position = position;
@@ -64,5 +72,7 @@ export class LocalityService {
         while (this.callbacks.length) {
             this.callbacks.pop()(locality);
         }
+
+        this.localityObservable.next(locality);
     }
 }

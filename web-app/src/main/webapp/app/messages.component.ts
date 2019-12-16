@@ -1,11 +1,10 @@
 declare var _: any;
-declare var moment;
+declare var moment: any;
 declare var $: any;
 
 import { Component, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { SigninRequiredModal } from './signin-required.modal';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
 import util from './util';

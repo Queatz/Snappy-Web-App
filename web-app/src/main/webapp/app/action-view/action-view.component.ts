@@ -1,5 +1,5 @@
 declare var $: any;
-declare var Waves;
+declare var Waves: any;
 
 import { Component, OnInit, AfterViewInit, Input, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
 

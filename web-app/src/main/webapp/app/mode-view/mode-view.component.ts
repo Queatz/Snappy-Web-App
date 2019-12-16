@@ -1,6 +1,6 @@
 declare var $: any;
 declare var _: any;
-declare var Waves;
+declare var Waves: any;
 declare var M: any;
 
 import { Component, OnInit, AfterViewInit, Input, ElementRef } from '@angular/core';
@@ -75,7 +75,7 @@ export class ModeViewComponent implements OnInit, AfterViewInit {
         let file = (event.target as HTMLInputElement).files[0];
         
         if (file) {
-            this.api.earthPutPhoto(this.mode.id, file).then(r => {});
+            this.api.earthPutPhoto(this.mode.id, file).subscribe(r => {});
         }
     }
 

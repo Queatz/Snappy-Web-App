@@ -16,13 +16,17 @@ import { Router } from '@angular/router';
     styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements AfterViewInit, OnInit, OnDestroy {
-    private inforService;
-    private newOfferModal;
     private modal: ComponentRef<PostUpdateModal>;
     people: any[];
     modes: any[];
+    newOfferModal: any;
 
-    constructor(private router: Router, private ui: UiService, private api: ApiService, inforService: InforService, private elementRef: ElementRef, public tutorial: TutorialService) {
+    constructor(private router: Router,
+                private ui: UiService,
+                private api: ApiService,
+                private inforService: InforService,
+                private elementRef: ElementRef,
+                public tutorial: TutorialService) {
         this.inforService = inforService;
         this.newOfferModal = NewOfferModal;
     }

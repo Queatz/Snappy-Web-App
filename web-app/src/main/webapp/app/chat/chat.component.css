@@ -95,7 +95,7 @@
     margin-right: 1rem;
     background-size: 100%;
     background-repeat: no-repeat;
-    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 
     transition: width 190ms, height 190ms, margin 190ms;
     transition-timing-function: cubic-bezier(1, -0.46, 0.09, 1.44);
@@ -155,7 +155,7 @@
     margin-top: .5rem;
     flex-shrink: 0;
     background-size: 100%;
-    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 
     animation: scale-in;
     animation-duration: 250ms;
@@ -221,7 +221,7 @@
     height: 2rem;
     margin-right: 1rem;
     background-size: 100%;
-    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 
 .chat-input {

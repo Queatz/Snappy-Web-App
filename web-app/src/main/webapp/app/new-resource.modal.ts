@@ -1,7 +1,7 @@
 declare var $: any;
-declare var Waves;
+declare var Waves: any;
 
-import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InforService } from './infor.service';
 import { ApiService } from './api.service';
@@ -59,9 +59,7 @@ export class NewResourceModal implements AfterViewInit {
            hidden: !this.isPublic,
            clubs: JSON.stringify(this.clubs),
            'in': this.asMemberOf ? this.asMemberOf.id : ''
-       }, true).then(resource => {
-           resource = JSON.parse(resource);
-
+       }, true).subscribe(resource => {
            $(this.element.querySelector('.modal')).modal('close');
            this.router.navigate(['/resources/' + resource.id]);
        });

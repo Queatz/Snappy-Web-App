@@ -157,10 +157,10 @@ export class ChatService {
 
         this.send(this.make('session.start', {
             token: this.getChatToken(),
-            location: {
+            location: this.locality.getPosition() ? {
                 latitude: this.locality.getPosition().coords.latitude,
                 longitude: this.locality.getPosition().coords.longitude
-            }
+            } : undefined
         }));
     }
 

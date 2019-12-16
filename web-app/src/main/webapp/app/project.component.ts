@@ -1,5 +1,5 @@
 declare var $: any;
-declare var moment;
+declare var moment: any;
 declare var _: any;
 
 import { Component, OnInit, AfterViewInit, ElementRef, NgZone, OnDestroy } from '@angular/core';

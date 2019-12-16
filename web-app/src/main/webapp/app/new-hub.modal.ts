@@ -1,5 +1,5 @@
 declare var $: any;
-declare var Waves;
+declare var Waves: any;
 
 import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';

@@ -22,7 +22,7 @@
     height: 24px;
     margin-right: 32px;
     margin-top: 1rem;
-    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 
 .nav-header .logo-icon {

@@ -1,5 +1,5 @@
 declare var $: any;
-declare var Waves;
+declare var Waves: any;
 
 import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
@@ -47,9 +47,7 @@ export class NewFormModal implements AfterViewInit {
            hidden: !this.isPublic,
            clubs: JSON.stringify(this.clubs),
            'in': this.asMemberOf ? this.asMemberOf.id : undefined
-       }, true).then(form => {
-           form = JSON.parse(form);
-
+       }, true).subscribe(form => {
            $(this.element.querySelector('.modal')).modal('close');
            this.router.navigate(['/forms/' + form.id]);
        });
